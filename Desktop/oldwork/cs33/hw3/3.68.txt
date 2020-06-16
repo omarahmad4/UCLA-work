@@ -1,0 +1,9 @@
+Omar Ahmad    ID: 8048701272
+
+A = 9 	B = 5
+
+setVal:
+ movslq 8(%rsi), %rax	-> 	rax = rsi + 8 			-> int t aligned by 4	->  t comes after array[B] 						->  4 < B <= 8				//																							-> 		4 < B <= 8		\							
+ addq 32(%rsi), %rax	-> 	rax = rax + (32+rsi)	-> long u aligned by 8	->  u comes after array[B], int t, and s[A]		-> 	24 < 8 + 4 + 2A <= 32	//8 is size+padding of array from prev eq. and 4 is size of int t, and 2 is size of a char	-> 		6 < A <= 10		--> only combination that works is A = 9 and B = 5 									
+ movq %rax, 184(%rdi)	-> 	rax = rdi + 184			-> long y 				->  y comes after x[A][B]						-> 	176 < 4AB <= 184		//4 is the size of an int 																	-> 		44 < AB <= 46	/												
+ ret

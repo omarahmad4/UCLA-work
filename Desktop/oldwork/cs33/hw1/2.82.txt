@@ -1,0 +1,35 @@
+A. (x<y) == (-x>-y)
+	does not always yield 1
+	take x to be TMin = -2^31 and y to be any negative number greater than x. for example, y = -100.
+	then x is less than y. however, -x is 2^31 which overflows to be -2^31. -y is 100. so -x(negative) is not greater than -y(positive)
+
+B. ((x+y)<<4) + y-x == 17*y+15*x
+	expression always yields 1
+	(x+Y)<<4 is equivalent to 16*(x+y) and so when you distribute the 16 and then add a y and subtract an x the lhs becomes equivalent to the rhs of the expression. so both sides are alwyays equal. 
+
+C. ~x+~y+1 == ~(x+y)
+	expresssion alwasy yields 1
+	
+
+D. (ux-uy) == -(unsigned)(y-x)
+	expression always yields 1
+
+E. ((x >> 2) << 2) <= x
+	expression always yields 1
+	right shifting followed by left shifting the same amount of bits can never increase the value of the integer, only decrease. this is because the lower 2 bits are lost and become 0. 
+
+F. x >> 1 == (ux >> 1) + (ux & (-1 << 31))
+	expression always yields 1
+	x>>1 performs an arithmetic shift which fills the msb with a 1 if x is negative and with a 0 if x is postiive. 
+	-1<<31 yields a 1 followed by 31 0's. the second term of the rhs is 100... if x is a negative number and it is 000... if x is positive. this is anded with ux because then it only has effect if x was negative (MSB =1)
+	if x was positive, x>>1 fills the msb with 0 and so equals ux >> 1
+	if x was negative, x>>1 fills the msb with a 1. the rhs matches this by adding the second term which is only 100... when x is negative
+	
+G. x % 8 == (x & 7)
+	expression does not always yield 1
+	take x to be -18
+	x % 8 yields -2 while x&7 yileds 6
+
+
+
+

@@ -1,0 +1,9 @@
+"XOR2X1 layout gsclib090" "XOR2X1 schematic gsclib090" "nmos1v(MOS)" "pmos1v(MOS)"
+"pmos1v(MOS)" "pmos1v(MOS)"
+"NOR2X1 layout gsclib090" "NOR2X1 schematic gsclib090" "nmos1v(MOS)" "pmos1v(MOS)"
+"nmos1v(MOS)" "nmos1v(MOS)"
+"NAND2X1 layout gsclib090" "NAND2X1 schematic gsclib090" "nmos1v(MOS)" "pmos1v(MOS)"
+"INVX1 layout gsclib090" "INVX1 schematic gsclib090" "nmos1v(MOS)" "pmos1v(MOS)"
+"magnitude_detector layout TB_PROJ" "magnitude_detector schematic TB_PROJ"
+Devices filtered from layout
+"TIE"

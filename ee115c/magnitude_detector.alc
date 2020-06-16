@@ -1,0 +1,6 @@
+!<alc> v1 33
+0    4    0 XOR2X1 layout gsclib090
+0    3    0 NOR2X1 layout gsclib090
+0    2    0 NAND2X1 layout gsclib090
+0    1    0 INVX1 layout gsclib090
+0    5    0 magnitude_detector layout TB_PROJ

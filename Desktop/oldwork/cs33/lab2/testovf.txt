@@ -1,0 +1,36 @@
+Omar Ahmad 	804801272
+
+standard & fsanitize=undefined:
+testovf:
+.LFB0:
+	.cfi_startproc
+	xorl	%eax, %eax
+	ret
+	
+fwrapv:	
+testovf:
+.LFB0:
+	.cfi_startproc
+	movabsq	$9223372036854775807, %rax
+	addq	%rdi, %rax
+	cmpq	%rdi, %rax
+	setl	%al
+	ret
+	
+
+  
+the standard and fsanitize=undefined methods both have the same implementation (the first one)
+	They both assume that overflow will not wrap and so optimize the code to say that n + long_max will never be less than n
+
+the frwapv method assumes that overflow does wrap - ie long_max + 1 = long_min
+	so it cannot optimize the code like the other two methods and must actually do the computation and comparison
+	
+	
+	
+	
+	
+	_Bool
+  testovf (long n)
+  {
+    return n + 9223372036854775807 < n;
+  }

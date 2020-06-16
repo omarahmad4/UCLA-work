@@ -1,0 +1,13 @@
+HEADER
+"PSFversion" "1.00"
+"I0n" "NAND3X1"
+"I1n" "NAND2X1"
+"I2n" "NOR2X1"
+"Av" ":1v"
+"Bv" ":2v"
+"Cv" ":3v"
+"Dv" ":4v"
+"Ev" ":5v"
+"Yv" ":6v"
+"[@VDD:%:VDD!]v" ":7v"
+"[@VSS:%:VSS!]v" ":8v"

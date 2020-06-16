@@ -1,0 +1,53 @@
+Omar Ahmad  	ID: 804801272
+
+1. find man man -name 
+2. used "which mv" and "which sh"
+ mv: /usr/local/cs/bin/mv
+ sh: /usr/bin/sh 
+3. used "find /usr/bin -executable -name ?r"
+ar - create, modify, and extract from archives
+tr - translate or delete characters
+pr - convert text files for printing
+4. used "ls -l /usr/bin/emacs"
+actually executes /etc/alternatives/emacs
+5. /usr/bin/gcc has version 4.5.6-36 while plain gcc is version 8.2.0
+sometimes it can be useful to have different versions of linux as they might support different things and maybe run differently from each other in a few critical areas
+6. u+sx makes it so that the file will be executed with root permissions by all users 
+o-w removes the writing permission from other users
+7. used "cd /usr/local/cs" and then used "find . -maxdepth 2 -type d -newermt '2018-12-18'
+.
+./bin
+./.del
+./bison-3.2.3
+./ocaml-4.07.1
+./grep-3.3
+8. which find -> /usr/bin/find
+cd /usr/bin
+find . -maxdepth 1 -type l | wc -l
+answer: 303
+9. used cd /usr/lib64 and then find / -type f -printf '%T+ %p\n' | sort | head -n 1
+name of file :  ./tcl8.5/Tix8.4.3/bitmaps/act_fold.gif
+10. used man locale
+locale gets its data from teh settings of the envitorment variables
+11. no commands - man emacs
+12. used emacs a.txt
+C-M-r does a search
+C-M-s - i search
+C-M-t - undo?
+C-M-u - scan
+C-M-v - access buffer
+13. used emacs test.txt - C-g quits - stops running
+14. yank pastes whatever has been recently killed (cut)
+15. the ls -l command displays all the files in detail with their permissions and last date
+
+
+
+
+
+
+
+
+
+
+
+

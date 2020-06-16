@@ -1,0 +1,33 @@
+// Generated for: spectre
+// Generated on: Jan 23 17:50:15 2020
+// Design library name: ee115c
+// Design cell name: hw2_NMOS
+// Design view name: schematic
+simulator lang=spectre
+global 0
+parameters VGS=0.4 VSB=0 VDS=0
+include "/usr/public.2/ee115c/cadence-labs/gpdk090_v3.4/models/spectre/gpdk090.scs" section=NN
+
+// Library name: ee115c
+// Cell name: hw2_NMOS
+// View name: schematic
+NM0 (net4 net3 net1 net06) gpdk090_nmos1v w=(240n) l=100n as=67.2f \
+        ad=67.2f ps=1.04u pd=1.04u m=(1)*(1) simM=(1)*(1)
+V3 (net06 net1) vsource dc=VSB type=dc
+V2 (net5 net4) vsource dc=0 type=dc
+V1 (net5 net1) vsource dc=VDS type=dc
+V0 (net3 net1) vsource dc=VGS type=dc
+simulatorOptions options reltol=1e-3 vabstol=1e-6 iabstol=1e-12 temp=27 \
+    tnom=27 scalem=1.0 scale=1.0 gmin=1e-12 rforce=1 maxnotes=5 maxwarns=5 \
+    digits=5 cols=80 pivrel=1e-3 sensfile="../psf/sens.output" \
+    checklimitdest=psf 
+dc dc param=VDS start=0 stop=1 step=0.05 write="spectre.dc" \
+    oppoint=rawfile maxiters=150 maxsteps=10000 annotate=status 
+modelParameter info what=models where=rawfile
+element info what=inst where=rawfile
+outputParameter info what=output where=rawfile
+designParamVals info what=parameters where=rawfile
+primitives info what=primitives where=rawfile
+subckts info what=subckts where=rawfile
+save V2:p 
+saveOptions options save=allpub

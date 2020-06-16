@@ -1,0 +1,5 @@
+Commands to init
+
+tcsh
+source tool-setup
+virtuoso &

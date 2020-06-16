@@ -1,0 +1,6 @@
+    I15 (GND net22 net21 net20 net19 net18 VDD X0 X1 X2 X3 X4 X5) \
+        magnitude_detector
+    I14 (net22 net21 net20 net19 net18 T0 T1 T2 T3 T4 GND OUT VDD) \
+        new_comparator
+ends Abs_Value_Detector
+// End of subcircuit definition.

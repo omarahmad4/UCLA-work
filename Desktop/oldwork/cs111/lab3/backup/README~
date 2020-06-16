@@ -1,0 +1,38 @@
+NAME: Omar Ahmad
+EMAIL: omarahmad4@ucla.edu
+ID: 804801272
+
+******CHANGE RETURN VALUE***
+
+
+
+***** TEST ON LNXSRV09 ********
+
+
+
+
+
+
+
+Description of files:
+source.c - source file for program that analyzes file system and ouputs various statistics and properties of the filesystem as per the spec on http://web.cs.ucla.edu/~harryxu/courses/111/spring19/ProjectGuide/P3A.html
+ext2_fs.h - header for ext2 filesystem structures
+README -- (this file) contains descriptions of files and sources used
+Makefile -- targets:
+         - default: builds executable lab3a with flags -Wall and -Wextra
+         - dist: creates tarball as requested by professor in autogradable format containing all files discussed above
+         - clean: removes executable, and tarball
+
+
+Sources:
+- man pages for all functions used
+       - examples found in man pages used as templates
+- used previous cs35l and cs111 projects of mine to get basics
+- sources given in spec http://web.cs.ucla.edu/~harryxu/courses/111/spring19/ProjectGuide/P3A.html
+  - most importantly is the one describing the details of the ext2 file system: http://www.nongnu.org/ext2-doc/ext2.html#superblock
+  - func to test if nth bit is 1: https://stackoverflow.com/questions/8920840/a-function-to-check-if-the-nth-bit-is-set-in-a-byte
+
+
+Problems:
+- when printing time stamps in Inode Summary, printf would print the last char * variable even when all 3 timestamps were stored in different variables
+  - this caused me to have to resort to a very ugly implementation using sprintf, strcat, and addition of indiviudal commas using strncat

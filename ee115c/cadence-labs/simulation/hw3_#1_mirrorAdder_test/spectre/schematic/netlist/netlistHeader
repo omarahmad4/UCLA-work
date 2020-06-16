@@ -1,0 +1,7 @@
+// Generated for: spectre
+// Generated on: Feb 28 00:11:43 2020
+// Design library name: ee115c
+// Design cell name: hw3_#1_mirrorAdder_test
+// Design view name: schematic
+simulator lang=spectre
+global 0 vdd!

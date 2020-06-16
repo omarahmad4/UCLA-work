@@ -1,0 +1,5 @@
+
+// Library name: ee115c
+// Cell name: INVX1
+// View name: schematic
+subckt INVX1 A GND VDD Z

@@ -1,0 +1,9 @@
+Schematic                           | Layout                           | Status
+---------------------------------------------------------------------------------
+INVX1 schematic gsclib090           | INVX1 layout gsclib090           | matched
+NOR2X1 schematic gsclib090          | NOR2X1 layout gsclib090          | matched
+NAND2X1 schematic gsclib090         | NAND2X1 layout gsclib090         | matched
+XOR2X1 schematic gsclib090          | XOR2X1 layout gsclib090          | matched
+magnitude_detector schematic TB_PROJ| magnitude_detector layout TB_PROJ| matched
+
+Schematic and Layout Match

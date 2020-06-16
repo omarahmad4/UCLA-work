@@ -1,0 +1,5 @@
+
+// Library name: Proj2
+// Cell name: new_1bit_comp
+// View name: schematic
+subckt new_1bit_comp A B GND Q1 Q2 VDD

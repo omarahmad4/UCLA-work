@@ -1,0 +1,18 @@
+( ( nil
+  version "2.1"
+  mapType "incremental"
+  blockName "new_1bit_comp"
+  repList "spectre cmos_sch cmos.sch schematic veriloga"
+  stopList "spectre"
+  hierDelim "."
+  netlistDir "/w/home.15/ee/ugrad/farooq/ee115c/cadence-labs/simulation/new_1bit_comp/spectre/schematic/netlist"
+ )
+( model
+( "gsclib090/NOR2X1/schematic" "NOR2X1" )
+( "gsclib090/INVX1/schematic" "INVX1" )
+( "TB_PROJ/new_1bit_comp/schematic" "new_1bit_comp" )
+ )
+( "new_1bit_comp" "ihnl/cds2/map" )
+( "NOR2X1" "ihnl/cds0/map" )
+( "INVX1" "ihnl/cds1/map" )
+ )

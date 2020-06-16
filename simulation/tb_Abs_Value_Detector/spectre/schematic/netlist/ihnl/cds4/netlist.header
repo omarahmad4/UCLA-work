@@ -1,0 +1,5 @@
+
+// Library name: Proj2
+// Cell name: magnitude_detector
+// View name: schematic
+subckt magnitude_detector GND M0 M1 M2 M3 M4 VDD X0 X1 X2 X3 X4 X5

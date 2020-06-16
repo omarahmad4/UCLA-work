@@ -1,0 +1,14 @@
+CADENCE IHNL11140
+$model
+ee115c/hw3_#1/schematic _sub2
+ee115c/hw3_#1_mirrorAdder_test/schematic _sub3
+$endmodel
+$net
+gnd! 0
+vdd! vdd!
+$endnet
+$param
+V_Cin V_Cin
+V_A V_A
+V_B V_B
+$endparam

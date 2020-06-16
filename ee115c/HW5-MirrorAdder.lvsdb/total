@@ -1,0 +1,5 @@
+; Assura generated file -- DO NOT EDIT --
+; Do NOT rely on the content of this file, it may change.
+;
+2 device net parameter pin rewire total
+1  5 (( ( S "HW5-MirrorAdder layout ee115c" )( L "HW5-MirrorAdder schematic ee115c" ) )(( 1 8 10 )( 0 4 6 )))

@@ -1,0 +1,734 @@
+list-none-m,1,1000,1,3000,495706,165,35
+list-none-m,2,1000,1,6000,1655031,275,265
+list-none-s,1,1000,1,3000,397064,132,39
+list-id-none,1,1,4,3,100702,33567,0
+list-id-none,1,2,4,6,105763,17627,0
+list-id-none,1,4,4,12,105112,8759,0
+list-id-none,1,8,4,24,111030,4626,0
+list-id-none,1,16,4,48,89879,1872,0
+list-id-none,2,1,4,6,132887,22147,0
+list-id-none,2,2,4,12,131024,10918,0
+list-id-none,2,4,4,24,91035,3793,0
+list-id-none,2,8,4,48,159344,3319,0
+list-id-none,4,1,4,12,166013,13834,0
+list-id-none,4,2,4,24,190771,7948,0
+list-id-none,4,4,4,48,170855,3559,0
+list-id-none,4,8,4,96,200883,2092,0
+list-id-none,8,1,4,24,301073,12544,0
+list-id-none,8,2,4,48,230923,4810,0
+list-id-none,8,4,4,96,299228,3116,0
+list-id-none,12,2,4,72,384316,5337,0
+list-id-none,12,8,4,288,367812,1277,0
+list-id-none,16,2,4,96,438452,4567,0
+list-id-s,1,1,4,3,111579,37193,100
+list-id-s,1,2,4,6,107840,17973,83
+list-id-s,1,4,4,12,107361,8946,61
+list-id-s,1,8,4,24,169743,7072,50
+list-id-s,1,16,4,48,126802,2641,44
+list-id-s,2,2,4,12,101462,8455,91
+list-id-s,2,4,4,24,168910,7037,70
+list-id-s,2,16,4,96,164913,1717,274
+list-id-s,4,1,4,12,196681,16390,122
+list-id-s,4,2,4,24,196226,8176,99
+list-id-s,4,4,4,48,192865,4018,73
+list-id-s,4,8,4,96,210328,2190,65
+list-id-s,8,1,4,24,273498,11395,522
+list-id-s,8,2,4,48,230555,4803,89
+list-id-s,8,4,4,96,280112,2917,79
+list-id-s,8,8,4,192,386213,2011,1593
+list-id-s,12,2,4,72,378141,5251,91
+list-id-s,16,1,4,48,492559,10261,90
+list-id-s,16,2,4,96,495126,5157,81
+list-id-s,16,4,4,192,497446,2590,81
+list-id-s,16,8,4,384,482289,1255,59
+list-id-m,1,1,4,3,104577,34859,358
+list-id-m,1,2,4,6,86932,14488,233
+list-id-m,1,4,4,12,135034,11252,128
+list-id-m,1,8,4,24,115958,4831,77
+list-id-m,1,16,4,48,107097,2231,70
+list-id-m,2,1,4,6,133100,22183,335
+list-id-m,2,2,4,12,143617,11968,193
+list-id-m,2,4,4,24,139815,5825,110
+list-id-m,2,8,4,48,177043,3688,81
+list-id-m,2,16,4,96,161658,1683,58
+list-id-m,4,1,4,12,193221,16101,269
+list-id-m,4,2,4,24,200038,8334,166
+list-id-m,4,4,4,48,190403,3966,668
+list-id-m,4,8,4,96,199469,2077,171
+list-id-m,8,1,4,24,262325,10930,182
+list-id-m,8,2,4,48,310306,6464,139
+list-id-m,8,4,4,96,286295,2982,114
+list-id-m,8,8,4,192,228576,1190,61
+list-id-m,12,1,4,36,365805,10161,151
+list-id-m,16,4,4,192,480800,2504,72
+list-id-s,1,1,4,3,179709,59903,97
+list-id-s,1,1,4,3,107919,35973,96
+list-id-s,1,1,4,3,69620,23206,107
+list-id-s,1,1,4,3,102216,34072,99
+list-id-s,1,1,4,3,98579,32859,105
+list-id-s,1,1,4,3,103267,34422,102
+list-id-s,1,1,4,3,69483,23161,106
+list-none-m,1,1000,1,3000,427286,142,43
+list-none-m,2,1000,1,6000,1652002,275,266
+startPos = 2000, j = 2377, key = F, hashRet = 0
+startPos = 2000, j = 2376, key = F, hashRet = 0
+startPos = 3000, j = 3190, key = F, hashRet = 0
+startPos = 3000, j = 3326, key = F, hashRet = 0
+startPos = 2000, j = 2377, key = F, hashRet = 0
+startPos = 2000, j = 2376, key = F, hashRet = 0
+startPos = 3000, j = 3190, key = F, hashRet = 0
+startPos = 3000, j = 3326, key = F, hashRet = 0
+startPos = 7000, j = 7001, key = O, hashRet = 0
+startPos = 5000, j = 5009, key = O, hashRet = 0
+startPos = 3000, j = 3032, key = O, hashRet = 0
+startPos = 1000, j = 1074, key = O, hashRet = 0
+startPos = 3000, j = 3015, key = O, hashRet = 0
+startPos = 7000, j = 7000, key = O, hashRet = 0
+startPos = 7000, j = 7001, key = O, hashRet = 0
+startPos = 5000, j = 5009, key = O, hashRet = 0
+startPos = 3000, j = 3032, key = O, hashRet = 0
+startPos = 1000, j = 1074, key = O, hashRet = 0
+startPos = 3000, j = 3015, key = O, hashRet = 0
+startPos = 7000, j = 7000, key = O, hashRet = 0
+startPos = 11000, j = 11015, key = Q, hashRet = 0
+startPos = 8000, j = 8030, key = Q, hashRet = 0
+startPos = 7000, j = 7009, key = Q, hashRet = 0
+startPos = 2000, j = 2042, key = Q, hashRet = 0
+startPos = 3000, j = 3039, key = Q, hashRet = 0
+startPos = 3000, j = 3039, key = Q, hashRet = 0
+startPos = startPos = 4000, j = 4007, key = A, hashRet = 0
+startPos = 2000, j = 2026, key = A, hashRet = 0
+startPos = 6000, j = 6002, key = A, hashRet = 0
+startPos = 9000, j = 9000, key = A, hashRet = 0
+startPos = 1000, j = 1069, key = A, hashRet = 0
+startPos = 6000, j = 6000, key = A, hashRet = 0
+startPos = 7000, j = 7000, key = A, hashRet = 0
+startPos = 8000, j = 8000, key = A, hashRet = 0
+startPos = 4000, j = 4007, key = A, hashRet = 0
+startPos = 2000, j = 2026, key = A, hashRet = 0
+startPos = 6000, j = 6002, key = A, hashRet = 0
+startPos = 9000, j = 9000, key = A, hashRet = 0
+startPos = 1000, j = 1069, key = A, hashRet = 0
+startPos = 6000, j = 6000, key = A, hashRet = 0
+startPos = 7000, j = 7000, key = A, hashRet = 0
+startPos = 8000, j = 8000, key = A, hashRet = 0
+startPos = 4000, j = 4007, key = A, hashRet = 0
+startPos = 2000, j = 2026, key = A, hashRet = 0
+startPos = 6000, j = 6002, key = A, hashRet = 0
+startPos = 9000, j = 9000, key = A, hashRet = 0
+startPos = 1000, j = 1069, key = A, hashRet = 0
+startPos = 6000, j = 6000, key = A, hashRet = 0
+startPos = 7000, j = 7000, key = A, hashRet = 0
+startPos = 8000, j = 8000, key = A, hashRet = 0
+startPos = 4000, j = 4007, key = A, hashRet = 0
+startPos = 2000, j = 2026, key = A, hashRet = 0
+startPos = 6000, j = 6002, key = A, hashRet = 0
+startPos = 9000, j = 9000, key = A, hashRet = 0
+startPos = 1000, j = 1069, key = A, hashRet = 0
+startPos = 6000, j = 6000, key = A, hashRet = 0
+startPos = 7000, j = 7000, key = A, hashRet = 0
+startPos = 8000, j = 8000, key = A, hashRet = 0
+startPos = 1000, j = 1120, key = X, hashRet = 0
+startPos = 6000, j = 6000, key = X, hashRet = 0
+startPos = 3000, j = 3000, key = X, hashRet = 0
+startPos = 3000, j = 3000, key = X, hashRet = 0
+startPos = 7000, j = 7000, key = X, hashRet = 0
+startPos = 4000, j = 4000, key = X, hashRet = 0
+startPos = 5000, j = 5000, key = X, hashRet = 0
+startPos = 1000, j = 1120, key = X, hashRet = 0
+startPos = 6000, j = 6000, key = X, hashRet = 0
+startPos = 3000, j = 3000, key = X, hashRet = 0
+startPos = 3000, j = 3000, key = X, hashRet = 0
+startPos = 7000, j = 7000, key = X, hashRet = 0
+startPos = 4000, j = 4000, key = X, hashRet = 0
+startPos = 5000, j = 5000, key = X, hashRet = 0
+startPos = 1000, j = 1120, key = X, hashRet = 0
+startPos = 6000, j = 6000, key = X, hashRet = 0
+startPos = 3000, j = 3000, key = X, hashRet = 0
+startPos = 3000, j = 3000, key = X, hashRet = 0
+startPos = 7000, j = 7000, key = X, hashRet = 0
+startPos = 4000, j = 4000, key = X, hashRet = 0
+startPos = 5000, j = 5000, key = X, hashRet = 0
+startPos = 1000, j = 1120, key = X, hashRet = 0
+startPos = 6000, j = 6000, key = X, hashRet = 0
+startPos = 3000, j = 3000, key = X, hashRet = 0
+startPos = 3000, j = 3000, key = X, hashRet = 0
+startPos = 7000, j = 7000, key = X, hashRet = 0
+startPos = 4000, j = 4000, key = X, hashRet = 0
+startPos = 5000, j = 5000, key = X, hashRet = 0
+list-none-s,1,1000,1,3000,373339,124,34
+list-none-s,2,1000,1,6000,1497446,249,314
+list-id-none,1,1,4,3,71770,23923,0
+list-id-none,1,2,4,6,78281,13046,0
+list-id-none,1,4,4,12,68512,5709,0
+list-id-none,1,8,4,24,92397,3849,0
+list-id-none,1,16,4,48,95597,1991,0
+list-id-none,2,1,4,6,111790,18631,0
+list-id-none,2,2,4,12,74805,6233,0
+list-id-none,2,16,4,96,122215,1273,0
+list-id-none,4,1,4,12,150492,12541,0
+list-id-none,4,2,4,24,124581,5190,0
+list-id-none,4,4,4,48,144693,3014,0
+list-id-none,16,2,4,96,515045,5365,0
+list-id-s,1,1,4,3,96435,32145,98
+list-id-s,1,2,4,6,92683,15447,74
+list-id-s,1,4,4,12,68545,5712,46
+list-id-s,1,8,4,24,123344,5139,45
+list-id-s,1,16,4,48,112750,2348,39
+list-id-s,2,1,4,6,85600,14266,108
+list-id-s,2,2,4,12,119789,9982,404
+list-id-s,2,4,4,24,93134,3880,176
+list-id-s,2,8,4,48,123451,2571,592
+list-id-s,2,16,4,96,140573,1464,40
+list-id-s,4,1,4,12,127065,10588,87
+list-id-s,4,2,4,24,165776,6907,79
+list-id-s,4,4,4,48,160365,3340,57
+list-id-s,8,2,4,48,284838,5934,65
+list-id-s,8,4,4,96,260862,2717,1683
+list-id-s,8,16,4,384,866094,2255,9251
+list-id-s,12,1,4,36,318597,8849,91
+list-id-s,12,2,4,72,328374,4560,62
+list-id-s,12,4,4,144,322960,2242,48
+list-id-s,16,1,4,48,462317,9631,87
+list-id-s,16,2,4,96,529151,5511,68
+list-id-s,16,4,4,192,411235,2141,304
+list-id-m,1,1,4,3,116993,38997,607
+list-id-m,1,2,4,6,101503,16917,312
+list-id-m,1,4,4,12,119288,9940,191
+list-id-m,1,8,4,24,103440,4310,110
+list-id-m,1,16,4,48,123307,2568,60
+list-id-m,2,1,4,6,96613,16102,414
+list-id-m,2,2,4,12,112485,9373,227
+list-id-m,2,4,4,24,96723,4030,220
+list-id-m,2,8,4,48,120240,2505,87
+startPos = 16, j = 23, key = M, hashRet = 1
+startPos = 16, j = 22, key = M, hashRet = 1
+startPos = 16, j = 23, key = M, hashRet = 1
+startPos = 16, j = 22, key = M, hashRet = 1
+list-id-m,4,1,4,12,132635,11052,1046
+list-id-m,4,2,4,24,134298,5595,165
+startPos = 12, j = 12, key = O, hashRet = 3
+startPos = 12, j = 12, key = O, hashRet = 3
+startPos = 12, j = 14, key = O, hashRet = 3
+startPos = 12, j = 12, key = O, hashRet = 3
+startPos = 12, j = 12, key = O, hashRet = 3
+startPos = 12, j = 12, key = O, hashRet = 3
+startPos = 12, j = 14, key = O, hashRet = 3
+startPos = 12, j = 12, key = O, hashRet = 3
+startPos = 24, j = 24, key = M, hashRet = 1
+startPos = 24, j = 24, key = M, hashRet = 1
+startPos = 24, j = 24, key = M, hashRet = 1
+startPos = 24, j = 25, key = M, hashRet = 1
+startPos = 24, j = 24, key = M, hashRet = 1
+startPos = 24, j = 24, key = M, hashRet = 1
+startPos = 24, j = 24, key = M, hashRet = 1
+startPos = 24, j = 25, key = M, hashRet = 1
+startPos = 48, j = 48, key = L, hashRet = 0
+startPos = 32, j = 38, key = L, hashRet = 0
+startPos = 48, j = 48, key = L, hashRet = 0
+startPos = 48, j = 48, key = L, hashRet = 0
+startPos = 48, j = 48, key = L, hashRet = 0
+startPos = 32, j = 38, key = L, hashRet = 0
+startPos = 48, j = 48, key = L, hashRet = 0
+startPos = 48, j = 48, key = L, hashRet = 0
+startPos = 48, j = 48, key = L, hashRet = 0
+startPos = 32, j = 38, key = L, hashRet = 0
+startPos = 48, j = 48, key = L, hashRet = 0
+startPos = 48, j = 48, key = L, hashRet = 0
+startPos = 3, j = 3, key = Q, hashRet = 1
+startPos = 2, j = 2, key = Q, hashRet = 1
+startPos = 6, j = 6, key = Q, hashRet = 1
+startPos = 2, j = 2, key = Q, hashRet = 1
+startPos = 4, j = 4, key = Q, hashRet = 1
+startPos = 5, j = 5, key = Q, hashRet = 1
+startPos = 7, j = 7, key = Q, hashRet = 1
+startPos = 7, j = 7, key = Q, hashRet = 1
+startPos = 3, j = 3, key = Q, hashRet = 1
+startPos = 2, j = 2, key = Q, hashRet = 1
+startPos = 6, j = 6, key = Q, hashRet = 1
+startPos = 2, j = 2, key = Q, hashRet = 1
+startPos = 4, j = 4, key = Q, hashRet = 1
+startPos = 5, j = 5, key = Q, hashRet = 1
+startPos = 7, j = 7, key = Q, hashRet = 1
+startPos = 7, j = 7, key = Q, hashRet = 1
+startPos = 3, j = 3, key = Q, hashRet = 1
+startPos = 2, j = 2, key = Q, hashRet = 1
+startPos = 6, j = 6, key = Q, hashRet = 1
+startPos = 2, j = 2, key = Q, hashRet = 1
+startPos = 4, j = 4, key = Q, hashRet = 1
+startPos = 5, j = 5, key = Q, hashRet = 1
+startPos = 7, j = 7, key = Q, hashRet = 1
+startPos = 7, j = 7, key = Q, hashRet = 1
+list-id-m,8,2,4,48,258157,5378,99
+startPos = 28, j = 30, key = M, hashRet = 1
+startPos = 28, j = 30, key = M, hashRet = 1
+startPos = 20, j = 23, key = M, hashRet = 1
+startPos = 24, j = 27, key = M, hashRet = 1
+startPos = 28, j = 30, key = M, hashRet = 1
+startPos = 28, j = 30, key = M, hashRet = 1
+startPos = 20, j = 23, key = M, hashRet = 1
+startPos = 24, j = 27, key = M, hashRet = 1
+startPos = 28, j = 30, key = M, hashRet = 1
+startPos = 28, j = 30, key = M, hashRet = 1
+startPos = 20, j = 23, key = M, hashRet = 1
+startPos = 24, j = 27, key = M, hashRet = 1
+startPos = 40, j = 41, key = L, hashRet = 0
+startPos = 32, j = 32, key = L, hashRet = 0
+startPos = 32, j = 33, key = L, hashRet = 0
+startPos = 48, j = 48, key = L, hashRet = 0
+startPos = 56, j = 56, key = L, hashRet = 0
+startPos = 24, j = 31, key = L, hashRet = 0
+startPos = 56, j = 56, key = L, hashRet = 0
+startPos = 40, j = 41, key = L, hashRet = 0
+startPos = 32, j = 32, key = L, hashRet = 0
+startPos = 32, j = 33, key = L, hashRet = 0
+startPos = 48, j = 48, key = L, hashRet = 0
+startPos = 56, j = 56, key = L, hashRet = 0
+startPos = 24, j = 31, key = L, hashRet = 0
+startPos = 56, j = 56, key = L, hashRet = 0
+startPos = 40, j = 41, key = L, hashRet = 0
+startPos = 32, j = 32, key = L, hashRet = 0
+startPos = 32, j = 33, key = L, hashRet = 0
+startPos = 48, j = 48, key = L, hashRet = 0
+startPos = 56, j = 56, key = L, hashRet = 0
+startPos = 24, j = 31, key = L, hashRet = 0
+startPos = 56, j = 56, key = L, hashRet = 0
+startPos = 24, j = 24, key = L, hashRet = 0
+startPos = 40, j = 41, key = L, hashRet = 0
+startPos = 32, j = 32, key = L, hashRet = 0
+startPos = 32, j = 33, key = L, hashRet = 0
+startPos = 48, j = 48, key = L, hashRet = 0
+startPos = 56, j = 56, key = L, hashRet = 0
+startPos = 24, j = 31, key = L, hashRet = 0
+startPos = 56, j = 56, key = L, hashRet = 0
+startPos = 24, j = 24, key = L, hashRet = 0
+startPos = 64, j = 64, key = J, hashRet = 2
+startPos = 48, j = 48, key = J, hashRet = 2
+startPos = 112, j = 112, key = J, hashRet = 2
+startPos = 48, j = 48, key = J, hashRet = 2
+startPos = 80, j = 80, key = J, hashRet = 2
+startPos = 48, j = 48, key = J, hashRet = 2
+list-id-m,12,1,4,36,389863,10829,125
+startPos = 4, j = 4, key = D, hashRet = 0
+startPos = 6, j = 6, key = D, hashRet = 0
+startPos = 8, j = 8, key = D, hashRet = 0
+startPos = 4, j = 4, key = D, hashRet = 0
+startPos = 10, j = 10, key = D, hashRet = 0
+startPos = 12, j = 12, key = D, hashRet = 0
+list-id-m,12,4,4,144,373722,2595,71
+startPos = 24, j = 24, key = S, hashRet = 3
+startPos = 24, j = 24, key = S, hashRet = 3
+startPos = 48, j = 48, key = S, hashRet = 3
+startPos = 32, j = 32, key = S, hashRet = 3
+startPos = 40, j = 40, key = S, hashRet = 3
+startPos = 40, j = 40, key = S, hashRet = 3
+startPos = 24, j = 24, key = S, hashRet = 3
+startPos = 24, j = 24, key = S, hashRet = 3
+startPos = 48, j = 48, key = S, hashRet = 3
+startPos = 32, j = 32, key = S, hashRet = 3
+startPos = 40, j = 40, key = S, hashRet = 3
+startPos = 40, j = 40, key = S, hashRet = 3
+startPos = 56, j = 56, key = S, hashRet = 3
+startPos = 176, j = 186, key = R, hashRet = 2
+startPos = 176, j = 176, key = R, hashRet = 2
+startPos = 144, j = 144, key = R, hashRet = 2
+startPos = 128, j = 129, key = R, hashRet = 2
+startPos = 160, j = 160, key = R, hashRet = 2
+startPos = 64, j = 64, key = R, hashRet = 2
+startPos = 48, j = 59, key = R, hashRet = 2
+startPos = 128, j = 128, key = R, hashRet = 2
+startPos = 176, j = 186, key = R, hashRet = 2
+startPos = 176, j = 176, key = R, hashRet = 2
+startPos = 144, j = 144, key = R, hashRet = 2
+startPos = 128, j = 129, key = R, hashRet = 2
+startPos = 160, j = 160, key = R, hashRet = 2
+startPos = 64, j = 64, key = R, hashRet = 2
+startPos = 48, j = 59, key = R, hashRet = 2
+startPos = 128, j = 128, key = R, hashRet = 2
+startPos = 48, j = 51, key = R, hashRet = 2
+startPos = 176, j = 186, key = R, hashRet = 2
+startPos = 176, j = 176, key = R, hashRet = 2
+startPos = 144, j = 144, key = R, hashRet = 2
+startPos = 128, j = 129, key = R, hashRet = 2
+startPos = 160, j = 160, key = R, hashRet = 2
+startPos = 64, j = 64, key = R, hashRet = 2
+startPos = 48, j = 59, key = R, hashRet = 2
+startPos = 128, j = 128, key = R, hashRet = 2
+startPos = 48, j = 51, key = R, hashRet = 2
+startPos = 80, j = 80, key = R, hashRet = 2
+list-id-m,16,1,4,48,439716,9160,136
+list-id-m,16,2,4,96,461559,4807,96
+list-id-m,16,4,4,192,471422,2455,328
+startPos = 48, j = 49, key = J, hashRet = 2
+startPos = 104, j = 104, key = J, hashRet = 2
+startPos = 48, j = 49, key = J, hashRet = 2
+startPos = 104, j = 104, key = J, hashRet = 2
+startPos = 80, j = 81, key = J, hashRet = 2
+startPos = 240, j = 240, key = V, hashRet = 2
+startPos = 224, j = 224, key = V, hashRet = 2
+startPos = 176, j = 176, key = V, hashRet = 2
+startPos = 96, j = 96, key = V, hashRet = 2
+startPos = 128, j = 128, key = V, hashRet = 2
+startPos = 144, j = 144, key = V, hashRet = 2
+startPos = 32, j = 39, key = V, hashRet = 2
+startPos = 112, j = 113, key = V, hashRet = 2
+startPos = 240, j = 240, key = V, hashRet = 2
+startPos = 224, j = 224, key = V, hashRet = 2
+startPos = 176, j = 176, key = V, hashRet = 2
+startPos = 96, j = 96, key = V, hashRet = 2
+startPos = 128, j = 128, key = V, hashRet = 2
+startPos = 144, j = 144, key = V, hashRet = 2
+startPos = 32, j = 39, key = V, hashRet = 2
+startPos = 112, j = 113, key = V, hashRet = 2
+startPos = 240, j = 240, key = V, hashRet = 2
+startPos = 224, j = 224, key = V, hashRet = 2
+startPos = 176, j = 176, key = V, hashRet = 2
+startPos = 96, j = 96, key = V, hashRet = 2
+startPos = 128, j = 128, key = V, hashRet = 2
+startPos = 144, j = 144, key = V, hashRet = 2
+startPos = 32, j = 39, key = V, hashRet = 2
+startPos = 112, j = 113, key = V, hashRet = 2
+list-id-s,1,1,4,3,81421,27140,97
+list-id-s,1,1,4,3,112208,37402,128
+list-id-s,1,1,4,3,95691,31897,97
+list-id-s,1,1,4,3,76636,25545,108
+list-id-s,1,1,4,3,81004,27001,97
+list-id-s,1,1,4,3,90916,30305,100
+list-id-s,1,1,4,3,91935,30645,104
+list-none-m,1,1000,1,3000,1766540,588,234
+list-none-m,2,1000,1,6000,25822655,4303,427
+startPos = 3000, j = 3000, key = F, hashRet = 0
+startPos = 7000, j = 7001, key = O, hashRet = 0
+startPos = 11000, j = 11000, key = Q, hashRet = 0
+startPos = 15000, j = 15000, key = A, hashRet = 0
+startPos = 16000, j = 16510, key = X, hashRet = 0
+startPos = 16000, j = 16000, key = X, hashRet = 0
+startPos = 16000, j = 16000, key = X, hashRet = 0
+startPos = 16000, j = 16000, key = X, hashRet = 0
+startPos = 16000, j = 16000, key = X, hashRet = 0
+startPos = 16000, j = 16000, key = X, hashRet = 0
+startPos = 16000, j = 16000, key = X, hashRet = 0
+startPos = 17000, j = 17000, key = X, hashRet = 0
+startPos = 16000, j = 16000, key = X, hashRet = 0
+startPos = 16000, j = 16666, key = X, hashRet = 0
+startPos = 16000, j = 16000, key = X, hashRet = 0
+startPos = 16000, j = 16510, key = X, hashRet = 0
+startPos = 16000, j = 16000, key = X, hashRet = 0
+startPos = 16000, j = 16000, key = X, hashRet = 0
+startPos = 16000, j = 16000, key = X, hashRet = 0
+startPos = 16000, j = 16000, key = X, hashRet = 0
+startPos = 16000, j = 16000, key = X, hashRet = 0
+startPos = 16000, j = 16000, key = X, hashRet = 0
+startPos = 17000, j = 17000, key = X, hashRet = 0
+startPos = 16000, j = 16000, key = X, hashRet = 0
+startPos = 16000, j = 16666, key = X, hashRet = 0
+startPos = 16000, j = 16000, key = X, hashRet = 0
+startPos = 16000, j = 16510, key = X, hashRet = 0
+startPos = 16000, j = 16000, key = X, hashRet = 0
+startPos = 16000, j = 16000, key = X, hashRet = 0
+startPos = 16000, j = 16000, key = X, hashRet = 0
+startPos = 16000, j = 16000, key = X, hashRet = 0
+startPos = 16000, j = 16000, key = X, hashRet = 0
+startPos = 16000, j = 16000, key = X, hashRet = 0
+startPos = 17000, j = 17000, key = X, hashRet = 0
+startPos = 16000, j = 16000, key = X, hashRet = 0
+startPos = 16000, j = 16666, key = X, hashRet = 0
+startPos = 16000, j = 16000, key = X, hashRet = 0
+list-none-s,1,1000,1,3000,713608,237,130
+list-none-s,2,1000,1,6000,28744084,4790,269
+list-none-s,4,1000,1,12000,29395232,2449,144
+list-none-s,12,1000,1,36000,35160945,976,300
+list-id-none,1,1,4,3,89810949,29936983,0
+list-id-none,1,2,4,6,61372174,10228695,0
+list-id-none,1,4,4,12,56673005,4722750,0
+list-id-none,1,8,4,24,58906322,2454430,0
+list-id-none,1,16,4,48,56083716,1168410,0
+list-id-none,2,2,4,12,108876901,9073075,0
+list-id-s,1,1,4,3,52530343,17510114,133
+list-id-s,1,2,4,6,9936504,1656084,201
+list-id-s,1,4,4,12,50641408,4220117,152
+list-id-s,1,8,4,24,44630380,1859599,126
+list-id-s,1,16,4,48,65761393,1370029,55
+list-id-s,2,1,4,6,77690568,12948428,6007956
+list-id-s,2,2,4,12,70051580,5837631,4149233
+list-id-s,2,4,4,24,82121322,3421721,1125192
+list-id-s,2,16,4,96,52086783,542570,281320
+list-id-m,1,1,4,3,33783393,11261131,512
+list-id-m,1,2,4,6,34911525,5818587,435
+list-id-m,1,4,4,12,32722559,2726879,218
+list-id-m,1,8,4,24,33437394,1393224,120
+list-id-m,1,16,4,48,59115931,1231581,84
+list-id-m,2,1,4,6,68185319,11364219,5003286
+list-id-m,2,2,4,12,18275337,1522944,754506
+list-id-m,2,4,4,24,54231682,2259653,458537
+list-id-m,2,8,4,48,52291943,1089415,587553
+list-id-m,2,16,4,96,47152257,491169,70
+list-id-m,4,1,4,12,66111775,5509314,1499786
+list-id-m,4,2,4,24,65262975,2719290,3416249
+list-id-m,4,4,4,48,75230013,1567291,1999781
+list-id-m,4,8,4,96,82135433,855577,919445
+startPos = 48, j = 48, key = L, hashRet = 0
+list-id-m,8,1,4,24,43848688,1827028,8550950
+list-id-m,8,2,4,48,107772010,2245250,9949488
+list-id-m,8,4,4,96,118150879,1230738,4562701
+startPos = 56, j = 56, key = L, hashRet = 0
+startPos = 112, j = 113, key = J, hashRet = 2
+list-id-m,12,1,4,36,99590730,2766409,14361336
+list-id-m,12,2,4,72,107154134,1488251,6151544
+startPos = 44, j = 44, key = A, hashRet = 1
+startPos = 88, j = 88, key = S, hashRet = 3
+startPos = 176, j = 176, key = R, hashRet = 2
+startPos = 15, j = 15, key = O, hashRet = 3
+startPos = 30, j = 30, key = M, hashRet = 1
+list-id-m,16,4,4,192,158122914,823556,4319449
+startPos = 120, j = 122, key = J, hashRet = 2
+startPos = 240, j = 242, key = V, hashRet = 2
+list-id-s,1,1,4,3,35111078,11703692,199
+list-id-s,1,1,4,3,33949230,11316410,96
+list-id-s,1,1,4,3,27233917,9077972,84
+list-id-s,1,1,4,3,16766192,5588730,91
+list-id-s,1,1,4,3,57119673,19039891,99
+list-id-s,1,1,4,3,37765082,12588360,167
+list-id-s,1,1,4,3,36430713,12143571,202
+list-none-m,1,1000,1,3000,5806136,1935,950
+startPos = 1000, j = 1002, key = V, hashRet = 0
+startPos = 1000, j = 1001, key = V, hashRet = 0
+startPos = 1000, j = 1002, key = V, hashRet = 0
+startPos = 1000, j = 1001, key = V, hashRet = 0
+startPos = 1000, j = 1188, key = F, hashRet = 0
+startPos = 3000, j = 3000, key = F, hashRet = 0
+list-none-m,8,1000,1,24000,41440759,1726,5701
+startPos = 8000, j = 8000, key = Q, hashRet = 0
+startPos = 3000, j = 3001, key = Q, hashRet = 0
+startPos = 9000, j = 9000, key = Q, hashRet = 0
+startPos = 10000, j = 10000, key = Q, hashRet = 0
+startPos = 1000, j = 1178, key = Q, hashRet = 0
+startPos = 4000, j = 4003, key = Q, hashRet = 0
+startPos = 5000, j = 5002, key = Q, hashRet = 0
+startPos = 9000, j = 9000, key = Q, hashRet = 0
+startPos = 7000, j = 7000, key = Q, hashRet = 0
+startPos = 11000, j = 11000, key = Q, hashRet = 0
+startPos = 15000, j = 15007, key = A, hashRet = 0
+startPos = 5000, j = 5006, key = A, hashRet = 0
+startPos = 15000, j = 15000, key = A, hashRet = 0
+startPos = 15000, j = 15001, key = A, hashRet = 0
+startPos = 7000, j = 7006, key = A, hashRet = 0
+startPos = 15000, j = 15000, key = A, hashRet = 0
+startPos = 2000, j = 2000, key = X, hashRet = 0
+startPos = 8000, j = 8000, key = X, hashRet = 0
+startPos = 4000, j = 4000, key = X, hashRet = 0
+startPos = 4000, j = 4000, key = X, hashRet = 0
+startPos = 9000, j = 9000, key = X, hashRet = 0
+startPos = 5000, j = 5000, key = X, hashRet = 0
+startPos = 2000, j = 2000, key = X, hashRet = 0
+startPos = 10000, j = 10000, key = X, hashRet = 0
+startPos = 6000, j = 6000, key = X, hashRet = 0
+startPos = 7000, j = 7000, key = X, hashRet = 0
+list-none-s,1,1000,1,3000,3865439,1288,1154
+list-none-s,2,1000,1,6000,3669587,611,579
+list-none-s,8,1000,1,24000,11126438,463,1877
+list-none-s,12,1000,1,36000,13813026,383,1779
+list-id-none,1,1,4,3,253249,84416,0
+list-id-none,1,2,4,6,197442,32907,0
+list-id-none,1,4,4,12,337504,28125,0
+list-id-none,1,8,4,24,75985,3166,0
+list-id-none,1,16,4,48,86901,1810,0
+list-id-none,2,1,4,6,168760,28126,0
+list-id-none,2,2,4,12,287946,23995,0
+list-id-none,2,4,4,24,262408,10933,0
+list-id-none,2,8,4,48,147570,3074,0
+list-id-none,2,16,4,96,138652,1444,0
+list-id-none,4,1,4,12,263299,21941,0
+list-id-none,4,2,4,24,657965,27415,0
+list-id-none,4,8,4,96,172736,1799,0
+list-id-none,8,1,4,24,281664,11736,0
+list-id-none,8,2,4,48,303871,6330,0
+list-id-none,8,4,4,96,457482,4765,0
+list-id-none,12,2,4,72,407857,5664,0
+list-id-none,12,4,4,144,377818,2623,0
+list-id-none,12,8,4,288,537464,1866,0
+list-id-none,16,1,4,48,528860,11017,0
+list-id-none,16,2,4,96,523232,5450,0
+list-id-none,16,4,4,192,514459,2679,0
+list-id-s,1,1,4,3,70665,23555,104
+list-id-s,1,2,4,6,71949,11991,73
+list-id-s,1,4,4,12,70780,5898,55
+list-id-s,1,8,4,24,114833,4784,42
+list-id-s,1,16,4,48,90405,1883,38
+list-id-s,2,1,4,6,113719,18953,120
+list-id-s,2,2,4,12,82641,6886,81
+list-id-s,2,4,4,24,85674,3569,58
+list-id-s,2,8,4,48,111219,2317,583
+list-id-s,2,16,4,96,183057,1906,713
+list-id-s,4,1,4,12,141336,11778,126
+list-id-s,4,2,4,24,161095,6712,81
+list-id-s,4,16,4,192,264748,1378,1498
+list-id-s,8,1,4,24,333475,13894,96
+list-id-s,8,2,4,48,272150,5669,67
+list-id-s,8,4,4,96,300572,3130,66
+list-id-s,8,8,4,192,410086,2135,3952
+list-id-s,12,1,4,36,510271,14174,84
+list-id-s,12,2,4,72,333126,4626,69
+list-id-s,12,16,4,576,1589450,2759,16547
+list-id-s,16,2,4,96,499100,5198,83
+list-id-s,16,4,4,192,489310,2548,54
+list-id-m,1,1,4,3,65088,21696,408
+list-id-m,1,2,4,6,86099,14349,284
+list-id-m,1,4,4,12,228331,19027,1218
+list-id-m,1,8,4,24,140821,5867,121
+list-id-m,1,16,4,48,98351,2048,66
+list-id-m,2,1,4,6,102647,17107,277
+list-id-m,2,2,4,12,111629,9302,167
+list-id-m,2,4,4,24,104678,4361,102
+list-id-m,2,8,4,48,137331,2861,65
+startPos = 16, j = 16, key = M, hashRet = 1
+startPos = 16, j = 16, key = M, hashRet = 1
+list-id-m,4,1,4,12,111178,9264,240
+list-id-m,4,2,4,24,164261,6844,129
+startPos = 12, j = 12, key = O, hashRet = 3
+startPos = 12, j = 12, key = O, hashRet = 3
+list-id-m,4,8,4,96,147499,1536,73
+startPos = 48, j = 48, key = L, hashRet = 0
+startPos = 48, j = 48, key = L, hashRet = 0
+startPos = 48, j = 52, key = L, hashRet = 0
+startPos = 48, j = 48, key = L, hashRet = 0
+startPos = 48, j = 48, key = L, hashRet = 0
+startPos = 48, j = 52, key = L, hashRet = 0
+startPos = 48, j = 48, key = L, hashRet = 0
+startPos = 48, j = 48, key = L, hashRet = 0
+startPos = 48, j = 52, key = L, hashRet = 0
+list-id-m,8,1,4,24,240824,10034,184
+startPos = 12, j = 13, key = O, hashRet = 3
+startPos = 14, j = 14, key = O, hashRet = 3
+startPos = 12, j = 13, key = O, hashRet = 3
+startPos = 14, j = 14, key = O, hashRet = 3
+startPos = 12, j = 13, key = O, hashRet = 3
+startPos = 14, j = 14, key = O, hashRet = 3
+startPos = 12, j = 13, key = O, hashRet = 3
+startPos = 14, j = 14, key = O, hashRet = 3
+startPos = 20, j = 20, key = M, hashRet = 1
+startPos = 28, j = 28, key = M, hashRet = 1
+startPos = 16, j = 18, key = M, hashRet = 1
+startPos = startPos = 24, j = 28, key = L, hashRet = 0
+startPos = 56, j = 56, key = L, hashRet = 0
+startPos = 56, j = 56, key = L, hashRet = 0
+startPos = 24, j = 29, key = L, hashRet = 0
+startPos = 32, j = 34, key = L, hashRet = 0
+startPos = 56, j = 56, key = L, hashRet = 0
+startPos = 24, j = 28, key = L, hashRet = 0
+startPos = 56, j = 56, key = L, hashRet = 0
+startPos = 56, j = 56, key = L, hashRet = 0
+startPos = 24, j = 29, key = L, hashRet = 0
+startPos = 32, j = 34, key = L, hashRet = 0
+startPos = 56, j = 56, key = L, hashRet = 0
+startPos = 24, j = 28, key = L, hashRet = 0
+startPos = 56, j = 56, key = L, hashRet = 0
+startPos = 56, j = 56, key = L, hashRet = 0
+startPos = 24, j = 29, key = L, hashRet = 0
+startPos = 32, j = 34, key = L, hashRet = 0
+startPos = 56, j = 56, key = L, hashRet = 0
+startPos = 56, j = 56, key = L, hashRet = 0
+startPos = startPos = 32, j = 34, key = J, hashRet = 2
+startPos = 80, j = 80, key = J, hashRet = 2
+startPos = 112, j = 112, key = J, hashRet = 2
+startPos = 64, j = 64, key = J, hashRet = 2
+startPos = 64, j = 64, key = J, hashRet = 2
+startPos = 112, j = 112, key = J, hashRet = 2
+startPos = 112, j = 112, key = J, hashRet = 2
+startPos = 32, j = 34, key = J, hashRet = 2
+startPos = 80, j = 80, key = J, hashRet = 2
+startPos = 112, j = 112, key = J, hashRet = 2
+startPos = 64, j = 64, key = J, hashRet = 2
+startPos = 64, j = 64, key = J, hashRet = 2
+startPos = 112, j = 112, key = J, hashRet = 2
+startPos = 112, j = 112, key = J, hashRet = 2
+startPos = 32, j = 34, key = J, hashRet = 2
+startPos = 80, j = 80, key = J, hashRet = 2
+startPos = 112, j = 112, key = J, hashRet = 2
+startPos = 64, j = 64, key = J, hashRet = 2
+startPos = 64, j = 64, key = J, hashRet = 2
+startPos = 112, j = 112, key = J, hashRet = 2
+startPos = 112, j = 112, key = J, hashRet = 2
+list-id-m,12,1,4,36,324484,9013,125
+list-id-m,12,2,4,72,364023,5055,112
+list-id-m,12,4,4,144,407108,2827,419
+startPos = 88, j = 94, key = S, hashRet = 3
+startPos = 72, j = 77, key = S, hashRet = 3
+startPos = 80, j = 80, key = S, hashRet = 3
+startPos = 56, j = 59, key = S, hashRet = 3
+startPos = 88, j = 94, key = S, hashRet = 3
+startPos = 40, j = 47, key = S, hashRet = 3
+startPos = 48, j = 50, key = S, hashRet = 3
+startPos = 88, j = 94, key = S, hashRet = 3
+startPos = 72, j = 77, key = S, hashRet = 3
+startPos = 80, j = 80, key = S, hashRet = 3
+startPos = 56, j = 59, key = S, hashRet = 3
+startPos = 88, j = 94, key = S, hashRet = 3
+startPos = 40, j = 47, key = S, hashRet = 3
+startPos = 48, j = 50, key = S, hashRet = 3
+startPos = 88, j = 94, key = S, hashRet = 3
+startPos = 72, j = 77, key = S, hashRet = 3
+startPos = 80, j = 80, key = S, hashRet = 3
+startPos = 56, j = 59, key = S, hashRet = 3
+startPos = 88, j = 94, key = S, hashRet = 3
+startPos = 40, j = 47, key = S, hashRet = 3
+startPos = 48, j = 50, key = S, hashRet = 3
+startPos = 64, j = 65, key = S, hashRet = 3
+list-id-m,12,16,4,576,1664449,2889,18331
+startPos = 5, j = 5, key = O, hashRet = 3
+startPos = 6, j = 6, key = O, hashRet = 3
+startPos = 7, j = 7, key = O, hashRet = 3
+startPos = 6, j = 6, key = M, hashRet = 1
+startPos = 8, j = 8, key = M, hashRet = 1
+startPos = 12, j = 12, key = M, hashRet = 1
+startPos = 8, j = 8, key = M, hashRet = 1
+startPos = 10, j = 10, key = M, hashRet = 1
+startPos = 6, j = 7, key = M, hashRet = 1
+startPos = 14, j = 14, key = M, hashRet = 1
+startPos = 6, j = 6, key = M, hashRet = 1
+startPos = 8, j = 8, key = M, hashRet = 1
+startPos = 12, j = 12, key = M, hashRet = 1
+startPos = 8, j = 8, key = M, hashRet = 1
+startPos = 10, j = 10, key = M, hashRet = 1
+startPos = 6, j = 7, key = M, hashRet = 1
+startPos = 14, j = 14, key = M, hashRet = 1
+list-id-m,16,4,4,192,686960,3577,14723
+startPos = 16, j = 16, key = J, hashRet = 2
+startPos = 24, j = 24, key = J, hashRet = 2
+startPos = 48, j = 48, key = J, hashRet = 2
+startPos = 16, j = 16, key = J, hashRet = 2
+startPos = 32, j = 32, key = J, hashRet = 2
+startPos = 56, j = 56, key = J, hashRet = 2
+startPos = 40, j = 40, key = J, hashRet = 2
+startPos = 16, j = 16, key = J, hashRet = 2
+startPos = 24, j = 24, key = J, hashRet = 2
+startPos = 48, j = 48, key = J, hashRet = 2
+startPos = 16, j = 16, key = J, hashRet = 2
+startPos = 32, j = 32, key = J, hashRet = 2
+startPos = 56, j = 56, key = J, hashRet = 2
+startPos = 40, j = 40, key = J, hashRet = 2
+startPos = 240, j = 242, key = V, hashRet = 2
+startPos = 160, j = 161, key = V, hashRet = 2
+startPos = 32, j = 38, key = V, hashRet = 2
+startPos = 128, j = 128, key = V, hashRet = 2
+startPos = 176, j = 176, key = V, hashRet = 2
+startPos = 224, j = 224, key = V, hashRet = 2
+startPos = 240, j = 242, key = V, hashRet = 2
+startPos = 160, j = 161, key = V, hashRet = 2
+startPos = 32, j = 38, key = V, hashRet = 2
+startPos = 128, j = 128, key = V, hashRet = 2
+startPos = 176, j = 176, key = V, hashRet = 2
+startPos = 224, j = 224, key = V, hashRet = 2
+startPos = 240, j = 242, key = V, hashRet = 2
+startPos = 160, j = 161, key = V, hashRet = 2
+startPos = 32, j = 38, key = V, hashRet = 2
+startPos = 128, j = 128, key = V, hashRet = 2
+startPos = 176, j = 176, key = V, hashRet = 2
+startPos = 224, j = 224, key = V, hashRet = 2
+list-id-s,1,1,4,3,113034,37678,132
+list-id-s,1,1,4,3,90666,30222,126
+list-id-s,1,1,4,3,83174,27724,102
+list-id-s,1,1,4,3,67126,22375,93
+list-id-s,1,1,4,3,88092,29364,92
+list-id-s,1,1,4,3,111039,37013,119
+list-id-s,1,1,4,3,87531,29177,112

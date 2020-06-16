@@ -1,0 +1,5 @@
+; Assura generated file -- DO NOT EDIT --
+; Do NOT rely on the content of this file, it may change.
+;
+2 device net parameter pin rewire total
+1  5 (( ( S "INVX1 layout ee115c" )( L "INVX1 schematic ee115c" ) )(( 3 0 6 )( 4 2 0 )( 1 4 0 )))

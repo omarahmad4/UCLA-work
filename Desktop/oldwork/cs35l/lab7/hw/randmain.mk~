@@ -1,0 +1,20 @@
+###
+
+#write a makefile include file randmain.mk that builds the program randmain using three types of linking. First, it should use static linking to combine randmain.o and randcpuid.o into a single program executable randmain. Second, it should use dynamic linking as usual to link the C library and any other necessary system-supplied files before its main function is called. Third, after main is called, it should use dynamic linking via dlsym as described above. randmain.mk should link randmain with the options “-ldl -Wl,-rpath=$PWD”. It should compile randlibhw.c and randlibsw.c with the -fPIC options as well as the other GCC options already used. And it should build shared object files randlibhw.so and randlibsw.so by linking the corresponding object modules with the -shared option, e.g., “gcc ... -shared randlibsw.o -o randlibsw.so”.
+
+###
+   
+randmain:
+	$(CC) $(CFLAGS) -c randcpuid.c -o randcpuid.o
+	$(CC) $(CFLAGS) -c randmain.c -o randmain.o
+	$(CC) $(CFLAGS) -ldl -Wl,-rpath=$(PWD) randmain.o randcpuid.o -o randmain
+
+
+randlibhw.so:
+	$(CC) $(CFLAGS) -fPIC -c randlibhw.c -o randlibhw.o
+	$(CC) $(CFLAGS) -shared randlibhw.o -o randlibhw.so 
+
+
+randlibsw.so:
+	$(CC) $(CFLAGS) -fPIC -c randlibsw.c -o randlibsw.o
+	$(CC) $(CFLAGS) -shared randlibsw.o -o randlibsw.so 

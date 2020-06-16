@@ -1,0 +1,1885 @@
+HEADER
+"PSFversion" "1.00"
+"Run Generator" "drlRun rev. 1.0"
+"Run Time Stamp" "Feb 28 00:26:41 2020"
+"date" "Feb 28 00:26:41 2020"
+"simulator" "spectre"
+"netlistDir" "../netlist"
+TYPE
+"runObject" STRUCT(
+"logName" ARRAY( * ) STRING *
+"parent" STRING *
+"sweepVariable" ARRAY( * ) STRING *
+) PROP( "key" "runObject" )
+VALUE
+"Root" "runObject" (
+("")
+""
+("V_A")
+)
+"V_A=0" "runObject" (
+("")
+"Root"
+("V_B")
+) PROP(
+ "V_A" 0.000000e+00
+)
+
+"V_A=0,V_B=0" "runObject" (
+("")
+"V_A=0"
+("V_Cin")
+) PROP(
+ "V_B" 0.000000e+00
+)
+
+"V_A=0,V_B=0,V_Cin=0/psf" "runObject" (
+(
+"../V_A=0,V_B=0,V_Cin=0/psf/logFile"
+"../V_A=0,V_B=0,V_Cin=0/psf/artistLogFile"
+)
+"V_A=0,V_B=0"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=0,V_B=0,V_Cin=0"
+ "V_Cin" 0.000000e+00
+)
+
+"V_A=0,V_B=0,V_Cin=0.25/psf" "runObject" (
+(
+"../V_A=0,V_B=0,V_Cin=0.25/psf/logFile"
+"../V_A=0,V_B=0,V_Cin=0.25/psf/artistLogFile"
+)
+"V_A=0,V_B=0"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=0,V_B=0,V_Cin=0.25"
+ "V_Cin" 2.500000e-01
+)
+
+"V_A=0,V_B=0,V_Cin=0.5/psf" "runObject" (
+(
+"../V_A=0,V_B=0,V_Cin=0.5/psf/logFile"
+"../V_A=0,V_B=0,V_Cin=0.5/psf/artistLogFile"
+)
+"V_A=0,V_B=0"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=0,V_B=0,V_Cin=0.5"
+ "V_Cin" 5.000000e-01
+)
+
+"V_A=0,V_B=0,V_Cin=0.75/psf" "runObject" (
+(
+"../V_A=0,V_B=0,V_Cin=0.75/psf/logFile"
+"../V_A=0,V_B=0,V_Cin=0.75/psf/artistLogFile"
+)
+"V_A=0,V_B=0"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=0,V_B=0,V_Cin=0.75"
+ "V_Cin" 7.500000e-01
+)
+
+"V_A=0,V_B=0,V_Cin=1/psf" "runObject" (
+(
+"../V_A=0,V_B=0,V_Cin=1/psf/logFile"
+"../V_A=0,V_B=0,V_Cin=1/psf/artistLogFile"
+)
+"V_A=0,V_B=0"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=0,V_B=0,V_Cin=1"
+ "V_Cin" 1.000000e+00
+)
+
+"V_A=0,V_B=0.25" "runObject" (
+("")
+"V_A=0"
+("V_Cin")
+) PROP(
+ "V_B" 2.500000e-01
+)
+
+"V_A=0,V_B=0.25,V_Cin=0/psf" "runObject" (
+(
+"../V_A=0,V_B=0.25,V_Cin=0/psf/logFile"
+"../V_A=0,V_B=0.25,V_Cin=0/psf/artistLogFile"
+)
+"V_A=0,V_B=0.25"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=0,V_B=0.25,V_Cin=0"
+ "V_Cin" 0.000000e+00
+)
+
+"V_A=0,V_B=0.25,V_Cin=0.25/psf" "runObject" (
+(
+"../V_A=0,V_B=0.25,V_Cin=0.25/psf/logFile"
+"../V_A=0,V_B=0.25,V_Cin=0.25/psf/artistLogFile"
+)
+"V_A=0,V_B=0.25"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=0,V_B=0.25,V_Cin=0.25"
+ "V_Cin" 2.500000e-01
+)
+
+"V_A=0,V_B=0.25,V_Cin=0.5/psf" "runObject" (
+(
+"../V_A=0,V_B=0.25,V_Cin=0.5/psf/logFile"
+"../V_A=0,V_B=0.25,V_Cin=0.5/psf/artistLogFile"
+)
+"V_A=0,V_B=0.25"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=0,V_B=0.25,V_Cin=0.5"
+ "V_Cin" 5.000000e-01
+)
+
+"V_A=0,V_B=0.25,V_Cin=0.75/psf" "runObject" (
+(
+"../V_A=0,V_B=0.25,V_Cin=0.75/psf/logFile"
+"../V_A=0,V_B=0.25,V_Cin=0.75/psf/artistLogFile"
+)
+"V_A=0,V_B=0.25"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=0,V_B=0.25,V_Cin=0.75"
+ "V_Cin" 7.500000e-01
+)
+
+"V_A=0,V_B=0.25,V_Cin=1/psf" "runObject" (
+(
+"../V_A=0,V_B=0.25,V_Cin=1/psf/logFile"
+"../V_A=0,V_B=0.25,V_Cin=1/psf/artistLogFile"
+)
+"V_A=0,V_B=0.25"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=0,V_B=0.25,V_Cin=1"
+ "V_Cin" 1.000000e+00
+)
+
+"V_A=0,V_B=0.5" "runObject" (
+("")
+"V_A=0"
+("V_Cin")
+) PROP(
+ "V_B" 5.000000e-01
+)
+
+"V_A=0,V_B=0.5,V_Cin=0/psf" "runObject" (
+(
+"../V_A=0,V_B=0.5,V_Cin=0/psf/logFile"
+"../V_A=0,V_B=0.5,V_Cin=0/psf/artistLogFile"
+)
+"V_A=0,V_B=0.5"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=0,V_B=0.5,V_Cin=0"
+ "V_Cin" 0.000000e+00
+)
+
+"V_A=0,V_B=0.5,V_Cin=0.25/psf" "runObject" (
+(
+"../V_A=0,V_B=0.5,V_Cin=0.25/psf/logFile"
+"../V_A=0,V_B=0.5,V_Cin=0.25/psf/artistLogFile"
+)
+"V_A=0,V_B=0.5"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=0,V_B=0.5,V_Cin=0.25"
+ "V_Cin" 2.500000e-01
+)
+
+"V_A=0,V_B=0.5,V_Cin=0.5/psf" "runObject" (
+(
+"../V_A=0,V_B=0.5,V_Cin=0.5/psf/logFile"
+"../V_A=0,V_B=0.5,V_Cin=0.5/psf/artistLogFile"
+)
+"V_A=0,V_B=0.5"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=0,V_B=0.5,V_Cin=0.5"
+ "V_Cin" 5.000000e-01
+)
+
+"V_A=0,V_B=0.5,V_Cin=0.75/psf" "runObject" (
+(
+"../V_A=0,V_B=0.5,V_Cin=0.75/psf/logFile"
+"../V_A=0,V_B=0.5,V_Cin=0.75/psf/artistLogFile"
+)
+"V_A=0,V_B=0.5"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=0,V_B=0.5,V_Cin=0.75"
+ "V_Cin" 7.500000e-01
+)
+
+"V_A=0,V_B=0.5,V_Cin=1/psf" "runObject" (
+(
+"../V_A=0,V_B=0.5,V_Cin=1/psf/logFile"
+"../V_A=0,V_B=0.5,V_Cin=1/psf/artistLogFile"
+)
+"V_A=0,V_B=0.5"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=0,V_B=0.5,V_Cin=1"
+ "V_Cin" 1.000000e+00
+)
+
+"V_A=0,V_B=0.75" "runObject" (
+("")
+"V_A=0"
+("V_Cin")
+) PROP(
+ "V_B" 7.500000e-01
+)
+
+"V_A=0,V_B=0.75,V_Cin=0/psf" "runObject" (
+(
+"../V_A=0,V_B=0.75,V_Cin=0/psf/logFile"
+"../V_A=0,V_B=0.75,V_Cin=0/psf/artistLogFile"
+)
+"V_A=0,V_B=0.75"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=0,V_B=0.75,V_Cin=0"
+ "V_Cin" 0.000000e+00
+)
+
+"V_A=0,V_B=0.75,V_Cin=0.25/psf" "runObject" (
+(
+"../V_A=0,V_B=0.75,V_Cin=0.25/psf/logFile"
+"../V_A=0,V_B=0.75,V_Cin=0.25/psf/artistLogFile"
+)
+"V_A=0,V_B=0.75"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=0,V_B=0.75,V_Cin=0.25"
+ "V_Cin" 2.500000e-01
+)
+
+"V_A=0,V_B=0.75,V_Cin=0.5/psf" "runObject" (
+(
+"../V_A=0,V_B=0.75,V_Cin=0.5/psf/logFile"
+"../V_A=0,V_B=0.75,V_Cin=0.5/psf/artistLogFile"
+)
+"V_A=0,V_B=0.75"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=0,V_B=0.75,V_Cin=0.5"
+ "V_Cin" 5.000000e-01
+)
+
+"V_A=0,V_B=0.75,V_Cin=0.75/psf" "runObject" (
+(
+"../V_A=0,V_B=0.75,V_Cin=0.75/psf/logFile"
+"../V_A=0,V_B=0.75,V_Cin=0.75/psf/artistLogFile"
+)
+"V_A=0,V_B=0.75"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=0,V_B=0.75,V_Cin=0.75"
+ "V_Cin" 7.500000e-01
+)
+
+"V_A=0,V_B=0.75,V_Cin=1/psf" "runObject" (
+(
+"../V_A=0,V_B=0.75,V_Cin=1/psf/logFile"
+"../V_A=0,V_B=0.75,V_Cin=1/psf/artistLogFile"
+)
+"V_A=0,V_B=0.75"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=0,V_B=0.75,V_Cin=1"
+ "V_Cin" 1.000000e+00
+)
+
+"V_A=0,V_B=1" "runObject" (
+("")
+"V_A=0"
+("V_Cin")
+) PROP(
+ "V_B" 1.000000e+00
+)
+
+"V_A=0,V_B=1,V_Cin=0/psf" "runObject" (
+(
+"../V_A=0,V_B=1,V_Cin=0/psf/logFile"
+"../V_A=0,V_B=1,V_Cin=0/psf/artistLogFile"
+)
+"V_A=0,V_B=1"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=0,V_B=1,V_Cin=0"
+ "V_Cin" 0.000000e+00
+)
+
+"V_A=0,V_B=1,V_Cin=0.25/psf" "runObject" (
+(
+"../V_A=0,V_B=1,V_Cin=0.25/psf/logFile"
+"../V_A=0,V_B=1,V_Cin=0.25/psf/artistLogFile"
+)
+"V_A=0,V_B=1"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=0,V_B=1,V_Cin=0.25"
+ "V_Cin" 2.500000e-01
+)
+
+"V_A=0,V_B=1,V_Cin=0.5/psf" "runObject" (
+(
+"../V_A=0,V_B=1,V_Cin=0.5/psf/logFile"
+"../V_A=0,V_B=1,V_Cin=0.5/psf/artistLogFile"
+)
+"V_A=0,V_B=1"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=0,V_B=1,V_Cin=0.5"
+ "V_Cin" 5.000000e-01
+)
+
+"V_A=0,V_B=1,V_Cin=0.75/psf" "runObject" (
+(
+"../V_A=0,V_B=1,V_Cin=0.75/psf/logFile"
+"../V_A=0,V_B=1,V_Cin=0.75/psf/artistLogFile"
+)
+"V_A=0,V_B=1"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=0,V_B=1,V_Cin=0.75"
+ "V_Cin" 7.500000e-01
+)
+
+"V_A=0,V_B=1,V_Cin=1/psf" "runObject" (
+(
+"../V_A=0,V_B=1,V_Cin=1/psf/logFile"
+"../V_A=0,V_B=1,V_Cin=1/psf/artistLogFile"
+)
+"V_A=0,V_B=1"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=0,V_B=1,V_Cin=1"
+ "V_Cin" 1.000000e+00
+)
+
+"V_A=0.25" "runObject" (
+("")
+"Root"
+("V_B")
+) PROP(
+ "V_A" 2.500000e-01
+)
+
+"V_A=0.25,V_B=0" "runObject" (
+("")
+"V_A=0.25"
+("V_Cin")
+) PROP(
+ "V_B" 0.000000e+00
+)
+
+"V_A=0.25,V_B=0,V_Cin=0/psf" "runObject" (
+(
+"../V_A=0.25,V_B=0,V_Cin=0/psf/logFile"
+"../V_A=0.25,V_B=0,V_Cin=0/psf/artistLogFile"
+)
+"V_A=0.25,V_B=0"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=0.25,V_B=0,V_Cin=0"
+ "V_Cin" 0.000000e+00
+)
+
+"V_A=0.25,V_B=0,V_Cin=0.25/psf" "runObject" (
+(
+"../V_A=0.25,V_B=0,V_Cin=0.25/psf/logFile"
+"../V_A=0.25,V_B=0,V_Cin=0.25/psf/artistLogFile"
+)
+"V_A=0.25,V_B=0"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=0.25,V_B=0,V_Cin=0.25"
+ "V_Cin" 2.500000e-01
+)
+
+"V_A=0.25,V_B=0,V_Cin=0.5/psf" "runObject" (
+(
+"../V_A=0.25,V_B=0,V_Cin=0.5/psf/logFile"
+"../V_A=0.25,V_B=0,V_Cin=0.5/psf/artistLogFile"
+)
+"V_A=0.25,V_B=0"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=0.25,V_B=0,V_Cin=0.5"
+ "V_Cin" 5.000000e-01
+)
+
+"V_A=0.25,V_B=0,V_Cin=0.75/psf" "runObject" (
+(
+"../V_A=0.25,V_B=0,V_Cin=0.75/psf/logFile"
+"../V_A=0.25,V_B=0,V_Cin=0.75/psf/artistLogFile"
+)
+"V_A=0.25,V_B=0"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=0.25,V_B=0,V_Cin=0.75"
+ "V_Cin" 7.500000e-01
+)
+
+"V_A=0.25,V_B=0,V_Cin=1/psf" "runObject" (
+(
+"../V_A=0.25,V_B=0,V_Cin=1/psf/logFile"
+"../V_A=0.25,V_B=0,V_Cin=1/psf/artistLogFile"
+)
+"V_A=0.25,V_B=0"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=0.25,V_B=0,V_Cin=1"
+ "V_Cin" 1.000000e+00
+)
+
+"V_A=0.25,V_B=0.25" "runObject" (
+("")
+"V_A=0.25"
+("V_Cin")
+) PROP(
+ "V_B" 2.500000e-01
+)
+
+"V_A=0.25,V_B=0.25,V_Cin=0/psf" "runObject" (
+(
+"../V_A=0.25,V_B=0.25,V_Cin=0/psf/logFile"
+"../V_A=0.25,V_B=0.25,V_Cin=0/psf/artistLogFile"
+)
+"V_A=0.25,V_B=0.25"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=0.25,V_B=0.25,V_Cin=0"
+ "V_Cin" 0.000000e+00
+)
+
+"V_A=0.25,V_B=0.25,V_Cin=0.25/psf" "runObject" (
+(
+"../V_A=0.25,V_B=0.25,V_Cin=0.25/psf/logFile"
+"../V_A=0.25,V_B=0.25,V_Cin=0.25/psf/artistLogFile"
+)
+"V_A=0.25,V_B=0.25"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=0.25,V_B=0.25,V_Cin=0.25"
+ "V_Cin" 2.500000e-01
+)
+
+"V_A=0.25,V_B=0.25,V_Cin=0.5/psf" "runObject" (
+(
+"../V_A=0.25,V_B=0.25,V_Cin=0.5/psf/logFile"
+"../V_A=0.25,V_B=0.25,V_Cin=0.5/psf/artistLogFile"
+)
+"V_A=0.25,V_B=0.25"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=0.25,V_B=0.25,V_Cin=0.5"
+ "V_Cin" 5.000000e-01
+)
+
+"V_A=0.25,V_B=0.25,V_Cin=0.75/psf" "runObject" (
+(
+"../V_A=0.25,V_B=0.25,V_Cin=0.75/psf/logFile"
+"../V_A=0.25,V_B=0.25,V_Cin=0.75/psf/artistLogFile"
+)
+"V_A=0.25,V_B=0.25"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=0.25,V_B=0.25,V_Cin=0.75"
+ "V_Cin" 7.500000e-01
+)
+
+"V_A=0.25,V_B=0.25,V_Cin=1/psf" "runObject" (
+(
+"../V_A=0.25,V_B=0.25,V_Cin=1/psf/logFile"
+"../V_A=0.25,V_B=0.25,V_Cin=1/psf/artistLogFile"
+)
+"V_A=0.25,V_B=0.25"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=0.25,V_B=0.25,V_Cin=1"
+ "V_Cin" 1.000000e+00
+)
+
+"V_A=0.25,V_B=0.5" "runObject" (
+("")
+"V_A=0.25"
+("V_Cin")
+) PROP(
+ "V_B" 5.000000e-01
+)
+
+"V_A=0.25,V_B=0.5,V_Cin=0/psf" "runObject" (
+(
+"../V_A=0.25,V_B=0.5,V_Cin=0/psf/logFile"
+"../V_A=0.25,V_B=0.5,V_Cin=0/psf/artistLogFile"
+)
+"V_A=0.25,V_B=0.5"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=0.25,V_B=0.5,V_Cin=0"
+ "V_Cin" 0.000000e+00
+)
+
+"V_A=0.25,V_B=0.5,V_Cin=0.25/psf" "runObject" (
+(
+"../V_A=0.25,V_B=0.5,V_Cin=0.25/psf/logFile"
+"../V_A=0.25,V_B=0.5,V_Cin=0.25/psf/artistLogFile"
+)
+"V_A=0.25,V_B=0.5"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=0.25,V_B=0.5,V_Cin=0.25"
+ "V_Cin" 2.500000e-01
+)
+
+"V_A=0.25,V_B=0.5,V_Cin=0.5/psf" "runObject" (
+(
+"../V_A=0.25,V_B=0.5,V_Cin=0.5/psf/logFile"
+"../V_A=0.25,V_B=0.5,V_Cin=0.5/psf/artistLogFile"
+)
+"V_A=0.25,V_B=0.5"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=0.25,V_B=0.5,V_Cin=0.5"
+ "V_Cin" 5.000000e-01
+)
+
+"V_A=0.25,V_B=0.5,V_Cin=0.75/psf" "runObject" (
+(
+"../V_A=0.25,V_B=0.5,V_Cin=0.75/psf/logFile"
+"../V_A=0.25,V_B=0.5,V_Cin=0.75/psf/artistLogFile"
+)
+"V_A=0.25,V_B=0.5"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=0.25,V_B=0.5,V_Cin=0.75"
+ "V_Cin" 7.500000e-01
+)
+
+"V_A=0.25,V_B=0.5,V_Cin=1/psf" "runObject" (
+(
+"../V_A=0.25,V_B=0.5,V_Cin=1/psf/logFile"
+"../V_A=0.25,V_B=0.5,V_Cin=1/psf/artistLogFile"
+)
+"V_A=0.25,V_B=0.5"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=0.25,V_B=0.5,V_Cin=1"
+ "V_Cin" 1.000000e+00
+)
+
+"V_A=0.25,V_B=0.75" "runObject" (
+("")
+"V_A=0.25"
+("V_Cin")
+) PROP(
+ "V_B" 7.500000e-01
+)
+
+"V_A=0.25,V_B=0.75,V_Cin=0/psf" "runObject" (
+(
+"../V_A=0.25,V_B=0.75,V_Cin=0/psf/logFile"
+"../V_A=0.25,V_B=0.75,V_Cin=0/psf/artistLogFile"
+)
+"V_A=0.25,V_B=0.75"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=0.25,V_B=0.75,V_Cin=0"
+ "V_Cin" 0.000000e+00
+)
+
+"V_A=0.25,V_B=0.75,V_Cin=0.25/psf" "runObject" (
+(
+"../V_A=0.25,V_B=0.75,V_Cin=0.25/psf/logFile"
+"../V_A=0.25,V_B=0.75,V_Cin=0.25/psf/artistLogFile"
+)
+"V_A=0.25,V_B=0.75"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=0.25,V_B=0.75,V_Cin=0.25"
+ "V_Cin" 2.500000e-01
+)
+
+"V_A=0.25,V_B=0.75,V_Cin=0.5/psf" "runObject" (
+(
+"../V_A=0.25,V_B=0.75,V_Cin=0.5/psf/logFile"
+"../V_A=0.25,V_B=0.75,V_Cin=0.5/psf/artistLogFile"
+)
+"V_A=0.25,V_B=0.75"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=0.25,V_B=0.75,V_Cin=0.5"
+ "V_Cin" 5.000000e-01
+)
+
+"V_A=0.25,V_B=0.75,V_Cin=0.75/psf" "runObject" (
+(
+"../V_A=0.25,V_B=0.75,V_Cin=0.75/psf/logFile"
+"../V_A=0.25,V_B=0.75,V_Cin=0.75/psf/artistLogFile"
+)
+"V_A=0.25,V_B=0.75"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=0.25,V_B=0.75,V_Cin=0.75"
+ "V_Cin" 7.500000e-01
+)
+
+"V_A=0.25,V_B=0.75,V_Cin=1/psf" "runObject" (
+(
+"../V_A=0.25,V_B=0.75,V_Cin=1/psf/logFile"
+"../V_A=0.25,V_B=0.75,V_Cin=1/psf/artistLogFile"
+)
+"V_A=0.25,V_B=0.75"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=0.25,V_B=0.75,V_Cin=1"
+ "V_Cin" 1.000000e+00
+)
+
+"V_A=0.25,V_B=1" "runObject" (
+("")
+"V_A=0.25"
+("V_Cin")
+) PROP(
+ "V_B" 1.000000e+00
+)
+
+"V_A=0.25,V_B=1,V_Cin=0/psf" "runObject" (
+(
+"../V_A=0.25,V_B=1,V_Cin=0/psf/logFile"
+"../V_A=0.25,V_B=1,V_Cin=0/psf/artistLogFile"
+)
+"V_A=0.25,V_B=1"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=0.25,V_B=1,V_Cin=0"
+ "V_Cin" 0.000000e+00
+)
+
+"V_A=0.25,V_B=1,V_Cin=0.25/psf" "runObject" (
+(
+"../V_A=0.25,V_B=1,V_Cin=0.25/psf/logFile"
+"../V_A=0.25,V_B=1,V_Cin=0.25/psf/artistLogFile"
+)
+"V_A=0.25,V_B=1"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=0.25,V_B=1,V_Cin=0.25"
+ "V_Cin" 2.500000e-01
+)
+
+"V_A=0.25,V_B=1,V_Cin=0.5/psf" "runObject" (
+(
+"../V_A=0.25,V_B=1,V_Cin=0.5/psf/logFile"
+"../V_A=0.25,V_B=1,V_Cin=0.5/psf/artistLogFile"
+)
+"V_A=0.25,V_B=1"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=0.25,V_B=1,V_Cin=0.5"
+ "V_Cin" 5.000000e-01
+)
+
+"V_A=0.25,V_B=1,V_Cin=0.75/psf" "runObject" (
+(
+"../V_A=0.25,V_B=1,V_Cin=0.75/psf/logFile"
+"../V_A=0.25,V_B=1,V_Cin=0.75/psf/artistLogFile"
+)
+"V_A=0.25,V_B=1"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=0.25,V_B=1,V_Cin=0.75"
+ "V_Cin" 7.500000e-01
+)
+
+"V_A=0.25,V_B=1,V_Cin=1/psf" "runObject" (
+(
+"../V_A=0.25,V_B=1,V_Cin=1/psf/logFile"
+"../V_A=0.25,V_B=1,V_Cin=1/psf/artistLogFile"
+)
+"V_A=0.25,V_B=1"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=0.25,V_B=1,V_Cin=1"
+ "V_Cin" 1.000000e+00
+)
+
+"V_A=0.5" "runObject" (
+("")
+"Root"
+("V_B")
+) PROP(
+ "V_A" 5.000000e-01
+)
+
+"V_A=0.5,V_B=0" "runObject" (
+("")
+"V_A=0.5"
+("V_Cin")
+) PROP(
+ "V_B" 0.000000e+00
+)
+
+"V_A=0.5,V_B=0,V_Cin=0/psf" "runObject" (
+(
+"../V_A=0.5,V_B=0,V_Cin=0/psf/logFile"
+"../V_A=0.5,V_B=0,V_Cin=0/psf/artistLogFile"
+)
+"V_A=0.5,V_B=0"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=0.5,V_B=0,V_Cin=0"
+ "V_Cin" 0.000000e+00
+)
+
+"V_A=0.5,V_B=0,V_Cin=0.25/psf" "runObject" (
+(
+"../V_A=0.5,V_B=0,V_Cin=0.25/psf/logFile"
+"../V_A=0.5,V_B=0,V_Cin=0.25/psf/artistLogFile"
+)
+"V_A=0.5,V_B=0"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=0.5,V_B=0,V_Cin=0.25"
+ "V_Cin" 2.500000e-01
+)
+
+"V_A=0.5,V_B=0,V_Cin=0.5/psf" "runObject" (
+(
+"../V_A=0.5,V_B=0,V_Cin=0.5/psf/logFile"
+"../V_A=0.5,V_B=0,V_Cin=0.5/psf/artistLogFile"
+)
+"V_A=0.5,V_B=0"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=0.5,V_B=0,V_Cin=0.5"
+ "V_Cin" 5.000000e-01
+)
+
+"V_A=0.5,V_B=0,V_Cin=0.75/psf" "runObject" (
+(
+"../V_A=0.5,V_B=0,V_Cin=0.75/psf/logFile"
+"../V_A=0.5,V_B=0,V_Cin=0.75/psf/artistLogFile"
+)
+"V_A=0.5,V_B=0"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=0.5,V_B=0,V_Cin=0.75"
+ "V_Cin" 7.500000e-01
+)
+
+"V_A=0.5,V_B=0,V_Cin=1/psf" "runObject" (
+(
+"../V_A=0.5,V_B=0,V_Cin=1/psf/logFile"
+"../V_A=0.5,V_B=0,V_Cin=1/psf/artistLogFile"
+)
+"V_A=0.5,V_B=0"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=0.5,V_B=0,V_Cin=1"
+ "V_Cin" 1.000000e+00
+)
+
+"V_A=0.5,V_B=0.25" "runObject" (
+("")
+"V_A=0.5"
+("V_Cin")
+) PROP(
+ "V_B" 2.500000e-01
+)
+
+"V_A=0.5,V_B=0.25,V_Cin=0/psf" "runObject" (
+(
+"../V_A=0.5,V_B=0.25,V_Cin=0/psf/logFile"
+"../V_A=0.5,V_B=0.25,V_Cin=0/psf/artistLogFile"
+)
+"V_A=0.5,V_B=0.25"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=0.5,V_B=0.25,V_Cin=0"
+ "V_Cin" 0.000000e+00
+)
+
+"V_A=0.5,V_B=0.25,V_Cin=0.25/psf" "runObject" (
+(
+"../V_A=0.5,V_B=0.25,V_Cin=0.25/psf/logFile"
+"../V_A=0.5,V_B=0.25,V_Cin=0.25/psf/artistLogFile"
+)
+"V_A=0.5,V_B=0.25"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=0.5,V_B=0.25,V_Cin=0.25"
+ "V_Cin" 2.500000e-01
+)
+
+"V_A=0.5,V_B=0.25,V_Cin=0.5/psf" "runObject" (
+(
+"../V_A=0.5,V_B=0.25,V_Cin=0.5/psf/logFile"
+"../V_A=0.5,V_B=0.25,V_Cin=0.5/psf/artistLogFile"
+)
+"V_A=0.5,V_B=0.25"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=0.5,V_B=0.25,V_Cin=0.5"
+ "V_Cin" 5.000000e-01
+)
+
+"V_A=0.5,V_B=0.25,V_Cin=0.75/psf" "runObject" (
+(
+"../V_A=0.5,V_B=0.25,V_Cin=0.75/psf/logFile"
+"../V_A=0.5,V_B=0.25,V_Cin=0.75/psf/artistLogFile"
+)
+"V_A=0.5,V_B=0.25"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=0.5,V_B=0.25,V_Cin=0.75"
+ "V_Cin" 7.500000e-01
+)
+
+"V_A=0.5,V_B=0.25,V_Cin=1/psf" "runObject" (
+(
+"../V_A=0.5,V_B=0.25,V_Cin=1/psf/logFile"
+"../V_A=0.5,V_B=0.25,V_Cin=1/psf/artistLogFile"
+)
+"V_A=0.5,V_B=0.25"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=0.5,V_B=0.25,V_Cin=1"
+ "V_Cin" 1.000000e+00
+)
+
+"V_A=0.5,V_B=0.5" "runObject" (
+("")
+"V_A=0.5"
+("V_Cin")
+) PROP(
+ "V_B" 5.000000e-01
+)
+
+"V_A=0.5,V_B=0.5,V_Cin=0/psf" "runObject" (
+(
+"../V_A=0.5,V_B=0.5,V_Cin=0/psf/logFile"
+"../V_A=0.5,V_B=0.5,V_Cin=0/psf/artistLogFile"
+)
+"V_A=0.5,V_B=0.5"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=0.5,V_B=0.5,V_Cin=0"
+ "V_Cin" 0.000000e+00
+)
+
+"V_A=0.5,V_B=0.5,V_Cin=0.25/psf" "runObject" (
+(
+"../V_A=0.5,V_B=0.5,V_Cin=0.25/psf/logFile"
+"../V_A=0.5,V_B=0.5,V_Cin=0.25/psf/artistLogFile"
+)
+"V_A=0.5,V_B=0.5"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=0.5,V_B=0.5,V_Cin=0.25"
+ "V_Cin" 2.500000e-01
+)
+
+"V_A=0.5,V_B=0.5,V_Cin=0.5/psf" "runObject" (
+(
+"../V_A=0.5,V_B=0.5,V_Cin=0.5/psf/logFile"
+"../V_A=0.5,V_B=0.5,V_Cin=0.5/psf/artistLogFile"
+)
+"V_A=0.5,V_B=0.5"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=0.5,V_B=0.5,V_Cin=0.5"
+ "V_Cin" 5.000000e-01
+)
+
+"V_A=0.5,V_B=0.5,V_Cin=0.75/psf" "runObject" (
+(
+"../V_A=0.5,V_B=0.5,V_Cin=0.75/psf/logFile"
+"../V_A=0.5,V_B=0.5,V_Cin=0.75/psf/artistLogFile"
+)
+"V_A=0.5,V_B=0.5"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=0.5,V_B=0.5,V_Cin=0.75"
+ "V_Cin" 7.500000e-01
+)
+
+"V_A=0.5,V_B=0.5,V_Cin=1/psf" "runObject" (
+(
+"../V_A=0.5,V_B=0.5,V_Cin=1/psf/logFile"
+"../V_A=0.5,V_B=0.5,V_Cin=1/psf/artistLogFile"
+)
+"V_A=0.5,V_B=0.5"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=0.5,V_B=0.5,V_Cin=1"
+ "V_Cin" 1.000000e+00
+)
+
+"V_A=0.5,V_B=0.75" "runObject" (
+("")
+"V_A=0.5"
+("V_Cin")
+) PROP(
+ "V_B" 7.500000e-01
+)
+
+"V_A=0.5,V_B=0.75,V_Cin=0/psf" "runObject" (
+(
+"../V_A=0.5,V_B=0.75,V_Cin=0/psf/logFile"
+"../V_A=0.5,V_B=0.75,V_Cin=0/psf/artistLogFile"
+)
+"V_A=0.5,V_B=0.75"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=0.5,V_B=0.75,V_Cin=0"
+ "V_Cin" 0.000000e+00
+)
+
+"V_A=0.5,V_B=0.75,V_Cin=0.25/psf" "runObject" (
+(
+"../V_A=0.5,V_B=0.75,V_Cin=0.25/psf/logFile"
+"../V_A=0.5,V_B=0.75,V_Cin=0.25/psf/artistLogFile"
+)
+"V_A=0.5,V_B=0.75"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=0.5,V_B=0.75,V_Cin=0.25"
+ "V_Cin" 2.500000e-01
+)
+
+"V_A=0.5,V_B=0.75,V_Cin=0.5/psf" "runObject" (
+(
+"../V_A=0.5,V_B=0.75,V_Cin=0.5/psf/logFile"
+"../V_A=0.5,V_B=0.75,V_Cin=0.5/psf/artistLogFile"
+)
+"V_A=0.5,V_B=0.75"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=0.5,V_B=0.75,V_Cin=0.5"
+ "V_Cin" 5.000000e-01
+)
+
+"V_A=0.5,V_B=0.75,V_Cin=0.75/psf" "runObject" (
+(
+"../V_A=0.5,V_B=0.75,V_Cin=0.75/psf/logFile"
+"../V_A=0.5,V_B=0.75,V_Cin=0.75/psf/artistLogFile"
+)
+"V_A=0.5,V_B=0.75"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=0.5,V_B=0.75,V_Cin=0.75"
+ "V_Cin" 7.500000e-01
+)
+
+"V_A=0.5,V_B=0.75,V_Cin=1/psf" "runObject" (
+(
+"../V_A=0.5,V_B=0.75,V_Cin=1/psf/logFile"
+"../V_A=0.5,V_B=0.75,V_Cin=1/psf/artistLogFile"
+)
+"V_A=0.5,V_B=0.75"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=0.5,V_B=0.75,V_Cin=1"
+ "V_Cin" 1.000000e+00
+)
+
+"V_A=0.5,V_B=1" "runObject" (
+("")
+"V_A=0.5"
+("V_Cin")
+) PROP(
+ "V_B" 1.000000e+00
+)
+
+"V_A=0.5,V_B=1,V_Cin=0/psf" "runObject" (
+(
+"../V_A=0.5,V_B=1,V_Cin=0/psf/logFile"
+"../V_A=0.5,V_B=1,V_Cin=0/psf/artistLogFile"
+)
+"V_A=0.5,V_B=1"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=0.5,V_B=1,V_Cin=0"
+ "V_Cin" 0.000000e+00
+)
+
+"V_A=0.5,V_B=1,V_Cin=0.25/psf" "runObject" (
+(
+"../V_A=0.5,V_B=1,V_Cin=0.25/psf/logFile"
+"../V_A=0.5,V_B=1,V_Cin=0.25/psf/artistLogFile"
+)
+"V_A=0.5,V_B=1"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=0.5,V_B=1,V_Cin=0.25"
+ "V_Cin" 2.500000e-01
+)
+
+"V_A=0.5,V_B=1,V_Cin=0.5/psf" "runObject" (
+(
+"../V_A=0.5,V_B=1,V_Cin=0.5/psf/logFile"
+"../V_A=0.5,V_B=1,V_Cin=0.5/psf/artistLogFile"
+)
+"V_A=0.5,V_B=1"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=0.5,V_B=1,V_Cin=0.5"
+ "V_Cin" 5.000000e-01
+)
+
+"V_A=0.5,V_B=1,V_Cin=0.75/psf" "runObject" (
+(
+"../V_A=0.5,V_B=1,V_Cin=0.75/psf/logFile"
+"../V_A=0.5,V_B=1,V_Cin=0.75/psf/artistLogFile"
+)
+"V_A=0.5,V_B=1"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=0.5,V_B=1,V_Cin=0.75"
+ "V_Cin" 7.500000e-01
+)
+
+"V_A=0.5,V_B=1,V_Cin=1/psf" "runObject" (
+(
+"../V_A=0.5,V_B=1,V_Cin=1/psf/logFile"
+"../V_A=0.5,V_B=1,V_Cin=1/psf/artistLogFile"
+)
+"V_A=0.5,V_B=1"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=0.5,V_B=1,V_Cin=1"
+ "V_Cin" 1.000000e+00
+)
+
+"V_A=0.75" "runObject" (
+("")
+"Root"
+("V_B")
+) PROP(
+ "V_A" 7.500000e-01
+)
+
+"V_A=0.75,V_B=0" "runObject" (
+("")
+"V_A=0.75"
+("V_Cin")
+) PROP(
+ "V_B" 0.000000e+00
+)
+
+"V_A=0.75,V_B=0,V_Cin=0/psf" "runObject" (
+(
+"../V_A=0.75,V_B=0,V_Cin=0/psf/logFile"
+"../V_A=0.75,V_B=0,V_Cin=0/psf/artistLogFile"
+)
+"V_A=0.75,V_B=0"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=0.75,V_B=0,V_Cin=0"
+ "V_Cin" 0.000000e+00
+)
+
+"V_A=0.75,V_B=0,V_Cin=0.25/psf" "runObject" (
+(
+"../V_A=0.75,V_B=0,V_Cin=0.25/psf/logFile"
+"../V_A=0.75,V_B=0,V_Cin=0.25/psf/artistLogFile"
+)
+"V_A=0.75,V_B=0"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=0.75,V_B=0,V_Cin=0.25"
+ "V_Cin" 2.500000e-01
+)
+
+"V_A=0.75,V_B=0,V_Cin=0.5/psf" "runObject" (
+(
+"../V_A=0.75,V_B=0,V_Cin=0.5/psf/logFile"
+"../V_A=0.75,V_B=0,V_Cin=0.5/psf/artistLogFile"
+)
+"V_A=0.75,V_B=0"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=0.75,V_B=0,V_Cin=0.5"
+ "V_Cin" 5.000000e-01
+)
+
+"V_A=0.75,V_B=0,V_Cin=0.75/psf" "runObject" (
+(
+"../V_A=0.75,V_B=0,V_Cin=0.75/psf/logFile"
+"../V_A=0.75,V_B=0,V_Cin=0.75/psf/artistLogFile"
+)
+"V_A=0.75,V_B=0"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=0.75,V_B=0,V_Cin=0.75"
+ "V_Cin" 7.500000e-01
+)
+
+"V_A=0.75,V_B=0,V_Cin=1/psf" "runObject" (
+(
+"../V_A=0.75,V_B=0,V_Cin=1/psf/logFile"
+"../V_A=0.75,V_B=0,V_Cin=1/psf/artistLogFile"
+)
+"V_A=0.75,V_B=0"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=0.75,V_B=0,V_Cin=1"
+ "V_Cin" 1.000000e+00
+)
+
+"V_A=0.75,V_B=0.25" "runObject" (
+("")
+"V_A=0.75"
+("V_Cin")
+) PROP(
+ "V_B" 2.500000e-01
+)
+
+"V_A=0.75,V_B=0.25,V_Cin=0/psf" "runObject" (
+(
+"../V_A=0.75,V_B=0.25,V_Cin=0/psf/logFile"
+"../V_A=0.75,V_B=0.25,V_Cin=0/psf/artistLogFile"
+)
+"V_A=0.75,V_B=0.25"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=0.75,V_B=0.25,V_Cin=0"
+ "V_Cin" 0.000000e+00
+)
+
+"V_A=0.75,V_B=0.25,V_Cin=0.25/psf" "runObject" (
+(
+"../V_A=0.75,V_B=0.25,V_Cin=0.25/psf/logFile"
+"../V_A=0.75,V_B=0.25,V_Cin=0.25/psf/artistLogFile"
+)
+"V_A=0.75,V_B=0.25"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=0.75,V_B=0.25,V_Cin=0.25"
+ "V_Cin" 2.500000e-01
+)
+
+"V_A=0.75,V_B=0.25,V_Cin=0.5/psf" "runObject" (
+(
+"../V_A=0.75,V_B=0.25,V_Cin=0.5/psf/logFile"
+"../V_A=0.75,V_B=0.25,V_Cin=0.5/psf/artistLogFile"
+)
+"V_A=0.75,V_B=0.25"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=0.75,V_B=0.25,V_Cin=0.5"
+ "V_Cin" 5.000000e-01
+)
+
+"V_A=0.75,V_B=0.25,V_Cin=0.75/psf" "runObject" (
+(
+"../V_A=0.75,V_B=0.25,V_Cin=0.75/psf/logFile"
+"../V_A=0.75,V_B=0.25,V_Cin=0.75/psf/artistLogFile"
+)
+"V_A=0.75,V_B=0.25"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=0.75,V_B=0.25,V_Cin=0.75"
+ "V_Cin" 7.500000e-01
+)
+
+"V_A=0.75,V_B=0.25,V_Cin=1/psf" "runObject" (
+(
+"../V_A=0.75,V_B=0.25,V_Cin=1/psf/logFile"
+"../V_A=0.75,V_B=0.25,V_Cin=1/psf/artistLogFile"
+)
+"V_A=0.75,V_B=0.25"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=0.75,V_B=0.25,V_Cin=1"
+ "V_Cin" 1.000000e+00
+)
+
+"V_A=0.75,V_B=0.5" "runObject" (
+("")
+"V_A=0.75"
+("V_Cin")
+) PROP(
+ "V_B" 5.000000e-01
+)
+
+"V_A=0.75,V_B=0.5,V_Cin=0/psf" "runObject" (
+(
+"../V_A=0.75,V_B=0.5,V_Cin=0/psf/logFile"
+"../V_A=0.75,V_B=0.5,V_Cin=0/psf/artistLogFile"
+)
+"V_A=0.75,V_B=0.5"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=0.75,V_B=0.5,V_Cin=0"
+ "V_Cin" 0.000000e+00
+)
+
+"V_A=0.75,V_B=0.5,V_Cin=0.25/psf" "runObject" (
+(
+"../V_A=0.75,V_B=0.5,V_Cin=0.25/psf/logFile"
+"../V_A=0.75,V_B=0.5,V_Cin=0.25/psf/artistLogFile"
+)
+"V_A=0.75,V_B=0.5"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=0.75,V_B=0.5,V_Cin=0.25"
+ "V_Cin" 2.500000e-01
+)
+
+"V_A=0.75,V_B=0.5,V_Cin=0.5/psf" "runObject" (
+(
+"../V_A=0.75,V_B=0.5,V_Cin=0.5/psf/logFile"
+"../V_A=0.75,V_B=0.5,V_Cin=0.5/psf/artistLogFile"
+)
+"V_A=0.75,V_B=0.5"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=0.75,V_B=0.5,V_Cin=0.5"
+ "V_Cin" 5.000000e-01
+)
+
+"V_A=0.75,V_B=0.5,V_Cin=0.75/psf" "runObject" (
+(
+"../V_A=0.75,V_B=0.5,V_Cin=0.75/psf/logFile"
+"../V_A=0.75,V_B=0.5,V_Cin=0.75/psf/artistLogFile"
+)
+"V_A=0.75,V_B=0.5"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=0.75,V_B=0.5,V_Cin=0.75"
+ "V_Cin" 7.500000e-01
+)
+
+"V_A=0.75,V_B=0.5,V_Cin=1/psf" "runObject" (
+(
+"../V_A=0.75,V_B=0.5,V_Cin=1/psf/logFile"
+"../V_A=0.75,V_B=0.5,V_Cin=1/psf/artistLogFile"
+)
+"V_A=0.75,V_B=0.5"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=0.75,V_B=0.5,V_Cin=1"
+ "V_Cin" 1.000000e+00
+)
+
+"V_A=0.75,V_B=0.75" "runObject" (
+("")
+"V_A=0.75"
+("V_Cin")
+) PROP(
+ "V_B" 7.500000e-01
+)
+
+"V_A=0.75,V_B=0.75,V_Cin=0/psf" "runObject" (
+(
+"../V_A=0.75,V_B=0.75,V_Cin=0/psf/logFile"
+"../V_A=0.75,V_B=0.75,V_Cin=0/psf/artistLogFile"
+)
+"V_A=0.75,V_B=0.75"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=0.75,V_B=0.75,V_Cin=0"
+ "V_Cin" 0.000000e+00
+)
+
+"V_A=0.75,V_B=0.75,V_Cin=0.25/psf" "runObject" (
+(
+"../V_A=0.75,V_B=0.75,V_Cin=0.25/psf/logFile"
+"../V_A=0.75,V_B=0.75,V_Cin=0.25/psf/artistLogFile"
+)
+"V_A=0.75,V_B=0.75"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=0.75,V_B=0.75,V_Cin=0.25"
+ "V_Cin" 2.500000e-01
+)
+
+"V_A=0.75,V_B=0.75,V_Cin=0.5/psf" "runObject" (
+(
+"../V_A=0.75,V_B=0.75,V_Cin=0.5/psf/logFile"
+"../V_A=0.75,V_B=0.75,V_Cin=0.5/psf/artistLogFile"
+)
+"V_A=0.75,V_B=0.75"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=0.75,V_B=0.75,V_Cin=0.5"
+ "V_Cin" 5.000000e-01
+)
+
+"V_A=0.75,V_B=0.75,V_Cin=0.75/psf" "runObject" (
+(
+"../V_A=0.75,V_B=0.75,V_Cin=0.75/psf/logFile"
+"../V_A=0.75,V_B=0.75,V_Cin=0.75/psf/artistLogFile"
+)
+"V_A=0.75,V_B=0.75"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=0.75,V_B=0.75,V_Cin=0.75"
+ "V_Cin" 7.500000e-01
+)
+
+"V_A=0.75,V_B=0.75,V_Cin=1/psf" "runObject" (
+(
+"../V_A=0.75,V_B=0.75,V_Cin=1/psf/logFile"
+"../V_A=0.75,V_B=0.75,V_Cin=1/psf/artistLogFile"
+)
+"V_A=0.75,V_B=0.75"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=0.75,V_B=0.75,V_Cin=1"
+ "V_Cin" 1.000000e+00
+)
+
+"V_A=0.75,V_B=1" "runObject" (
+("")
+"V_A=0.75"
+("V_Cin")
+) PROP(
+ "V_B" 1.000000e+00
+)
+
+"V_A=0.75,V_B=1,V_Cin=0/psf" "runObject" (
+(
+"../V_A=0.75,V_B=1,V_Cin=0/psf/logFile"
+"../V_A=0.75,V_B=1,V_Cin=0/psf/artistLogFile"
+)
+"V_A=0.75,V_B=1"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=0.75,V_B=1,V_Cin=0"
+ "V_Cin" 0.000000e+00
+)
+
+"V_A=0.75,V_B=1,V_Cin=0.25/psf" "runObject" (
+(
+"../V_A=0.75,V_B=1,V_Cin=0.25/psf/logFile"
+"../V_A=0.75,V_B=1,V_Cin=0.25/psf/artistLogFile"
+)
+"V_A=0.75,V_B=1"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=0.75,V_B=1,V_Cin=0.25"
+ "V_Cin" 2.500000e-01
+)
+
+"V_A=0.75,V_B=1,V_Cin=0.5/psf" "runObject" (
+(
+"../V_A=0.75,V_B=1,V_Cin=0.5/psf/logFile"
+"../V_A=0.75,V_B=1,V_Cin=0.5/psf/artistLogFile"
+)
+"V_A=0.75,V_B=1"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=0.75,V_B=1,V_Cin=0.5"
+ "V_Cin" 5.000000e-01
+)
+
+"V_A=0.75,V_B=1,V_Cin=0.75/psf" "runObject" (
+(
+"../V_A=0.75,V_B=1,V_Cin=0.75/psf/logFile"
+"../V_A=0.75,V_B=1,V_Cin=0.75/psf/artistLogFile"
+)
+"V_A=0.75,V_B=1"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=0.75,V_B=1,V_Cin=0.75"
+ "V_Cin" 7.500000e-01
+)
+
+"V_A=0.75,V_B=1,V_Cin=1/psf" "runObject" (
+(
+"../V_A=0.75,V_B=1,V_Cin=1/psf/logFile"
+"../V_A=0.75,V_B=1,V_Cin=1/psf/artistLogFile"
+)
+"V_A=0.75,V_B=1"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=0.75,V_B=1,V_Cin=1"
+ "V_Cin" 1.000000e+00
+)
+
+"V_A=1" "runObject" (
+("")
+"Root"
+("V_B")
+) PROP(
+ "V_A" 1.000000e+00
+)
+
+"V_A=1,V_B=0" "runObject" (
+("")
+"V_A=1"
+("V_Cin")
+) PROP(
+ "V_B" 0.000000e+00
+)
+
+"V_A=1,V_B=0,V_Cin=0/psf" "runObject" (
+(
+"../V_A=1,V_B=0,V_Cin=0/psf/logFile"
+"../V_A=1,V_B=0,V_Cin=0/psf/artistLogFile"
+)
+"V_A=1,V_B=0"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=1,V_B=0,V_Cin=0"
+ "V_Cin" 0.000000e+00
+)
+
+"V_A=1,V_B=0,V_Cin=0.25/psf" "runObject" (
+(
+"../V_A=1,V_B=0,V_Cin=0.25/psf/logFile"
+"../V_A=1,V_B=0,V_Cin=0.25/psf/artistLogFile"
+)
+"V_A=1,V_B=0"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=1,V_B=0,V_Cin=0.25"
+ "V_Cin" 2.500000e-01
+)
+
+"V_A=1,V_B=0,V_Cin=0.5/psf" "runObject" (
+(
+"../V_A=1,V_B=0,V_Cin=0.5/psf/logFile"
+"../V_A=1,V_B=0,V_Cin=0.5/psf/artistLogFile"
+)
+"V_A=1,V_B=0"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=1,V_B=0,V_Cin=0.5"
+ "V_Cin" 5.000000e-01
+)
+
+"V_A=1,V_B=0,V_Cin=0.75/psf" "runObject" (
+(
+"../V_A=1,V_B=0,V_Cin=0.75/psf/logFile"
+"../V_A=1,V_B=0,V_Cin=0.75/psf/artistLogFile"
+)
+"V_A=1,V_B=0"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=1,V_B=0,V_Cin=0.75"
+ "V_Cin" 7.500000e-01
+)
+
+"V_A=1,V_B=0,V_Cin=1/psf" "runObject" (
+(
+"../V_A=1,V_B=0,V_Cin=1/psf/logFile"
+"../V_A=1,V_B=0,V_Cin=1/psf/artistLogFile"
+)
+"V_A=1,V_B=0"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=1,V_B=0,V_Cin=1"
+ "V_Cin" 1.000000e+00
+)
+
+"V_A=1,V_B=0.25" "runObject" (
+("")
+"V_A=1"
+("V_Cin")
+) PROP(
+ "V_B" 2.500000e-01
+)
+
+"V_A=1,V_B=0.25,V_Cin=0/psf" "runObject" (
+(
+"../V_A=1,V_B=0.25,V_Cin=0/psf/logFile"
+"../V_A=1,V_B=0.25,V_Cin=0/psf/artistLogFile"
+)
+"V_A=1,V_B=0.25"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=1,V_B=0.25,V_Cin=0"
+ "V_Cin" 0.000000e+00
+)
+
+"V_A=1,V_B=0.25,V_Cin=0.25/psf" "runObject" (
+(
+"../V_A=1,V_B=0.25,V_Cin=0.25/psf/logFile"
+"../V_A=1,V_B=0.25,V_Cin=0.25/psf/artistLogFile"
+)
+"V_A=1,V_B=0.25"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=1,V_B=0.25,V_Cin=0.25"
+ "V_Cin" 2.500000e-01
+)
+
+"V_A=1,V_B=0.25,V_Cin=0.5/psf" "runObject" (
+(
+"../V_A=1,V_B=0.25,V_Cin=0.5/psf/logFile"
+"../V_A=1,V_B=0.25,V_Cin=0.5/psf/artistLogFile"
+)
+"V_A=1,V_B=0.25"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=1,V_B=0.25,V_Cin=0.5"
+ "V_Cin" 5.000000e-01
+)
+
+"V_A=1,V_B=0.25,V_Cin=0.75/psf" "runObject" (
+(
+"../V_A=1,V_B=0.25,V_Cin=0.75/psf/logFile"
+"../V_A=1,V_B=0.25,V_Cin=0.75/psf/artistLogFile"
+)
+"V_A=1,V_B=0.25"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=1,V_B=0.25,V_Cin=0.75"
+ "V_Cin" 7.500000e-01
+)
+
+"V_A=1,V_B=0.25,V_Cin=1/psf" "runObject" (
+(
+"../V_A=1,V_B=0.25,V_Cin=1/psf/logFile"
+"../V_A=1,V_B=0.25,V_Cin=1/psf/artistLogFile"
+)
+"V_A=1,V_B=0.25"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=1,V_B=0.25,V_Cin=1"
+ "V_Cin" 1.000000e+00
+)
+
+"V_A=1,V_B=0.5" "runObject" (
+("")
+"V_A=1"
+("V_Cin")
+) PROP(
+ "V_B" 5.000000e-01
+)
+
+"V_A=1,V_B=0.5,V_Cin=0/psf" "runObject" (
+(
+"../V_A=1,V_B=0.5,V_Cin=0/psf/logFile"
+"../V_A=1,V_B=0.5,V_Cin=0/psf/artistLogFile"
+)
+"V_A=1,V_B=0.5"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=1,V_B=0.5,V_Cin=0"
+ "V_Cin" 0.000000e+00
+)
+
+"V_A=1,V_B=0.5,V_Cin=0.25/psf" "runObject" (
+(
+"../V_A=1,V_B=0.5,V_Cin=0.25/psf/logFile"
+"../V_A=1,V_B=0.5,V_Cin=0.25/psf/artistLogFile"
+)
+"V_A=1,V_B=0.5"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=1,V_B=0.5,V_Cin=0.25"
+ "V_Cin" 2.500000e-01
+)
+
+"V_A=1,V_B=0.5,V_Cin=0.5/psf" "runObject" (
+(
+"../V_A=1,V_B=0.5,V_Cin=0.5/psf/logFile"
+"../V_A=1,V_B=0.5,V_Cin=0.5/psf/artistLogFile"
+)
+"V_A=1,V_B=0.5"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=1,V_B=0.5,V_Cin=0.5"
+ "V_Cin" 5.000000e-01
+)
+
+"V_A=1,V_B=0.5,V_Cin=0.75/psf" "runObject" (
+(
+"../V_A=1,V_B=0.5,V_Cin=0.75/psf/logFile"
+"../V_A=1,V_B=0.5,V_Cin=0.75/psf/artistLogFile"
+)
+"V_A=1,V_B=0.5"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=1,V_B=0.5,V_Cin=0.75"
+ "V_Cin" 7.500000e-01
+)
+
+"V_A=1,V_B=0.5,V_Cin=1/psf" "runObject" (
+(
+"../V_A=1,V_B=0.5,V_Cin=1/psf/logFile"
+"../V_A=1,V_B=0.5,V_Cin=1/psf/artistLogFile"
+)
+"V_A=1,V_B=0.5"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=1,V_B=0.5,V_Cin=1"
+ "V_Cin" 1.000000e+00
+)
+
+"V_A=1,V_B=0.75" "runObject" (
+("")
+"V_A=1"
+("V_Cin")
+) PROP(
+ "V_B" 7.500000e-01
+)
+
+"V_A=1,V_B=0.75,V_Cin=0/psf" "runObject" (
+(
+"../V_A=1,V_B=0.75,V_Cin=0/psf/logFile"
+"../V_A=1,V_B=0.75,V_Cin=0/psf/artistLogFile"
+)
+"V_A=1,V_B=0.75"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=1,V_B=0.75,V_Cin=0"
+ "V_Cin" 0.000000e+00
+)
+
+"V_A=1,V_B=0.75,V_Cin=0.25/psf" "runObject" (
+(
+"../V_A=1,V_B=0.75,V_Cin=0.25/psf/logFile"
+"../V_A=1,V_B=0.75,V_Cin=0.25/psf/artistLogFile"
+)
+"V_A=1,V_B=0.75"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=1,V_B=0.75,V_Cin=0.25"
+ "V_Cin" 2.500000e-01
+)
+
+"V_A=1,V_B=0.75,V_Cin=0.5/psf" "runObject" (
+(
+"../V_A=1,V_B=0.75,V_Cin=0.5/psf/logFile"
+"../V_A=1,V_B=0.75,V_Cin=0.5/psf/artistLogFile"
+)
+"V_A=1,V_B=0.75"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=1,V_B=0.75,V_Cin=0.5"
+ "V_Cin" 5.000000e-01
+)
+
+"V_A=1,V_B=0.75,V_Cin=0.75/psf" "runObject" (
+(
+"../V_A=1,V_B=0.75,V_Cin=0.75/psf/logFile"
+"../V_A=1,V_B=0.75,V_Cin=0.75/psf/artistLogFile"
+)
+"V_A=1,V_B=0.75"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=1,V_B=0.75,V_Cin=0.75"
+ "V_Cin" 7.500000e-01
+)
+
+"V_A=1,V_B=0.75,V_Cin=1/psf" "runObject" (
+(
+"../V_A=1,V_B=0.75,V_Cin=1/psf/logFile"
+"../V_A=1,V_B=0.75,V_Cin=1/psf/artistLogFile"
+)
+"V_A=1,V_B=0.75"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=1,V_B=0.75,V_Cin=1"
+ "V_Cin" 1.000000e+00
+)
+
+"V_A=1,V_B=1" "runObject" (
+("")
+"V_A=1"
+("V_Cin")
+) PROP(
+ "V_B" 1.000000e+00
+)
+
+"V_A=1,V_B=1,V_Cin=0/psf" "runObject" (
+(
+"../V_A=1,V_B=1,V_Cin=0/psf/logFile"
+"../V_A=1,V_B=1,V_Cin=0/psf/artistLogFile"
+)
+"V_A=1,V_B=1"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=1,V_B=1,V_Cin=0"
+ "V_Cin" 0.000000e+00
+)
+
+"V_A=1,V_B=1,V_Cin=0.25/psf" "runObject" (
+(
+"../V_A=1,V_B=1,V_Cin=0.25/psf/logFile"
+"../V_A=1,V_B=1,V_Cin=0.25/psf/artistLogFile"
+)
+"V_A=1,V_B=1"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=1,V_B=1,V_Cin=0.25"
+ "V_Cin" 2.500000e-01
+)
+
+"V_A=1,V_B=1,V_Cin=0.5/psf" "runObject" (
+(
+"../V_A=1,V_B=1,V_Cin=0.5/psf/logFile"
+"../V_A=1,V_B=1,V_Cin=0.5/psf/artistLogFile"
+)
+"V_A=1,V_B=1"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=1,V_B=1,V_Cin=0.5"
+ "V_Cin" 5.000000e-01
+)
+
+"V_A=1,V_B=1,V_Cin=0.75/psf" "runObject" (
+(
+"../V_A=1,V_B=1,V_Cin=0.75/psf/logFile"
+"../V_A=1,V_B=1,V_Cin=0.75/psf/artistLogFile"
+)
+"V_A=1,V_B=1"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=1,V_B=1,V_Cin=0.75"
+ "V_Cin" 7.500000e-01
+)
+
+"V_A=1,V_B=1,V_Cin=1/psf" "runObject" (
+(
+"../V_A=1,V_B=1,V_Cin=1/psf/logFile"
+"../V_A=1,V_B=1,V_Cin=1/psf/artistLogFile"
+)
+"V_A=1,V_B=1"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../V_A=1,V_B=1,V_Cin=1"
+ "V_Cin" 1.000000e+00
+)
+
+END

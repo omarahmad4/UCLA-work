@@ -1,0 +1,13 @@
+Omar Ahmad 		ID: 804801272
+
+Answer: 12
+
+
+
+struct A{
+	char a;						//1-2 	->  3-8 empty for alignment as if b was a long 
+	char _Alignas (8) b;		//9-10	->  size of b still 2 (i hope)
+	char c;		};				//11-12
+
+sizeof(struct A) = 12
+

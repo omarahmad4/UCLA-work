@@ -1,0 +1,136 @@
+HEADER
+"PSFversion" "1.00"
+"simulator" "spectre"
+"version" "16.1.0.479.isr9"
+"date" "1:10:00 PM, Fri Mar 6, 2020"
+"design" "// Generated for: spectre"
+"analysis type" "info.subckts"
+"analysis name" "subckts"
+"analysis description" "Circuit Information"
+"xVecSorted" "unknown"
+"tolerance.relative" 0.00100000
+TYPE
+"subckt" STRUCT(
+"subckt_params" STRING *
+"subckt_terminals" STRING *
+"subckt_instances" STRING *
+) PROP(
+"key" "sub"
+)
+VALUE
+"gpdk090_ndio_na" "subckt" (
+""
+""
+""
+)
+"resnsnpoly" "subckt" (
+""
+""
+""
+)
+"ressppoly" "subckt" (
+""
+""
+""
+)
+"gpdk090_ndio" "subckt" (
+""
+""
+""
+)
+"resnsppoly" "subckt" (
+""
+""
+""
+)
+"resnwsti" "subckt" (
+""
+""
+""
+)
+"gpdk090_pdio_hvt" "subckt" (
+""
+""
+""
+)
+"gpdk090_ndio_na25" "subckt" (
+""
+""
+""
+)
+"gpdk090_ndio_25" "subckt" (
+""
+""
+""
+)
+"gpdk090_nwdio" "subckt" (
+""
+""
+""
+)
+"ressnpoly" "subckt" (
+""
+""
+""
+)
+"resnwoxide" "subckt" (
+""
+""
+""
+)
+"gpdk090_pdio" "subckt" (
+""
+""
+""
+)
+"AND2X1" "subckt" (
+""
+"A B Y inh_VDD inh_VSS"
+"I7 I8"
+)
+"INVX1" "subckt" (
+""
+"A Y inh_VDD inh_VSS"
+"I0 I1"
+)
+"gpdk090_ndio_hvt" "subckt" (
+""
+""
+""
+)
+"gpdk090_nmos1v_iso" "subckt" (
+""
+""
+""
+)
+"resnspdiff" "subckt" (
+""
+""
+""
+)
+"ressndiff" "subckt" (
+""
+""
+""
+)
+"gpdk090_resnsndiff" "subckt" (
+""
+""
+""
+)
+"NOR2X1" "subckt" (
+""
+"A B Y inh_VDD inh_VSS"
+"I14"
+)
+"gpdk090_pdio_25" "subckt" (
+""
+""
+""
+)
+"resspdiff" "subckt" (
+""
+""
+""
+)
+END

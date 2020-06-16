@@ -1,0 +1,128 @@
+
+// Library name: gsclib090
+// Cell name: NAND2X1
+// View name: schematic
+subckt NAND2X1 A B Y inh_VDD inh_VSS
+    mp1 (Y B inh_VDD inh_VDD) gpdk090_pmos1v w=(650n) l=100n as=182f \
+        ad=182f ps=1.21u pd=1.21u m=(1)*(1) simM=(1)*(1)
+    mp0 (Y A inh_VDD inh_VDD) gpdk090_pmos1v w=(650n) l=100n as=182f \
+        ad=182f ps=1.21u pd=1.21u m=(1)*(1) simM=(1)*(1)
+    mn1 (Y B n0 inh_VSS) gpdk090_nmos1v w=(430n) l=100n as=120.4f \
+        ad=120.4f ps=990n pd=990n m=(1)*(1) simM=(1)*(1)
+    mn0 (n0 A inh_VSS inh_VSS) gpdk090_nmos1v w=(430n) l=100n as=120.4f \
+        ad=120.4f ps=990n pd=990n m=(1)*(1) simM=(1)*(1)
+ends NAND2X1
+// End of subcircuit definition.
+
+// Library name: gsclib090
+// Cell name: INVX1
+// View name: schematic
+subckt INVX1 A Y inh_VDD inh_VSS
+    mp0 (Y A inh_VDD inh_VDD) gpdk090_pmos1v w=(650n) l=100n as=182f \
+        ad=182f ps=1.21u pd=1.21u m=(1)*(1) simM=(1)*(1)
+    mn0 (Y A inh_VSS inh_VSS) gpdk090_nmos1v w=(430n) l=100n as=120.4f \
+        ad=120.4f ps=990n pd=990n m=(1)*(1) simM=(1)*(1)
+ends INVX1
+// End of subcircuit definition.
+
+// Library name: gsclib090
+// Cell name: NOR2X1
+// View name: schematic
+subckt NOR2X1 A B Y inh_VDD inh_VSS
+    mp1 (Y B net41 inh_VDD) gpdk090_pmos1v w=(650n) l=100n as=182f ad=182f \
+        ps=1.21u pd=1.21u m=(1)*(1) simM=(1)*(1)
+    mp0 (net41 A inh_VDD inh_VDD) gpdk090_pmos1v w=(650n) l=100n as=182f \
+        ad=182f ps=1.21u pd=1.21u m=(1)*(1) simM=(1)*(1)
+    mn1 (Y B inh_VSS inh_VSS) gpdk090_nmos1v w=(430n) l=100n as=120.4f \
+        ad=120.4f ps=990n pd=990n m=(1)*(1) simM=(1)*(1)
+    mn0 (Y A inh_VSS inh_VSS) gpdk090_nmos1v w=(430n) l=100n as=120.4f \
+        ad=120.4f ps=990n pd=990n m=(1)*(1) simM=(1)*(1)
+ends NOR2X1
+// End of subcircuit definition.
+
+// Library name: gsclib090
+// Cell name: NAND3X1
+// View name: schematic
+subckt NAND3X1 A B C Y inh_VDD inh_VSS
+    mp0 (Y A inh_VDD inh_VDD) gpdk090_pmos1v w=(650n) l=100n as=182f \
+        ad=182f ps=1.21u pd=1.21u m=(1)*(1) simM=(1)*(1)
+    mp1 (Y B inh_VDD inh_VDD) gpdk090_pmos1v w=(650n) l=100n as=182f \
+        ad=182f ps=1.21u pd=1.21u m=(1)*(1) simM=(1)*(1)
+    mp2 (Y C inh_VDD inh_VDD) gpdk090_pmos1v w=(650n) l=100n as=182f \
+        ad=182f ps=1.21u pd=1.21u m=(1)*(1) simM=(1)*(1)
+    mn1 (n0 B n1 inh_VSS) gpdk090_nmos1v w=(430n) l=100n as=120.4f \
+        ad=120.4f ps=990n pd=990n m=(1)*(1) simM=(1)*(1)
+    mn2 (Y C n0 inh_VSS) gpdk090_nmos1v w=(430n) l=100n as=120.4f \
+        ad=120.4f ps=990n pd=990n m=(1)*(1) simM=(1)*(1)
+    mn0 (n1 A inh_VSS inh_VSS) gpdk090_nmos1v w=(430n) l=100n as=120.4f \
+        ad=120.4f ps=990n pd=990n m=(1)*(1) simM=(1)*(1)
+ends NAND3X1
+// End of subcircuit definition.
+
+// Library name: gsclib090
+// Cell name: NAND4X1
+// View name: schematic
+subckt NAND4X1 A B C D Y inh_VDD inh_VSS
+    mp3 (Y D inh_VDD inh_VDD) gpdk090_pmos1v w=(650n) l=100n as=182f \
+        ad=182f ps=1.21u pd=1.21u m=(1)*(1) simM=(1)*(1)
+    mp2 (Y C inh_VDD inh_VDD) gpdk090_pmos1v w=(650n) l=100n as=182f \
+        ad=182f ps=1.21u pd=1.21u m=(1)*(1) simM=(1)*(1)
+    mp1 (Y B inh_VDD inh_VDD) gpdk090_pmos1v w=(650n) l=100n as=182f \
+        ad=182f ps=1.21u pd=1.21u m=(1)*(1) simM=(1)*(1)
+    mp0 (Y A inh_VDD inh_VDD) gpdk090_pmos1v w=(650n) l=100n as=182f \
+        ad=182f ps=1.21u pd=1.21u m=(1)*(1) simM=(1)*(1)
+    mn1 (n1 B n2 inh_VSS) gpdk090_nmos1v w=(430n) l=100n as=120.4f \
+        ad=120.4f ps=990n pd=990n m=(1)*(1) simM=(1)*(1)
+    mn3 (Y D n0 inh_VSS) gpdk090_nmos1v w=(430n) l=100n as=120.4f \
+        ad=120.4f ps=990n pd=990n m=(1)*(1) simM=(1)*(1)
+    mn2 (n0 C n1 inh_VSS) gpdk090_nmos1v w=(430n) l=100n as=120.4f \
+        ad=120.4f ps=990n pd=990n m=(1)*(1) simM=(1)*(1)
+    mn0 (n2 A inh_VSS inh_VSS) gpdk090_nmos1v w=(430n) l=100n as=120.4f \
+        ad=120.4f ps=990n pd=990n m=(1)*(1) simM=(1)*(1)
+ends NAND4X1
+// End of subcircuit definition.
+
+// Library name: Proj
+// Cell name: NAND5
+// View name: schematic
+subckt NAND5 A B C D E Y inh_VDD inh_VSS
+    I0 (A B C net8 inh_VDD inh_VSS) NAND3X1
+    I1 (D E net7 inh_VDD inh_VSS) NAND2X1
+    I2 (net8 net7 Y inh_VDD inh_VSS) NOR2X1
+ends NAND5
+// End of subcircuit definition.
+
+// Library name: Proj
+// Cell name: comparator
+// View name: schematic
+I34 (net56 net48 net034 VDD! VSS!) NAND2X1
+I20 (net21 net31 net43 VDD! VSS!) NAND2X1
+I19 (net41 net43 net53 VDD! VSS!) NAND2X1
+I18 (A1 B1 net41 VDD! VSS!) NAND2X1
+I17 (A2 B2 net46 VDD! VSS!) NAND2X1
+I16 (net46 net44 net54 VDD! VSS!) NAND2X1
+I15 (net22 net32 net44 VDD! VSS!) NAND2X1
+I8 (net23 net33 net49 VDD! VSS!) NAND2X1
+I7 (net47 net49 net55 VDD! VSS!) NAND2X1
+I6 (A3 B3 net47 VDD! VSS!) NAND2X1
+I2 (net24 net34 net51 VDD! VSS!) NAND2X1
+I1 (net52 net51 net56 VDD! VSS!) NAND2X1
+I0 (A4 B4 net52 VDD! VSS!) NAND2X1
+I26 (A0 net30 VDD! VSS!) INVX1
+I22 (B1 net31 VDD! VSS!) INVX1
+I21 (A1 net21 VDD! VSS!) INVX1
+I14 (A2 net22 VDD! VSS!) INVX1
+I13 (B2 net32 VDD! VSS!) INVX1
+I10 (B3 net33 VDD! VSS!) INVX1
+I9 (A3 net23 VDD! VSS!) INVX1
+I4 (B4 net34 VDD! VSS!) INVX1
+I3 (A4 net24 VDD! VSS!) INVX1
+I24 (net30 B0 net40 VDD! VSS!) NOR2X1
+I23 (net21 B1 net42 VDD! VSS!) NOR2X1
+I12 (net22 B2 net45 VDD! VSS!) NOR2X1
+I11 (net23 B3 net48 VDD! VSS!) NOR2X1
+I5 (net24 B4 net50 VDD! VSS!) NOR2X1
+I30 (net56 net55 net45 net035 VDD! VSS!) NAND3X1
+I31 (net56 net55 net55 net42 net036 VDD! VSS!) NAND4X1
+I35 (net50 net034 net035 net036 net038 Out VDD! VSS!) NAND5
+I33 (net56 net55 net54 net53 net40 net038 VDD! VSS!) NAND5

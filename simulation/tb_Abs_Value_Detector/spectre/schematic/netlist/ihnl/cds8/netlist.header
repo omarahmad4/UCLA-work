@@ -1,0 +1,5 @@
+
+// Library name: gsclib090
+// Cell name: OR2X1
+// View name: schematic
+subckt OR2X1 A B Y inh_VDD inh_VSS

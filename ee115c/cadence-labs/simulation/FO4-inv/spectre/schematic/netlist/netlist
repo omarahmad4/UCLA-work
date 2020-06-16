@@ -1,0 +1,35 @@
+
+// Library name: ee115c
+// Cell name: INVX1
+// View name: schematic
+subckt INVX1 A GND VDD Z
+    NM0 (Z A GND GND) gpdk090_nmos1v w=(240n) l=100n as=67.2f ad=67.2f \
+        ps=1.04u pd=1.04u m=(1)*(1) simM=(1)*(1)
+    PM0 (Z A VDD VDD) gpdk090_pmos1v w=(480n) l=100n as=134.4f ad=134.4f \
+        ps=1.52u pd=1.52u m=(1)*(1) simM=(1)*(1)
+ends INVX1
+// End of subcircuit definition.
+
+// Library name: ee115c
+// Cell name: FO4_inv_stage
+// View name: schematic
+subckt FO4_inv_stage A GND VDD VGOLD Z
+    I3 (A GND VGOLD net24) INVX1
+    I2 (A GND VGOLD net22) INVX1
+    I1 (A GND VGOLD net20) INVX1
+    I0 (A GND VDD Z) INVX1
+    C2 (net24 GND) capacitor c=100f
+    C1 (net22 GND) capacitor c=100f
+    C0 (net20 GND) capacitor c=100f
+ends FO4_inv_stage
+// End of subcircuit definition.
+
+// Library name: ee115c
+// Cell name: FO4-inv
+// View name: schematic
+V0 (net5 0) vsource type=pulse val0=0 val1=VD period=400p delay=100p \
+        rise=10p fall=10p width=200p
+C0 (net4 0) capacitor c=100f
+I6 (out 0 vdd! vddd! net4) FO4_inv_stage
+I5 (in 0 vdd! vddd! out) FO4_inv_stage
+I4 (net5 0 vdd! vddd! in) FO4_inv_stage

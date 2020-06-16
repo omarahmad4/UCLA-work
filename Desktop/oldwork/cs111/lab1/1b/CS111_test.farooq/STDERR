@@ -1,0 +1,2 @@
+... waitpid returns 13225, status=0
+./lab1b-client EXIT SIGNAL=0, STATUS=0

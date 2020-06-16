@@ -1,0 +1,9 @@
+HEADER
+"PSFversion" "1.00"
+"I3n I2n I1n I0n" "INVX1"
+"C2n C1n C0n" "analogLib_cap_spectre"
+"Av" ":1v"
+"GNDv" ":2v"
+"VDDv" ":3v"
+"VGOLDv" ":4v"
+"Zv" ":5v"

@@ -1,0 +1,178 @@
+Omar Ahmad UID:804801272
+log of lab2
+- opened another putty window to do lab
+- used command export LC_ALL='C' to fix locale
+- went to usr/share/dict to get file words - cannot copy it - permission denie
+
+- went to home and then used cp /usr/share/dict/words ./ to move to that dir a
+d renamed to mywords
+- used wget https://web.cs.ucla.edu/classes/winter19/cs35L/assign/assign2.html
+to get the html of the page
+- typed tr -c 'A-Za-z' '[\n*]' < assign2.html
+  - ouputted only the letters of the html because the -c tag is the complement
+of set1 which is all letters so then any character not a letter is replaced wi
+h a newline
+- tr -cs 'A-Za-z' '[\n*]' < assign2.html
+  - ouputted the same as the prev but with only one new line between each stri
+g - because of the s flag which says replace repeating objects from set1 with 
+nly 1 occurence
+- tr -cs 'A-Za-z' '[\n*]' < assign2.html | sort
+  - outputted the previous list but with the words sorted - because sent outpu
+ to sort
+- tr -cs 'A-Za-z' '[\n*]' < assign2.html | sort -u
+  - ouputted previous list but with duplicates removed because -u tag removes 
+uplicates
+-  tr -cs 'A-Za-z' '[\n*]' < assign2.html | sort -u | comm - words
+  - outputted 3 columns displaying the words only from assign2, only from word
+, and the words in common in the third column
+- tr -cs 'A-Za-z' '[\n*]' < assign2.html | sort -u | comm -23 - words
+  - outputted only the 1st column from the last list - the words only in the h
+ml and not in words because -23 supresses the 2nd and 3rd columns
+
+- wget http://mauimapp.com/moolelo/hwnwdseng.htm
+  - downloaded the htm file containing hawaiian words and renamed to hiwords.h
+m
+-TODO LIST:  
+- sed 1st
+- then trace
+- then remove <u> 
+- sed: sed "s/[regexp]/[repl. text]/g"
+g - global - replaces all instances
+<td><\td>  -  td *td -> will give all hwords and ewords
+-r if using ERE
+dont try to replace newlines
+<a value=2><\a>
+<name value="xyx">
+
+<tr>
+	<td>....<\td>
+<tr>
+
+find and grep
+
+find [directory name] -exec (grep)?
+do man find and look up exec in that
+
+ascii a subset of utf8
+have to find utf8 which are not ascii
+
+- back 1/18
+- From Piazza:
+  -  First, while it should accept the html file, it should take the html file
+in as stdin. Your script should not have the html file hardcoded inside it. An
+ second, make sure the list of words in hwords is sorted!
+  - Yes, the shell script should take input from stdin, in the form of the htm
+, and extract the Hawaiian words, excluding english words and html tags, then 
+ormat them according to the specifications in the assignment spec, and output 
+he list of sorted Hawaiian words to stdout.
+  - I would recommend taking advantage of the fact that you will expect to fin
+ <td>English word</td> and <td>Hawaiian word</td> alternating in the html
+  - 
+
+- back 1/20
+- notice in hiwords dont need any stuff inside of <> - gonna try to remove the
+
+- wrote simple script to test and play around with
+- 
+- trying to play w grep to figure it out - did 'grep -E back words' on word li
+t
+- 
+
+back 1/22
+grep 'REGX' hiwords | sed 's/REGX/REPL/g' | sed  'REGX' | sed | sed.. | tr upp
+r to lower | grep to get rid of engl. words
+
+- did grep '<td>.*</td>' to get all lines w any or no words
+- gonna pipeline the result into sed again and again slowly removing all non h
+waiian words
+- added sed 's/<td>//g' | sed 's/<\/td>//g' - gets rid of most comments
+- added sed 's/<.*>//g' - didn't work - doesn't work - have to remove all manu
+lly
+- sorted and compared with the original output to make sure didn't remove anyt
+ing on accident
+- added sed 's/(.*)//g' to get rid of all parentheticals
+- -v tag on grep to do 'NOT'
+- current progress: grep '<td>.*</td>' HI | sed 's/<td>//g' | sed 's/<\/td>//g
+ | sed 's/<.>//g' | sed 's/<..>//g' | sed 's/(.*)//g'
+- added tr [[:upper:]] [[:lower:]] to turn all uppercase into lowercase
+- /x27 - for hawaiian apostrophe
+- current progress: grep '<td>.*</td>' HI | sed 's/<td>//g' | sed 's/<\/td>//g
+ | sed 's/<.>//g' | sed 's/<..>//g' | sed 's/(.*)//g' | tr [[:upper:]] [[:lowe
+:]]
+- added sed 's/, /\n/g' to turn commas followed by spaces into newlines
+- added grep -v [bcdfghjqrstvwyz] - to get rid of all lines w any english lett
+rs
+- added 4 instances of sed 's/^ //g' to get rif of leading spaces
+curr sol: grep '<td>.*</td>' HI | sed 's/<td>//g' | sed 's/<\/td>//g' | sed 's
+<.>//g' | sed 's/<..>//g' | sed 's/(.*)//g' | tr [[:upper:]] [[:lower:]] | sed
+'s/, /\n/g' | grep -v [bcdfghjqrstvxyz] | sort -u | sed 's/^ //g' | sed 's/^ /
+g' | sed 's/^ //g' | sed 's/^ //g' | sed 's/^ //g'
+- sort abnd remove tabs indents
+- use comm -23 words
+final sol:  grep '<td>.*</td>' hiwords.htm | sed 's/<td>//g' | sed 's/<\/td>//
+' | sed 's/<.>//g' | sed 's/<..>//g' | sed 's/(.*)//g' | tr [[:upper:]] [[:low
+r:]] | sed 's/, /\n/g' | grep -v [bcdfghjqrstvxyz] | sort -u | sed 's/^ //g' |
+sed 's/^ //g' | sed 's/^ //g' | sed 's/^ //g' | sed 's/^ //g' | comm -23 - sor
+edwords
+
+back 1/24:
+final script:
+set -x
+a=$1
+grep '<td>.*</td>' $a | sed 's/<td>//g' | sed 's/<\/td>//g' | sed 's/<.>//g' |
+sed 's/<..>//g' | sed 's/(.*)//g' | tr [[:upper:]] [[:lower:]] | sed 's/, /\n/
+' | grep -v [bcdfghjqrstvxyz] | sort -u | sed 's/^ //g' | sed 's/^ //g' | sed 
+s/^ //g' | sed 's/^ //g' | sed 's/^ //g' | comm -23 - words
+
+- ran with the command in the spec and works - no bugs i know of
+- ran script and outputted to hwords
+- hwords word count is 115
+- hawaiian spell checker:
+tr -cs 'A-Za-z' '[\n*]' < assign2.html | tr [[:upper:]] [[:lower:]] | sort -u 
+ comm -23 - hwords
+- what, when. where - english words "misspelled" as hawaiian
+
+
+HOMEWORK:
+- locale resets every time
+- playing around w scripts - declared NumArgs and tried an if statement
+- fg command to resume old process
+- did for loop in script
+- current script:
+File Edit Options Buffers Tools Sh-Script Help
+#!/bin/sh
+NumArgs=$#
+
+count=0
+for var in "$@"
+do
+    printf "var#: %d = %s\n" $count $var
+    (( count=count+1 ))
+
+    if [ -f $var ];
+    then
+        echo "file"
+    elif [ -d $var ];
+    then
+        echo "directory"
+    fi
+
+done
+- just read that no need to log hw process so so long buddy :)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

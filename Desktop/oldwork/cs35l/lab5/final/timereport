@@ -1,0 +1,73 @@
+testing sfrob vs sfrobu
+
+5x5 = 5 lines of "a b c d e "
+- sfrob:
+real    0m0.005s
+user    0m0.000s
+sys     0m0.003s
+
+- sfrobu:
+real    0m0.003s
+user    0m0.000s
+sys     0m0.003s
+
+5x20 = 20 lines of "a b c d e "
+- sfrob:
+real    0m0.031s
+user    0m0.000s
+sys     0m0.002s
+
+- sfrobu:
+real    0m0.004s
+user    0m0.001s
+sys     0m0.001s
+
+5x100 = 100 lines of "a b c d e "
+- sfrob:
+real    0m0.011s
+user    0m0.002s
+sys     0m0.002s
+
+- sfrobu:
+real    0m0.007s
+user    0m0.002s
+sys     0m0.003s
+
+- estimate for # of comps per input line(n):
+sfrob: 500
+sfrobu: 500? - dinn't really understand the question
+
+
+-testing all
+bigfile = 5000000 bytes random
+- sfrob
+real    0m3.919s 
+user    0m0.455s
+sys     0m0.027s
+
+
+- sfrobu
+real    0m10.281s
+user    0m1.318s
+sys     0m8.883s
+
+- sfrobu -f
+real    0m9.770s
+user    0m1.346s
+sys     0m8.416s
+
+- sfrobs 
+real    0m2.180s
+user    0m0.086s
+sys     0m0.083s
+
+- sfrobs -f
+real    0m2.260s
+user    0m0.071s
+sys     0m0.097s
+
+- conclusions:
+
+-f flag has very little effect
+sfrobu by far the slowest as expected becuase it uses unbuffered
+surprisingly (to me) sfrobs was even faster than sfrob

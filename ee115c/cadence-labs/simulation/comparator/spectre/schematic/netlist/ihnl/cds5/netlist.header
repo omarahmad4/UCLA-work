@@ -1,0 +1,5 @@
+
+// Library name: Proj
+// Cell name: NAND5
+// View name: schematic
+subckt NAND5 A B C D E Y inh_VDD inh_VSS

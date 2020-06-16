@@ -1,0 +1,14 @@
+testing sfrob vs sfrobu
+
+- time cat bigfile | ./sfrob
+  real    0m3.919s 
+  user    0m0.455s
+  sys     0m0.027s
+
+
+- time cat bifile | ./sfrobu
+  real    0m10.281s
+  user    0m1.318s
+  sys     0m8.883s
+
+

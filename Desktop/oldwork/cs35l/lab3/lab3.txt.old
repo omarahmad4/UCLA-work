@@ -1,0 +1,142 @@
+log for lab3 - omar ahmad
+1/29:
+ls -a vs la -A - a overrides A -
+-a, --all  do not ignore entries starting with .
+-A, --almost-all  do not list implied . and ..
+-did step one and ran gpg --verify --keyring ./gnu-keyring.gpg coreutils-8.29.tar.xz.sig command which outputted:
+1. gpg coreutils-8.29.tar.xz.sig
+gpg: Signature made Wed 27 Dec 2017 10:29:05 AM PST using RSA key ID 306037D9
+gpg: /u/ee/ugrad/farooq/.gnupg/trustdb.gpg: trustdb created
+gpg: Good signature from "Pádraig Brady <P@draigBrady.com>"
+gpg:                 aka "Pádraig Brady <pbrady@redhat.com>"
+gpg:                 aka "Pádraig Brady <pixelbeat@gnu.org>"
+gpg: WARNING: This key is not certified with a trusted signature!
+gpg:          There is no indication that the signature belongs to the owner.
+Primary key fingerprint: 6C37 DC12 121A 5006 BC1D  B804 DF6F D971 3060 37D9
+ - WHY PROBLEMS OCCURRED?????????
+
+2. opened file INSTALL and it contains instns to install
+says to use command: ./configure && make && make install
+command been running for about a minute now - outputted a lot of text- did not work - hundreds of permsission denied errors, no such file or directory errors, and at the end a few lines saying ERROR 1 and ERROR 2
+ - think i as a user do not have correct permissions to install packages onto the servers - an admin would have to run the command
+ 
+didn;t do step 2 right! use prefix below to install to custom directory
+- use --prefix=[ABSOLUTE PATH] and run from inside coreutils into a seperate directory outside coreutils
+first used ./configure --prefix=/u/ee/ugrad/farooq/Desktop/cs35l/lab3/coreinstall
+/u/ee/ugrad/farooq/Desktop/cs35l/lab3/coreinstall- outputted pages of text again but with no error
+then used the two make commands: make && make install
+- outputted pages more of text still w no errors
+- think coreutils is now installed on my user system
+
+3. need to find out how to reproduce bug
+ls -aA outputs no dot files - leading letter takes over then (left-most)
+ls -Aa outputs dot files 
+./src/ls -aA for buggy ls command or coreinstall/bin/ls
+- when use ./src/ls -aA it outputs the . and .. files (buggy)
+  - ./src/ls -Aa has the same output (correct) 
+- when use ls -aA doesn't output those files - (works)
+
+4.
+PATCH =  https://debbugs.gnu.org/cgi/bugreport.cgi?att=1;bug=30963;msg=10\
+;filename=0001-ls-A-now-overrides-a.patch
+- trying wget on the above url does not have the intended effect
+- just copied and pasted contents instead through emacs
+- tried patch coreinstall/bin/ls patch - output:
+patching file coreinstall/bin/ls
+Hunk #1 FAILED at 4.
+1 out of 1 hunk FAILED -- saving rejects to file coreinstall/bin/ls.rej
+patching file coreinstall/bin/ls
+Hunk #1 FAILED at 1903.
+1 out of 1 hunk FAILED -- saving rejects to file coreinstall/bin/ls.rej
+patching file coreinstall/bin/ls
+Hunk #1 FAILED at 575.
+1 out of 1 hunk FAILED -- saving rejects to file coreinstall/bin/ls.rej
+- removed all lines in ls.rej from patch and tried again - this time gave no errors but the bug is still there 
+- when run command prompts with nex patch would create ls file which alread exists... Assumer -R?  - tried yes first now trying no - then asks apply anyway?  - no option makes it actually work
+ 
+- back 2/2
+- not sure what 'top level of your source tree' refers to in step 5
+- did make command in coreutils folder - no noticable effect
+- 
+
+- reinstalling coreutils into coreinstallv2:
+
+- 
+./configure --prefix=/u/ee/ugrad/farooq/Desktop/cs35l/lab3/coreinstallv2 && make && make install
+- ls -aA and ./ls -aA do not produce same output - reproduced the bug
+- then did patch coreinstallv2/bin/ls patch  - 4 failures - saved rejects to coreinstall/bin/ls.rej
+- did comm -23 --nocheck-order coreinstallv2/bin/ls patch > patchdiff
+- patch coreinstallv2/bin/ls patchdiff outputted:
+patching file coreinstallv2/bin/ls
+Hunk #1 FAILED at 4.
+1 out of 1 hunk FAILED -- saving rejects to file coreinstallv2/bin/ls.rej
+patching file coreinstallv2/bin/ls
+Hunk #1 FAILED at 1903.
+1 out of 1 hunk FAILED -- saving rejects to file coreinstallv2/bin/ls.rej
+patching file coreinstallv2/bin/ls
+patch: **** malformed patch at line 57: diff --git a/tests/ls/a-option.sh b/tests/ls/a-option.sh
+- ls still buggy
+- got hunk failures out but cant get malformed line out
+- started over w new fresh patch
+- 
+
+- piazza said use lnxsrv07
+- 
+
+- was doing wrong - trying to patch to the installed coreutils instead of the src
+- reinstalled and started over
+- did make and make instal
+- applied patch and it ouputted:
+patching file NEWS
+Hunk #1 FAILED at 4.
+1 out of 1 hunk FAILED -- saving rejects to file NEWS.rej
+patching file src/ls.c
+Hunk #1 succeeded at 1900 (offset -3 lines).
+patching file tests/local.mk
+patching file tests/ls/a-option.sh
+- ran make again and it outputted:
+[farooq@lnxsrv07 ~/Desktop/cs35l/lab3/coreutils]$ make
+ cd . && /bin/sh /u/ee/ugrad/farooq/Desktop/cs35l/lab3/coreutils/build-aux/missing automake-1.15 --gnu Makefile
+/u/ee/ugrad/farooq/Desktop/cs35l/lab3/coreutils/build-aux/missing: line 81: automake-1.15: command not found
+WARNING: 'automake-1.15' is missing on your system.
+         You should only need it if you modified 'Makefile.am' or
+         'configure.ac' or m4 files included by 'configure.ac'.
+         The 'automake' program is part of the GNU Automake package:
+         <http://www.gnu.org/software/automake>
+         It also requires GNU Autoconf, GNU m4 and Perl in order to run:
+         <http://www.gnu.org/software/autoconf>
+         <http://www.gnu.org/software/m4/>
+         <http://www.perl.org/>
+make: *** [Makefile:5997: Makefile.in] Error 127
+
+from piazza:
+autoreconf -f -i
+then configure and make and make install again
+- src ls works now - -aA and -Aa now both output correct ouptuts
+
+- did make again and it tried to apply make into all subdirectories
+it was not necessary - it outputted:
+make  all-recursive
+make[1]: Entering directory '/w/home.15/ee/ugrad/farooq/Desktop/cs35l/lab3/coreutils'
+Making all in po
+make[2]: Entering directory '/w/home.15/ee/ugrad/farooq/Desktop/cs35l/lab3/coreutils/po'
+make[2]: Nothing to be done for 'all'.
+make[2]: Leaving directory '/w/home.15/ee/ugrad/farooq/Desktop/cs35l/lab3/coreutils/po'
+Making all in .
+make[2]: Entering directory '/w/home.15/ee/ugrad/farooq/Desktop/cs35l/lab3/coreutils'
+make[2]: Leaving directory '/w/home.15/ee/ugrad/farooq/Desktop/cs35l/lab3/coreutils'
+Making all in gnulib-tests
+make[2]: Entering directory '/w/home.15/ee/ugrad/farooq/Desktop/cs35l/lab3/coreutils/gnulib-tests'
+make  all-recursive
+make[3]: Entering directory '/w/home.15/ee/ugrad/farooq/Desktop/cs35l/lab3/coreutils/gnulib-tests'
+Making all in .
+make[4]: Entering directory '/w/home.15/ee/ugrad/farooq/Desktop/cs35l/lab3/coreutils/gnulib-tests'
+make[4]: Nothing to be done for 'all-am'.
+make[4]: Leaving directory '/w/home.15/ee/ugrad/farooq/Desktop/cs35l/lab3/coreutils/gnulib-tests'
+make[3]: Leaving directory '/w/home.15/ee/ugrad/farooq/Desktop/cs35l/lab3/coreutils/gnulib-tests'
+make[2]: Leaving directory '/w/home.15/ee/ugrad/farooq/Desktop/cs35l/lab3/coreutils/gnulib-tests'
+make[1]: Leaving directory '/w/home.15/ee/ugrad/farooq/Desktop/cs35l/lab3/coreutils'
+
+
+Q1: the patch improves performance as it removes an if statement
+Q2: other commands that rely on ls can also improve their performance

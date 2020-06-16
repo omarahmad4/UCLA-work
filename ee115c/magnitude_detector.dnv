@@ -1,0 +1,8 @@
+vuiLVSdebugRunInfo = list( nil
+   'layoutLibrary "TB_PROJ"
+   'layoutCell "magnitude_detector"
+   'layoutView "layout"
+   'schematicLibrary "TB_PROJ"
+   'schematicCell "magnitude_detector"
+   'schematicView "schematic"
+)

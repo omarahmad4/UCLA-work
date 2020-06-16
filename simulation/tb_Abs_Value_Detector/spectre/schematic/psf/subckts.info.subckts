@@ -1,0 +1,201 @@
+HEADER
+"PSFversion" "1.00"
+"simulator" "spectre"
+"version" "16.1.0.479.isr9"
+"date" "10:53:39 AM, Sat Mar 7, 2020"
+"design" "// Generated for: spectre"
+"analysis type" "info.subckts"
+"analysis name" "subckts"
+"analysis description" "Circuit Information"
+"xVecSorted" "unknown"
+"tolerance.relative" 0.00100000
+TYPE
+"subckt" STRUCT(
+"subckt_params" STRING *
+"subckt_terminals" STRING *
+"subckt_instances" STRING *
+) PROP(
+"key" "sub"
+)
+VALUE
+"resspdiff" "subckt" (
+""
+""
+""
+)
+"magnitude_detector" "subckt" (
+""
+"GND M0 M1 M2 M3 M4 VDD X0 X1 X2 X3 X4 X5"
+"I18.I15"
+)
+"gpdk090_nmos1v_iso" "subckt" (
+""
+""
+""
+)
+"ressppoly" "subckt" (
+""
+""
+""
+)
+"gpdk090_ndio_na25" "subckt" (
+""
+""
+""
+)
+"new_1bit_comp" "subckt" (
+""
+"A B GND Q1 Q2 VDD"
+"I18.I14.I12 I18.I14.I13 I18.I14.I14 I18.I14.I15"
+)
+"gpdk090_pdio_hvt" "subckt" (
+""
+""
+""
+)
+"NAND4X1" "subckt" (
+""
+"A B C D Y inh_VDD inh_VSS"
+"I18.I14.I8"
+)
+"Driver" "subckt" (
+""
+"GND T0 T1 T2 T3 T4 VDD X0 X1 X2 X3 X4 X5 0"
+"I20"
+)
+"INVX1_schematic" "subckt" (
+""
+"A Y inh_VDD inh_VSS"
+"I20.I21 I20.I12 I20.I1 I20.I0 I20.I14 I20.I13 I20.I3 I20.I2 I20.I18 I20.I15 I20.I7 I20.I4 I20.I17 I20.I16 I20.I6 I20.I5 I20.I20 I20.I19 I20.I11 I20.I8 I20.I10 I20.I9"
+)
+"resnsnpoly" "subckt" (
+""
+""
+""
+)
+"resnspdiff" "subckt" (
+""
+""
+""
+)
+"gpdk090_pdio_25" "subckt" (
+""
+""
+""
+)
+"ressnpoly" "subckt" (
+""
+""
+""
+)
+"XOR2X1" "subckt" (
+""
+"A B Y inh_VDD inh_VSS"
+"I18.I15.I4 I18.I15.I3 I18.I15.I2 I18.I15.I1 I18.I15.I0"
+)
+"Abs_Value_Detector" "subckt" (
+""
+"GND OUT T0 T1 T2 T3 T4 VDD X0 X1 X2 X3 X4 X5"
+"I18"
+)
+"gpdk090_ndio" "subckt" (
+""
+""
+""
+)
+"resnwsti" "subckt" (
+""
+""
+""
+)
+"NOR2X1" "subckt" (
+""
+"A B Y inh_VDD inh_VSS"
+"I18.I15.I8 I18.I15.I7 I18.I14.I12.I26 I18.I14.I12.I25 I18.I14.I12.I24 I18.I14.I13.I26 I18.I14.I13.I25 I18.I14.I13.I24 I18.I14.I14.I26 I18.I14.I14.I25 I18.I14.I14.I24 I18.I14.I15.I26 I18.I14.I15.I25 I18.I14.I15.I24 I18.I14.I4"
+)
+"INVX32" "subckt" (
+""
+"A Y inh_VDD inh_VSS"
+"I19.I1 I19.I0"
+)
+"resnsppoly" "subckt" (
+""
+""
+""
+)
+"INVX1" "subckt" (
+""
+"A Y inh_VDD inh_VSS"
+"I18.I15.I17 I18.I15.I11 I18.I15.I10 I18.I15.I9 I18.I14.I12.I28 I18.I14.I12.I27 I18.I14.I13.I28 I18.I14.I13.I27 I18.I14.I14.I28 I18.I14.I14.I27 I18.I14.I15.I28 I18.I14.I15.I27 I18.I14.I11 I18.I14.I5"
+)
+"NAND2X1" "subckt" (
+""
+"A B Y inh_VDD inh_VSS"
+"I18.I15.I27 I18.I15.I26 I18.I15.I25 I18.I15.I24 I18.I15.I23 I18.I15.I22 I18.I15.I21 I18.I15.I20 I18.I15.I19 I18.I15.I18 I18.I15.I16 I18.I15.I15 I18.I15.I14 I18.I15.I13 I18.I15.I12 I18.I15.I6 I18.I15.I5 I18.I14.I6 I18.I14.I17.I1 I18.I14.I16.I1"
+)
+"ressndiff" "subckt" (
+""
+""
+""
+)
+"gpdk090_ndio_hvt" "subckt" (
+""
+""
+""
+)
+"gpdk090_ndio_na" "subckt" (
+""
+""
+""
+)
+"gpdk090_ndio_25" "subckt" (
+""
+""
+""
+)
+"gpdk090_resnsndiff" "subckt" (
+""
+""
+""
+)
+"gpdk090_pdio" "subckt" (
+""
+""
+""
+)
+"gpdk090_nwdio" "subckt" (
+""
+""
+""
+)
+"NAND5" "subckt" (
+""
+"A B C D E GND VDD Y"
+"I18.I14.I17 I18.I14.I16"
+)
+"resnwoxide" "subckt" (
+""
+""
+""
+)
+"new_comparator" "subckt" (
+""
+"A0 A1 A2 A3 A4 B0 B1 B2 B3 B4 GND Q VDD"
+"I18.I14"
+)
+"Load" "subckt" (
+""
+"GND OUT VDD"
+"I19"
+)
+"NAND3X1" "subckt" (
+""
+"A B C Y inh_VDD inh_VSS"
+"I18.I14.I7 I18.I14.I17.I0 I18.I14.I16.I0"
+)
+"OR2X1" "subckt" (
+""
+"A B Y inh_VDD inh_VSS"
+"I18.I14.I17.I3 I18.I14.I16.I3"
+)
+END

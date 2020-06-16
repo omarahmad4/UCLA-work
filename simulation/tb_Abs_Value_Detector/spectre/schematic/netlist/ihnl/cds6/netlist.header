@@ -1,0 +1,5 @@
+
+// Library name: gsclib090
+// Cell name: NAND3X1
+// View name: schematic
+subckt NAND3X1 A B C Y inh_VDD inh_VSS

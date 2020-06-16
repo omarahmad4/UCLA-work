@@ -1,0 +1,2 @@
+_vvdd! (vdd! 0) vsource dc=VD type=dc
+_vvddd! (vddd! 0) vsource dc=VD type=dc

@@ -1,0 +1,47 @@
+Omar Ahmad lab6 log file
+
+- ran sort --version - its version 8.24
+  - not new enough - need 8.6 - 8.24 doesnt have multithreaded implemented
+  - nvmd 24>6 - thought it was 8.2.4
+- new day sort is version 8.30 now
+- Making test file
+  - copied urandom pgm from /dev
+  - chmod + ran it - outputted gibberish - think i might just have to pipe its contents
+  - cat urandom | od -A n -tf -N $((2 ** 24)) > out1
+    - using hints from piazza
+    - disk quota exceeded
+      - showdq -> y view top 5 dir & du command
+      - Desktop taking ~1600 mb! - ohhh the urandom itself is 1GB - should just pipe it from /dev
+      - after removing urandom then taking ~600 mb - cleaned up more and now at <120 mb
+  - od -A n -tf -N $((2 ** 24)) < /dev/urandom > out1
+    - took only ~15 seconds and produced out1 of size ~52 mb
+  - sed 's/\s\+/\n/g' <out1 > out2 to put all numbers on own lines
+  - awk 'NF' out2 > out3 to remove extra empty lines
+
+- testing sort:
+  - time -p sort -g testdata > /dev/null
+    real 7.54
+    user 36.81
+    sys 0.35
+    
+  - time -p sort -g --parallel=1 testdata > /dev/null
+    real 36.28
+    user 35.85
+    sys 0.36
+    
+  - time -p sort -g --parallel=2 testdata > /dev/null
+    real 21.26
+    user 40.09
+    sys 0.51
+    
+  - time -p sort -g --parallel=4 testdata > /dev/null
+    real 11.08
+    user 36.60
+    sys 0.35
+    
+  - time -p sort -g --parallel=8 testdata > /dev/null  
+    real 6.89
+    user 36.79
+    sys 0.34
+
+

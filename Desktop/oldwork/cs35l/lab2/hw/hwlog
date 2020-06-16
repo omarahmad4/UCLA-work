@@ -1,0 +1,23 @@
+log for self
+- grep -q and -P options are returning different values
+- apparently grep -r --include*.{cc,h} "hello" - searches current directory RECURSIVELY and displays any files contianing the string hello and display only .h and .cc files - This reads: search recursively (in all sub directories also) for all .cc OR .h files that contain "hello" at this . (current) directory
+- using grep -r "[^\x00-\x7F]" $var outputs every line w those chars(ASCI?) in each passed in arg and seaches recursively in all subdirectories
+  - doesnt ouput lines with only numbers
+  
+PIAZZA:
+- [^\x01-\x7F]  to check for the presence of non-ASCII bytes - instead of 00
+- UPE free tutoring every day in boelter 2763 - NEED TO GO !
+- need grep -P to detect null bytes?
+- cant use grep -r and -P at the same time :(
+- made a file called utf containing utf chars and ascii
+- made a file called utfonly only containing utf shit
+  - using grep w and wo -r and -P still outputs the utf only lines
+- need to make a file(S) contianing null byte and/or other shit too maybe
+- got grep -r -P working together!
+- when pass text(empty) and text~ (not empty) both if (grep..) return different things!?
+
+- if grep .. -> output name of file
+- dont need to test for null byte - piazza
+
+- wooooo solved first two scripts - next two should be easy
+- first script was just not of the second one

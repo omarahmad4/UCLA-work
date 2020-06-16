@@ -1,0 +1,4 @@
+echo $SHELL
+/bin/bash
+exit 6
+SHELL EXIT SIGNAL=0 STATUS=0

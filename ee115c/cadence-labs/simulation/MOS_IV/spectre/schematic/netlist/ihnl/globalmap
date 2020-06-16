@@ -1,0 +1,10 @@
+CADENCE IHNL11140
+$model
+ee115c/MOS_IV/schematic MOS_IV
+$endmodel
+$net
+$endnet
+$param
+VGS VGS
+VDS VDS
+$endparam

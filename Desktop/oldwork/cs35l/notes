@@ -1,0 +1,13 @@
+notes in lab - final review
+
+
+ - inode - data structure in linux - hardlink points to inode and softlink points to file
+   stores info about file except date and actual data
+
+ - when type link it is evaluated at run time to be repl w
+
+ - chmod 300 file - 300 = 011000000 - rwxrwxrwx - UGO
+
+ - ./configure --prefix ,  make , make install
+
+ - x

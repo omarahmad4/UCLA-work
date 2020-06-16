@@ -1,0 +1,308 @@
+Omar Ahmad 	804801272
+
+log:
+- ran emacs -Q -batch -eval '(print (* 1250284240 -1844255039))' - printed out a number - i dont understand the goal of the lab yet
+- ran ~eggert/bin64/bin/emacs-26.1 - opened what seemed to be a text editor - i still dont understand
+	i think i might have to use gdb to step through the emacs text editor
+- opened  ~eggert/src/emacs-26.1/src/data.c to examine the code - dont think this is what i was supposed to do
+	ran a search for 'arith_driver' and 'elisp' and went to line 2635 as described in lab instructions - don't see any connection to what i need to do - still don't fully understand what or how to do lab
+- followed instructions in ta slides and ran gdb --args ~eggert/bin64/bin/emacs-26.1 - batch -eval '(pring (* 6997 -4398042316799 179))'
+	-> started gdb (on emacs im guessing)
+- typed r to run - ran the emacs text editor which i don't know how to exit out of - also not sure what file im editing
+- got out of emacs - either ctr+x or ctr+z - still in gdb
+- tried s to step through program - not sure if i need to set breakpoints first - i have no idea what this means but it returned: 
+
+Single stepping until exit from function kill,
+which has no line number information.
+
+Thread 2 "gmain" received signal SIGTSTP, Stopped (user).
+[Switching to Thread 0x7fffe22ba700 (LWP 47760)]
+0x00007ffff12aee9d in poll () from /lib64/libc.so.6
+
+(gdb) s
+Single stepping until exit from function poll,
+which has no line number information.
+
+Thread 1 "emacs-26.1" received signal SIGTSTP, Stopped (user).
+[Switching to Thread 0x7ffff7fa2a80 (LWP 47755)]
+0x00007ffff11f14d7 in kill () from /lib64/libc.so.6
+
+(gdb) s
+Single stepping until exit from function kill,
+which has no line number information.
+Fsuspend_emacs (stuffstring=0) at ../../emacs-26.1/src/keyboard.c:10225
+10225     ptrdiff_t count = SPECPDL_INDEX ();
+
+- tried again but with stepi - seems to be slightly more correct but i still don't know where the source code is - seems to be reading from numerous very large files that i doubt im supposed to comb through
+	it returned:
+
+(gdb) stepi
+0x00000000004ffa89      855       return make_lisp_symbol (&lispsym[index]);
+(gdb) stepi
+0x00000000004ffa8b in SPECPDL_INDEX () at ../../emacs-26.1/src/lisp.h:855
+855       return make_lisp_symbol (&lispsym[index]);
+(gdb) stepi
+0x00000000004ffa8e      855       return make_lisp_symbol (&lispsym[index]);
+(gdb) stepi
+0x00000000004ffa98      855       return make_lisp_symbol (&lispsym[index]);
+(gdb) stepi
+0x00000000004ffa9c      855       return make_lisp_symbol (&lispsym[index]);
+(gdb) stepi
+0x00000000004ffaa0 in Fsuspend_emacs (stuffstring=0) at ../../emacs-26.1/src/lisp.h:855
+855       return make_lisp_symbol (&lispsym[index]);
+(gdb) stepi
+unbind_to (count=10, value=value@entry=0) at ../../emacs-26.1/src/eval.c:3505
+3505      Lisp_Object quitf = Vquit_flag;
+
+- tried n command "next line of source code" - seemed to ouput the line of code and the code it was executing - from what file??
+- tried c command for continue - not sure what happened - looks like it glitched out or something 
+	- now it shows the emacs toolbar stuff but its in the normal window not even in gdb anymore
+
+--next day--
+- when i try to specify the file for gdb (~eggert/bin64/bin/emacs-26.1) it says could not find a match but then when i run it still works
+- only way that consistently takes me out of emacs is ctr+z but sometimes that causes it all to glitch out and start writing on top of old text
+- reread instructions and need to put a breakpoint on the Ftimes function i think
+- dont know how exactly but when trying to start gdb with the arguments the shell thing is starting each line with a > and not recognizing any commands
+- think im finally on the right track with gdb running on the emacs print compute command using 
+	" gdb --args ~eggert/bin64/bin/emacs-26.1 -batch -eval '(print (* 1250284240 -1844255039))' "
+- break Ftimes ->  Breakpoint 1 at 0x54e0f0: file ../../emacs-26.1/src/data.c, line 2943. - progress...
+- run -> " 2943      return arith_driver (Amult, nargs, args); " - stopped at breakpoint - now i think i need to step through every intr in Ftimes and that it calls
+- info reg - displayed all regs but i could not identify any of them with the args that i put 
+- ran next about 50 times - don't know how to know when it has exited the Ftimes function 
+- info inferiors -> * 1    <null>   /w/fac.2/cs/eggert/bin64/bin/emacs-26.1 - idk what this means
+- info threads -> no threads.
+- ran step few times - seems to have outputted same things as when i did next
+- ran si few times - outputs code and the machine code line running
+- started over and went to breakpoint at Ftimes and ran disassemble - seems to be moving the args into regs and setting the third arg as two to call arith_driver
+	-> 
+	Dump of assembler code for function Ftimes:
+=> 0x000000000054e0f0 <+0>:     mov    %rsi,%rdx				- rdx = rsi 
+   0x000000000054e0f3 <+3>:     mov    %rdi,%rsi				- rsi = rdi 
+   0x000000000054e0f6 <+6>:     mov    $0x2,%edi				- edi = 2
+   0x000000000054e0fb <+11>:    jmpq   0x54dea0 <arith_driver>	- call func arith_driver
+	End of assembler dump.
+	
+- break arith_driver -> Breakpoint 2 at 0x54dea0: file ../../emacs-26.1/src/data.c, line 2784.
+- disassemble ->
+	Dump of assembler code for function arith_driver:
+=> 0x000000000054dea0 <+0>:     push   %r15
+   0x000000000054dea2 <+2>:     push   %r14
+   0x000000000054dea4 <+4>:     push   %r13
+   0x000000000054dea6 <+6>:     push   %r12
+   0x000000000054dea8 <+8>:     push   %rbp
+   0x000000000054dea9 <+9>:     push   %rbx
+   0x000000000054deaa <+10>:    sub    $0x18,%rsp
+   0x000000000054deae <+14>:    cmp    $0x2,%edi
+   0x000000000054deb1 <+17>:    jb     0x54e068 <arith_driver+456>
+   0x000000000054deb7 <+23>:    mov    $0x1,%ebp
+   0x000000000054debc <+28>:    cmp    $0x3,%edi
+   0x000000000054debf <+31>:    jbe    0x54dece <arith_driver+46>
+   0x000000000054dec1 <+33>:    xor    %ebp,%ebp
+   0x000000000054dec3 <+35>:    cmp    $0x4,%edi
+   0x000000000054dec6 <+38>:    setne  %bpl
+   0x000000000054deca <+42>:    sub    $0x1,%rbp
+   0x000000000054dece <+46>:    test   %rsi,%rsi
+   0x000000000054ded1 <+49>:    jle    0x54e014 <arith_driver+372>
+   0x000000000054ded7 <+55>:    mov    %rdx,%r14
+   0x000000000054deda <+58>:    mov    %edi,%r12d
+   0x000000000054dedd <+61>:    mov    %rbp,%rcx
+   0x000000000054dee0 <+64>:    xor    %ebx,%ebx
+   0x000000000054dee2 <+66>:    xor    %r15d,%r15d
+   0x000000000054dee5 <+69>:    xor    %r13d,%r13d
+   0x000000000054dee8 <+72>:    mov    (%r14,%rbx,8),%rdi
+   0x000000000054deec <+76>:    mov    %edi,%eax
+   0x000000000054deee <+78>:    mov    %edi,%edx
+   0x000000000054def0 <+80>:    and    $0x7,%eax
+--Type <RET> for more, q to quit, c to continue without paging--
+   0x000000000054def3 <+83>:    cmp    $0x1,%eax
+   0x000000000054def6 <+86>:    je     0x54df60 <arith_driver+192>
+   0x000000000054def8 <+88>:    and    $0x3,%edx
+   0x000000000054defb <+91>:    cmp    $0x2,%edx
+   0x000000000054defe <+94>:    je     0x54df3c <arith_driver+156>
+   0x000000000054df00 <+96>:    cmp    $0x7,%eax
+   0x000000000054df03 <+99>:    je     0x54df3c <arith_driver+156>
+   0x000000000054df05 <+101>:   mov    %rdi,%rsi
+   0x000000000054df08 <+104>:   mov    $0x9a20,%edi
+   0x000000000054df0d <+109>:   callq  0x54d380 <wrong_type_argument>
+   0x000000000054df12 <+114>:   nopw   0x0(%rax,%rax,1)
+   0x000000000054df18 <+120>:   mov    %rsi,0x8(%rsp)
+   0x000000000054df1d <+125>:   mov    %rcx,(%rsp)
+   0x000000000054df21 <+129>:   callq  0x51ac60 <marker_position>
+   0x000000000054df26 <+134>:   mov    (%rsp),%rcx
+   0x000000000054df2a <+138>:   mov    0x8(%rsp),%rsi
+   0x000000000054df2f <+143>:   lea    0x2(,%rax,4),%rdi
+   0x000000000054df37 <+151>:   mov    %edi,%eax
+   0x000000000054df39 <+153>:   and    $0x7,%eax
+   0x000000000054df3c <+156>:   cmp    $0x7,%eax
+   0x000000000054df3f <+159>:   je     0x54e070 <arith_driver+464>
+   0x000000000054df45 <+165>:   mov    %rdi,(%r14,%rbx,8)
+   0x000000000054df49 <+169>:   sar    $0x2,%rdi
+   0x000000000054df4d <+173>:   cmp    $0x6,%r12d
+   0x000000000054df51 <+177>:   ja     0x54df80 <arith_driver+224>
+   0x000000000054df53 <+179>:   mov    %r12d,%eax
+   0x000000000054df56 <+182>:   jmpq   *0x5fb698(,%rax,8)
+   0x000000000054df5d <+189>:   nopl   (%rax)
+   0x000000000054df60 <+192>:   cmpw   $0x5eac,-0x1(%rdi)
+--Type <RET> for more, q to quit, c to continue without paging--
+   0x000000000054df66 <+198>:   je     0x54df18 <arith_driver+120>
+   0x000000000054df68 <+200>:   and    $0x3,%edx
+   0x000000000054df6b <+203>:   cmp    $0x2,%edx
+   0x000000000054df6e <+206>:   jne    0x54df05 <arith_driver+101>
+   0x000000000054df70 <+208>:   mov    %rdi,(%r14,%rbx,8)
+   0x000000000054df74 <+212>:   sar    $0x2,%rdi
+   0x000000000054df78 <+216>:   cmp    $0x6,%r12d
+   0x000000000054df7c <+220>:   jbe    0x54df53 <arith_driver+179>
+   0x000000000054df7e <+222>:   xchg   %ax,%ax
+   0x000000000054df80 <+224>:   add    %rbp,%rdi
+   0x000000000054df83 <+227>:   seto   %al
+   0x000000000054df86 <+230>:   mov    %rdi,%rbp
+   0x000000000054df89 <+233>:   or     %eax,%r15d
+   0x000000000054df8c <+236>:   jmp    0x54df98 <arith_driver+248>
+   0x000000000054df8e <+238>:   xchg   %ax,%ax
+   0x000000000054df90 <+240>:   or     %rdi,%rbp
+   0x000000000054df93 <+243>:   nopl   0x0(%rax,%rax,1)
+   0x000000000054df98 <+248>:   add    $0x1,%rbx
+   0x000000000054df9c <+252>:   cmp    %rbx,%rsi
+   0x000000000054df9f <+255>:   je     0x54e014 <arith_driver+372>
+   0x000000000054dfa1 <+257>:   test   %r15b,%r15b
+   0x000000000054dfa4 <+260>:   cmove  %rbp,%rcx
+   0x000000000054dfa8 <+264>:   cmove  %rbx,%r13
+   0x000000000054dfac <+268>:   jmpq   0x54dee8 <arith_driver+72>
+   0x000000000054dfb1 <+273>:   nopl   0x0(%rax)
+   0x000000000054dfb8 <+280>:   and    %rdi,%rbp
+   0x000000000054dfbb <+283>:   jmp    0x54df98 <arith_driver+248>
+   0x000000000054dfbd <+285>:   nopl   (%rax)
+   0x000000000054dfc0 <+288>:   test   %rbx,%rbx
+--Type <RET> for more, q to quit, c to continue without paging--
+   0x000000000054dfc3 <+291>:   jne    0x54e030 <arith_driver+400>
+   0x000000000054dfc5 <+293>:   cmp    $0x1,%rsi
+   0x000000000054dfc9 <+297>:   je     0x54e030 <arith_driver+400>
+   0x000000000054dfcb <+299>:   add    $0x1,%rbx
+   0x000000000054dfcf <+303>:   mov    %rdi,%rbp
+   0x000000000054dfd2 <+306>:   jmp    0x54dfa1 <arith_driver+257>
+   0x000000000054dfd4 <+308>:   nopl   0x0(%rax)
+   0x000000000054dfd8 <+312>:   imul   %rbp,%rdi
+   0x000000000054dfdc <+316>:   seto   %al
+   0x000000000054dfdf <+319>:   mov    %rdi,%rbp
+   0x000000000054dfe2 <+322>:   or     %eax,%r15d
+   0x000000000054dfe5 <+325>:   jmp    0x54df98 <arith_driver+248>
+   0x000000000054dfe7 <+327>:   nopw   0x0(%rax,%rax,1)
+   0x000000000054dff0 <+336>:   test   %rbx,%rbx
+   0x000000000054dff3 <+339>:   je     0x54e008 <arith_driver+360>
+   0x000000000054dff5 <+341>:   sub    %rdi,%rbp
+   0x000000000054dff8 <+344>:   seto   %al
+   0x000000000054dffb <+347>:   or     %eax,%r15d
+   0x000000000054dffe <+350>:   jmp    0x54df98 <arith_driver+248>
+   0x000000000054e000 <+352>:   xor    %rdi,%rbp
+   0x000000000054e003 <+355>:   jmp    0x54df98 <arith_driver+248>
+   0x000000000054e005 <+357>:   nopl   (%rax)
+   0x000000000054e008 <+360>:   cmp    $0x1,%rsi
+   0x000000000054e00c <+364>:   jne    0x54dfcb <arith_driver+299>
+   0x000000000054e00e <+366>:   neg    %rdi
+   0x000000000054e011 <+369>:   mov    %rdi,%rbp
+   0x000000000054e014 <+372>:   lea    0x2(,%rbp,4),%rax
+   0x000000000054e01c <+380>:   add    $0x18,%rsp
+   0x000000000054e020 <+384>:   pop    %rbx
+--Type <RET> for more, q to quit, c to continue without paging--
+   0x000000000054e021 <+385>:   pop    %rbp
+   0x000000000054e022 <+386>:   pop    %r12
+   0x000000000054e024 <+388>:   pop    %r13
+   0x000000000054e026 <+390>:   pop    %r14
+   0x000000000054e028 <+392>:   pop    %r15
+   0x000000000054e02a <+394>:   retq
+   0x000000000054e02b <+395>:   nopl   0x0(%rax,%rax,1)
+   0x000000000054e030 <+400>:   test   %rdi,%rdi
+   0x000000000054e033 <+403>:   je     0x54e0c1 <arith_driver+545>
+   0x000000000054e039 <+409>:   movabs $0x8000000000000000,%rax
+   0x000000000054e043 <+419>:   cmp    %rax,%rbp
+   0x000000000054e046 <+422>:   sete   %al
+   0x000000000054e049 <+425>:   cmp    $0xffffffffffffffff,%rdi
+   0x000000000054e04d <+429>:   sete   %dl
+   0x000000000054e050 <+432>:   and    %dl,%al
+   0x000000000054e052 <+434>:   jne    0x54e098 <arith_driver+504>
+   0x000000000054e054 <+436>:   mov    %rbp,%rax
+   0x000000000054e057 <+439>:   cqto
+   0x000000000054e059 <+441>:   idiv   %rdi
+   0x000000000054e05c <+444>:   mov    %rax,%rbp
+   0x000000000054e05f <+447>:   jmpq   0x54df98 <arith_driver+248>
+   0x000000000054e064 <+452>:   nopl   0x0(%rax)
+   0x000000000054e068 <+456>:   xor    %ebp,%ebp
+   0x000000000054e06a <+458>:   jmpq   0x54dece <arith_driver+46>
+   0x000000000054e06f <+463>:   nop
+   0x000000000054e070 <+464>:   add    $0x18,%rsp
+   0x000000000054e074 <+468>:   vxorpd %xmm0,%xmm0,%xmm0
+   0x000000000054e078 <+472>:   mov    %rsi,%rdx
+   0x000000000054e07b <+475>:   mov    %r13,%rdi
+--Type <RET> for more, q to quit, c to continue without paging--
+   0x000000000054e07e <+478>:   vcvtsi2sd %rcx,%xmm0,%xmm0
+   0x000000000054e083 <+483>:   pop    %rbx
+   0x000000000054e084 <+484>:   mov    %r14,%rcx
+   0x000000000054e087 <+487>:   pop    %rbp
+   0x000000000054e088 <+488>:   mov    %r12d,%esi
+   0x000000000054e08b <+491>:   pop    %r12
+   0x000000000054e08d <+493>:   pop    %r13
+   0x000000000054e08f <+495>:   pop    %r14
+   0x000000000054e091 <+497>:   pop    %r15
+   0x000000000054e093 <+499>:   jmpq   0x54dd40 <float_arith_driver>
+   0x000000000054e098 <+504>:   add    $0x1,%rbx
+   0x000000000054e09c <+508>:   cmp    %rsi,%rbx
+   0x000000000054e09f <+511>:   je     0x54e0b3 <arith_driver+531>
+   0x000000000054e0a1 <+513>:   movabs $0x8000000000000000,%rbp
+   0x000000000054e0ab <+523>:   mov    %eax,%r15d
+   0x000000000054e0ae <+526>:   jmpq   0x54dee8 <arith_driver+72>
+   0x000000000054e0b3 <+531>:   mov    $0x1,%ebp
+   0x000000000054e0b8 <+536>:   shl    $0x3f,%rbp
+   0x000000000054e0bc <+540>:   jmpq   0x54e014 <arith_driver+372>
+   0x000000000054e0c1 <+545>:   mov    $0x2970,%edi
+   0x000000000054e0c6 <+550>:   callq  0x562fc0 <xsignal0>
+End of assembler dump.
+ 
+	- there are a few function calls in arith_driver - not sure if i have to follow all of them? or just what gets called with those specific args
+
+- with breakpoint at arith_driver tried running program and hit breakpoint ~15 times before hitting the Ftimes breakpoint
+- ctr+z to exit gdb
+- gdb --args ~eggert/bin64/bin/emacs-26.1 -batch -eval '(print (* 1250284240 -1844255039))' - to start over
+- info break to check if breakpoints saved - they didn't - break Ftimes and run to get to breakpoint
+- try finish ->
+Run till exit from #0  Ftimes (nargs=2, args=0x7fffffffc8c0) at ../../emacs-26.1/src/data.c:2943
+0x0000000000564b2d in eval_sub (form=<optimized out>) at ../../emacs-26.1/src/lisp.h:1862
+1862      return XUNTAG (a, Lisp_Vectorlike);
+Value returned is $1 = 9223372034500410178
+- set disassemble-next-line on - will auto disassemle every line - should have fully read instructions first
+- r - shows disassemble of Ftimes
+- info line -> Line 2943 of "../../emacs-26.1/src/data.c" starts at address 0x54e0f0 <Ftimes> and ends at 0x54e100 <Flogand>.
+- info reg -> show regs and record the pertinent ones - think now i just need to step through the program until it returns with info line and info every time
+- si, info line, info reg - moves to next line in disassemble - line info no change - rdx = rsi as expected but rsp didn't change - shouldn't it change every instr?
+- si, info line, info reg - expected change only - rsp unchanged
+- si, info line, info reg - expected change only - rsp unchanged
+- si, info line, info reg - moved into arith_driver func 
+- " - pushed r15=0 onto stack and moved rsp 8 bytes back 
+- " - pushed r14=2 "									"
+- " - pushed r13=11931840 "								"
+- " - pushed r12=520 "									"
+- " - pushed rbp=0x7fffffffc990 "						" - i dont know why displayed in hex - maybe an address of something
+- " - pushed rbx=0 "									"
+- tried print 0x7fffffffc8a8 - just printed the address converted to decimal
+- tried print *(int*)0x7fffffffc8a8 - printed the values expected at the address - tested all values pushed onto stack
+- si, info reg - going through program 
+	- at addr 54debf follows jbe to 54dece
+	- at addr 54defe follows je to 54df3c
+	- kept going and recording any changes - hit a retq but not sure if thats the end so went until another retq - now ~125 lines and hasn't yet outputted the answer as was expected
+- c - continued through and outputted answer - was checking to see if maybe i had already passes it somehow
+- now i have to get back to where i was somehow without pressing si 130 times
+	- put a breakpoint at eval.c:2222 - now hitting breakpoint too many times before even hitting Ftimes
+	- disabled br 2 until i hit Ftimes and then enabled it
+	- could not get back to where i was with breakpoints
+- started over with bp at Ftimes and entered si until was at previous position
+- nvmd asked a piazza question about when Ftimes ends and its at the first ret statement so im good i have everything already
+
+
+
+
+
+
+
+
+
+
+

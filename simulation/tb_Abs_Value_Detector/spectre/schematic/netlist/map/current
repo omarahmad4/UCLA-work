@@ -1,0 +1,50 @@
+( ( nil
+  version "2.1"
+  mapType "incremental"
+  blockName "tb_Abs_Value_Detector"
+  repList "spectre cmos_sch cmos.sch schematic veriloga"
+  stopList "spectre"
+  globalList "gnd!"
+  hierDelim "."
+  netlistDir "/w/home.15/ee/ugrad/farooq/simulation/tb_Abs_Value_Detector/spectre/schematic/netlist"
+ )
+( net
+( "gnd!" "0" )
+ )
+( model
+( "gsclib090/XOR2X1/schematic" "XOR2X1" )
+( "Proj2/INVX1/schematic" "INVX1_schematic" )
+( "gsclib090/NAND2X1/schematic" "NAND2X1" )
+( "Proj2/Abs_Value_Detector/schematic" "Abs_Value_Detector" )
+( "Proj2/INVX32/schematic" "INVX32" )
+( "gsclib090/NOR2X1/schematic" "NOR2X1" )
+( "gsclib090/OR2X1/schematic" "OR2X1" )
+( "gsclib090/INVX1/schematic" "INVX1" )
+( "Proj2/magnitude_detector/schematic" "magnitude_detector" )
+( "gsclib090/NAND4X1/schematic" "NAND4X1" )
+( "gsclib090/NAND3X1/schematic" "NAND3X1" )
+( "Proj2/tb_Abs_Value_Detector/schematic" "tb_Abs_Value_Detector" )
+( "Proj2/NAND5/schematic" "NAND5" )
+( "Proj2/Driver/schematic" "Driver" )
+( "Proj2/new_comparator/schematic" "new_comparator" )
+( "Proj2/new_1bit_comp/schematic" "new_1bit_comp" )
+( "Proj2/Load/schematic" "Load" )
+ )
+( "NAND5" "ihnl/cds9/map" )
+( "OR2X1" "ihnl/cds8/map" )
+( "Driver" "ihnl/cds15/map" )
+( "INVX1_schematic" "ihnl/cds14/map" )
+( "new_comparator" "ihnl/cds10/map" )
+( "Abs_Value_Detector" "ihnl/cds11/map" )
+( "INVX32" "ihnl/cds12/map" )
+( "NAND3X1" "ihnl/cds6/map" )
+( "new_1bit_comp" "ihnl/cds5/map" )
+( "NOR2X1" "ihnl/cds2/map" )
+( "tb_Abs_Value_Detector" "ihnl/cds16/map" )
+( "Load" "ihnl/cds13/map" )
+( "INVX1" "ihnl/cds3/map" )
+( "NAND4X1" "ihnl/cds7/map" )
+( "XOR2X1" "ihnl/cds0/map" )
+( "NAND2X1" "ihnl/cds1/map" )
+( "magnitude_detector" "ihnl/cds4/map" )
+ )

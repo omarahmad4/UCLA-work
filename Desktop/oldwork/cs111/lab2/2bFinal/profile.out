@@ -1,0 +1,187 @@
+Total: 52 samples
+      29  55.8%  55.8%       52 100.0% threadFunc
+      16  30.8%  86.5%       16  30.8% SortedList_insert
+       4   7.7%  94.2%        4   7.7% SortedList_lookup
+       3   5.8% 100.0%        3   5.8% SortedList_delete
+       0   0.0% 100.0%       52 100.0% __clone
+       0   0.0% 100.0%       52 100.0% start_thread
+ROUTINE ====================== threadFunc in /u/ee/ugrad/farooq/Desktop/cs111/lab2/lab2_list.c
+    29     52 Total samples (flat / cumulative)
+     .      .   50:   if(code)
+     .      .   51:     exit(code);
+     .      .   52: }
+     .      .   53: 
+     .      .   54: void* threadFunc(void* Data)
+---
+     .      .   55: {
+     .      .   56:   struct threadData tData = *(struct threadData *) Data;
+     .      .   57:   struct SortedListElement * elements = tData.tElements;
+     .      .   58:   int numElem = tData.size;
+     .      .   59:   char sync = *tData.tSync;
+     .      .   60:   int j;
+     .      .   61:   switch (sync)
+     .      .   62:     {
+     .      .   63:     case 'm': //mutex
+     .      .   64:       for(j = 0; j < numElem; j++) //inserting
+     .      .   65: 	{
+     .      .   66: 	  pthread_mutex_lock(&Mex);
+     .      .   67: 	  SortedList_insert(&myList, &elements[j]);
+     .      .   68: 	  pthread_mutex_unlock(&Mex);
+     .      .   69: 	}
+     .      .   70:       pthread_mutex_lock(&Mex);
+     .      .   71:       SortedList_length(&myList);
+     .      .   72:       pthread_mutex_unlock(&Mex);
+     .      .   73:       for(j = 0; j < numElem; j++)
+     .      .   74: 	{
+     .      .   75:       	  pthread_mutex_lock(&Mex);
+     .      .   76: 	  SortedListElement_t * tempPtr = SortedList_lookup(&myList, elements[j].key);
+     .      .   77: 	  if(tempPtr == NULL)
+     .      .   78: 	    {
+     .      .   79: 	      errorExit("Lookup failed!", 2, 0); //2 for failure on synch
+     .      .   80: 	    }
+     .      .   81: 	  SortedList_delete(tempPtr); //delete the looked up elmt
+     .      .   82:       	  pthread_mutex_unlock(&Mex);
+     .      .   83: 	}
+     .      .   84:       break;
+     .      .   85:     case 's': //spin lock
+     .      .   86: 
+     .      .   87:       for(j = 0; j < numElem; j++)
+     .      .   88: 	{
+    20     20   89: 	  while(__sync_lock_test_and_set(&spinLock, 1))
+     .     16   90: 	    SortedList_insert(&myList, &elements[j]);
+     .      .   91: 	  __sync_lock_release(&spinLock);
+     .      .   92: 	}
+     .      .   93:       while(__sync_lock_test_and_set(&spinLock, 1))
+     .      .   94: 	SortedList_length(&myList);
+     .      .   95:       __sync_lock_release(&spinLock);
+     .      .   96:       for(j = 0; j < numElem; j++)
+     .      .   97: 	{
+     8      8   98: 	  while(__sync_lock_test_and_set(&spinLock, 1))
+     .      .   99: 	    {
+     .      4  100: 	      SortedListElement_t * tempPtr = SortedList_lookup(&myList, elements[j].key);
+     .      .  101: 	      if(tempPtr == NULL)
+     .      .  102: 		{
+     .      .  103: 		  errorExit("Lookup failed!", 2, 0); //2 for failure on synch
+     .      .  104: 		}
+     .      3  105: 	      SortedList_delete(tempPtr); //delete the looked up elmt
+     .      .  106: 	    }
+     1      1  107: 	  __sync_lock_release(&spinLock);
+     .      .  108: 	}
+     .      .  109:       break;
+     .      .  110:     case 'z': //no lock
+     .      .  111:     default:
+     .      .  112:       for(j = 0; j < numElem; j++)
+     .      .  113: 	{
+     .      .  114: 	  SortedList_insert(&myList, &elements[j]);
+     .      .  115: 	}
+     .      .  116:       SortedList_length(&myList);
+     .      .  117:       for(j = 0; j < numElem; j++)
+     .      .  118: 	{
+     .      .  119: 	  SortedListElement_t * tempPtr = SortedList_lookup(&myList, elements[j].key);
+     .      .  120: 	  if(tempPtr == NULL)
+     .      .  121: 	    {
+     .      .  122: 	      errorExit("Lookup failed!", 2, 0); //2 for failure on synch
+     .      .  123: 	    }
+     .      .  124: 	  SortedList_delete(tempPtr); //delete the looked up elmt
+     .      .  125: 	}
+     .      .  126:       break;
+     .      .  127:     }
+     .      .  128:   
+     .      .  129:   return 0;
+     .      .  130: }
+---
+     .      .  131: 
+     .      .  132: 
+     .      .  133: int main (int argc, char **argv)
+     .      .  134: {
+     .      .  135:   static struct option optData[] =
+ROUTINE ====================== threadFunc in /u/ee/ugrad/farooq/Desktop/cs111/lab2/lab2_list.c
+    29     52 Total samples (flat / cumulative)
+     .      .   50:   if(code)
+     .      .   51:     exit(code);
+     .      .   52: }
+     .      .   53: 
+     .      .   54: void* threadFunc(void* Data)
+---
+     .      .   55: {
+     .      .   56:   struct threadData tData = *(struct threadData *) Data;
+     .      .   57:   struct SortedListElement * elements = tData.tElements;
+     .      .   58:   int numElem = tData.size;
+     .      .   59:   char sync = *tData.tSync;
+     .      .   60:   int j;
+     .      .   61:   switch (sync)
+     .      .   62:     {
+     .      .   63:     case 'm': //mutex
+     .      .   64:       for(j = 0; j < numElem; j++) //inserting
+     .      .   65: 	{
+     .      .   66: 	  pthread_mutex_lock(&Mex);
+     .      .   67: 	  SortedList_insert(&myList, &elements[j]);
+     .      .   68: 	  pthread_mutex_unlock(&Mex);
+     .      .   69: 	}
+     .      .   70:       pthread_mutex_lock(&Mex);
+     .      .   71:       SortedList_length(&myList);
+     .      .   72:       pthread_mutex_unlock(&Mex);
+     .      .   73:       for(j = 0; j < numElem; j++)
+     .      .   74: 	{
+     .      .   75:       	  pthread_mutex_lock(&Mex);
+     .      .   76: 	  SortedListElement_t * tempPtr = SortedList_lookup(&myList, elements[j].key);
+     .      .   77: 	  if(tempPtr == NULL)
+     .      .   78: 	    {
+     .      .   79: 	      errorExit("Lookup failed!", 2, 0); //2 for failure on synch
+     .      .   80: 	    }
+     .      .   81: 	  SortedList_delete(tempPtr); //delete the looked up elmt
+     .      .   82:       	  pthread_mutex_unlock(&Mex);
+     .      .   83: 	}
+     .      .   84:       break;
+     .      .   85:     case 's': //spin lock
+     .      .   86: 
+     .      .   87:       for(j = 0; j < numElem; j++)
+     .      .   88: 	{
+    20     20   89: 	  while(__sync_lock_test_and_set(&spinLock, 1))
+     .     16   90: 	    SortedList_insert(&myList, &elements[j]);
+     .      .   91: 	  __sync_lock_release(&spinLock);
+     .      .   92: 	}
+     .      .   93:       while(__sync_lock_test_and_set(&spinLock, 1))
+     .      .   94: 	SortedList_length(&myList);
+     .      .   95:       __sync_lock_release(&spinLock);
+     .      .   96:       for(j = 0; j < numElem; j++)
+     .      .   97: 	{
+     8      8   98: 	  while(__sync_lock_test_and_set(&spinLock, 1))
+     .      .   99: 	    {
+     .      4  100: 	      SortedListElement_t * tempPtr = SortedList_lookup(&myList, elements[j].key);
+     .      .  101: 	      if(tempPtr == NULL)
+     .      .  102: 		{
+     .      .  103: 		  errorExit("Lookup failed!", 2, 0); //2 for failure on synch
+     .      .  104: 		}
+     .      3  105: 	      SortedList_delete(tempPtr); //delete the looked up elmt
+     .      .  106: 	    }
+     1      1  107: 	  __sync_lock_release(&spinLock);
+     .      .  108: 	}
+     .      .  109:       break;
+     .      .  110:     case 'z': //no lock
+     .      .  111:     default:
+     .      .  112:       for(j = 0; j < numElem; j++)
+     .      .  113: 	{
+     .      .  114: 	  SortedList_insert(&myList, &elements[j]);
+     .      .  115: 	}
+     .      .  116:       SortedList_length(&myList);
+     .      .  117:       for(j = 0; j < numElem; j++)
+     .      .  118: 	{
+     .      .  119: 	  SortedListElement_t * tempPtr = SortedList_lookup(&myList, elements[j].key);
+     .      .  120: 	  if(tempPtr == NULL)
+     .      .  121: 	    {
+     .      .  122: 	      errorExit("Lookup failed!", 2, 0); //2 for failure on synch
+     .      .  123: 	    }
+     .      .  124: 	  SortedList_delete(tempPtr); //delete the looked up elmt
+     .      .  125: 	}
+     .      .  126:       break;
+     .      .  127:     }
+     .      .  128:   
+     .      .  129:   return 0;
+     .      .  130: }
+---
+     .      .  131: 
+     .      .  132: 
+     .      .  133: int main (int argc, char **argv)
+     .      .  134: {
+     .      .  135:   static struct option optData[] =

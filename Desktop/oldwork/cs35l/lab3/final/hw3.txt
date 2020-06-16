@@ -1,0 +1,32 @@
+Omar Ahmad Lab3 HW sols
+Q1: the patch improves performance as it removes an if statement
+Q2: other commands that rely on ls can also improve their performance
+
+Q3: it gives an indexerror - out of range - because its trying to access a line 
+that does not exist - output:
+[farooq@lnxsrv09 ~/Desktop/cs35l/lab3/hw]$ python randline.py -n 3 a
+Traceback (most recent call last):
+  File "randline.py", line 70, in <module>
+    main()
+  File "randline.py", line 64, in main
+    sys.stdout.write(generator.chooseline())
+  File "randline.py", line 34, in chooseline
+    return random.choice(self.lines)
+  File "/usr/local/cs/Python-2.7.15/lib/python2.7/random.py", line 277, in 
+choice
+    return seq[int(self.random() * len(seq))]  # raises IndexError if seq is 
+empty
+IndexError: list index out of range
+
+Q4:it outputs:
+
+[farooq@lnxsrv09 ~/Desktop/cs35l/lab3/hw]$ python3 randline.py -n 3 test
+  File "randline.py", line 65
+    except IOError as (errno, strerror):
+                      ^
+SyntaxError: invalid syntax
+- this is because randline.py uses automatic tuple unpacking which is supported 
+in python2 but not in python3
+
+
+

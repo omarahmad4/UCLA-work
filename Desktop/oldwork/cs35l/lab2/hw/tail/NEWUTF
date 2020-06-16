@@ -1,0 +1,11 @@
+line1 - blah blah *##&#
+line 2 748927342934723847239847982378273
+
+5
+#print?
+
+end
+EOF - pir
+print EOF?
+
+Ş

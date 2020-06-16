@@ -1,0 +1,16 @@
+Omar Ahmad 	804801272
+
+1. The correct mathematical result was higher than most-positive-fixnum, the largest number that emacs can handle. 
+so there was overflow which is undefined behavior which caused the incorrect result 
+the imul instruction caused the problem. it is instruction number 54dfd8. it ran twice and the second instance is likely to have caused the overflow
+
+2.
+most-negative-fixnum is the most negative number emacs can handle - it is -2^61
+in the emacs code 'most-negative-fixnum' is defined on line 3892 of data.c 
+
+3.
+multiplying most-positive-fixnum by itself 4 times causes an overflow which evaluates to 1
+
+4.
+this would not fix the overflow problem but it would lead to more consistent and predictable behavior
+in the case of a positive overflow it would just return the value mod most-positive-fixnum 

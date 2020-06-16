@@ -1,0 +1,16 @@
+Spectre (R) Circuit Simulator
+Version 16.1.0.479.isr9 32bit -- 7 Sep 2017
+Simulating `input.scs' on eeapps01.seas.ucla.edu at 10:49:48 AM, Sat Mar 7, 2020 (process id: 113671).
+H = mpsImport( "spectre" "ipi" "v0.0" ?session "spectre0_108614_8" )
+H->sclSetResultDir( "../psf" )
+H->sclRun( "all" )
+sclCkt0x1059ee18 = H->sclGetCircuit(  "" )
+sclParam0x1059ee18 = H->sclGetParameter( sclCkt0x1059ee18 "VDD" )
+H->sclSetAttribute( sclParam0x1059ee18 "value" "1" )
+sclCkt0x1059ee18 = H->sclGetCircuit(  "" )
+sclParam0x1059ee19 = H->sclGetParameter( sclCkt0x1059ee18 "VEXT" )
+H->sclSetAttribute( sclParam0x1059ee19 "value" "1" )
+H->sclSetResultDir( "../psf" )
+H->sclRun( "all" )
+sclCkt0x1059ee18 = H->sclGetCircuit(  "" )
+H->sclQuit(  )

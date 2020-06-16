@@ -1,0 +1,9 @@
+CADENCE IHNL11147
+
+gsclib090 NAND2X1 schematic cds0
+gsclib090 INVX1 schematic cds1
+gsclib090 NOR2X1 schematic cds2
+gsclib090 NAND3X1 schematic cds3
+gsclib090 NAND4X1 schematic cds4
+Proj NAND5 schematic cds5
+Proj comparator schematic cds6

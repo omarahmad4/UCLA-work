@@ -1,0 +1,6 @@
+CADENCE IHNL11144
+
+gsclib090 AND2X1 schematic cds0
+gsclib090 INVX1 schematic cds1
+gsclib090 NOR2X1 schematic cds2
+Proj sina_1bit_comp schematic cds3

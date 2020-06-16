@@ -1,0 +1,36 @@
+@(#)$CDS: nvn_64 version av4.1:Production:dfII6.1.7-64b:IC6.1.7-64b.500.12 11/02/2017 22:41 (sjfnl729) $
+sub-version 4.1_USR5_HF13, integ signature 2017-11-02-2043
+run on eeapps01.seas.ucla.edu at Thu Feb 27 22:43:15 2020
+
+Schematic                        | Layout                         | Status
+-------------------------------------------------------------------------------
+HW5-MirrorAdder schematic ee115c | HW5-MirrorAdder layout ee115c  | errors   *
+
+Mismatch between Schematic and Layout
+   1 cell with errors
+
+Schematic:
+  Library:ee115c
+  Cell   :HW5-MirrorAdder
+  View   :schematic
+
+Layout:
+  Library:ee115c
+  Cell   :HW5-MirrorAdder
+  View   :layout
+
+
+
+Extraction  Information
+--------------------
+     0 cells have 0 mal-formed device problems
+     0 cells have 0 label short problems
+     0 cells have 0 label open problems
+
+Mismatch  Information
+--------------------
+     1 cells have 9 Net mismatches
+     1 cells have 10 Device mismatches
+     0 cells have 0 Pin mismatches
+     0 cells have 0 Parameter mismatches
+

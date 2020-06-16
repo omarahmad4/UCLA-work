@@ -1,0 +1,39 @@
+@(#)$CDS: nvn_64 version av4.1:Production:dfII6.1.7-64b:IC6.1.7-64b.500.12 11/02/2017 22:41 (sjfnl729) $
+sub-version 4.1_USR5_HF13, integ signature 2017-11-02-2043
+run on eeapps01.seas.ucla.edu at Sat Mar  7 18:25:29 2020
+
+Schematic                           | Layout                           | Status
+---------------------------------------------------------------------------------
+INVX1 schematic gsclib090           | INVX1 layout gsclib090           | matched
+NOR2X1 schematic gsclib090          | NOR2X1 layout gsclib090          | matched
+NAND2X1 schematic gsclib090         | NAND2X1 layout gsclib090         | matched
+XOR2X1 schematic gsclib090          | XOR2X1 layout gsclib090          | matched
+magnitude_detector schematic TB_PROJ| magnitude_detector layout TB_PROJ| matched
+
+Schematic and Layout Match
+
+Schematic:
+  Library:TB_PROJ
+  Cell   :magnitude_detector
+  View   :schematic
+
+Layout:
+  Library:TB_PROJ
+  Cell   :magnitude_detector
+  View   :layout
+
+
+
+Extraction  Information
+--------------------
+     0 cells have 0 mal-formed device problems
+     0 cells have 0 label short problems
+     0 cells have 0 label open problems
+
+Mismatch  Information
+--------------------
+     0 cells have 0 Net mismatches
+     0 cells have 0 Device mismatches
+     0 cells have 0 Pin mismatches
+     0 cells have 0 Parameter mismatches
+

@@ -1,0 +1,11 @@
+let rec halve = function
+| [] -> ([], [])
+| [a] -> ([a], [])
+| (a :: b :: cs) ->
+     let
+	(x, y) = halve cs
+     in
+	(a :: x, b :: y);;
+
+
+	

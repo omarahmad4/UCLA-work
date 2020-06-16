@@ -1,0 +1,22 @@
+let rec mergeSort = function
+| [] -> []
+| [e] -> [e]
+| theList ->
+  let rec halve = function
+  | [] -> ([], [])
+  | [a] -> ([a], [])
+  | (a :: b :: cs) ->
+    let
+	(x, y) = halve cs
+    in
+	(a :: x, b :: y);
+
+   let rec merge = function
+   | ([], ys) -> ys
+   | (xs, []) -> xs
+   | (x :: xs, y :: ys) ->
+     	if (x < y) then x :: merge(xs, y :: ys)
+  	else y :: merge (x :: xs, ys);
+
+  let (x, y) = halve theList;
+  merge(mergeSort x, mergeSort y);;

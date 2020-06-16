@@ -1,0 +1,11 @@
+CADENCE IHNL11140
+$model
+ee115c/hw2_NMOS/schematic hw2_NMOS
+$endmodel
+$net
+$endnet
+$param
+VGS VGS
+VSB VSB
+VDS VDS
+$endparam

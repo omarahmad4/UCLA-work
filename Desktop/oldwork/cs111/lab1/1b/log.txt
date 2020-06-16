@@ -1,0 +1,31 @@
+SENT 1 bytes: a
+SENT 1 bytes: =
+SENT 1 bytes: 4
+SENT 1 bytes: 
+SENT 1 bytes: e
+SENT 1 bytes: c
+SENT 1 bytes: h
+SENT 1 bytes: o
+SENT 1 bytes:  
+SENT 1 bytes: $
+SENT 1 bytes: S
+SENT 1 bytes: H
+SENT 1 bytes: E
+SENT 1 bytes: L
+SENT 1 bytes: L
+SENT 1 bytes: 
+RECEIVED 11 bytes: /bin/bash
+
+SENT 1 bytes: e
+SENT 1 bytes: x
+SENT 1 bytes: i
+SENT 1 bytes: t
+SENT 1 bytes: (
+SENT 1 bytes: 6
+SENT 1 bytes: )
+SENT 1 bytes: 
+RECEIVED 55 bytes: shell: line 3: syntax error near unexpected token `6'
+
+RECEIVED 26 bytes: shell: line 3: `exit(6)'
+
+SENT 1 bytes: e

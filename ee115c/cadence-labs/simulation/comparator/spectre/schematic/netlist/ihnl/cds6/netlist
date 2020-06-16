@@ -1,0 +1,35 @@
+
+// Library name: Proj
+// Cell name: comparator
+// View name: schematic
+I34 (net56 net48 net034 VDD! VSS!) NAND2X1
+I20 (net21 net31 net43 VDD! VSS!) NAND2X1
+I19 (net41 net43 net53 VDD! VSS!) NAND2X1
+I18 (A1 B1 net41 VDD! VSS!) NAND2X1
+I17 (A2 B2 net46 VDD! VSS!) NAND2X1
+I16 (net46 net44 net54 VDD! VSS!) NAND2X1
+I15 (net22 net32 net44 VDD! VSS!) NAND2X1
+I8 (net23 net33 net49 VDD! VSS!) NAND2X1
+I7 (net47 net49 net55 VDD! VSS!) NAND2X1
+I6 (A3 B3 net47 VDD! VSS!) NAND2X1
+I2 (net24 net34 net51 VDD! VSS!) NAND2X1
+I1 (net52 net51 net56 VDD! VSS!) NAND2X1
+I0 (A4 B4 net52 VDD! VSS!) NAND2X1
+I26 (A0 net30 VDD! VSS!) INVX1
+I22 (B1 net31 VDD! VSS!) INVX1
+I21 (A1 net21 VDD! VSS!) INVX1
+I14 (A2 net22 VDD! VSS!) INVX1
+I13 (B2 net32 VDD! VSS!) INVX1
+I10 (B3 net33 VDD! VSS!) INVX1
+I9 (A3 net23 VDD! VSS!) INVX1
+I4 (B4 net34 VDD! VSS!) INVX1
+I3 (A4 net24 VDD! VSS!) INVX1
+I24 (net30 B0 net40 VDD! VSS!) NOR2X1
+I23 (net21 B1 net42 VDD! VSS!) NOR2X1
+I12 (net22 B2 net45 VDD! VSS!) NOR2X1
+I11 (net23 B3 net48 VDD! VSS!) NOR2X1
+I5 (net24 B4 net50 VDD! VSS!) NOR2X1
+I30 (net56 net55 net45 net035 VDD! VSS!) NAND3X1
+I31 (net56 net55 net55 net42 net036 VDD! VSS!) NAND4X1
+I35 (net50 net034 net035 net036 net038 Out VDD! VSS!) NAND5
+I33 (net56 net55 net54 net53 net40 net038 VDD! VSS!) NAND5

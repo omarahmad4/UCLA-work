@@ -1,0 +1,30 @@
+
+// Library name: ee115c
+// Cell name: INVX1
+// View name: schematic
+subckt INVX1 A GND VDD Z
+    NM0 (Z A GND GND) gpdk090_nmos1v w=(240n) l=100n as=67.2f ad=67.2f \
+        ps=1.04u pd=1.04u m=(1)*(1) simM=(1)*(1)
+    PM0 (Z A VDD VDD) gpdk090_pmos1v w=(480n) l=100n as=134.4f ad=134.4f \
+        ps=1.52u pd=1.52u m=(1)*(1) simM=(1)*(1)
+ends INVX1
+// End of subcircuit definition.
+
+// Library name: ee115c
+// Cell name: Ring_OSC
+// View name: schematic
+I14 (net8 0 vdd! net5) INVX1
+I13 (net9 0 vdd! net8) INVX1
+I12 (net10 0 vdd! net9) INVX1
+I11 (net11 0 vdd! net10) INVX1
+I10 (net12 0 vdd! net11) INVX1
+I9 (TP 0 vdd! net16) INVX1
+I8 (net16 0 vdd! net15) INVX1
+I7 (net15 0 vdd! net14) INVX1
+I6 (net14 0 vdd! net13) INVX1
+I5 (net13 0 vdd! net12) INVX1
+I4 (net17 0 vdd! TP) INVX1
+I3 (net19 0 vdd! net17) INVX1
+I2 (net18 0 vdd! net19) INVX1
+I1 (net20 0 vdd! net18) INVX1
+I0 (net5 0 vdd! net20) INVX1

@@ -1,0 +1,59 @@
+// Generated for: spectre
+// Generated on: Feb 21 20:33:22 2020
+// Design library name: ee115c
+// Design cell name: FO4-inv
+// Design view name: schematic
+simulator lang=spectre
+global 0 vddd! vdd!
+parameters VD=1.0
+include "/usr/public.2/ee115c/cadence-labs/gpdk090_v3.4/models/spectre/gpdk090.scs" section=NN
+
+// Library name: ee115c
+// Cell name: INVX1
+// View name: schematic
+subckt INVX1 A GND VDD Z
+    NM0 (Z A GND GND) gpdk090_nmos1v w=(240n) l=100n as=67.2f ad=67.2f \
+        ps=1.04u pd=1.04u m=(1)*(1) simM=(1)*(1)
+    PM0 (Z A VDD VDD) gpdk090_pmos1v w=(480n) l=100n as=134.4f ad=134.4f \
+        ps=1.52u pd=1.52u m=(1)*(1) simM=(1)*(1)
+ends INVX1
+// End of subcircuit definition.
+
+// Library name: ee115c
+// Cell name: FO4_inv_stage
+// View name: schematic
+subckt FO4_inv_stage A GND VDD VGOLD Z
+    I3 (A GND VGOLD net24) INVX1
+    I2 (A GND VGOLD net22) INVX1
+    I1 (A GND VGOLD net20) INVX1
+    I0 (A GND VDD Z) INVX1
+    C2 (net24 GND) capacitor c=100f
+    C1 (net22 GND) capacitor c=100f
+    C0 (net20 GND) capacitor c=100f
+ends FO4_inv_stage
+// End of subcircuit definition.
+
+// Library name: ee115c
+// Cell name: FO4-inv
+// View name: schematic
+V0 (net5 0) vsource type=pulse val0=0 val1=VD period=400p delay=100p \
+        rise=10p fall=10p width=200p
+C0 (net4 0) capacitor c=100f
+I6 (out 0 vdd! vddd! net4) FO4_inv_stage
+I5 (in 0 vdd! vddd! out) FO4_inv_stage
+I4 (net5 0 vdd! vddd! in) FO4_inv_stage
+include "./_graphical_stimuli.scs"
+simulatorOptions options reltol=1e-3 vabstol=1e-6 iabstol=1e-12 temp=27 \
+    tnom=27 scalem=1.0 scale=1.0 gmin=1e-12 rforce=1 maxnotes=5 maxwarns=5 \
+    digits=5 cols=80 pivrel=1e-3 sensfile="../psf/sens.output" \
+    checklimitdest=psf 
+tran tran stop=1n errpreset=moderate write="spectre.ic" \
+    writefinal="spectre.fc" annotate=status maxiters=5 
+finalTimeOP info what=oppoint where=rawfile
+modelParameter info what=models where=rawfile
+element info what=inst where=rawfile
+outputParameter info what=output where=rawfile
+designParamVals info what=parameters where=rawfile
+primitives info what=primitives where=rawfile
+subckts info what=subckts where=rawfile
+saveOptions options save=allpub

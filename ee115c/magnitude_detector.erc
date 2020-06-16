@@ -1,0 +1,66 @@
+
+***** Begin Label Report *****
+
+ Label in cell 'XOR2X1 layout gsclib090':
+  info: Assign pin label "VSS" at (0.2400, 0.0000) to layer `Metal1_p'.
+  info: Assign pin label "Y" at (0.1450, 1.3050) to layer `Metal1_p'.
+  info: Assign pin label "A" at (0.7250, 1.5950) to layer `Metal1_p'.
+  info: Assign pin label "VDD" at (0.2400, 2.6100) to layer `Metal1_p'.
+  info: Assign pin label "B" at (2.1750, 1.3050) to layer `Metal1_p'.
+  info: Assign pin label "VSS" at (0.2400, 0.0000) to layer `Metal1_p'.
+  info: Assign pin label "Y" at (0.1450, 1.3050) to layer `Metal1_p'.
+  info: Assign pin label "A" at (0.7250, 1.5950) to layer `Metal1_p'.
+  info: Assign pin label "VDD" at (0.2400, 2.6100) to layer `Metal1_p'.
+  info: Assign pin label "B" at (2.1750, 1.3050) to layer `Metal1_p'.
+
+ Label in cell 'NOR2X1 layout gsclib090':
+  info: Assign pin label "VSS" at (0.2400, 0.0000) to layer `Metal1_p'.
+  info: Assign pin label "A" at (0.4350, 1.0150) to layer `Metal1_p'.
+  info: Assign pin label "B" at (0.7250, 1.3050) to layer `Metal1_p'.
+  info: Assign pin label "Y" at (1.0150, 1.3050) to layer `Metal1_p'.
+  info: Assign pin label "VDD" at (0.2400, 2.6100) to layer `Metal1_p'.
+  info: Assign pin label "VSS" at (0.2400, 0.0000) to layer `Metal1_p'.
+  info: Assign pin label "A" at (0.4350, 1.0150) to layer `Metal1_p'.
+  info: Assign pin label "B" at (0.7250, 1.3050) to layer `Metal1_p'.
+  info: Assign pin label "Y" at (1.0150, 1.3050) to layer `Metal1_p'.
+  info: Assign pin label "VDD" at (0.2400, 2.6100) to layer `Metal1_p'.
+
+ Label in cell 'NAND2X1 layout gsclib090':
+  info: Assign pin label "VSS" at (0.2400, 0.0000) to layer `Metal1_p'.
+  info: Assign pin label "A" at (0.4350, 1.0150) to layer `Metal1_p'.
+  info: Assign pin label "B" at (0.7250, 0.7250) to layer `Metal1_p'.
+  info: Assign pin label "Y" at (1.0150, 1.3050) to layer `Metal1_p'.
+  info: Assign pin label "VDD" at (0.2400, 2.6100) to layer `Metal1_p'.
+  info: Assign pin label "VSS" at (0.2400, 0.0000) to layer `Metal1_p'.
+  info: Assign pin label "A" at (0.4350, 1.0150) to layer `Metal1_p'.
+  info: Assign pin label "B" at (0.7250, 0.7250) to layer `Metal1_p'.
+  info: Assign pin label "Y" at (1.0150, 1.3050) to layer `Metal1_p'.
+  info: Assign pin label "VDD" at (0.2400, 2.6100) to layer `Metal1_p'.
+
+ Label in cell 'INVX1 layout gsclib090':
+  info: Assign pin label "VSS" at (0.2400, 0.0000) to layer `Metal1_p'.
+  info: Assign pin label "A" at (0.1450, 1.0150) to layer `Metal1_p'.
+  info: Assign pin label "Y" at (0.4350, 1.0150) to layer `Metal1_p'.
+  info: Assign pin label "VDD" at (0.2400, 2.6100) to layer `Metal1_p'.
+  info: Assign pin label "VSS" at (0.2400, 0.0000) to layer `Metal1_p'.
+  info: Assign pin label "A" at (0.1450, 1.0150) to layer `Metal1_p'.
+  info: Assign pin label "Y" at (0.4350, 1.0150) to layer `Metal1_p'.
+  info: Assign pin label "VDD" at (0.2400, 2.6100) to layer `Metal1_p'.
+
+ Label in cell 'magnitude_detector layout TB_PROJ':
+  info: Assign pin label "GND" at (0.1100, 0.3000) to layer `Metal1_p'.
+  info: Assign pin label "M4" at (12.3500, 1.7400) to layer `Metal1_p'.
+  info: Assign pin label "M3" at (16.2750, 1.7350) to layer `Metal1_p'.
+  info: Assign pin label "X5" at (1.3800, 18.5650) to layer `Metal1_p'.
+  info: Assign pin label "VDD" at (0.1600, 20.3000) to layer `Metal1_p'.
+  info: Assign pin label "M2" at (19.5950, 1.7350) to layer `Metal1_p'.
+  info: Assign pin label "X4" at (3.7650, 18.5700) to layer `Metal1_p'.
+  info: Assign pin label "X3" at (6.7450, 18.5700) to layer `Metal1_p'.
+  info: Assign pin label "M1" at (23.6950, 1.7350) to layer `Metal1_p'.
+  info: Assign pin label "X2" at (9.8450, 18.5700) to layer `Metal1_p'.
+  info: Assign pin label "M0" at (28.0050, 1.7350) to layer `Metal1_p'.
+  info: Assign pin label "X1" at (12.8650, 18.5700) to layer `Metal1_p'.
+  info: Assign pin label "X0" at (15.7500, 16.2350) to layer `Metal1_p'.
+
+***** End of Label Report *****
+

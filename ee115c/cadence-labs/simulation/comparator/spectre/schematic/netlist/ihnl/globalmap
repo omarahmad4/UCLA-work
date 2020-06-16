@@ -1,0 +1,16 @@
+CADENCE IHNL11140
+$model
+gsclib090/NAND3X1/schematic NAND3X1
+Proj/comparator/schematic comparator
+Proj/NAND5/schematic NAND5
+gsclib090/NOR2X1/schematic NOR2X1
+gsclib090/INVX1/schematic INVX1
+gsclib090/NAND4X1/schematic NAND4X1
+gsclib090/NAND2X1/schematic NAND2X1
+$endmodel
+$net
+VSS! VSS!
+VDD! VDD!
+$endnet
+$param
+$endparam

@@ -1,0 +1,4 @@
+    I1 (net8 net7 VDD GND) INVX32
+    I0 (OUT net8 VDD GND) INVX32
+ends Load
+// End of subcircuit definition.

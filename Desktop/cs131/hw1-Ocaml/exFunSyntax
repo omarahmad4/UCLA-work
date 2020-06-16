@@ -1,0 +1,15 @@
+let rec fact n = match n with
+| 0 -> 1
+| _ -> n * fact(n-1);;
+
+print_int(fact 5);;
+print_string("\n");;
+
+(*-------------------------------*)
+
+let rec fact = function
+| 0->1
+| n->n*fact(n-1);;
+
+print_int (fact 5);;
+print_string("\n");;

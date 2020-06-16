@@ -1,0 +1,2 @@
+simulator lang=spectre
+include "gpdk090_nmos1v.scs"

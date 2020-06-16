@@ -1,0 +1,40 @@
+rm -f *.o *.tmp 1-test.ppm 2-test.ppm 4-test.ppm 8-test.ppm srt srt.tgz
+gcc -std=gnu11 -g -O2  -Wall -Wextra -Wno-unused-parameter   -c -o main.o main.c
+main.c: In function 'main':
+main.c:351:16: warning: unused variable 'pixel_dx' [-Wunused-variable]
+   const double pixel_dx = tan( 0.5*camera_fov ) / ((double)width*0.5);
+                ^~~~~~~~
+main.c: In function 'func1':
+main.c:251:33: warning: 'index' may be used uninitialized in this function [-Wmaybe-uninitialized]
+       for( int py=data->minmax[2*index]; py<=(data->minmax[2*index+1]); py++ )
+                                ~^~~~~~
+gcc -std=gnu11 -g -O2  -Wall -Wextra -Wno-unused-parameter   -c -o raymath.o raymath.c
+gcc -std=gnu11 -g -O2  -Wall -Wextra -Wno-unused-parameter   -c -o shaders.o shaders.c
+gcc -std=gnu11 -g -O2  -Wall -Wextra -Wno-unused-parameter -o srt main.o raymath.o shaders.o -lm -lpthread
+time ./srt 1-test.ppm >1-test.ppm.tmp
+
+real	0m44.321s
+user	0m44.313s
+sys	0m0.001s
+mv 1-test.ppm.tmp 1-test.ppm
+time ./srt 2-test.ppm >2-test.ppm.tmp
+
+real	0m27.546s
+user	0m44.387s
+sys	0m0.004s
+mv 2-test.ppm.tmp 2-test.ppm
+time ./srt 4-test.ppm >4-test.ppm.tmp
+
+real	0m15.901s
+user	0m44.386s
+sys	0m0.003s
+mv 4-test.ppm.tmp 4-test.ppm
+time ./srt 8-test.ppm >8-test.ppm.tmp
+
+real	0m8.825s
+user	0m48.644s
+sys	0m0.007s
+mv 8-test.ppm.tmp 8-test.ppm
+for file in 1-test.ppm 2-test.ppm 4-test.ppm 8-test.ppm; do \
+  diff -u baseline.ppm $file || exit; \
+done

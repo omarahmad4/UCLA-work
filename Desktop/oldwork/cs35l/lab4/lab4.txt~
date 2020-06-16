@@ -1,0 +1,249 @@
+Omar Ahmad
+lab 4 log file
+- downloaded files from spec using wget
+- read install file for instns to install
+- used technique from last lab
+  - 1st: ./configure --prefix=PATH
+    - spending long time on "checking for working mktime"
+    - ended up ouputting that it failed due to a bad slash or something
+    - configured successfully 
+  - 2nd: make 
+    - Failed with output:
+      - In file included from utimecmp.c:41:0:
+      utimens.h:2:5: error: conflicting types for 'futimens'
+      int futimens (int, char const *, struct timespec const [2]);
+           ^
+	   In file included from utimecmp.h:25:0,
+	   from utimecmp.c:25:
+	    /usr/include/sys/stat.h:374:12: note: previous declaration of 'futimens' was here
+	     extern int futimens (int __fd, __const struct timespec __times[2]) __THROW;
+	                 ^
+	  Makefile:659: recipe for target 'utimecmp.o' failed
+	  make[3]: *** [utimecmp.o] Error 1
+	  make[3]: Leaving directory '/w/home.15/ee/ugrad/farooq/Desktop/cs35l/lab4/buggycore/lib'
+	  Makefile:414: recipe for target 'all' failed
+	  make[2]: *** [all] Error 2
+	  make[2]: Leaving directory '/w/home.15/ee/ugrad/farooq/Desktop/cs35l/lab4/buggycore/lib'
+	  Makefile:419: recipe for target 'all-recursive' failed
+	  make[1]: *** [all-recursive] Error 1
+	  make[1]: Leaving directory '/w/home.15/ee/ugrad/farooq/Desktop/cs35l/lab4/buggycore'
+	  Makefile:357: recipe for target 'all' failed
+	  make: *** [all] Error 2
+    - ran option make check test and that failed as well
+  - 3rd: tried make install even though not likely to work
+    - failed w same error message as make
+- patched buggycore with patch given by spec
+   - installed again w method from above - this time all successfulIn file included from utimecmp.c:41:0:
+   - did not work earlier because some of the functions (futimens, tee, etc) were already defined in the system in sys/stat 
+   - renaming fixed this by renaming all conflicting functions to a new unique name
+- reproducing bug
+  - reproduced with method from spec:
+  [farooq@lnxsrv05 ~/Desktop/cs35l/lab4/samplebug]$ touch -d '1918-11-11 11:00 GMT' wwi
+  [farooq@lnxsrv05 ~/Desktop/cs35l/lab4/samplebug]$ touch now
+  [farooq@lnxsrv05 ~/Desktop/cs35l/lab4/samplebug]$ sleep 1
+  [farooq@lnxsrv05 ~/Desktop/cs35l/lab4/samplebug]$ touch now1
+  [farooq@lnxsrv05 ~/Desktop/cs35l/lab4/samplebug]$ TZ=UTC0 ls -lt --full-time wwi now now1
+  -rw-r--r-- 1 farooq eeugrad 0 2054-12-17 17:28:16.000000000 +0000 wwi
+  -rw-r--r-- 1 farooq eeugrad 0 2019-02-05 22:50:40.781617000 +0000 now1
+  -rw-r--r-- 1 farooq eeugrad 0 2019-02-05 22:50:30.446657000 +0000 now
+  - bug is that the -t function of ls is supposed to sort by time but the old file is listed before the newer ones
+- finding bug
+  - using gdb
+  - need to know where to set breakpoints so opening ls.c to try to find sort func
+  - sort_time - not func but internal flag for -t
+    - is a line in switch statement for -t:
+    sort_type = sort_time
+    - found switch for sort_time
+    - 3 types of time_type: time_ctime, time_mtime, and timne_atime
+  - using info function - poss funcs:
+  - poss funcs:
+    - compare_atime - & ~~compare_str_atime
+    - compare_ctime   	""	
+    - compare_mtime	""
+    - compstr_atime	""	
+    - compstr_ctime	""
+    - compstr_mtime	""
+    - mktime.c:
+    - time_t mktime_internal(struct tm *, struct tm *(*)(const time_t *, struct tm *), time_t *);
+    - 505:    time_t rpl_mktime(struct tm *);
+    - 202:    static time_t guess_time_tm(long, long, int, int, int, const struct tm *, const time_t *);
+    - 228:    static struct tm *ranged_convert(struct tm *(*)(const time_t *, struct tm *), time_t *, struct tm *);
+    - sort_files(void)
+    - File strftime.c:
+    - 1498:   size_t nstrftime(char *, size_t, const char *, const struct tm *, int, int);
+    - 322:    static char *memcpy_lowcase(char *, const char *, size_t);
+    - 331:    static char *memcpy_uppcase(char *, const char *, size_t);
+    - 441:    static size_t strftime_case_(_Bool, char *, size_t, const char *, const struct tm *, int, int);
+    - File time_r.c:
+    - 48:     char *rpl_asctime_r(const struct tm *, char *);
+    - 54:     char *rpl_ctime_r(const time_t *, char *);
+    - 60:     struct tm *rpl_gmtime_r(const time_t *, struct tm *);
+    - 66:     struct tm *rpl_localtime_r(const time_t *, struct tm *);
+
+
+  - trying gdb from the temp directory:
+    - gdb ~/Desktop/cs35l/lab4/coreinstall/bin/ls
+    - then run with options: -lt --full-time wwi now now1
+    - not sure how to put TZ=UTC0 or if its even necessary 
+    - break main
+      - printed after 1301 print_dir (thispend->name, thispend->realname, free_prending_ent (thispend);
+    - break print_dir - didnt hit at all
+    - finish to finish current function
+    - break ls.c:2346
+    - used fin and n until it outputted:
+    (gdb)
+    main (argc=<optimized out>, argv=<optimized out>) at ls.c:1301
+    1301          print_dir (thispend->name, thispend->realname,
+    (gdb)
+    total 0
+    -rw-r--r-- 1 farooq eeugrad 0 1918-11-11 03:00 wwi
+    -rw-r--r-- 1 farooq eeugrad 0 2019-02-07 14:20 now1
+    -rw-r--r-- 1 farooq eeugrad 0 2019-02-07 14:20 now
+    1304          free_pending_ent (thispend);
+    
+    - breaking at 3rd print_dir - the one after which it outputs
+      - bt:  print_dir (command_line_arg=true, realname=0x0, name=0x61b5e0 ".") at ls.c:2346
+      - broke at gobble_file - every print_dir calls a gobble_file
+      - last line before end (using n):
+            if (files_index)
+     	    (gdb)
+    	    2403       print_current_files ();
+    	    (gdb)
+      -rw-r--r-- 1 farooq eeugrad 0 1918-11-11 03:00:00.000000000 -0800 wwi
+      -rw-r--r-- 1 farooq eeugrad 0 2019-02-07 17:56:37.914630156 -0800 now1
+      -rw-r--r-- 1 farooq eeugrad 0 2019-02-07 17:51:37.295467010 -0800 now
+      main (argc=<optimized out>, argv=<optimized out>) at ls.c:1304
+    - break print_current_files:
+      	Breakpoint 3, print_current_files () at ls.c:3044
+	3044      switch (format)
+	(gdb) n	
+	3041    {
+	3044      switch (format)
+	3067          for (i = 0; i < files_index; i++)
+	3069              print_long_format (files + i);
+	3070              DIRED_PUTCHAR ('\n');
+      -rw-r--r-- 1 farooq eeugrad 0 1918-11-11 03:00:00.000000000 -0800 wwi
+	3067          for (i = 0; i < files_index; i++)
+	3069              print_long_format (files + i);
+	3070              DIRED_PUTCHAR ('\n');
+      -rw-r--r-- 1 farooq eeugrad 0 2019-02-07 17:56:37.914630156 -0800 now1
+	3067          for (i = 0; i < files_index; i++)
+	3069              print_long_format (files + i);
+	3070              DIRED_PUTCHAR ('\n');
+      -rw-r--r-- 1 farooq eeugrad 0 2019-02-07 17:51:37.295467010 -0800 now
+	3067          for (i = 0; i < files_index; i++)
+	3074    }
+
+    - looks like either files or files_index is next culprit - prolly files
+    - rwatch files
+      - adds wwi, now, and now1
+      - then calls sort_files:
+      	Hardware read watchpoint 5: files
+
+	Value = (struct fileinfo *) 0x6170e0
+ 	0x000000000040274e in sort_files () at ls.c:3034
+	3034      qsort (files, files_index, sizeof *files, func);
+    - break ls.c:3034
+      - s into qsort
+      - didn't go into - had to use si
+      - went to qsort@plt - no line numbers
+      - might need to examine func - 4th arg of qsort
+      - did s:
+      	- "single stepping unti exit from qsort@plt which has no line info"
+      - si again - went into qsort ()
+      - s and si again - qsort_r()
+      - s again leaves
+    - watch func
+      	    Error evaluating expression for watchpoint 7
+	    value has been optimized out
+	    Watchpoint 7 deleted.
+	    0x0000000000401ea8 in qsort@plt ()
+    - started gdb over w just -t flag so goes into minimal funcs
+    - went to qsort line and si - info locals outputs func = <optimized out>
+    - just kept doing si went into _dl_runtime_resolve_xsave - s to get out
+    - continue doing si:
+      - went into qsort_r() and then into msrt_with_tmp.part
+      - then into timespec_cmp for a tiny bit
+      	- at lib/timespec.h:48
+	- timespec_cmp (b=..., a=...) at ../lib/timespec.h:48
+	48        int diff = a.tv_sec - b.tv_sec;
+	49        return diff ? diff : a.tv_nsec - b.tv_nsec;
+	49        return diff ? diff : a.tv_nsec - b.tv_nsec;
+	49        return diff ? diff : a.tv_nsec - b.tv_nsec;
+	49        return diff ? diff : a.tv_nsec - b.tv_nsec;
+	49        return diff ? diff : a.tv_nsec - b.tv_nsec;
+		  compare_mtime (a=0x617190, b=0x617240) at ls.c:2884
+	2884    static int compare_mtime (V a, V b) { return cmp_mtime (a, b, xstrcoll); }
+
+    - more si: nothing else
+    - break timespec_cmp
+      - list:
+   /* Return negative, zero, positive if A < B, A == B, A > B, respectively.
+      Assume the nanosecond components are in range, or close to it.  */
+      45      static inline int
+      46      timespec_cmp (struct timespec a, struct timespec b)
+      47      {
+      48        int diff = a.tv_sec - b.tv_sec;
+      49        return diff ? diff : a.tv_nsec - b.tv_nsec;
+      50      }
+    - bt says compare_mtime ls.c: 2884, cmp_mtime ls.c: 2880, and then timespec_cmp
+      - all after msort_with_tmp.part
+    - if just run normally - bpt at timespec_cmp hits twice
+      - added new file test to test if that increases
+      - hit 4 times now
+
+    - tried to open timespec.h - not actually sure where it is - couldnt find in coreinstall
+      - found in the source files - before install
+      - 2 main blocks of code:
+      struct timespec
+      {
+        time_t tv_sec;
+	long tv_nsec;
+      };
+      /* Return negative, zero, positive if A < B, A == B, A > B, respectively.
+         Assume the nanosecond components are in range, or close to it.  */
+	 static inline int
+	 timespec_cmp (struct timespec a, struct timespec b)
+	 {
+	   int diff = a.tv_sec - b.tv_sec;
+	   return diff ? diff : a.tv_nsec - b.tv_nsec;
+	 }
+     - my guess is the diff needs to be double or something
+       - changed it and return value to double
+       - no change in output - maybe need to reinstall - installing in new coreinstallfix
+       	 - after install still seems like ls is buggy :(
+	 - 
+     - tried to cast the time_t.sec to a long long to fix possible overflow - no effect
+     - instead just changed timespec_cmp to not use subtraction - all it needs to return is +1 for >, -1 for <, and 0 for equal
+       - removed all function and replaced with:
+       	 return a.tv_sec > b.tc_sec ? 1 : a.tv_sec < b.tv_sec ? -1 : a.tv_nsec - b.tv_sec ;
+     - still buggy without reinstalling so now reinstalling
+     - FIXED!!!
+     - now need to get diff file
+       - 
+
+
+- if we try to reproduce the bug on the seasnet servers it handles the files differently and the bug does not show up
+  - however, it displays the year of wwi as 2058
+  - bc seasnet is handling and not the actual linux shell
+
+- info lines, locals, frame
+- list
+
+
+- 6505203090 mike 
+
+- MUST USE TMP DIR - only works from one window
+- must use gdb on buggy ls not system ls
+- Read all slides!
+- info functions in gdb
+- less ls.c and search for ...
+
+
+GITHUB 35l kumokay:
+       https://github.com/kumokay/CS35L/blob/master/labs/lab4_hint.md
+
+- 
+
+
+

@@ -1,0 +1,81 @@
+Omar Ahmad HW log file hw9
+
+1. create this file
+
+2. git checkout v3.0 -b	quote
+   output:
+   M       src/cmp.c
+   M       src/diff.c
+   M       src/diff3.c
+   M       src/dir.c
+   M       src/sdiff.c
+   M       src/util.c
+   Switched to a new branch 'quote'
+
+3. patch -p1 <../patch-3.0-patch.txt
+   said that previously applied patch detected and asked if to assume -R - put yes for all files (6)
+
+4. learned how to use add-change-log-entry-other-window emacs command (C-x 4 a)
+
+5. opened quote-3.0-patch.txt and used c-x 4 a to access changelog
+   added a short message about the effects of the patch
+
+6. git commit -m Changelog
+   showed list of untracked files and gave message "nothing added to cmmit but untracked files present"
+
+
+STARTED AGAIN W FRESH DIFFUTILS
+
+2. git checkout -b quote - successful
+
+3. patch -p1 <quote-3.0-patch.txt - successful
+
+4. learned command
+
+5. emacs into patch and edit changelog
+
+6. git add . - to add all files to branch
+   git commit -F Changelog - to commit changes w Changelog as the message
+   (some of) output:
+    7 files changed, 369 insertions(+), 43 deletions(-)
+     create mode 100644 quote-3.0-patch.txt
+     
+7. git format-path
+   doesnt create any new files?
+   checked slides and found more options needed:
+   git format-patch -1 --stdout > formatted-patch.txt
+
+
+8. partner = Mike 
+   recloned diffutils into diffutilspartner
+   checked out v3.0 into branch partner
+   tried git am ../quote-3.0-patch.txt - outputted patch format detection failed
+   man page says something about a mailbox not usre what that means...
+   treid again now outputted previous rebase directory still exists but mbox given
+   reset again now complaining about patch not having a valid email address?
+   tried again and now complaining about empty indent name for<> not allowed
+   did git config --global user.name = "omar"
+   and
+   git config --global user.email = "omarahmad4@ucla.edu"
+   still saying empty indent
+   started hw all over again and now it worked
+   	   outputted warnings baout whitespaces but no errors
+   building
+	./bootstrap
+	extra patch due to lnxsrv09
+	./configure
+	make
+	make check
+	     same output as mine - minor error that TA said was fine - cannot execute /bin/sh
+   	  
+9. make distdir
+   diffutils*/ChangeLog is the changelog i wrote :)
+
+10. restart putty w/ X11 enabled
+    start xming
+    cd ~eggert/src/gnu/emacs
+    gitk -> opened window on my computer
+    found merge not newer than 1/25/15 - took screenshot using printscreen and turned into png in ms paint
+    
+
+

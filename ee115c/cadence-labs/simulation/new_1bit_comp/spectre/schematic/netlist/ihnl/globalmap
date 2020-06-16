@@ -1,0 +1,10 @@
+CADENCE IHNL11140
+$model
+gsclib090/NOR2X1/schematic NOR2X1
+TB_PROJ/new_1bit_comp/schematic new_1bit_comp
+gsclib090/INVX1/schematic INVX1
+$endmodel
+$net
+$endnet
+$param
+$endparam

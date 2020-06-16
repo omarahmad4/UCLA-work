@@ -1,0 +1,26 @@
+( ( nil
+  version "2.1"
+  mapType "incremental"
+  blockName "project1"
+  repList "spectre cmos_sch cmos.sch schematic veriloga"
+  stopList "spectre"
+  globalList "vdd! gnd!"
+  hierDelim "."
+  netlistDir "/w/home.15/ee/ugrad/farooq/ee115c/cadence-labs/simulation/project1/spectre/schematic/netlist"
+ )
+( net
+( "gnd!" "0" )
+ )
+( model
+( "gsclib090/XOR2X1/schematic" "XOR2X1" )
+( "gsclib090/NAND2X1/schematic" "NAND2X1" )
+( "Proj/project1/schematic" "project1" )
+( "gsclib090/NOR2X1/schematic" "NOR2X1" )
+( "gsclib090/INVX1/schematic" "INVX1" )
+ )
+( "NOR2X1" "ihnl/cds2/map" )
+( "INVX1" "ihnl/cds3/map" )
+( "XOR2X1" "ihnl/cds0/map" )
+( "NAND2X1" "ihnl/cds1/map" )
+( "project1" "ihnl/cds4/map" )
+ )

@@ -1,0 +1,8 @@
+( ( net
+( "VSS!" "inh_VSS" )
+( "VDD!" "inh_VDD" )
+ )
+( model
+( "INVX1" "INVX1_schematic" )
+ )
+ )

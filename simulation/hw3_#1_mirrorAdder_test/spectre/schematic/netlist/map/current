@@ -1,0 +1,20 @@
+( ( nil
+  version "2.1"
+  mapType "incremental"
+  blockName "hw3_#1_mirrorAdder_test"
+  repList "spectre cmos_sch cmos.sch schematic veriloga"
+  stopList "spectre"
+  globalList "vdd! gnd!"
+  hierDelim "."
+  netlistDir "/w/home.15/ee/ugrad/farooq/simulation/hw3_#1_mirrorAdder_test/spectre/schematic/netlist"
+ )
+( net
+( "gnd!" "0" )
+ )
+( model
+( "ee115c/hw3_#1_mirrorAdder_test/schematic" "_sub5" )
+( "ee115c/hw3_#1/schematic" "_sub4" )
+ )
+( "_sub4" "ihnl/cds0/map" )
+( "_sub5" "ihnl/cds1/map" )
+ )

@@ -1,0 +1,72 @@
+NAME: Omar Ahmad
+EMAIL: omarahmad4@ucla.edu
+ID: 804801272
+
+Description of files:
+lab2_add.c -- source file for program that does adds and subtracts from a counter with or without different types of synchronizations and yielding (to cause race conditions) - ouptuts results in csv format
+lab2_list.c -- source file for program that does operations on a linked list with or without different types of synchronizations and yielding (to cause race conditions) - outputs results in csv format
+SortedList.h -- header file for linked list structure
+SortedList.c -- implementation of linked list with forced yielding in specific locaitons if opt_yield is specified to cause race conditions
+lab2_add.csv -- containing results of all test data for add program
+lab2_list.csv -- containing results of all test data for linked list program
+lab2_add.gp -- script provided by professor to produce graphs from csv file
+lab2_list.gp -- script provided by professor to produce graphs from csv file
+*.png -- graphs produced by both .gp files that show various correlations between iterations per thread, number of threads, yielding, synchronization methods, and cost per operation
+README -- (this file) contains descriptions of files and answers to questions from the assignment spec
+Makefile -- targets:
+	 - default: builds executables lab2_add and lab2_list  with flags -Wall and -Wextra
+	 - dist: creates tarball as requested by professor in autogradable format containing all files discussed above
+	 - clean: removes executables, tarball, and any .o or .txt files 
+	 - tests: over 200 test cases for lab2_add and lab2_list all piped into the two .csv files
+	 - graphs: calls the two .gp scripts to produce graphs from .csv files
+
+Sources:
+man pages for 
+
+- man pages for all functions used
+       - examples found in man pages used as templates
+- used previous cs35l and cs111 projects of mine to get basics
+- used hash function under dijb2 from: http://www.cse.yorku.ca/~oz/hash.html
+
+
+Answers to questions:
+QUESTION 2.1.1 - causing conflicts:
+Why does it take many iterations before errors are seen?
+Why does a significantly smaller number of iterations so seldom fail?
+    - when there are few iterations, a thread can finish its work before being preempted and so no race conditions occur
+    - when there are more iterations, a thread is likely to not be able to finish its work by the time another thread comes in, and so this causes race conditions
+    - so before a certain amout of iterations, it is very unlikely to fail
+
+QUESTION 2.1.2 - cost of yielding:
+Why are the --yield runs so much slower?
+Where is the additional time going?
+Is it possible to get valid per-operation timings if we are using the --yield option?
+If so, explain how. If not, explain why not.
+   - with --yield, the threads are forced to yield and so this causes context switches which are very expensive and slow - these context switches quickly add up and make the yield runs very slow
+   - the additional time goes to context switches - the saving and copying of registers, states, stack, etc
+   - it is not possible because we know the time the context switches themselves take and so the time we have is not accurate because it includes context switches
+   
+QUESTION 2.1.3 - measurement errors:
+Why does the average cost per operation drop with increasing iterations?
+If the cost per iteration is a function of the number of iterations, how do we know how many iterations to run (or what the "correct" cost is)?
+   - the cost per operation seems to drop because our time inlcudes the time for creating threads, and as we have more iterations, this thread creation overhead becomes less and less of the main factor
+   - to find the actual cost per operation you just need to run the program with a very large amount of iterations. This is because as seen in figures 2 and 3, the cost per operation is decreasing but the rate of decrease is slowing as iterations increase. So, if you run with 1 or 10 million iterations, you should see the cost per operation taper out and that will be the "correct" cost.
+
+QUESTION 2.1.4 - costs of serialization:
+Why do all of the options perform similarly for low numbers of threads?
+Why do the three protected operations slow down as the number of threads rises?
+    - when there are few threads, context switches are much rarer and so waiting times for acquiring access to critical sections is very small and hard to distinguish between the three methods
+    - when using more threads, there are more context switches and more conflicts between threads waiting for access to the critical section so therefore more time spent waiting and less time executing -> slow performance
+
+QUESTION 2.2.1 - scalability of Mutex
+Compare the variation in time per mutex-protected operation vs the number of threads in Part-1 (adds) and Part-2 (sorted lists).
+Comment on the general shapes of the curves, and explain why they have this shape.
+Comment on the relative rates of increase and differences in the shapes of the curves, and offer an explanation for these differences.
+	- in part 1 the growth of the cost per operation vs threads for mutexes (and other locks) is logarithmic - it begins to taper out as threads increase past a certain point. Compare to part 2, where it seems to grow much faster and not showing much tendency to level out at all - ie following a linear path vs logarithmic for part 1. This is likely because the cost of addition is constant for however many iterations while linked list operations get more expensive as the list grows in size.
+
+QUESTION 2.2.2 - scalability of spin locks
+Compare the variation in time per protected operation vs the number of threads for list operations protected by Mutex vs Spin locks.
+Comment on the general shapes of the curves, and explain why they have this shape.
+Comment on the relative rates of increase and differences in the shapes of the curves, and offer an explanation for these differences.
+	- the two curves are similar in that they both increase as the number of threads increases - this makes sense as they will both have more threads waiting for their turn and so slowing down the program. The mutex curve seems to follow more of a linear path while the spin lock's curve actually seems to be accelerating in slope - that is it is almost following an exponential path - this could be confirmed if i had more than 3 data points per curve. This implies that spin locks are less scalable than mutexes. One possible reason for this is that the mutexes put the threads to sleep when they are not run, while in spin locks, the threads are still running constantly checking "spinning" to see if they got the lock. 
+	In addition, while the spin lock curve is increasing faster, it is lower than the mutex curve showing that for few threads, spin locks can have better performance than mutexes. 

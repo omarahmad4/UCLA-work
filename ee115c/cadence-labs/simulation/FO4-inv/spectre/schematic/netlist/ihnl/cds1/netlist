@@ -1,0 +1,9 @@
+    I3 (A GND VGOLD net24) INVX1
+    I2 (A GND VGOLD net22) INVX1
+    I1 (A GND VGOLD net20) INVX1
+    I0 (A GND VDD Z) INVX1
+    C2 (net24 GND) capacitor c=100f
+    C1 (net22 GND) capacitor c=100f
+    C0 (net20 GND) capacitor c=100f
+ends FO4_inv_stage
+// End of subcircuit definition.

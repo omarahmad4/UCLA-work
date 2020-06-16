@@ -1,0 +1,5 @@
+
+// Library name: ee115c
+// Cell name: FO4_inv_stage
+// View name: schematic
+subckt FO4_inv_stage A GND VDD VGOLD Z

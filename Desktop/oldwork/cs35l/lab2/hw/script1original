@@ -1,0 +1,40 @@
+#!/bin/sh
+NumArgs=$#
+
+count=1
+for var in "$@"
+do
+#    printf "var#: %d = %s\n" $count $var
+    (( count=count+1 ))
+#    if grep -r -P "[^\x00-\x7F]" $var
+#    then echo "SUCCESS!"
+#	 else echo "FAILURE!"
+#    fi
+    
+#    :<<EOF    
+# EOF
+if [ -f $var ];
+    then
+#	echo "file"
+	if  grep -qP "[^\x00-\x7F]" $var ;
+	then echo $var
+#	   else echo "NAA"
+	fi
+    elif [ -d $var ];
+    then
+#	echo "directory"
+#	cd $var
+	for file in $var/*
+	do
+#	    echo $file
+#	    echo "$file"
+	    ./$0 $file
+	done
+	
+#	./$0 `ls $var`
+    else
+	echo "Not file or directory?"
+    fi
+   
+
+done

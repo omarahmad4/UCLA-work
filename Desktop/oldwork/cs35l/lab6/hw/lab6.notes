@@ -1,0 +1,41 @@
+rotate image?
+merging from parallel returning funcs?
+
+- check slides like usual
+- if (ret) print error
+
+
+void run (void* val)
+{
+	sruct values* v = (struct values*) val;
+	print (v->id);
+}
+
+struct values
+{
+	int id;
+	char[20] name;
+	int age;
+}
+
+int main()
+{
+	struc vlaues pvalues;
+	pvalues.id = 1;
+	pvlaues.name = "sid";
+	pvalues.age - 21;
+	
+	pthread_create(1, NULL, run, (void)*&pvalues);
+}
+
+
+- THU:
+  - gcc thr.c -lpthread
+	      \-------/ -> to link pthread library
+  -
+
+
+-
+-
+-
+- 

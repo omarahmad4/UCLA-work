@@ -1,0 +1,7 @@
+    I26 (net22 B Q2 VDD GND) NOR2X1
+    I25 (A net23 net24 VDD GND) NOR2X1
+    I24 (net24 Q2 Q1 VDD GND) NOR2X1
+    I28 (B net23 VDD GND) INVX1
+    I27 (A net22 VDD GND) INVX1
+ends new_1bit_comp
+// End of subcircuit definition.

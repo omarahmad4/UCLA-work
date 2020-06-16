@@ -1,0 +1,10 @@
+
+// Library name: ee115c
+// Cell name: hw3_#1_mirrorAdder_test
+// View name: schematic
+I0 (net2 net3 net4 net5 net6) _sub2
+V4 (0 net6) vsource type=dc
+V3 (0 net5) vsource type=dc
+V2 (net4 0) vsource dc=V_Cin type=dc
+V1 (net3 0) vsource dc=V_B type=dc
+V0 (net2 0) vsource dc=V_A type=dc

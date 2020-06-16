@@ -1,0 +1,3 @@
+#!/bin/sh -f
+/w/apps3/Cadence/ASSURA415-617/tools.lnx86/assura/bin/assura /w/home.15/ee/ugrad/farooq/ee115c/magnitude_detector.rsf -cdslib /w/home.15/ee/ugrad/farooq/ee115c/cds.lib -gui
+exit $?

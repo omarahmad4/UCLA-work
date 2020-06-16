@@ -1,0 +1,7 @@
+// Generated for: spectre
+// Generated on: Jan 14 15:31:53 2020
+// Design library name: ee115c
+// Design cell name: MOS_IV
+// Design view name: schematic
+simulator lang=spectre
+global 0

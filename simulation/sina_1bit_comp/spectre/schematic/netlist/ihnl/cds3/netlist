@@ -1,0 +1,9 @@
+
+// Library name: Proj
+// Cell name: sina_1bit_comp
+// View name: schematic
+I7 (net9 B net10 VDD GND) AND2X1
+I8 (A net8 Q2 VDD GND) AND2X1
+I0 (A net9 VDD GND) INVX1
+I1 (B net8 VDD GND) INVX1
+I14 (net10 Q2 Q1 VDD GND) NOR2X1

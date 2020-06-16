@@ -1,0 +1,7 @@
+_vX5 (X5 0) vsource dc=0 type=dc
+_vX4 (X4 0) vsource val0=0 val1=1 period=8n type=pulse
+_vX3 (X3 0) vsource val0=0 val1=1 period=4ns type=pulse
+_vX2 (X2 0) vsource val0=0 val1=1 period=2n type=pulse
+_vX1 (X1 0) vsource val0=0 val1=1 period=1n type=pulse
+_vX0 (X0 0) vsource val0=0 val1=1 period=0.5n type=pulse
+_vvdd! (vdd! 0) vsource dc=1 type=dc

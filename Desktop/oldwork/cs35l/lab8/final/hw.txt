@@ -1,0 +1,22 @@
+omar ahmad lab8 hw answers
+
+1. Yes the network is still secure - because everything sent over the network 
+is encrypted. so anyone watching would only see encrypted bytes and would need 
+the private key which they dont have to see the actual data
+   (1) the network would likely still be secure but not nearly as secure. They 
+still would not have the private key as it is independent of keystrokes but 
+they might be able to find out the passphrase which reduces the security of the 
+system
+   (2)if they had access to the usb, they should be able to access the public 
+and private keys rendering the system unsecure and allow them to decrypt any 
+encrypted bytes.
+
+
+2. the --verify option does not actually verify who made the file - it merely 
+checks whether the file and the detached signatures match. if someone else 
+obtained the public key, they use it as their own and gain access to the file
+
+this can be addressed by entrusting a third party with my public key to keep 
+track of the orign of the public key and who posts it. One such third party is 
+certificate authority. This solution allows one to keep track of the author of 
+the public key

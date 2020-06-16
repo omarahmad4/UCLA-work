@@ -1,0 +1,6 @@
+Assess your work by writing a brief after-action report that summarizes why you solved the problem the way you did, other approaches that you considered and rejected (and why you rejected them), and any weaknesses in your solution in the context of its intended application. This report should be a plain text file that is no more than 2000 bytes long. See Resources for oral presentations and written reports for advice on how to write assessments; admittedly much of the advice there is overkill for the simple kind of report we're looking for here.
+
+subset: used recursive pattern matching seperating head::tail as that seemed the most natural for ocaml
+equal_sets: called subset a b and subset b a - inefficient if inputs are crazy long b/c this goes through each element twice
+set_union: used @ operator because duplicates dont matter
+set_intersection: used recursive head::tail and List.exits to check if each element of a exists in b - could possibly be made more efficient (for large inputs) by sorting and then using binary search 

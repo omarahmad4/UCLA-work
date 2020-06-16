@@ -1,0 +1,32 @@
+
+// Library name: Proj
+// Cell name: project1
+// View name: schematic
+I4 (net22 vdd! net68 vdd! 0) XOR2X1
+I3 (X1 net26 net67 vdd! 0) XOR2X1
+I2 (net23 net25 net71 vdd! 0) XOR2X1
+I1 (X3 net24 net69 vdd! 0) XOR2X1
+I0 (net66 net40 net70 vdd! 0) XOR2X1
+I27 (net62 net83 M0 vdd! 0) NAND2X1
+I26 (net63 net76 M1 vdd! 0) NAND2X1
+I25 (net64 net78 M2 vdd! 0) NAND2X1
+I24 (net65 net80 M3 vdd! 0) NAND2X1
+I23 (net60 net61 M4 vdd! 0) NAND2X1
+I22 (X0 net16 net62 vdd! 0) NAND2X1
+I21 (X1 net16 net63 vdd! 0) NAND2X1
+I20 (X2 net16 net64 vdd! 0) NAND2X1
+I19 (X3 net16 net65 vdd! 0) NAND2X1
+I18 (X4 net16 net60 vdd! 0) NAND2X1
+I16 (net68 X5 net83 vdd! 0) NAND2X1
+I15 (net67 X5 net76 vdd! 0) NAND2X1
+I14 (net71 X5 net78 vdd! 0) NAND2X1
+I13 (net69 X5 net80 vdd! 0) NAND2X1
+I12 (net70 X5 net61 vdd! 0) NAND2X1
+I6 (net23 net25 net24 vdd! 0) NAND2X1
+I5 (net22 vdd! net26 vdd! 0) NAND2X1
+I8 (X3 net24 net40 vdd! 0) NOR2X1
+I7 (X1 net26 net25 vdd! 0) NOR2X1
+I17 (X5 net16 vdd! 0) INVX1
+I11 (X4 net66 vdd! 0) INVX1
+I10 (X2 net23 vdd! 0) INVX1
+I9 (X0 net22 vdd! 0) INVX1

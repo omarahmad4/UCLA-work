@@ -1,0 +1,260 @@
+Omar Ahmad  CS 33   OpenMP lab  
+Log:
+- uploaded files to seasnet
+- "make seq GPROF=1", "./seq", and "gprof seq" commands 
+	- ran profile to see what funcs take the most time and therefore would be best to optimize
+ouput:
+time   seconds   seconds    calls  ms/call  ms/call  name
+ 57.39      0.47     0.47       15    31.38    37.89  func1
+ 17.71      0.62     0.15  5177344     0.00     0.00  rand2
+  8.55      0.69     0.07 67829762     0.00     0.00  round
+  3.66      0.72     0.03        1    30.04   147.67  addSeed
+  2.44      0.74     0.02   491520     0.00     0.00  findIndexBin
+  2.44      0.76     0.02        2    10.01    10.01  init
+  1.22      0.77     0.01       15     0.67     0.67  func2
+  1.22      0.78     0.01       15     0.67     2.00  func5
+  1.22      0.79     0.01        1    10.01    10.01  elapsed_time
+  1.22      0.80     0.01        1    10.01    10.01  imdilateDisk
+  1.22      0.81     0.01                             filter
+  1.22      0.82     0.01                             sequence
+  0.61      0.82     0.01       15     0.33     0.33  rand1
+  0.00      0.82     0.00       16     0.00     0.00  dilateMatrix
+  0.00      0.82     0.00       15     0.00     0.00  func3
+  0.00      0.82     0.00       15     0.00     0.00  func4
+  0.00      0.82     0.00        2     0.00     0.00  get_time
+  0.00      0.82     0.00        1     0.00     0.00  fillMatrix
+  0.00      0.82     0.00        1     0.00     0.00  func0
+  0.00      0.82     0.00        1     0.00     0.00  getNeighbors
+
+    %   cumulative   self              self     total
+ time   seconds   seconds    calls  ms/call  ms/call  name
+ 51.97      0.41     0.41       15    27.37    37.90  func1
+ 17.11      0.55     0.14 67829762     0.00     0.00  round
+ 15.21      0.67     0.12  5177344     0.00     0.00  rand2
+  5.07      0.71     0.04        1    40.05   137.40  addSeed
+  2.54      0.73     0.02       15     1.34     2.00  func5
+  2.54      0.75     0.02        2    10.01    10.01  init
+  1.27      0.76     0.01   491520     0.00     0.00  findIndexBin
+  1.27      0.77     0.01       16     0.63     0.63  dilateMatrix
+  1.27      0.78     0.01                             filter
+  1.27      0.79     0.01                             sequence
+  0.63      0.79     0.01        1     5.01     5.01  elapsed_time
+  0.00      0.79     0.00       15     0.00     0.00  func2
+  0.00      0.79     0.00       15     0.00     0.00  func3
+  0.00      0.79     0.00       15     0.00     0.00  func4
+  0.00      0.79     0.00       15     0.00     0.00  rand1
+  0.00      0.79     0.00        2     0.00     0.00  get_time
+  0.00      0.79     0.00        1     0.00     0.00  fillMatrix
+  0.00      0.79     0.00        1     0.00     0.00  func0
+  0.00      0.79     0.00        1     0.00     0.00  getNeighbors
+  0.00      0.79     0.00        1     0.00    10.01  imdilateDisk
+  
+ 64.88      0.46     0.46       15    30.71    36.40  func1
+ 11.28      0.54     0.08  5177344     0.00     0.00  rand2
+  9.87      0.61     0.07 67829762     0.00     0.00  round
+  5.64      0.65     0.04        1    40.05   104.95  addSeed
+  2.82      0.67     0.02   491520     0.00     0.00  findIndexBin
+  2.82      0.69     0.02        2    10.01    10.01  init
+  1.41      0.70     0.01        1    10.01    10.01  imdilateDisk
+  1.41      0.71     0.01                             sequence
+  0.00      0.71     0.00       16     0.00     0.00  dilateMatrix
+  0.00      0.71     0.00       15     0.00     0.00  func2
+  0.00      0.71     0.00       15     0.00     0.00  func3
+  0.00      0.71     0.00       15     0.00     0.00  func4
+  0.00      0.71     0.00       15     0.00     1.34  func5
+  0.00      0.71     0.00       15     0.00     0.00  rand1
+  
+ 50.75      0.37     0.37       15    24.70    31.35  func1
+ 17.83      0.50     0.13  5177344     0.00     0.00  rand2
+ 10.29      0.58     0.08 67829762     0.00     0.00  round
+  8.23      0.64     0.06        1    60.08   165.54  addSeed
+  4.12      0.67     0.03   491520     0.00     0.00  findIndexBin
+  2.06      0.68     0.02        1    15.02    15.02  elapsed_time
+  1.37      0.69     0.01       15     0.67     0.67  func2
+  1.37      0.70     0.01       15     0.67     2.67  func5
+  1.37      0.71     0.01        2     5.01     5.01  init
+  1.37      0.72     0.01        1    10.01    10.01  imdilateDisk
+  1.37      0.73     0.01                             sequence
+  0.00      0.73     0.00       16     0.00     0.00  dilateMatrix
+  0.00      0.73     0.00       15     0.00     0.00  func3
+  0.00      0.73     0.00       15     0.00     0.00  func4
+
+
+- not consistent results - sometimes funcs 2 and/or 5 don't seem to take any time at all for some reason
+- need to optimize func1 first and then func 2 and 5
+- added one line to test if i understand the concepts
+#pragma omp parallel for reduction (+:arrayX[i],arrayY[i])//private(i)
+{
+   	for(i = 0; i < n; i++){
+   		arrayX[i] += 1 + 5*rand2(seed, i);
+   		arrayY[i] += -2 + 2*rand2(seed, i);
+   	}
+}
+- ended up taking more time :
+ 67.16      0.55     0.55       15    36.72    42.59  func1
+- did make check and gave error about brackets so removed brackets after pragma statement and reran
+51.32      0.41     0.41       15    27.37    36.49  func1
+make check gave segmentation faullt
+- think i need to compile with make omp instead of make seq whoops
+- make omp gave segmentation fault - tried putting brackets back but got the old error hmmm
+- realized that if both statements in a for loop are being done sequentially, then no reaon to try to parallelize at all so tried:
+double a =  1 + 5*rand2(seed, i);
+		double b = -2 + 2*rand2(seed, i);
+   		arrayX[i] += a; //1 + 5*rand2(seed, i);
+   		arrayY[i] += b; //-2 + 2*rand2(seed, i);
+- still got segmentation fault though
+- tried this
+#pragma omp parallel for
+   	for(i = 0; i<n; i++){
+   		for(j = 0; j < Ones; j++){
+   			index_X = round(arrayX[i]) + objxy[j*2 + 1];
+   			index_Y = round(arrayY[i]) + objxy[j*2];
+   			index[i*Ones + j] = fabs(index_X*Y*Z + index_Y*Z + iter);
+   			if(index[i*Ones + j] >= max_size)
+   				index[i*Ones + j] = 0;
+   		}
+   		probability[i] = 0;
+
+   		for(j = 0; j < Ones; j++) {
+			#pragma omp critical
+			{
+   			probability[i] += (pow((array[index[i*Ones + j]] - 100),2) -
+   							  pow((array[index[i*Ones + j]]-228),2))/50.0;
+			}
+		}
+   		probability[i] = probability[i]/((double) Ones);
+   	}
+- when i did ./omp it never stopped running :(
+- now trying on func2 to maybe get some practice on an easier function 
+#pragma omp parallel for reduction(*:weights[i])
+	for(i = 0; i < n; i++)
+   		weights[i] *= exp(probability[i]);
+this gave a segmentation fault
+- #pragma omp parallel for reduction(*:test)
+	for(i = 0; i < n; i++)
+	{
+		double test =1;
+		test *= exp(probability[i]);
+   		weights[i] =test; //*= exp(probability[i]);//= weights[i] * exp(probability[i]);
+	}
+	apparently test needs to be defined before the pragma statement 
+- tried 
+double test =1;
+#pragma omp parallel for reduction(*:test)
+	for(i = 0; i < n; i++)
+	{
+		test *= exp(probability[i]);
+   		weights[i] =test; //*= exp(probability[i]);//= weights[i] * exp(probability[i]);
+	}
+	stalled - never outputted anything
+- added omp_set_num_threads(4); before pragma line - no effect
+- removed all pragma and parellizing lines - still the program stalled .....
+- removed test and works fine now - not sure why test was bad 
+- went back to func1 so if i do get it working i can see some results 
+- tried 
+for(i = 0; i<n; i++){
+		#pragma omp parallel for 
+   		for(j = 0; j < Ones; j++){
+- program stalled
+- added 
+#pragma omp critical
+			{
+   			if(index[i*Ones + j] >= max_size)
+   				index[i*Ones + j] = 0;
+			}
+	becuase this seems to be the only line which references itself and can cause problems 
+ouput: libgomp: Thread creation failed: Resource temporarily unavailable
+- added omp_set_num_threads(4) - finally worked! - took forever though:
+FUNC TIME : 11.521053
+TOTAL TIME : 13.344478
+- make check passed
+- ran omp again with grpof 
+ 81.00      1.99     1.99                             filter
+  6.31      2.15     0.16 24493173     0.00     0.00  round
+  4.88      2.27     0.12       15     8.01     9.15  func1
+  3.66      2.36     0.09  5177344     0.00     0.00  rand2
+  1.22      2.39     0.03        1    30.04   103.04  addSeed
+  0.81      2.41     0.02       15     1.34     2.00  func5
+- no idea why filter is taking so long now - never did in any of the earlier runs
+
+new day
+- tried 
+double tempProb;
+omp_set_num_threads(4);
+#pragma omp parallel private(tempProb)
+{
+tempProb = (pow((array[index[i*Ones + j]] - 100),2) - pow((array[index[i*Ones + j]]-228),2))/50.0;
+}
+probability[i] += tempProb;
+- still stalls - in some infinite loop for some reason - only way not to stall is to remove pragma line 
+- did simple pragma parallel for in front of the second i for loop in func1 - worked - thought make check would fail but it passed for some reason lol
+FUNC TIME : 0.244636
+TOTAL TIME : 2.088186
+gprof: 63.72      0.70     0.70    filter
+- idk why filter starts taking so long though
+- repeated and new gprof ouptput:
+Each sample counts as 0.01 seconds.
+  %   cumulative   self              self     total
+ time   seconds   seconds    calls  ms/call  ms/call  name
+ 46.30      0.43     0.43                             frame_dummy
+ 20.99      0.63     0.20  1093222     0.00     0.00  round
+ 18.84      0.80     0.18  5177344     0.00     0.00  rand2
+  3.77      0.84     0.04        1    35.04    35.04  elapsed_time
+  3.23      0.87     0.03        1    30.04   171.99  addSeed
+  2.15      0.89     0.02   491520     0.00     0.00  findIndexBin
+  1.08      0.90     0.01       15     0.67     2.89  func1
+  1.08      0.91     0.01        2     5.01     5.01  init
+  1.08      0.92     0.01        1    10.01    10.01  imdilateDisk
+  1.08      0.93     0.01                             sequence
+  0.54      0.93     0.01       15     0.33     0.33  rand1
+- i have no idea what frame_dummy is 
+- also have not been able to make make check fail at all even when i do things that should make it fail according to the ta slides
+- pragma omp parallel for before 1st for loop in func1 and now code back to 0.6 seconds slow - had it at 0.25 somehow consistently but now even if i remove the changes its slow :(
+- added and deleted pragmas before the for loops until got some results - got 2x speedup with 1 pragma statement in front of each i level for loop 
+	- saved file seperately 
+- ran again at 12:30 and got 0.1 vs 0.6 seconds on FUNC TIME - does this mean im done?? - spec asked for 3.5x speedup 
+- did make checkmem and got:
+mtrace filter mtrace.out || true
+
+Memory not freed:
+-----------------
+           Address     Size     Caller
+0x0000000002a60110   0x2040  at 0x7f7145c647f9
+0x0000000002a62160     0xc0  at 0x7f7145c647f9
+0x0000000002a62230    0x108  at 0x7f7145c64849
+0x0000000002a62340    0x240  at 0x7f7146195885
+0x0000000002a62590    0x240  at 0x7f7146195885
+0x0000000002a627e0    0x240  at 0x7f7146195885
+0x0000000002a62a30    0x240  at 0x7f7146195885
+0x0000000002a62c80    0x240  at 0x7f7146195885
+0x0000000002a62ed0    0x240  at 0x7f7146195885
+0x0000000002a63120    0x240  at 0x7f7146195885
+0x0000000002a63370    0x240  at 0x7f7146195885
+0x0000000002a635c0    0x240  at 0x7f7146195885
+0x0000000002a63810    0x240  at 0x7f7146195885
+0x0000000002a63a60    0x240  at 0x7f7146195885
+0x0000000002a63cb0    0x240  at 0x7f7146195885
+0x0000000002a63f00    0x240  at 0x7f7146195885
+0x0000000002a64150    0x240  at 0x7f7146195885
+0x0000000002a643a0    0x240  at 0x7f7146195885
+0x0000000002a645f0    0x240  at 0x7f7146195885
+0x0000000002a64840    0x240  at 0x7f7146195885
+0x0000000002a64a90    0x240  at 0x7f7146195885
+0x0000000002a64ce0    0x240  at 0x7f7146195885
+0x0000000002a64f30    0x240  at 0x7f7146195885
+0x0000000002a65180    0x240  at 0x7f7146195885
+0x0000000002a653d0    0x240  at 0x7f7146195885
+0x0000000002a65620    0x240  at 0x7f7146195885
+0x0000000002a65870    0x240  at 0x7f7146195885
+0x0000000002a65ac0    0x240  at 0x7f7146195885
+0x0000000002a65d10    0x240  at 0x7f7146195885
+0x0000000002a65f60    0x240  at 0x7f7146195885
+0x0000000002a661b0    0x240  at 0x7f7146195885
+0x0000000002a66400    0x240  at 0x7f7146195885
+0x0000000002a66650    0x240  at 0x7f7146195885
+0x0000000002a668a0    0x240  at 0x7f7146195885
+- i think this is good bc in the ta slides says memory not freed is okay error 
+
+
+
+

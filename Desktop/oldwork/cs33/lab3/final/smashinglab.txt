@@ -1,0 +1,875 @@
+Omar Ahmad 	8048010272  smashing lab log
+
+log:
+- changed into usr/local/cs/bin and typed which gcc which outputted the correct response of /usr/local/cs/bin
+- trying next step of introducing bug for applying patch - not sure what exactly i have to do 
+	- tried:
+	./configure \
+   LDFLAGS="-Xlinker --rpath=/usr/local/cs/gcc-$(gcc -dumpversion)/lib" 
+	like the spec says but that outputs: -bash: ./configure: No such file or directory
+- downloaded sthttpd from spec and changed three lines that it seemed might be what they wanted - uploadeded to server and switched to its directory
+- tried configure command again but now says permission denied
+
+* new day
+- read piazza and spec again and redid commands - did make clean followed by make CFLAGS='-g3 -O2 -fno-inline -fstack-protector-strong'
+	- and then mv src/thttpd src/thttpd-sp three times for types sp, as, and no
+- my id: 804081272	calculation for port: 804801272%293=6, port = 12330+3*6+(1,2,3) = 12349 (SP), 12350 (AS), 13251 (NO)
+- ran gdb on thttpd-sp 
+- tried r - exits with: [Inferior 1 (process 3918) exited normally]
+- 
+- did step 3 and 4 - verified with second window using curl that servers work 
+- now running inot error from 2 lines up - no idea at all what to do 
+- b main - breakpoint at main
+- info reg and disassemble - now have some info on the files - full dump below for future reference:
+	Dump of assembler code for function main:
+=> 0x0000000000402970 <+0>:     push   %r15
+   0x0000000000402972 <+2>:     push   %r14
+   0x0000000000402974 <+4>:     push   %r13
+   0x0000000000402976 <+6>:     push   %r12
+   0x0000000000402978 <+8>:     mov    %edi,%r12d
+   0x000000000040297b <+11>:    push   %rbp
+   0x000000000040297c <+12>:    mov    %rsi,%rbp
+   0x000000000040297f <+15>:    push   %rbx
+   0x0000000000402980 <+16>:    sub    $0x1148,%rsp
+   0x0000000000402987 <+23>:    mov    (%rsi),%rbx
+   0x000000000040298a <+26>:    mov    $0x2f,%esi
+   0x000000000040298f <+31>:    mov    %fs:0x28,%rax
+   0x0000000000402998 <+40>:    mov    %rax,0x1138(%rsp)
+   0x00000000004029a0 <+48>:    xor    %eax,%eax
+   0x00000000004029a2 <+50>:    mov    %rbx,%rdi
+   0x00000000004029a5 <+53>:    mov    %rbx,0x21464c(%rip)        # 0x616ff8 <ar                                    gv0>
+   0x00000000004029ac <+60>:    callq  0x402460 <strrchr@plt>
+   0x00000000004029b1 <+65>:    mov    $0x9,%esi
+   0x00000000004029b6 <+70>:    lea    0x1(%rax),%rdx
+   0x00000000004029ba <+74>:    test   %rax,%rax
+   0x00000000004029bd <+77>:    cmovne %rdx,%rbx
+--Type <RET> for more, q to quit, c to continue without paging--c
+   0x00000000004029c1 <+81>:    mov    $0x18,%edx
+   0x00000000004029c6 <+86>:    mov    %rbx,%rdi
+   0x00000000004029c9 <+89>:    lea    0xb0(%rsp),%rbx
+   0x00000000004029d1 <+97>:    callq  0x402840 <openlog@plt>
+   0x00000000004029d6 <+102>:   mov    %r12d,%edi
+   0x00000000004029d9 <+105>:   mov    %rbp,%rsi
+   0x00000000004029dc <+108>:   lea    0x30(%rsp),%r12
+   0x00000000004029e1 <+113>:   callq  0x404270 <parse_args>
+   0x00000000004029e6 <+118>:   callq  0x4025c0 <tzset@plt>
+   0x00000000004029eb <+123>:   lea    0x1c(%rsp),%rcx
+   0x00000000004029f0 <+128>:   mov    %rbx,%rdx
+   0x00000000004029f3 <+131>:   mov    %r12,%rdi
+   0x00000000004029f6 <+134>:   lea    0x18(%rsp),%rsi
+   0x00000000004029fb <+139>:   callq  0x405b30 <lookup_hostname>
+   0x0000000000402a00 <+144>:   mov    0x18(%rsp),%eax
+   0x0000000000402a04 <+148>:   or     0x1c(%rsp),%eax
+   0x0000000000402a08 <+152>:   je     0x403090 <main+1824>
+   0x0000000000402a0e <+158>:   mov    0x21457b(%rip),%rdi        # 0x616f90 <throttlefile>
+   0x0000000000402a15 <+165>:   movl   $0x0,0x214535(%rip)        # 0x616f54 <numthrottles>
+   0x0000000000402a1f <+175>:   movl   $0x0,0x214527(%rip)        # 0x616f50 <maxthrottles>
+   0x0000000000402a29 <+185>:   movq   $0x0,0x214524(%rip)        # 0x616f58 <throttles>
+   0x0000000000402a34 <+196>:   test   %rdi,%rdi
+   0x0000000000402a37 <+199>:   je     0x402a3e <main+206>
+   0x0000000000402a39 <+201>:   callq  0x404850 <read_throttlefile>
+   0x0000000000402a3e <+206>:   callq  0x402400 <getuid@plt>
+   0x0000000000402a43 <+211>:   mov    $0x7fff,%r14d
+   0x0000000000402a49 <+217>:   mov    $0x7fff,%r15d
+   0x0000000000402a4f <+223>:   test   %eax,%eax
+   0x0000000000402a51 <+225>:   je     0x402fc2 <main+1618>
+   0x0000000000402a57 <+231>:   mov    0x21453a(%rip),%rbp        # 0x616f98 <logfile>
+   0x0000000000402a5e <+238>:   test   %rbp,%rbp
+   0x0000000000402a61 <+241>:   je     0x402fe4 <main+1652>
+   0x0000000000402a67 <+247>:   mov    $0x40f6ae,%esi
+   0x0000000000402a6c <+252>:   mov    %rbp,%rdi
+   0x0000000000402a6f <+255>:   callq  0x402580 <strcmp@plt>
+   0x0000000000402a74 <+260>:   test   %eax,%eax
+   0x0000000000402a76 <+262>:   jne    0x402f80 <main+1552>
+   0x0000000000402a7c <+268>:   movl   $0x1,0x21454e(%rip)        # 0x616fd4 <no_log>
+   0x0000000000402a86 <+278>:   xor    %r13d,%r13d
+   0x0000000000402a89 <+281>:   mov    0x214558(%rip),%rdi        # 0x616fe8 <dir>
+   0x0000000000402a90 <+288>:   test   %rdi,%rdi
+   0x0000000000402a93 <+291>:   je     0x402aa2 <main+306>
+   0x0000000000402a95 <+293>:   callq  0x4023e0 <chdir@plt>
+   0x0000000000402a9a <+298>:   test   %eax,%eax
+   0x0000000000402a9c <+300>:   js     0x4030c5 <main+1877>
+   0x0000000000402aa2 <+306>:   lea    0x130(%rsp),%rbp
+   0x0000000000402aaa <+314>:   mov    $0x1000,%esi
+   0x0000000000402aaf <+319>:   mov    %rbp,%rdi
+   0x0000000000402ab2 <+322>:   callq  0x402480 <getcwd@plt>
+   0x0000000000402ab7 <+327>:   or     $0xffffffffffffffff,%rcx
+   0x0000000000402abb <+331>:   xor    %eax,%eax
+   0x0000000000402abd <+333>:   mov    %rbp,%rdi
+   0x0000000000402ac0 <+336>:   repnz scas %es:(%rdi),%al
+   0x0000000000402ac2 <+338>:   mov    %rcx,%rdx
+   0x0000000000402ac5 <+341>:   not    %rdx
+   0x0000000000402ac8 <+344>:   mov    %rdx,%rcx
+   0x0000000000402acb <+347>:   sub    $0x1,%rcx
+   0x0000000000402acf <+351>:   cmpb   $0x2f,0x12f(%rsp,%rcx,1)
+   0x0000000000402ad7 <+359>:   je     0x402ae0 <main+368>
+   0x0000000000402ad9 <+361>:   movw   $0x2f,0x0(%rbp,%rcx,1)
+   0x0000000000402ae0 <+368>:   cmpl   $0x0,0x21450d(%rip)        # 0x616ff4 <debug>
+   0x0000000000402ae7 <+375>:   jne    0x402fb8 <main+1608>
+   0x0000000000402aed <+381>:   mov    0x214414(%rip),%rdi        # 0x616f08 <stdin@@GLIBC_2.2.5>
+   0x0000000000402af4 <+388>:   callq  0x402380 <fclose@plt>
+   0x0000000000402af9 <+393>:   mov    0x214400(%rip),%rdi        # 0x616f00 <stdout@@GLIBC_2.2.5>
+   0x0000000000402b00 <+400>:   cmp    %r13,%rdi
+   0x0000000000402b03 <+403>:   je     0x402b0a <main+410>
+   0x0000000000402b05 <+405>:   callq  0x402380 <fclose@plt>
+   0x0000000000402b0a <+410>:   mov    0x2143ff(%rip),%rdi        # 0x616f10 <stderr@@GLIBC_2.2.5>
+   0x0000000000402b11 <+417>:   callq  0x402380 <fclose@plt>
+   0x0000000000402b16 <+422>:   mov    $0x1,%esi
+   0x0000000000402b1b <+427>:   mov    $0x1,%edi
+   0x0000000000402b20 <+432>:   callq  0x4026c0 <daemon@plt>
+   0x0000000000402b25 <+437>:   mov    $0x40f6db,%esi
+   0x0000000000402b2a <+442>:   test   %eax,%eax
+   0x0000000000402b2c <+444>:   js     0x402fa2 <main+1586>
+   0x0000000000402b32 <+450>:   mov    0x214447(%rip),%rdi        # 0x616f80 <pidfile>
+   0x0000000000402b39 <+457>:   test   %rdi,%rdi
+   0x0000000000402b3c <+460>:   je     0x402b7b <main+523>
+   0x0000000000402b3e <+462>:   mov    $0x4107a4,%esi
+   0x0000000000402b43 <+467>:   callq  0x4027d0 <fopen@plt>
+   0x0000000000402b48 <+472>:   test   %rax,%rax
+   0x0000000000402b4b <+475>:   je     0x4030ea <main+1914>
+   0x0000000000402b51 <+481>:   mov    %rax,(%rsp)
+   0x0000000000402b55 <+485>:   callq  0x402370 <getpid@plt>
+   0x0000000000402b5a <+490>:   mov    (%rsp),%rcx
+   0x0000000000402b5e <+494>:   mov    $0x40f6e7,%esi
+   0x0000000000402b63 <+499>:   mov    %eax,%edx
+   0x0000000000402b65 <+501>:   xor    %eax,%eax
+   0x0000000000402b67 <+503>:   mov    %rcx,%rdi
+   0x0000000000402b6a <+506>:   callq  0x4025a0 <fprintf@plt>
+   0x0000000000402b6f <+511>:   mov    (%rsp),%rcx
+   0x0000000000402b73 <+515>:   mov    %rcx,%rdi
+   0x0000000000402b76 <+518>:   callq  0x402380 <fclose@plt>
+   0x0000000000402b7b <+523>:   callq  0x406030 <fdwatch_get_nfiles>
+   0x0000000000402b80 <+528>:   mov    %eax,0x2143ba(%rip)        # 0x616f40 <max_connects>
+   0x0000000000402b86 <+534>:   test   %eax,%eax
+   0x0000000000402b88 <+536>:   js     0x402f9d <main+1581>
+   0x0000000000402b8e <+542>:   sub    $0xa,%eax
+   0x0000000000402b91 <+545>:   cmpl   $0x0,0x214440(%rip)        # 0x616fd8 <do_chroot>
+   0x0000000000402b98 <+552>:   mov    %eax,0x2143a2(%rip)        # 0x616f40 <max_connects>
+   0x0000000000402b9e <+558>:   jne    0x40310c <main+1948>
+   0x0000000000402ba4 <+564>:   mov    0x214435(%rip),%rdi        # 0x616fe0 <data_dir>
+   0x0000000000402bab <+571>:   test   %rdi,%rdi
+   0x0000000000402bae <+574>:   je     0x402bbd <main+589>
+   0x0000000000402bb0 <+576>:   callq  0x4023e0 <chdir@plt>
+   0x0000000000402bb5 <+581>:   test   %eax,%eax
+   0x0000000000402bb7 <+583>:   js     0x4031c6 <main+2134>
+   0x0000000000402bbd <+589>:   mov    $0x405170,%esi
+   0x0000000000402bc2 <+594>:   mov    $0xf,%edi
+   0x0000000000402bc7 <+599>:   xor    %eax,%eax
+   0x0000000000402bc9 <+601>:   callq  0x402750 <sigset@plt>
+   0x0000000000402bce <+606>:   mov    $0x405170,%esi
+   0x0000000000402bd3 <+611>:   mov    $0x2,%edi
+   0x0000000000402bd8 <+616>:   xor    %eax,%eax
+   0x0000000000402bda <+618>:   callq  0x402750 <sigset@plt>
+   0x0000000000402bdf <+623>:   mov    $0x403ad0,%esi
+   0x0000000000402be4 <+628>:   mov    $0x11,%edi
+   0x0000000000402be9 <+633>:   xor    %eax,%eax
+   0x0000000000402beb <+635>:   callq  0x402750 <sigset@plt>
+   0x0000000000402bf0 <+640>:   mov    $0x1,%esi
+   0x0000000000402bf5 <+645>:   mov    $0xd,%edi
+   0x0000000000402bfa <+650>:   xor    %eax,%eax
+   0x0000000000402bfc <+652>:   callq  0x402750 <sigset@plt>
+   0x0000000000402c01 <+657>:   mov    $0x403610,%esi
+   0x0000000000402c06 <+662>:   mov    $0x1,%edi
+   0x0000000000402c0b <+667>:   xor    %eax,%eax
+   0x0000000000402c0d <+669>:   callq  0x402750 <sigset@plt>
+   0x0000000000402c12 <+674>:   mov    $0x405130,%esi
+   0x0000000000402c17 <+679>:   mov    $0xa,%edi
+   0x0000000000402c1c <+684>:   xor    %eax,%eax
+   0x0000000000402c1e <+686>:   callq  0x402750 <sigset@plt>
+   0x0000000000402c23 <+691>:   mov    $0x403a40,%esi
+   0x0000000000402c28 <+696>:   mov    $0xc,%edi
+   0x0000000000402c2d <+701>:   xor    %eax,%eax
+   0x0000000000402c2f <+703>:   callq  0x402750 <sigset@plt>
+   0x0000000000402c34 <+708>:   mov    $0x403a80,%esi
+   0x0000000000402c39 <+713>:   mov    $0xe,%edi
+   0x0000000000402c3e <+718>:   xor    %eax,%eax
+   0x0000000000402c40 <+720>:   callq  0x402750 <sigset@plt>
+   0x0000000000402c45 <+725>:   mov    $0x168,%edi
+   0x0000000000402c4a <+730>:   movl   $0x0,0x2142d8(%rip)        # 0x616f2c <got_hup>
+   0x0000000000402c54 <+740>:   movl   $0x0,0x2142ca(%rip)        # 0x616f28 <got_usr1>
+   0x0000000000402c5e <+750>:   movl   $0x0,0x2142bc(%rip)        # 0x616f24 <watchdog_flag>
+   0x0000000000402c68 <+760>:   callq  0x402490 <alarm@plt>
+   0x0000000000402c6d <+765>:   callq  0x40dcb0 <tmr_init>
+   0x0000000000402c72 <+770>:   mov    0x214330(%rip),%eax        # 0x616fa8 <no_empty_referers>
+   0x0000000000402c78 <+776>:   xor    %esi,%esi
+   0x0000000000402c7a <+778>:   mov    %rbx,%rdx
+   0x0000000000402c7d <+781>:   cmpl   $0x0,0x1c(%rsp)
+   0x0000000000402c82 <+786>:   movzwl 0x214367(%rip),%ecx        # 0x616ff0 <port>
+   0x0000000000402c89 <+793>:   cmove  %rsi,%rdx
+   0x0000000000402c8d <+797>:   cmpl   $0x0,0x18(%rsp)
+   0x0000000000402c92 <+802>:   push   %rax
+   0x0000000000402c93 <+803>:   mov    0x21432f(%rip),%eax        # 0x616fc8 <do_global_passwd>
+   0x0000000000402c99 <+809>:   pushq  0x214301(%rip)        # 0x616fa0 <local_pattern>
+   0x0000000000402c9f <+815>:   cmovne %r12,%rsi
+   0x0000000000402ca3 <+819>:   mov    0x21430e(%rip),%r9d        # 0x616fb8 <cgi_limit>
+   0x0000000000402caa <+826>:   pushq  0x214300(%rip)        # 0x616fb0 <url_pattern>
+   0x0000000000402cb0 <+832>:   mov    0x214309(%rip),%r8        # 0x616fc0 <cgi_pattern>
+   0x0000000000402cb7 <+839>:   push   %rax
+   0x0000000000402cb8 <+840>:   mov    0x21430e(%rip),%eax        # 0x616fcc <do_vhost>
+   0x0000000000402cbe <+846>:   mov    0x2142c3(%rip),%rdi        # 0x616f88 <hostname>
+   0x0000000000402cc5 <+853>:   push   %rax
+   0x0000000000402cc6 <+854>:   mov    0x214304(%rip),%eax        # 0x616fd0 <no_symlink_check>
+   0x0000000000402ccc <+860>:   push   %rax
+   0x0000000000402ccd <+861>:   mov    0x214301(%rip),%eax        # 0x616fd4 <no_log>
+   0x0000000000402cd3 <+867>:   push   %r13
+   0x0000000000402cd5 <+869>:   push   %rax
+   0x0000000000402cd6 <+870>:   mov    0x214284(%rip),%eax        # 0x616f60 <max_age>
+   0x0000000000402cdc <+876>:   push   %rbp
+   0x0000000000402cdd <+877>:   push   %rax
+   0x0000000000402cde <+878>:   pushq  0x214284(%rip)        # 0x616f68 <p3p>
+   0x0000000000402ce4 <+884>:   pushq  0x214286(%rip)        # 0x616f70 <charset>
+   0x0000000000402cea <+890>:   callq  0x4094e0 <httpd_initialize>
+   0x0000000000402cef <+895>:   add    $0x60,%rsp
+   0x0000000000402cf3 <+899>:   mov    %rax,0x214236(%rip)        # 0x616f30 <hs>
+   0x0000000000402cfa <+906>:   test   %rax,%rax
+   0x0000000000402cfd <+909>:   je     0x402fae <main+1598>
+   0x0000000000402d03 <+915>:   mov    0x214ade(%rip),%rdx        # 0x6177e8 <JunkClientData>
+   0x0000000000402d0a <+922>:   xor    %edi,%edi
+   0x0000000000402d0c <+924>:   mov    $0x1,%r8d
+   0x0000000000402d12 <+930>:   mov    $0x1d4c0,%ecx
+   0x0000000000402d17 <+935>:   mov    $0x403a60,%esi
+   0x0000000000402d1c <+940>:   callq  0x40e2c0 <tmr_create>
+   0x0000000000402d21 <+945>:   test   %rax,%rax
+   0x0000000000402d24 <+948>:   je     0x403275 <main+2309>
+   0x0000000000402d2a <+954>:   mov    0x214ab7(%rip),%rdx        # 0x6177e8 <JunkClientData>
+   0x0000000000402d31 <+961>:   xor    %edi,%edi
+   0x0000000000402d33 <+963>:   mov    $0x1,%r8d
+   0x0000000000402d39 <+969>:   mov    $0x1388,%ecx
+   0x0000000000402d3e <+974>:   mov    $0x405610,%esi
+   0x0000000000402d43 <+979>:   callq  0x40e2c0 <tmr_create>
+   0x0000000000402d48 <+984>:   test   %rax,%rax
+   0x0000000000402d4b <+987>:   je     0x40346c <main+2812>
+   0x0000000000402d51 <+993>:   cmpl   $0x0,0x2141fc(%rip)        # 0x616f54 <numthrottles>
+   0x0000000000402d58 <+1000>:  jle    0x402d81 <main+1041>
+   0x0000000000402d5a <+1002>:  mov    0x214a87(%rip),%rdx        # 0x6177e8 <JunkClientData>
+   0x0000000000402d61 <+1009>:  xor    %edi,%edi
+   0x0000000000402d63 <+1011>:  mov    $0x1,%r8d
+   0x0000000000402d69 <+1017>:  mov    $0x7d0,%ecx
+   0x0000000000402d6e <+1022>:  mov    $0x4036b0,%esi
+   0x0000000000402d73 <+1027>:  callq  0x40e2c0 <tmr_create>
+   0x0000000000402d78 <+1032>:  test   %rax,%rax
+   0x0000000000402d7b <+1035>:  je     0x40321b <main+2219>
+   0x0000000000402d81 <+1041>:  mov    0x214a60(%rip),%rdx        # 0x6177e8 <JunkClientData>
+   0x0000000000402d88 <+1048>:  xor    %edi,%edi
+   0x0000000000402d8a <+1050>:  mov    $0x1,%r8d
+   0x0000000000402d90 <+1056>:  mov    $0x36ee80,%ecx
+   0x0000000000402d95 <+1061>:  mov    $0x403a30,%esi
+   0x0000000000402d9a <+1066>:  callq  0x40e2c0 <tmr_create>
+   0x0000000000402d9f <+1071>:  test   %rax,%rax
+   0x0000000000402da2 <+1074>:  je     0x4033be <main+2638>
+   0x0000000000402da8 <+1080>:  xor    %edi,%edi
+   0x0000000000402daa <+1082>:  callq  0x4025e0 <time@plt>
+   0x0000000000402daf <+1087>:  movq   $0x0,0x214a26(%rip)        # 0x6177e0 <stats_connections>
+   0x0000000000402dba <+1098>:  mov    %rax,0x214a17(%rip)        # 0x6177d8 <stats_time>
+   0x0000000000402dc1 <+1105>:  mov    %rax,0x214a08(%rip)        # 0x6177d0 <start_time>
+   0x0000000000402dc8 <+1112>:  movq   $0x0,0x2149ed(%rip)        # 0x6177c0 <stats_bytes>
+   0x0000000000402dd3 <+1123>:  movl   $0x0,0x2149eb(%rip)        # 0x6177c8 <stats_simultaneous>
+   0x0000000000402ddd <+1133>:  callq  0x402400 <getuid@plt>
+   0x0000000000402de2 <+1138>:  test   %eax,%eax
+   0x0000000000402de4 <+1140>:  jne    0x402e57 <main+1255>
+   0x0000000000402de6 <+1142>:  xor    %esi,%esi
+   0x0000000000402de8 <+1144>:  xor    %edi,%edi
+   0x0000000000402dea <+1146>:  callq  0x4024b0 <setgroups@plt>
+   0x0000000000402def <+1151>:  mov    $0x40f78d,%esi
+   0x0000000000402df4 <+1156>:  test   %eax,%eax
+   0x0000000000402df6 <+1158>:  js     0x402fa2 <main+1586>
+   0x0000000000402dfc <+1164>:  mov    %r14d,%edi
+   0x0000000000402dff <+1167>:  callq  0x402780 <setgid@plt>
+   0x0000000000402e04 <+1172>:  mov    $0x40f79c,%esi
+   0x0000000000402e09 <+1177>:  test   %eax,%eax
+   0x0000000000402e0b <+1179>:  js     0x402fa2 <main+1586>
+   0x0000000000402e11 <+1185>:  mov    0x214160(%rip),%rdi        # 0x616f78 <user>
+   0x0000000000402e18 <+1192>:  mov    %r14d,%esi
+   0x0000000000402e1b <+1195>:  callq  0x4028d0 <initgroups@plt>
+   0x0000000000402e20 <+1200>:  test   %eax,%eax
+   0x0000000000402e22 <+1202>:  js     0x403511 <main+2977>
+   0x0000000000402e28 <+1208>:  mov    %r15d,%edi
+   0x0000000000402e2b <+1211>:  callq  0x4028a0 <setuid@plt>
+   0x0000000000402e30 <+1216>:  mov    $0x40f7b8,%esi
+   0x0000000000402e35 <+1221>:  test   %eax,%eax
+   0x0000000000402e37 <+1223>:  js     0x402fa2 <main+1586>
+   0x0000000000402e3d <+1229>:  cmpl   $0x0,0x214194(%rip)        # 0x616fd8 <do_chroot>
+   0x0000000000402e44 <+1236>:  jne    0x402e57 <main+1255>
+   0x0000000000402e46 <+1238>:  mov    $0x40f3f0,%esi
+   0x0000000000402e4b <+1243>:  mov    $0x4,%edi
+   0x0000000000402e50 <+1248>:  xor    %eax,%eax
+   0x0000000000402e52 <+1250>:  callq  0x402690 <syslog@plt>
+   0x0000000000402e57 <+1255>:  movslq 0x2140e2(%rip),%rbp        # 0x616f40 <max_connects>
+   0x0000000000402e5e <+1262>:  mov    %rbp,%rbx
+   0x0000000000402e61 <+1265>:  imul   $0x90,%rbp,%rbp
+   0x0000000000402e68 <+1272>:  mov    %rbp,%rdi
+   0x0000000000402e6b <+1275>:  callq  0x402640 <malloc@plt>
+   0x0000000000402e70 <+1280>:  mov    %rax,0x2140d1(%rip)        # 0x616f48 <connects>
+   0x0000000000402e77 <+1287>:  test   %rax,%rax
+   0x0000000000402e7a <+1290>:  je     0x4034c4 <main+2900>
+   0x0000000000402e80 <+1296>:  mov    %rax,%rdx
+   0x0000000000402e83 <+1299>:  xor    %ecx,%ecx
+   0x0000000000402e85 <+1301>:  jmp    0x402ea8 <main+1336>
+   0x0000000000402e87 <+1303>:  add    $0x1,%ecx
+   0x0000000000402e8a <+1306>:  movl   $0x0,(%rdx)
+   0x0000000000402e90 <+1312>:  add    $0x90,%rdx
+   0x0000000000402e97 <+1319>:  mov    %ecx,-0x8c(%rdx)
+   0x0000000000402e9d <+1325>:  movq   $0x0,-0x88(%rdx)
+   0x0000000000402ea8 <+1336>:  cmp    %ecx,%ebx
+   0x0000000000402eaa <+1338>:  jg     0x402e87 <main+1303>
+   0x0000000000402eac <+1340>:  movl   $0xffffffff,-0x8c(%rax,%rbp,1)
+   0x0000000000402eb7 <+1351>:  mov    0x214072(%rip),%rax        # 0x616f30 <hs>
+   0x0000000000402ebe <+1358>:  movl   $0x0,0x214074(%rip)        # 0x616f3c <first_free_connect>
+   0x0000000000402ec8 <+1368>:  movl   $0x0,0x214072(%rip)        # 0x616f44 <num_connects>
+   0x0000000000402ed2 <+1378>:  movl   $0x0,0x21405c(%rip)        # 0x616f38 <httpd_conn_count>
+   0x0000000000402edc <+1388>:  test   %rax,%rax
+   0x0000000000402edf <+1391>:  je     0x402f0a <main+1434>
+   0x0000000000402ee1 <+1393>:  mov    0x48(%rax),%edi
+   0x0000000000402ee4 <+1396>:  cmp    $0xffffffff,%edi
+   0x0000000000402ee7 <+1399>:  je     0x402ef9 <main+1417>
+   0x0000000000402ee9 <+1401>:  xor    %edx,%edx
+   0x0000000000402eeb <+1403>:  xor    %esi,%esi
+   0x0000000000402eed <+1405>:  callq  0x406170 <fdwatch_add_fd>
+   0x0000000000402ef2 <+1410>:  mov    0x214037(%rip),%rax        # 0x616f30 <hs>
+   0x0000000000402ef9 <+1417>:  mov    0x4c(%rax),%edi
+   0x0000000000402efc <+1420>:  cmp    $0xffffffff,%edi
+   0x0000000000402eff <+1423>:  je     0x402f0a <main+1434>
+   0x0000000000402f01 <+1425>:  xor    %edx,%edx
+   0x0000000000402f03 <+1427>:  xor    %esi,%esi
+   0x0000000000402f05 <+1429>:  callq  0x406170 <fdwatch_add_fd>
+   0x0000000000402f0a <+1434>:  lea    0x20(%rsp),%rdi
+   0x0000000000402f0f <+1439>:  callq  0x40e1f0 <tmr_prepare_timeval>
+   0x0000000000402f14 <+1444>:  cmpl   $0x0,0x214005(%rip)        # 0x616f20 <terminate>
+   0x0000000000402f1b <+1451>:  je     0x402f2a <main+1466>
+   0x0000000000402f1d <+1453>:  cmpl   $0x0,0x214020(%rip)        # 0x616f44 <num_connects>
+   0x0000000000402f24 <+1460>:  jle    0x4034ef <main+2943>
+   0x0000000000402f2a <+1466>:  mov    0x213ffc(%rip),%eax        # 0x616f2c <got_hup>
+   0x0000000000402f30 <+1472>:  test   %eax,%eax
+   0x0000000000402f32 <+1474>:  jne    0x40335b <main+2539>
+   0x0000000000402f38 <+1480>:  lea    0x20(%rsp),%rdi
+   0x0000000000402f3d <+1485>:  callq  0x40ddb0 <tmr_mstimeout>
+   0x0000000000402f42 <+1490>:  mov    %rax,%rdi
+   0x0000000000402f45 <+1493>:  callq  0x406240 <fdwatch>
+   0x0000000000402f4a <+1498>:  mov    %eax,%ebx
+   0x0000000000402f4c <+1500>:  test   %eax,%eax
+   0x0000000000402f4e <+1502>:  jns    0x40328e <main+2334>
+   0x0000000000402f54 <+1508>:  callq  0x402290 <__errno_location@plt>
+   0x0000000000402f59 <+1513>:  mov    (%rax),%eax
+   0x0000000000402f5b <+1515>:  cmp    $0x4,%eax
+   0x0000000000402f5e <+1518>:  je     0x402f14 <main+1444>
+   0x0000000000402f60 <+1520>:  cmp    $0xb,%eax
+   0x0000000000402f63 <+1523>:  je     0x402f14 <main+1444>
+   0x0000000000402f65 <+1525>:  mov    $0x3,%edi
+   0x0000000000402f6a <+1530>:  mov    $0x40f7c4,%esi
+   0x0000000000402f6f <+1535>:  xor    %eax,%eax
+   0x0000000000402f71 <+1537>:  callq  0x402690 <syslog@plt>
+   0x0000000000402f76 <+1542>:  mov    $0x1,%edi
+   0x0000000000402f7b <+1547>:  callq  0x402870 <exit@plt>
+   0x0000000000402f80 <+1552>:  mov    $0x40ff39,%esi
+   0x0000000000402f85 <+1557>:  mov    %rbp,%rdi
+   0x0000000000402f88 <+1560>:  callq  0x402580 <strcmp@plt>
+   0x0000000000402f8d <+1565>:  test   %eax,%eax
+   0x0000000000402f8f <+1567>:  jne    0x402fec <main+1660>
+   0x0000000000402f91 <+1569>:  mov    0x213f68(%rip),%r13        # 0x616f00 <stdout@@GLIBC_2.2.5>
+   0x0000000000402f98 <+1576>:  jmpq   0x402a89 <main+281>
+   0x0000000000402f9d <+1581>:  mov    $0x40f308,%esi
+   0x0000000000402fa2 <+1586>:  mov    $0x2,%edi
+   0x0000000000402fa7 <+1591>:  xor    %eax,%eax
+   0x0000000000402fa9 <+1593>:  callq  0x402690 <syslog@plt>
+   0x0000000000402fae <+1598>:  mov    $0x1,%edi
+   0x0000000000402fb3 <+1603>:  callq  0x402870 <exit@plt>
+   0x0000000000402fb8 <+1608>:  callq  0x4024f0 <setsid@plt>
+   0x0000000000402fbd <+1613>:  jmpq   0x402b32 <main+450>
+   0x0000000000402fc2 <+1618>:  mov    0x213faf(%rip),%rdi        # 0x616f78 <user>
+   0x0000000000402fc9 <+1625>:  callq  0x402590 <getpwnam@plt>
+   0x0000000000402fce <+1630>:  test   %rax,%rax
+   0x0000000000402fd1 <+1633>:  je     0x403234 <main+2244>
+   0x0000000000402fd7 <+1639>:  mov    0x10(%rax),%r15d
+   0x0000000000402fdb <+1643>:  mov    0x14(%rax),%r14d
+   0x0000000000402fdf <+1647>:  jmpq   0x402a57 <main+231>
+   0x0000000000402fe4 <+1652>:  xor    %r13d,%r13d
+   0x0000000000402fe7 <+1655>:  jmpq   0x402a89 <main+281>
+   0x0000000000402fec <+1660>:  mov    %rbp,%rdi
+   0x0000000000402fef <+1663>:  mov    $0x410467,%esi
+   0x0000000000402ff4 <+1668>:  callq  0x4027d0 <fopen@plt>
+   0x0000000000402ff9 <+1673>:  mov    0x213f98(%rip),%rbp        # 0x616f98 <logfile>
+   0x0000000000403000 <+1680>:  mov    $0x180,%esi
+   0x0000000000403005 <+1685>:  mov    %rax,%r13
+   0x0000000000403008 <+1688>:  mov    %rbp,%rdi
+   0x000000000040300b <+1691>:  callq  0x402730 <chmod@plt>
+   0x0000000000403010 <+1696>:  test   %r13,%r13
+   0x0000000000403013 <+1699>:  je     0x40336f <main+2559>
+   0x0000000000403019 <+1705>:  test   %eax,%eax
+   0x000000000040301b <+1707>:  jne    0x40336f <main+2559>
+   0x0000000000403021 <+1713>:  cmpb   $0x2f,0x0(%rbp)
+   0x0000000000403025 <+1717>:  jne    0x4031eb <main+2171>
+   0x000000000040302b <+1723>:  mov    %r13,%rdi
+   0x000000000040302e <+1726>:  callq  0x4025f0 <fileno@plt>
+   0x0000000000403033 <+1731>:  mov    $0x1,%edx
+   0x0000000000403038 <+1736>:  mov    $0x2,%esi
+   0x000000000040303d <+1741>:  mov    %eax,%edi
+   0x000000000040303f <+1743>:  xor    %eax,%eax
+   0x0000000000403041 <+1745>:  callq  0x402350 <fcntl@plt>
+   0x0000000000403046 <+1750>:  callq  0x402400 <getuid@plt>
+   0x000000000040304b <+1755>:  test   %eax,%eax
+   0x000000000040304d <+1757>:  jne    0x402a89 <main+281>
+   0x0000000000403053 <+1763>:  mov    %r13,%rdi
+   0x0000000000403056 <+1766>:  callq  0x4025f0 <fileno@plt>
+   0x000000000040305b <+1771>:  mov    %r14d,%edx
+   0x000000000040305e <+1774>:  mov    %r15d,%esi
+   0x0000000000403061 <+1777>:  mov    %eax,%edi
+   0x0000000000403063 <+1779>:  callq  0x4027c0 <fchown@plt>
+   0x0000000000403068 <+1784>:  test   %eax,%eax
+   0x000000000040306a <+1786>:  jns    0x402a89 <main+281>
+   0x0000000000403070 <+1792>:  mov    $0x40f6b8,%esi
+   0x0000000000403075 <+1797>:  mov    $0x4,%edi
+   0x000000000040307a <+1802>:  xor    %eax,%eax
+   0x000000000040307c <+1804>:  callq  0x402690 <syslog@plt>
+   0x0000000000403081 <+1809>:  mov    $0x40f6cc,%edi
+   0x0000000000403086 <+1814>:  callq  0x4027e0 <perror@plt>
+   0x000000000040308b <+1819>:  jmpq   0x402a89 <main+281>
+   0x0000000000403090 <+1824>:  mov    $0x40f661,%esi
+   0x0000000000403095 <+1829>:  mov    $0x3,%edi
+   0x000000000040309a <+1834>:  xor    %eax,%eax
+   0x000000000040309c <+1836>:  callq  0x402690 <syslog@plt>
+   0x00000000004030a1 <+1841>:  mov    0x213e68(%rip),%rdi        # 0x616f10 <stderr@@GLIBC_2.2.5>
+   0x00000000004030a8 <+1848>:  mov    0x213f49(%rip),%rdx        # 0x616ff8 <argv0>
+   0x00000000004030af <+1855>:  xor    %eax,%eax
+   0x00000000004030b1 <+1857>:  mov    $0x40f250,%esi
+   0x00000000004030b6 <+1862>:  callq  0x4025a0 <fprintf@plt>
+   0x00000000004030bb <+1867>:  mov    $0x1,%edi
+   0x00000000004030c0 <+1872>:  callq  0x402870 <exit@plt>
+   0x00000000004030c5 <+1877>:  mov    $0x40f71f,%esi
+   0x00000000004030ca <+1882>:  mov    $0x2,%edi
+   0x00000000004030cf <+1887>:  xor    %eax,%eax
+   0x00000000004030d1 <+1889>:  callq  0x402690 <syslog@plt>
+   0x00000000004030d6 <+1894>:  mov    $0x40f733,%edi
+   0x00000000004030db <+1899>:  callq  0x4027e0 <perror@plt>
+   0x00000000004030e0 <+1904>:  mov    $0x1,%edi
+   0x00000000004030e5 <+1909>:  callq  0x402870 <exit@plt>
+   0x00000000004030ea <+1914>:  mov    0x213e8f(%rip),%rdx        # 0x616f80 <pidfile>
+   0x00000000004030f1 <+1921>:  mov    $0x2,%edi
+   0x00000000004030f6 <+1926>:  mov    $0x40faf1,%esi
+   0x00000000004030fb <+1931>:  xor    %eax,%eax
+   0x00000000004030fd <+1933>:  callq  0x402690 <syslog@plt>
+   0x0000000000403102 <+1938>:  mov    $0x1,%edi
+   0x0000000000403107 <+1943>:  callq  0x402870 <exit@plt>
+   0x000000000040310c <+1948>:  mov    %rbp,%rdi
+   0x000000000040310f <+1951>:  callq  0x4022d0 <chroot@plt>
+   0x0000000000403114 <+1956>:  test   %eax,%eax
+   0x0000000000403116 <+1958>:  js     0x403399 <main+2601>
+   0x000000000040311c <+1964>:  mov    0x213e75(%rip),%r8        # 0x616f98 <logfile>
+   0x0000000000403123 <+1971>:  test   %r8,%r8
+   0x0000000000403126 <+1974>:  je     0x403187 <main+2071>
+   0x0000000000403128 <+1976>:  mov    $0x40ff39,%esi
+   0x000000000040312d <+1981>:  mov    %r8,%rdi
+   0x0000000000403130 <+1984>:  mov    %r8,(%rsp)
+   0x0000000000403134 <+1988>:  callq  0x402580 <strcmp@plt>
+   0x0000000000403139 <+1993>:  test   %eax,%eax
+   0x000000000040313b <+1995>:  je     0x403187 <main+2071>
+   0x000000000040313d <+1997>:  or     $0xffffffffffffffff,%rcx
+   0x0000000000403141 <+2001>:  xor    %eax,%eax
+   0x0000000000403143 <+2003>:  mov    %rbp,%rdi
+   0x0000000000403146 <+2006>:  mov    (%rsp),%r8
+   0x000000000040314a <+2010>:  repnz scas %es:(%rdi),%al
+   0x000000000040314c <+2012>:  mov    %rbp,%rsi
+   0x000000000040314f <+2015>:  mov    %r8,%rdi
+   0x0000000000403152 <+2018>:  mov    %rcx,%rdx
+   0x0000000000403155 <+2021>:  not    %rdx
+   0x0000000000403158 <+2024>:  mov    %rdx,%rcx
+   0x000000000040315b <+2027>:  lea    -0x1(%rdx),%rdx
+   0x000000000040315f <+2031>:  mov    %rcx,0x8(%rsp)
+   0x0000000000403164 <+2036>:  callq  0x4022b0 <strncmp@plt>
+   0x0000000000403169 <+2041>:  test   %eax,%eax
+   0x000000000040316b <+2043>:  jne    0x403485 <main+2837>
+   0x0000000000403171 <+2049>:  mov    (%rsp),%r8
+   0x0000000000403175 <+2053>:  mov    0x8(%rsp),%rcx
+   0x000000000040317a <+2058>:  mov    %r8,%rdi
+   0x000000000040317d <+2061>:  lea    -0x2(%r8,%rcx,1),%rsi
+   0x0000000000403182 <+2066>:  callq  0x4022c0 <strcpy@plt>
+   0x0000000000403187 <+2071>:  movw   $0x2f,0x130(%rsp)
+   0x0000000000403191 <+2081>:  mov    %rbp,%rdi
+   0x0000000000403194 <+2084>:  callq  0x4023e0 <chdir@plt>
+   0x0000000000403199 <+2089>:  test   %eax,%eax
+   0x000000000040319b <+2091>:  jns    0x402ba4 <main+564>
+   0x00000000004031a1 <+2097>:  mov    $0x40f6f7,%esi
+   0x00000000004031a6 <+2102>:  mov    $0x2,%edi
+   0x00000000004031ab <+2107>:  xor    %eax,%eax
+   0x00000000004031ad <+2109>:  callq  0x402690 <syslog@plt>
+   0x00000000004031b2 <+2114>:  mov    $0x40f709,%edi
+   0x00000000004031b7 <+2119>:  callq  0x4027e0 <perror@plt>
+   0x00000000004031bc <+2124>:  mov    $0x1,%edi
+   0x00000000004031c1 <+2129>:  callq  0x402870 <exit@plt>
+   0x00000000004031c6 <+2134>:  mov    $0x40f716,%esi
+   0x00000000004031cb <+2139>:  mov    $0x2,%edi
+   0x00000000004031d0 <+2144>:  xor    %eax,%eax
+   0x00000000004031d2 <+2146>:  callq  0x402690 <syslog@plt>
+   0x00000000004031d7 <+2151>:  mov    $0x40f72a,%edi
+   0x00000000004031dc <+2156>:  callq  0x4027e0 <perror@plt>
+   0x00000000004031e1 <+2161>:  mov    $0x1,%edi
+   0x00000000004031e6 <+2166>:  callq  0x402870 <exit@plt>
+   0x00000000004031eb <+2171>:  xor    %eax,%eax
+   0x00000000004031ed <+2173>:  mov    $0x40f278,%esi
+   0x00000000004031f2 <+2178>:  mov    $0x4,%edi
+   0x00000000004031f7 <+2183>:  callq  0x402690 <syslog@plt>
+   0x00000000004031fc <+2188>:  mov    0x213df5(%rip),%rdx        # 0x616ff8 <argv0>
+   0x0000000000403203 <+2195>:  mov    0x213d06(%rip),%rdi        # 0x616f10 <stderr@@GLIBC_2.2.5>
+   0x000000000040320a <+2202>:  xor    %eax,%eax
+   0x000000000040320c <+2204>:  mov    $0x40f2c0,%esi
+   0x0000000000403211 <+2209>:  callq  0x4025a0 <fprintf@plt>
+   0x0000000000403216 <+2214>:  jmpq   0x40302b <main+1723>
+   0x000000000040321b <+2219>:  mov    $0x2,%edi
+   0x0000000000403220 <+2224>:  mov    $0x40f3c8,%esi
+   0x0000000000403225 <+2229>:  callq  0x402690 <syslog@plt>
+   0x000000000040322a <+2234>:  mov    $0x1,%edi
+   0x000000000040322f <+2239>:  callq  0x402870 <exit@plt>
+   0x0000000000403234 <+2244>:  mov    0x213d3d(%rip),%rdx        # 0x616f78 <user>
+   0x000000000040323b <+2251>:  mov    $0x40f67e,%esi
+   0x0000000000403240 <+2256>:  mov    $0x2,%edi
+   0x0000000000403245 <+2261>:  callq  0x402690 <syslog@plt>
+   0x000000000040324a <+2266>:  mov    0x213cbf(%rip),%rdi        # 0x616f10 <stderr@@GLIBC_2.2.5>
+   0x0000000000403251 <+2273>:  mov    $0x40f695,%esi
+   0x0000000000403256 <+2278>:  xor    %eax,%eax
+   0x0000000000403258 <+2280>:  mov    0x213d19(%rip),%rcx        # 0x616f78 <user>
+   0x000000000040325f <+2287>:  mov    0x213d92(%rip),%rdx        # 0x616ff8 <argv0>
+   0x0000000000403266 <+2294>:  callq  0x4025a0 <fprintf@plt>
+   0x000000000040326b <+2299>:  mov    $0x1,%edi
+   0x0000000000403270 <+2304>:  callq  0x402870 <exit@plt>
+   0x0000000000403275 <+2309>:  mov    $0x2,%edi
+   0x000000000040327a <+2314>:  mov    $0x40f739,%esi
+   0x000000000040327f <+2319>:  callq  0x402690 <syslog@plt>
+   0x0000000000403284 <+2324>:  mov    $0x1,%edi
+   0x0000000000403289 <+2329>:  callq  0x402870 <exit@plt>
+   0x000000000040328e <+2334>:  lea    0x20(%rsp),%rdi
+   0x0000000000403293 <+2339>:  callq  0x40e1f0 <tmr_prepare_timeval>
+   0x0000000000403298 <+2344>:  test   %ebx,%ebx
+   0x000000000040329a <+2346>:  je     0x4034b5 <main+2885>
+   0x00000000004032a0 <+2352>:  mov    0x213c89(%rip),%rax        # 0x616f30 <hs>
+   0x00000000004032a7 <+2359>:  test   %rax,%rax
+   0x00000000004032aa <+2362>:  je     0x4032fa <main+2442>
+   0x00000000004032ac <+2364>:  mov    0x4c(%rax),%edi
+   0x00000000004032af <+2367>:  cmp    $0xffffffff,%edi
+   0x00000000004032b2 <+2370>:  je     0x4032cd <main+2397>
+   0x00000000004032b4 <+2372>:  callq  0x406270 <fdwatch_check_fd>
+   0x00000000004032b9 <+2377>:  test   %eax,%eax
+   0x00000000004032bb <+2379>:  jne    0x4034ce <main+2910>
+   0x00000000004032c1 <+2385>:  mov    0x213c68(%rip),%rax        # 0x616f30 <hs>
+   0x00000000004032c8 <+2392>:  test   %rax,%rax
+   0x00000000004032cb <+2395>:  je     0x4032fa <main+2442>
+   0x00000000004032cd <+2397>:  mov    0x48(%rax),%edi
+   0x00000000004032d0 <+2400>:  cmp    $0xffffffff,%edi
+   0x00000000004032d3 <+2403>:  je     0x4032fa <main+2442>
+   0x00000000004032d5 <+2405>:  callq  0x406270 <fdwatch_check_fd>
+   0x00000000004032da <+2410>:  test   %eax,%eax
+   0x00000000004032dc <+2412>:  je     0x4032fa <main+2442>
+   0x00000000004032de <+2414>:  mov    0x213c4b(%rip),%rax        # 0x616f30 <hs>
+   0x00000000004032e5 <+2421>:  lea    0x20(%rsp),%rdi
+   0x00000000004032ea <+2426>:  mov    0x48(%rax),%esi
+   0x00000000004032ed <+2429>:  callq  0x404cb0 <handle_newconnect>
+   0x00000000004032f2 <+2434>:  test   %eax,%eax
+   0x00000000004032f4 <+2436>:  jne    0x402f14 <main+1444>
+   0x00000000004032fa <+2442>:  callq  0x4062c0 <fdwatch_get_next_client_data>
+   0x00000000004032ff <+2447>:  mov    %rax,%rbx
+   0x0000000000403302 <+2450>:  cmp    $0xffffffffffffffff,%rax
+   0x0000000000403306 <+2454>:  je     0x4033d7 <main+2663>
+   0x000000000040330c <+2460>:  test   %rbx,%rbx
+   0x000000000040330f <+2463>:  je     0x4032fa <main+2442>
+   0x0000000000403311 <+2465>:  mov    0x8(%rbx),%rax
+   0x0000000000403315 <+2469>:  mov    0x2c0(%rax),%edi
+   0x000000000040331b <+2475>:  callq  0x406270 <fdwatch_check_fd>
+   0x0000000000403320 <+2480>:  test   %eax,%eax
+   0x0000000000403322 <+2482>:  je     0x40334c <main+2524>
+   0x0000000000403324 <+2484>:  mov    (%rbx),%eax
+   0x0000000000403326 <+2486>:  cmp    $0x2,%eax
+   0x0000000000403329 <+2489>:  je     0x40345a <main+2794>
+   0x000000000040332f <+2495>:  cmp    $0x4,%eax
+   0x0000000000403332 <+2498>:  je     0x403448 <main+2776>
+   0x0000000000403338 <+2504>:  sub    $0x1,%eax
+   0x000000000040333b <+2507>:  jne    0x4032fa <main+2442>
+   0x000000000040333d <+2509>:  lea    0x20(%rsp),%rsi
+   0x0000000000403342 <+2514>:  mov    %rbx,%rdi
+   0x0000000000403345 <+2517>:  callq  0x4053d0 <handle_read>
+   0x000000000040334a <+2522>:  jmp    0x4032fa <main+2442>
+   0x000000000040334c <+2524>:  lea    0x20(%rsp),%rsi
+   0x0000000000403351 <+2529>:  mov    %rbx,%rdi
+   0x0000000000403354 <+2532>:  callq  0x405280 <clear_connection>
+   0x0000000000403359 <+2537>:  jmp    0x4032fa <main+2442>
+   0x000000000040335b <+2539>:  callq  0x404bd0 <re_open_logfile>
+   0x0000000000403360 <+2544>:  movl   $0x0,0x213bc2(%rip)        # 0x616f2c <got_hup>
+   0x000000000040336a <+2554>:  jmpq   0x402f38 <main+1480>
+   0x000000000040336f <+2559>:  mov    %rbp,%rdx
+   0x0000000000403372 <+2562>:  mov    $0x40faf1,%esi
+   0x0000000000403377 <+2567>:  mov    $0x2,%edi
+   0x000000000040337c <+2572>:  xor    %eax,%eax
+   0x000000000040337e <+2574>:  callq  0x402690 <syslog@plt>
+   0x0000000000403383 <+2579>:  mov    0x213c0e(%rip),%rdi        # 0x616f98 <logfile>
+   0x000000000040338a <+2586>:  callq  0x4027e0 <perror@plt>
+   0x000000000040338f <+2591>:  mov    $0x1,%edi
+   0x0000000000403394 <+2596>:  callq  0x402870 <exit@plt>
+   0x0000000000403399 <+2601>:  mov    $0x40f6eb,%esi
+   0x000000000040339e <+2606>:  mov    $0x2,%edi
+   0x00000000004033a3 <+2611>:  xor    %eax,%eax
+   0x00000000004033a5 <+2613>:  callq  0x402690 <syslog@plt>
+   0x00000000004033aa <+2618>:  mov    $0x40f47d,%edi
+   0x00000000004033af <+2623>:  callq  0x4027e0 <perror@plt>
+   0x00000000004033b4 <+2628>:  mov    $0x1,%edi
+   0x00000000004033b9 <+2633>:  callq  0x402870 <exit@plt>
+   0x00000000004033be <+2638>:  mov    $0x2,%edi
+   0x00000000004033c3 <+2643>:  mov    $0x40f76f,%esi
+   0x00000000004033c8 <+2648>:  callq  0x402690 <syslog@plt>
+   0x00000000004033cd <+2653>:  mov    $0x1,%edi
+   0x00000000004033d2 <+2658>:  callq  0x402870 <exit@plt>
+   0x00000000004033d7 <+2663>:  lea    0x20(%rsp),%rdi
+   0x00000000004033dc <+2668>:  callq  0x40df80 <tmr_run>
+   0x00000000004033e1 <+2673>:  mov    0x213b41(%rip),%eax        # 0x616f28 <got_usr1>
+   0x00000000004033e7 <+2679>:  test   %eax,%eax
+   0x00000000004033e9 <+2681>:  je     0x402f14 <main+1444>
+   0x00000000004033ef <+2687>:  cmpl   $0x0,0x213b2a(%rip)        # 0x616f20 <terminate>
+   0x00000000004033f6 <+2694>:  jne    0x402f14 <main+1444>
+   0x00000000004033fc <+2700>:  mov    0x213b2d(%rip),%rax        # 0x616f30 <hs>
+   0x0000000000403403 <+2707>:  movl   $0x1,0x213b13(%rip)        # 0x616f20 <terminate>
+   0x000000000040340d <+2717>:  test   %rax,%rax
+   0x0000000000403410 <+2720>:  je     0x402f14 <main+1444>
+   0x0000000000403416 <+2726>:  mov    0x48(%rax),%edi
+   0x0000000000403419 <+2729>:  cmp    $0xffffffff,%edi
+   0x000000000040341c <+2732>:  je     0x40342a <main+2746>
+   0x000000000040341e <+2734>:  callq  0x4061e0 <fdwatch_del_fd>
+   0x0000000000403423 <+2739>:  mov    0x213b06(%rip),%rax        # 0x616f30 <hs>
+   0x000000000040342a <+2746>:  mov    0x4c(%rax),%edi
+   0x000000000040342d <+2749>:  cmp    $0xffffffff,%edi
+   0x0000000000403430 <+2752>:  je     0x403437 <main+2759>
+   0x0000000000403432 <+2754>:  callq  0x4061e0 <fdwatch_del_fd>
+   0x0000000000403437 <+2759>:  mov    0x213af2(%rip),%rdi        # 0x616f30 <hs>
+   0x000000000040343e <+2766>:  callq  0x407140 <httpd_unlisten>
+   0x0000000000403443 <+2771>:  jmpq   0x402f14 <main+1444>
+   0x0000000000403448 <+2776>:  lea    0x20(%rsp),%rsi
+   0x000000000040344d <+2781>:  mov    %rbx,%rdi
+   0x0000000000403450 <+2784>:  callq  0x405aa0 <handle_linger>
+   0x0000000000403455 <+2789>:  jmpq   0x4032fa <main+2442>
+   0x000000000040345a <+2794>:  lea    0x20(%rsp),%rsi
+   0x000000000040345f <+2799>:  mov    %rbx,%rdi
+   0x0000000000403462 <+2802>:  callq  0x405730 <handle_send>
+   0x0000000000403467 <+2807>:  jmpq   0x4032fa <main+2442>
+   0x000000000040346c <+2812>:  mov    $0x2,%edi
+   0x0000000000403471 <+2817>:  mov    $0x40f757,%esi
+   0x0000000000403476 <+2822>:  callq  0x402690 <syslog@plt>
+   0x000000000040347b <+2827>:  mov    $0x1,%edi
+   0x0000000000403480 <+2832>:  callq  0x402870 <exit@plt>
+   0x0000000000403485 <+2837>:  xor    %eax,%eax
+   0x0000000000403487 <+2839>:  mov    $0x40f328,%esi
+   0x000000000040348c <+2844>:  mov    $0x4,%edi
+   0x0000000000403491 <+2849>:  callq  0x402690 <syslog@plt>
+   0x0000000000403496 <+2854>:  mov    0x213b5b(%rip),%rdx        # 0x616ff8 <argv0>
+   0x000000000040349d <+2861>:  mov    0x213a6c(%rip),%rdi        # 0x616f10 <stderr@@GLIBC_2.2.5>
+   0x00000000004034a4 <+2868>:  xor    %eax,%eax
+   0x00000000004034a6 <+2870>:  mov    $0x40f378,%esi
+   0x00000000004034ab <+2875>:  callq  0x4025a0 <fprintf@plt>
+   0x00000000004034b0 <+2880>:  jmpq   0x403187 <main+2071>
+   0x00000000004034b5 <+2885>:  lea    0x20(%rsp),%rdi
+   0x00000000004034ba <+2890>:  callq  0x40df80 <tmr_run>
+   0x00000000004034bf <+2895>:  jmpq   0x402f14 <main+1444>
+   0x00000000004034c4 <+2900>:  mov    $0x40f430,%esi
+   0x00000000004034c9 <+2905>:  jmpq   0x402fa2 <main+1586>
+   0x00000000004034ce <+2910>:  mov    0x213a5b(%rip),%rax        # 0x616f30 <hs>
+   0x00000000004034d5 <+2917>:  lea    0x20(%rsp),%rdi
+   0x00000000004034da <+2922>:  mov    0x4c(%rax),%esi
+   0x00000000004034dd <+2925>:  callq  0x404cb0 <handle_newconnect>
+   0x00000000004034e2 <+2930>:  test   %eax,%eax
+   0x00000000004034e4 <+2932>:  je     0x4032c1 <main+2385>
+   0x00000000004034ea <+2938>:  jmpq   0x402f14 <main+1444>
+   0x00000000004034ef <+2943>:  callq  0x404fe0 <shut_down>
+   0x00000000004034f4 <+2948>:  mov    $0x5,%edi
+   0x00000000004034f9 <+2953>:  mov    $0x40f5f4,%esi
+   0x00000000004034fe <+2958>:  xor    %eax,%eax
+   0x0000000000403500 <+2960>:  callq  0x402690 <syslog@plt>
+   0x0000000000403505 <+2965>:  callq  0x402260 <closelog@plt>
+   0x000000000040350a <+2970>:  xor    %edi,%edi
+   0x000000000040350c <+2972>:  callq  0x402870 <exit@plt>
+   0x0000000000403511 <+2977>:  mov    $0x40f7a8,%esi
+   0x0000000000403516 <+2982>:  mov    $0x4,%edi
+   0x000000000040351b <+2987>:  xor    %eax,%eax
+   0x000000000040351d <+2989>:  callq  0x402690 <syslog@plt>
+   0x0000000000403522 <+2994>:  jmpq   0x402e28 <main+1208>
+
+- exited gdb and ran with config txt file containing: pidfile=process.txt - after running process.txt had 48203 in it
+- tried adding logfile=log.txt but gave an error saying logile is not an absolute path, i may be unable to open it - log.txt was empty afterwords
+- *****
+- started all over - recompiled and tested servers - all working so far
+- SAME FUCKIN ERRORS: (gdb src/thttpd-as)
+(gdb) r
+Starting program: /w/home.15/eng/ugrad/farooq/cs33/lab3/sthttpd/src/thttpd-sp
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib64/libthread_db.so.1".
+[Detaching after fork from child process 28370]
+[Inferior 1 (process 28364) exited normally]
+(gdb) run -p 12349 -D
+Starting program: /w/home.15/eng/ugrad/farooq/cs33/lab3/sthttpd/src/thttpd-sp -p 12349 -D
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib64/libthread_db.so.1".
+[Inferior 1 (process 28679) exited with code 01]
+(gdb) run -p 12349 -D -C foo.txt
+Starting program: /w/home.15/eng/ugrad/farooq/cs33/lab3/sthttpd/src/thttpd-sp -p 12349 -D -C foo.txt
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib64/libthread_db.so.1".
+/w/home.15/eng/ugrad/farooq/cs33/lab3/sthttpd/src/thttpd-sp: unknown config option 'test'
+[Inferior 1 (process 28706) exited with code 01]
+(gdb) run -p 12349 -D -C foo.txt
+Starting program: /w/home.15/eng/ugrad/farooq/cs33/lab3/sthttpd/src/thttpd-sp -p 12349 -D -C foo.txt
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib64/libthread_db.so.1".
+[Inferior 1 (process 29140) exited with code 01]
+
+- if i try with ports > ~12500 it seems not to give me the error - just runs and seems like its waiting for something
+- manually stopped pgm and tried bt:
+0x00007ffff76c2e80 in __poll_nocancel () from /lib64/libc.so.6
+(gdb) bt
+#0  0x00007ffff76c2e80 in __poll_nocancel () from /lib64/libc.so.6
+#1  0x0000000000405fc9 in poll_watch (timeout_msecs=<optimized out>) at fdwatch.c:620
+#2  0x0000000000406251 in fdwatch (timeout_msecs=<optimized out>) at fdwatch.c:246
+#3  0x0000000000402f4a in main (argc=<optimized out>, argv=<optimized out>) at thttpd.c:755
+- ran again with foo containing >100 spaces - it outputted:
+*** stack smashing detected ***: /w/home.15/eng/ugrad/farooq/cs33/lab3/sthttpd/src/thttpd-sp terminated
+
+Program received signal SIGSEGV, Segmentation fault.
+0x00007ffff6da50b8 in ?? () from /lib64/libgcc_s.so.1
+- backtrace outputted:
+#0  0x00007ffff6da50b8 in ?? () from /lib64/libgcc_s.so.1
+#1  0x00007ffff6da5fb9 in _Unwind_Backtrace () from /lib64/libgcc_s.so.1
+#2  0x00007ffff76e3ba6 in backtrace () from /lib64/libc.so.6
+#3  0x00007ffff7647ce4 in __libc_message () from /lib64/libc.so.6
+#4  0x00007ffff76e7677 in __fortify_fail () from /lib64/libc.so.6
+#5  0x00007ffff76e7632 in __stack_chk_fail () from /lib64/libc.so.6
+#6  0x0000000000404165 in read_config (filename=<optimized out>) at thttpd.c:1129
+#7  0x2020202020202020 in ?? ()
+#8  0x2020202020202020 in ?? ()
+#9  0x2020202020202020 in ?? ()
+#10 0x2020202020202020 in ?? ()
+#11 0x0020202020202020 in ?? ()
+#12 0x00007fffffffe250 in ?? ()
+#13 0x0000000000000000 in ?? ()
+- tried disassemble but says "no function contains program counter for selected frame" - how do i " Identify which machine instruction caused the crash, and why." as asked in the spec
+- tried break thttpd.c:1129 to then disassemble and see what machine instns there are but when i run the pgm it still crashes with segmen.. fault
+- tried break read_config - ran it and it hit the bpt! - ran disassemble:
+Dump of assembler code for function read_config:
+=> 0x0000000000403bd0 <+0>:     push   %r14
+   0x0000000000403bd2 <+2>:     mov    $0x40f54d,%esi
+   0x0000000000403bd7 <+7>:     push   %r13
+   0x0000000000403bd9 <+9>:     push   %r12
+   0x0000000000403bdb <+11>:    push   %rbp
+   0x0000000000403bdc <+12>:    push   %rbx
+   0x0000000000403bdd <+13>:    mov    %rdi,%rbx
+   0x0000000000403be0 <+16>:    sub    $0x70,%rsp
+   0x0000000000403be4 <+20>:    mov    %fs:0x28,%rax
+   0x0000000000403bed <+29>:    mov    %rax,0x68(%rsp)
+   0x0000000000403bf2 <+34>:    xor    %eax,%eax
+   0x0000000000403bf4 <+36>:    callq  0x4027d0 <fopen@plt>
+   0x0000000000403bf9 <+41>:    test   %rax,%rax
+   0x0000000000403bfc <+44>:    je     0x40419c <read_config+1484>
+   0x0000000000403c02 <+50>:    movabs $0x100002600,%rbp
+   0x0000000000403c0c <+60>:    mov    %rax,%r14
+   0x0000000000403c0f <+63>:    mov    %r14,%rdx
+   0x0000000000403c12 <+66>:    mov    $0x3e8,%esi
+   0x0000000000403c17 <+71>:    mov    %rsp,%rdi
+   0x0000000000403c1a <+74>:    callq  0x402550 <fgets@plt>
+   0x0000000000403c1f <+79>:    test   %rax,%rax
+   0x0000000000403c22 <+82>:    je     0x404045 <read_config+1141>
+   0x0000000000403c28 <+88>:    mov    $0x23,%esi
+   0x0000000000403c2d <+93>:    mov    %rsp,%rdi
+   0x0000000000403c30 <+96>:    callq  0x402430 <strchr@plt>
+   0x0000000000403c35 <+101>:   test   %rax,%rax
+   0x0000000000403c38 <+104>:   je     0x403c3d <read_config+109>
+   0x0000000000403c3a <+106>:   movb   $0x0,(%rax)
+   .
+   .
+   .
+    0x0000000000404160 <+1424>:  callq  0x4023f0 <__stack_chk_fail@plt>
+--Type <RET> for more, q to quit, c to continue without paging--
+   0x0000000000404165 <+1429>:  nopl   (%rax)
+- 404165 is the one i thought caused the crash bc it was the last valid address in the backtrace but it points to a no-op so maybe the instn before it (calling __stack_chk_fail)caused the crash
+- set disassemble-next-line on - disassemble automatically 
+- now when it crashes it runs disassemble and ouputs:
+Program received signal SIGSEGV, Segmentation fault.
+0x00007ffff6da50b8 in ?? () from /lib64/libgcc_s.so.1
+=> 0x00007ffff6da50b8:  80 39 48        cmpb   $0x48,(%rcx)
+- ran again and when stopped at bpt at read_config, used s command 7 times and then it crashed:
+1189        (void) fclose( fp );
+=> 0x0000000000404045 <read_config+1141>:       4c 89 f7        mov    %r14,%rdi
+   0x0000000000404048 <read_config+1144>:       e8 33 e3 ff ff  callq  0x402380 <fclose@plt>
+   0x000000000040404d <read_config+1149>:       48 8b 44 24 68  mov    0x68(%rsp),%rax
+   0x0000000000404052 <read_config+1154>:       64 48 33 04 25 28 00 00 00      xor    %fs:0x28,%rax
+   0x000000000040405b <read_config+1163>:       0f 85 ff 00 00 00       jne    0x404160 <read_config+1424>
+   0x0000000000404061 <read_config+1169>:       48 83 c4 70     add    $0x70,%rsp
+   0x0000000000404065 <read_config+1173>:       5b      pop    %rbx
+   0x0000000000404066 <read_config+1174>:       5d      pop    %rbp
+   0x0000000000404067 <read_config+1175>:       41 5c   pop    %r12
+   0x0000000000404069 <read_config+1177>:       41 5d   pop    %r13
+   0x000000000040406b <read_config+1179>:       41 5e   pop    %r14
+   0x000000000040406d <read_config+1181>:       c3      retq
+(gdb) s
+*** stack smashing detected ***: /w/home.15/eng/ugrad/farooq/cs33/lab3/sthttpd/src/thttpd-sp terminated
+- repeated but after 6th s, used si and held enter - mixed with some s's to get out of deep function calls - so far tracked down crash to __fortify_fail - now __libc_message - backtrace?
+- yeah idk i dont think this is what im supposed to do - ive held enter and watched tens of thousands of insts fly by - havent hit crash yet 
+- ran gdb on src/thttpd-as & then ran it with the same foo (>100 spaces) - it outputted:
+==15775==ERROR: AddressSanitizer: stack-buffer-overflow on address 0x7fffffffcdf4 at pc 0x00000048a72c bp 0x7fffffffcd50 sp 0x7fffffffc500
+READ of size 192 at 0x7fffffffcdf4 thread T0
+    #0 0x48a72b in __interceptor_strchr ../../../../gcc-8.2.0/libsanitizer/sanitizer_common/sanitizer_common_interceptors.inc:618
+    #1 0x50b6dd in read_config /u/eng/ugrad/farooq/cs33/lab3/sthttpd/src/thttpd.c:1018
+    #2 0x50c20e in parse_args /u/eng/ugrad/farooq/cs33/lab3/sthttpd/src/thttpd.c:893
+    #3 0x40680b in main /u/eng/ugrad/farooq/cs33/lab3/sthttpd/src/thttpd.c:380
+    #4 0x7ffff6cb93d4 in __libc_start_main (/lib64/libc.so.6+0x223d4)
+    #5 0x407a59  (/w/home.15/eng/ugrad/farooq/cs33/lab3/sthttpd/src/thttpd-as+0x407a59)
+
+Address 0x7fffffffcdf4 is located in stack of thread T0 at offset 132 in frame
+    #0 0x50b62f in read_config /u/eng/ugrad/farooq/cs33/lab3/sthttpd/src/thttpd.c:1000
+
+  This frame has 1 object(s):
+    [32, 132) 'line' <== Memory access at offset 132 overflows this variable
+HINT: this may be a false positive if your program uses some custom stack unwind mechanism or swapcontext
+      (longjmp and C++ exceptions *are* supported)
+SUMMARY: AddressSanitizer: stack-buffer-overflow ../../../../gcc-8.2.0/libsanitizer/sanitizer_common/sanitizer_common_interceptors.inc:618 in __interceptor_strchr
+Shadow bytes around the buggy address:
+  0x10007fff7960: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x10007fff7970: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x10007fff7980: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x10007fff7990: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x10007fff79a0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 f1 f1
+=>0x10007fff79b0: f1 f1 00 00 00 00 00 00 00 00 00 00 00 00[04]f2
+  0x10007fff79c0: f2 f2 f3 f3 f3 f3 00 00 00 00 00 00 00 00 00 00
+  0x10007fff79d0: 00 00 00 00 00 00 00 00 00 00 00 00 f1 f1 f1 f1
+  0x10007fff79e0: 04 f2 f2 f2 f2 f2 f2 f2 04 f2 f2 f2 f2 f2 f2 f2
+  0x10007fff79f0: 00 00 f2 f2 f2 f2 f2 f2 00 00 00 00 00 00 00 00
+  0x10007fff7a00: 00 00 00 00 00 00 00 00 f2 f2 f2 f2 00 00 00 00
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+==15775==ABORTING
+[Inferior 1 (process 15775) exited with code 01]
+- bt says no stack - ta slides say aborting also accepted
+- ran gdb again on src/thttpd-no with same foo:
+usage:  /w/home.15/eng/ugrad/farooq/cs33/lab3/sthttpd/src/thttpd-no [-C configfile] [-p port] [-d dir] [-r|-nor] [-dd data_dir]
+ [-s|-nos] [-v|-nov] [-g|-nog] [-u user] [-c cgipat] [-t throttles] [-h host] [-l logfile] [-i pidfile] [-T charset] [-P P3P] [-M maxage] [-V] [-D]
+[Inferior 1 (process 21666) exited with code 01] 
+- read online - zexecstack allows execution from stack 
+	- need to change foo to have some ops - tried random 48 89 f8 48 83 01 - got unknown config option '48'
+ 
+- b main - ran and hit - couldn't find anything of use
+- ran again with foo having 3000 empty lines - still runs fine
+- opened thttpd.c and checked what line gets is on - breakpoint at line 1015
+
+ gcc -S thttpd.c -O2 -I<cs33/lab3/sthttpd/src> -I<cs33/lab3/sthttpd> -fno-inline -fstack-protector-strong 
+
+- did the make CFLAGS='-g3 -O2 -fno-inline -fstack-protector-strong' for all three files and then did objdump -S -d on them to get thttpd-sp.s, thttpd-as.s, and thttpd-no.s
+	- fstack-protector-strong uses canaries which are character arrays of size 8 (intn 4053da) and checks them to see if they were modified by a stack overflow
+	- fsanitize=address uses shadow memory to keep memory access bugs from happening  - it finds out of bounds accesses to the stack in this case
+	

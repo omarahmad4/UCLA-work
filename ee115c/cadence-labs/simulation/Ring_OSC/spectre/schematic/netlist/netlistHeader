@@ -1,0 +1,7 @@
+// Generated for: spectre
+// Generated on: Jan 22 11:04:29 2020
+// Design library name: ee115c
+// Design cell name: Ring_OSC
+// Design view name: schematic
+simulator lang=spectre
+global 0 vdd!

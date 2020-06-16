@@ -1,0 +1,166 @@
+Omar Ahmad lab5 log
+- have to make tr2b and tr2u that act like tr
+- if use tr 'abc' 'xyz' and input azbycz would ouput xxyyzz
+- tr2b.c:
+  - wrote basic .c file that takes in command line args
+  - added error checking for number of args must be 2
+  - added error checking for length of args must be =
+  - added error checking for arg1 having duplicates
+  - take in input from getchar() EOF
+  - double for loop checking if any input chars match any arg1 chars to replace w corresponding arg2 chars
+  - print all input chars
+  - tested against standard tr command - works well
+  - was ouputting extra space
+    - had to move around some the ifs so as to not run through the loops unnecesary times
+  - finished tr2b.c
+
+- now have to do tr2u.c - will be heavily similar to tr2b.c
+  - copied tr2b.c to tr2u.c
+  - left all error checking the same
+  - added new variable for return value of read - returns -1 for error and 0 for EOF
+  - check if any input matches to and replaces if so
+  - ouputs chars as they come in
+
+- done w both scripts - now to test their speed
+- did strace -c ./tr2b and for ./tr2u
+  - output:
+  [farooq@lnxsrv05 ~/Desktop/cs35l/lab5]$ strace  -c ./tr2b abc xyz
+  alpha beta
+  xlphx yetx
+  % time     seconds  usecs/call     calls    errors syscall
+  ------ ----------- ----------- --------- --------- ----------------
+  0.00    0.000000           0         3           read
+  0.00    0.000000           0         1           write
+  0.00    0.000000           0         2           open
+  0.00    0.000000           0         2           close
+  0.00    0.000000           0         4           fstat
+  0.00    0.000000           0        10           mmap
+  0.00    0.000000           0         3           mprotect
+  0.00    0.000000           0         1           munmap
+  0.00    0.000000           0         1           brk
+  0.00    0.000000           0         1         1 access
+  0.00    0.000000           0         1           execve
+  0.00    0.000000           0         1           arch_prctl
+  ------ ----------- ----------- --------- --------- ----------------
+  100.00    0.000000                    30         1 total
+  [farooq@lnxsrv05 ~/Desktop/cs35l/lab5]$ strace  -c ./tr2u abc xyz
+  alpha beta
+  xlphx yetx
+  % time     seconds  usecs/call     calls    errors syscall
+  ------ ----------- ----------- --------- --------- ----------------
+  91.48    0.000161          12        13           read
+  8.52    0.000015           2         8           mmap
+  0.00    0.000000           0        11           write
+  0.00    0.000000           0         2           open
+  0.00    0.000000           0         2           close
+  0.00    0.000000           0         2           fstat
+  0.00    0.000000           0         3           mprotect
+  0.00    0.000000           0         1           munmap
+  0.00    0.000000           0         1           brk
+  0.00    0.000000           0         1         1 access
+  0.00    0.000000           0         1           execve
+  0.00    0.000000           0         1           arch_prctl
+  ------ ----------- ----------- --------- --------- ----------------
+  100.00    0.000176                    46         1 total
+  
+- this was just a test - now must do (on a large file) copying from one file to another
+  - got a large file from /usr/local/cs/jdk*/jre/lib/rt.jar
+  - that didnt work so made a large file using this c code from piazza:
+  #include <stdlib.h>
+  #include <unistd.h>
+
+  int main() {
+  char c;
+  for (int i = 0; i < 5000000; i++) {
+      c = rand()% (127 - 32) + 32;
+      write(1, &c, 1);
+      }
+  }
+  - Buffered test: (to a file)
+  [farooq@lnxsrv09 ~/Desktop/cs35l/lab5]$ strace -c ./tr2b a x < bigfiles/bigfile > bigfiles/outB
+  % time     seconds  usecs/call     calls    errors syscall
+  ------ ----------- ----------- --------- --------- ----------------
+  64.43    0.000719           1       611           write
+  35.57    0.000397           1       613           read
+  0.00    0.000000           0         2           open
+  0.00    0.000000           0         2           close
+  0.00    0.000000           0         4           fstat
+  0.00    0.000000           0         9           mmap
+  0.00    0.000000           0         3           mprotect
+  0.00    0.000000           0         1           munmap
+  0.00    0.000000           0         1           brk
+  0.00    0.000000           0         1         1 access
+  0.00    0.000000           0         1           execve
+  0.00    0.000000           0         1           arch_prctl
+  ------ ----------- ----------- --------- --------- ----------------
+  100.00    0.001116                  1249         1 total
+
+  - Unbuffered test: (to a file)
+  [farooq@lnxsrv09 ~/Desktop/cs35l/lab5]$ strace -c ./tr2u a x < bigfiles/bigfile > bigfiles/outU
+  % time     seconds  usecs/call     calls    errors syscall
+  ------ ----------- ----------- --------- --------- ----------------
+  56.44   29.782133           6   5000000           write
+  43.56   22.985211           5   5000002           read
+  0.00    0.000000           0         2           open
+  0.00    0.000000           0         2           close
+  0.00    0.000000           0         2           fstat
+  0.00    0.000000           0         7           mmap
+  0.00    0.000000           0         3           mprotect
+  0.00    0.000000           0         1           munmap
+  0.00    0.000000           0         1           brk
+  0.00    0.000000           0         1         1 access
+  0.00    0.000000           0         1           execve
+  0.00    0.000000           0         1           arch_prctl
+  ------ ----------- ----------- --------- --------- ----------------
+  100.00   52.767344              10000023         1 total
+
+ - Buffered test: (to the terminal)
+ time     seconds  usecs/call     calls    errors syscall
+ ------ ----------- ----------- --------- --------- ----------------
+ 92.77    0.017590           4      4883           write
+ 6.52    0.001236           2       613           read
+ 0.23    0.000044           5         9           mmap
+ 0.14    0.000026           9         3           mprotect
+ 0.10    0.000019           5         4           fstat
+ 0.08    0.000016           8         2           open
+ 0.06    0.000011          11         1           munmap
+ 0.04    0.000008           8         1         1 access
+ 0.04    0.000007           4         2           close
+ 0.02    0.000004           4         1           arch_prctl
+ 0.00    0.000000           0         1           brk
+ 0.00    0.000000           0         1           execve
+ ------ ----------- ----------- --------- --------- ----------------
+ 100.00    0.018961                  5521         1 total
+
+ - Unbuffered test: (to the terminal)
+ time     seconds  usecs/call     calls    errors syscall
+ ------ ----------- ----------- --------- --------- ----------------
+ 56.79   39.975213           8   5000000           write
+ 43.21   30.411262           6   5000002           read
+ 0.00    0.000000           0         2           open
+ 0.00    0.000000           0         2           close
+ 0.00    0.000000           0         2           fstat
+ 0.00    0.000000           0         7           mmap
+ 0.00    0.000000           0         3           mprotect
+ 0.00    0.000000           0         1           munmap
+ 0.00    0.000000           0         1           brk
+ 0.00    0.000000           0         1         1 access
+ 0.00    0.000000           0         1           execve
+ 0.00    0.000000           0         1           arch_prctl
+ ------ ----------- ----------- --------- --------- ----------------
+ 100.00   70.386475              10000023         1 total
+
+- now using time command to test time difference in the two programs running on the same 5000000 byte input
+  - tr2b:  
+       	real    0m0.158s	 
+   	user    0m0.108s
+    	sys     0m0.005s
+  - tr2u:
+	real    0m11.806s
+    	user    0m1.405s
+    	sys     0m10.348s
+  
+- Conclusion: buffered is MUCH faster than unbuffered
+
+
+

@@ -1,0 +1,13 @@
+
+***** Begin Label Report *****
+
+ Label in cell 'HW5-MirrorAdder layout ee115c':
+  info: Assign pin label "gnd!" at (1.8600, 0.1600) to layer `Metal1_p'.
+  info: Assign pin label "A" at (1.6300, 1.6600) to layer `Metal1_p'.
+  info: Assign pin label "B" at (2.0100, 1.6600) to layer `Metal1_p'.
+  info: Assign pin label "Cin" at (2.3800, 1.6600) to layer `Metal1_p'.
+  info: Assign pin label "Cout" at (2.6800, 1.6400) to layer `Metal1_p'.
+  info: Assign pin label "vdd!" at (1.1600, 3.4600) to layer `Metal1_p'.
+
+***** End of Label Report *****
+

@@ -1,0 +1,25 @@
+Omar Ahmad    ID: 8048701272
+
+A. What are the offsets (in bytes) of the following fields:
+e1.p	= 0
+e1.y	= 8
+e2.x	= 0
+e2.next	= 8
+
+
+B. How many total bytes does the structure require?		16 bytes //8 for each element of the e1 or e2 
+
+C. 
+
+1 void proc (union ele *up) {
+2 up -> e2.x = *( *(up->e2.next).e1.p) - *(up->e2.next).e1.y ;
+3 }
+
+1 proc:
+2 movq 8(%rdi), %rax	-> rax = (rdi + 8)			->  rax = *(up +8) 			//rax = y or next		
+3 movq (%rax), %rdx		-> rdx = (rax)				->  rdx = *(up->e2.next) 	//rax was next and rdx = next element's p or x
+4 movq (%rdx), %rdx		-> rdx = (rdx)				->  rdx = *(up->e2.next.p) 	//rdx was p and now is *p of next element  
+5 subq 8(%rax), %rdx	-> rdx = rdx - (rax +8)		-> 	rdx = p - *(rax + 8)	//*(rax+8) is next element's y so rdx = next element's (p-y)
+6 movq %rdx, (%rdi)		-> (rdi) = rdx				-> 	up->e2.x = next element's (p-y) = *( *(up->e2.next).e1.p) - *(up->e2.next).e1.y 
+7 ret
+

@@ -1,0 +1,8 @@
+- the main upper window is divided into 3 subcategories
+  - the top left most window shows the the 'tree' and the merges and new branches of the code
+  - the next window to the right shows the author and their email of the commit
+  - the right most window shows the date and time of the commit
+
+- the lower half is divided into 2 subcategories
+  - the left window shows the details of any specific commit including the authro parent child and message
+  - the right windown show a list of files impacted the selected commit

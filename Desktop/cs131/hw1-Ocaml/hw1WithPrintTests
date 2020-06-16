@@ -1,0 +1,198 @@
+let rec subset a b = match (a, b) with
+    | ( [] ,  _ )  -> true
+    | ( _  , [] )  -> false
+    | (hd::tl, _ ) ->
+       	if List.exists(fun x -> x = hd) b then subset tl b
+        else false;;
+
+let rec printBool = function
+    | true -> print_string("true\n")
+    | _ -> print_string("false\n");;
+
+(* subset test cases
+*printBool (subset [] [1]);
+*printBool (subset [1] [1]);
+*printBool (subset [] [1;2]);
+*printBool (subset [1;2;3] [1;2;3]);
+*printBool (subset [1;2;2;3] [1;2;3]);
+*printBool (subset [1;2;3] [1;2;2;3]);
+
+*printBool (subset [1;2] [1]);
+*printBool (subset [4] [1;2;3]);
+*printBool (subset [1;2;3;4] [1;2;2;3]);
+*)
+
+
+let rec equal_sets a b = 
+    subset a b && subset b a;;
+
+(* equal_sets test cases
+*printBool (equal_sets [1] [1]);
+*printBool (equal_sets [1;2;3] [1;2;3]);
+*printBool (equal_sets [1;2;2;3] [1;2;3]);
+*printBool (equal_sets [1;2;3] [1;2;2;3]);
+
+*printBool (equal_sets [1;2] [1]);
+*printBool (equal_sets [4] [1;2;3]);
+*printBool (equal_sets [1;2;3;4] [1;2;2;3]);
+*printBool (equal_sets [] [1]);
+*printBool (equal_sets [] [1;2]);
+*)
+
+
+let set_union a b = a @ b;;
+    
+let printIntList input = 
+    if List.length input = 0
+       then print_string("empty list")
+    else List.iter print_int input;;
+
+(* set_union test cases 
+*printIntList (set_union [1;2] [2; 3]);
+*print_string("\n");;
+*printIntList (set_union [] [2; 3]);
+*print_string("\n");;
+*printIntList (set_union [1;2; 7] [2; 3]);
+*print_string("\n");;
+*printIntList (set_union [1;2] []);
+*print_string("\n");;
+*printIntList (set_union [] []);
+*print_string("\n");;
+*)
+
+
+let rec set_intersection a b = match (a, b) with
+    | ( [] , _ ) -> []
+    | ( _ , [] ) -> []
+    | (hd::tl,_) ->
+	 if
+		List.exists(fun x -> x = hd) b
+	 then
+		hd::set_intersection tl b
+	 else
+		set_intersection tl b;;
+
+(* set_intersection test cases
+*printIntList (set_intersection [1;2] [2;3]);
+*print_string("\n");;
+*printIntList (set_intersection [1;2;7] [2;3]);
+*print_string("\n");;
+*printIntList (set_intersection [2;2;2;2] [2;2;3]);
+*print_string("\n");;
+
+*printIntList (set_intersection [1;2] []);
+*print_string("\n");;
+*printIntList (set_intersection [] [2; 3]);
+*print_string("\n");;
+*printIntList (set_intersection [] []);
+*print_string("\n");;
+*printIntList (set_intersection [1;2;4;6;8] [3;5;7;11]);
+*print_string("\n");;
+*)
+
+let rec set_diff a b = match (a, b) with
+    | ( [] , _ ) -> []
+    | ( _ , [] ) -> a
+    | (hd::tl,_) ->
+         if
+		List.exists(fun x -> x = hd) b
+	 then
+		set_diff tl b
+	 else
+		hd::set_diff tl b;;
+
+
+(* set_diff test cases
+*printIntList (set_diff [1;2] [2;3]);
+*print_string("\n");;
+*printIntList (set_diff [1;2;7] [2;3]);
+*print_string("\n");;
+*printIntList (set_diff [1;2;4;6;8] [3;5;7;11]);
+*print_string("\n");;
+*printIntList (set_diff [1;2] []);
+*print_string("\n");;
+
+*printIntList (set_diff [2;2;2;2] [2;3]);
+*print_string("\n");;
+*printIntList (set_diff [] [2; 3]);
+*print_string("\n");;
+*printIntList (set_diff [] []);
+*print_string("\n");;
+*)
+
+let rec computed_fixed_point eq f x = 
+    (*
+    * val = f(x)
+    * if val = x ret x
+    * else computed_fixed_point eq f val 
+    *)
+    let comp_val = f x in 
+    if eq comp_val x
+    then x
+    else computed_fixed_point eq f comp_val;;
+
+
+(* computed_fixed_point test cases  (some from TA slides) 
+*print_int (computed_fixed_point (=) (fun x->x/2) 1000000000);;   (* should be 0 *)
+*print_string("\n");;
+*print_float (computed_fixed_point (fun x y -> abs_float(x-.y)<1.) (fun x->x/.2.) 10.);;  (* shouild be 1.25 *)
+*print_string("\n");;
+*print_int(computed_fixed_point (=) (fun x-> x*x) 1);;
+*print_string("\n");;
+*)
+
+
+type ('nonterminal, 'terminal) symbol =
+     | N of 'nonterminal
+     | T of 'terminal;;
+
+let rec extractN = function   (*extract non-terminals - call with RHS's of rules *)
+    | [] -> []
+    | N hd::tl -> hd :: (extractN tl)
+    | T hd::tl -> extractN tl;;
+
+let getLHS ( n , _ ) = n;;   (* get lhs and rhs of 2 element tuples *) 
+let getRHS ( _ , n ) = n;;
+
+let rec findChildNs parents rules = match rules with   (* find direct children of parents *)
+    | [] -> parents        	    	  	       (* if rules empty ret parents *)
+    | hd :: tl ->				       (* else seperate out first rule (hd) *)
+      let left = getLHS hd in			       (* left is NT lhs of hd rule *)
+      if
+	List.mem left parents				(* if curr lhs is in parents (ie a reachable NT) *)
+      then	 
+	let right = extractN (getRHS hd)		(* right is all NTs on rhs of lhs *)	
+	in
+	findChildNs (set_union parents right) tl	(* add right to parents and rec call with rest of rules *) 
+      else
+        findChildNs parents tl;;			(* else if not in parents call again on rest of rules *)
+
+let rec recursiveFindChildren parents rules =	(* helper to rec. call findChildNs to see when it stops changing *)
+    let newNs = findChildNs parents rules     	(* newNs is new set of reachable NTs from parents *)
+    in
+    if
+	equal_sets parents newNs		(* if newNs is same as parents it is the set of all reachable NTs *)
+    then
+	newNs
+    else 
+    	recursiveFindChildren newNs rules ;;	(* else call findChildNs until newNs is same as parents *)
+
+
+
+let filter_reachable g = match g with		(* remove unreachable grammar rules *)
+    | ( start , rules ) ->
+    let reachableN = recursiveFindChildren [start] rules  (* find reachable non terminals from start *)
+    in
+    let filteredRules = List.filter  (* filter out rules to remove those whose lhs does not appear in reahcableN *)
+    (
+	fun n -> match n with
+	    |( x , _ ) ->
+	    	 List.mem x reachableN  
+    )rules
+    in	
+    if true
+    then (start, filteredRules)		(* return in same format as g (input) *) 
+    else (start, filteredRules) ;;
+
+
+

@@ -1,0 +1,81 @@
+Omar Ahmad lab8 log - BeagleBone lab
+
+0. Initial Setup
+   - went to saeedstudio's BeagleBone green wireless update page and downloaded the latest debian image with a gui
+   - also downloaded an image writer to write the image to an sd card
+   - formatted the sd and wrote the image to the sd card
+   - turned on the board with the sd card inserted and let the board boot from the card
+   - then changed one line in /dev/boot to make the sd overwrite the onboard emmc
+   - restarted the board and allowed the writing process to take place whichh took about 10 minutes
+   - then followed instructions detailed in an email from my TA on how to set up the inital network connection
+     	  - used connmanctl terminal for this
+   - updated the programs on the board using sudo apt-get install update
+   - installed xauth and xvfb as well
+   - installed firefox using sudo apt-get install firefox-esr-l10n-en-gb
+   - installed xming on my computer as well
+
+1. Lab
+   - connected to CR3760-wifi - class wifi
+   - used ifconfig - my ip is 10.97.85.73
+     - eli : 10.97.85.79
+     - mike: 10.97.85.78
+   - root@beaglebone:~# ssh-keygen
+   Generating public/private rsa key pair.
+   Enter file in which to save the key (/root/.ssh/id_rsa):
+   Enter passphrase (empty for no passphrase):
+   Enter same passphrase again:
+   Your identification has been saved in /root/.ssh/id_rsa.
+   Your public key has been saved in /root/.ssh/id_rsa.pub.
+   The key fingerprint is:
+   SHA256:7Q8VrwI0xGbz5nNIKl8N+Y9EWKYeW/8z/tlb59Ec1ks root@beaglebone
+   The key's randomart image is:
+   +---[RSA 2048]----+
+   |       ..        |
+   |       .=   o    |
+   |       ooo *.    |
+   |       . oX oo  .|
+   |        S*.X...E.|
+   |      . .oB.=.+.+|
+   |       o .++.o +=|
+   |        .  +. .+B|
+   |            . .+O|
+   +----[SHA256]-----+
+
+   - root@beaglebone:~# sudo passwd omaromaromar
+   Enter new UNIX password:
+   Retype new UNIX password:
+   passwd: password updated successfully
+   set passord to password
+
+   - Server Side (all from lab ccle slides):
+     - serving as a server for groupmates
+     - ran ssh-keygen
+     - useradd -d /home/test -m omar
+     - passwd 'password'
+     - cd /home/test
+     - mkdir .ssh
+     - chown -R omar .ssh
+     - chmod 700 .shh
+
+
+   - Client Side (all from lab ccle slides):
+     - connecting to Eli's bone
+     - ssh-keygen
+     - ssh-copy-id -i elielieli9090@10.97.85.73
+       - eli logged in with his password
+     - ssh-add
+       - didn't work initially - gave connection error
+       - had to use echo `ssh-agent -s`
+       - then ssh-add - worked great
+     - ssh debian@10.97.85.73
+       - logged in without passwd
+     - ran xeyes - worked !
+     - ran firefox - took a while but displayed window - much too slow and laggy to actually use though
+     - exited and retried with ssh -X and -Y
+       - both worked too so the options had no noticable effect
+       - maybe we had some settings wrong in the ssh config files
+     - also didnt need to manually set up any port forwarding to make it run
+     
+
+   
+   

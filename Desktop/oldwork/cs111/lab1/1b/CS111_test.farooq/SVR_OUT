@@ -1,0 +1,2 @@
+echo $SHELL
+exit 6

@@ -1,0 +1,14 @@
+    I12 (A4 B4 GND net3 net8 VDD) new_1bit_comp
+    I13 (A3 B3 GND net2 net15 VDD) new_1bit_comp
+    I14 (A2 B2 GND net1 net16 VDD) new_1bit_comp
+    I15 (A1 B1 GND net5 net14 VDD) new_1bit_comp
+    I4 (net11 B0 net12 VDD GND) NOR2X1
+    I11 (net8 net020 VDD GND) INVX1
+    I5 (A0 net11 VDD GND) INVX1
+    I6 (net3 net15 net7 VDD GND) NAND2X1
+    I7 (net3 net2 net16 net13 VDD GND) NAND3X1
+    I8 (net3 net2 net1 net14 net6 VDD GND) NAND4X1
+    I17 (net020 net7 net13 net6 net9 GND VDD Q) NAND5
+    I16 (net3 net2 net1 net5 net12 GND VDD net9) NAND5
+ends new_comparator
+// End of subcircuit definition.

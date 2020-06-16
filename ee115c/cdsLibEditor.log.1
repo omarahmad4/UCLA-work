@@ -1,0 +1,106 @@
+\o Program:		@(#)$CDS: cdsLibEditor version 6.1.7 - CAT35 06/12/2017 16:24 (sjfnl055) $
+\o Sub version:		sub-version  s050 
+\o Arguments:		-cdslib /w/home.15/ee/ugrad/farooq/ee115c/cds.lib -mpssession virtuoso177326 -mpshost eeapps03.seas.ucla.edu 
+\o Working Directory:	eeapps03.seas.ucla.edu:/w/home.15/ee/ugrad/farooq/ee115c
+\o 64-bit offsets
+\a nrSetWindowVisibility(cdsLibEditor "show")
+\o Qt version: 		4.8.5
+\a nrSetCurrentWindow(cdsLibEditor)
+\a nrListItemAction(cdsLibEditor->mainTable 0 0)
+\o Active cell: 0 0 "analogLib"
+\a nrResizeWindow(cdsLibEditor list(34 57 500 400))
+\a nrListItemAction(cdsLibEditor->mainTable 8 0)
+\o Active cell: 8 0 ""
+\a nrListItemRename(cdsLibEditor->mainTable, 8 0 "Project")
+\a nrListItemAction(cdsLibEditor->mainTable 8 1)
+\o Active cell: 8 1 ""
+\a nrListItemRename(cdsLibEditor->mainTable, 8 1 "/w/home.15/ee/ugrad/daragh/ee115c/ee115c")
+\o QUESTION (CLE-200): The directory "/w/home.15/ee/ugrad/daragh/ee115c/ee115c" \ndoesn't exist. If other tools use this file, \nan error will occur unless you either create \nthe directory you have specified or change the \npath to an existing directory. \n\nDo you want to create a new library? 
+\a nrSetWindowVisibility(needCreateDialog "show")
+\a nrSetCurrentWindow(needCreateDialog)
+\a nrResizeWindow(needCreateDialog list(83 143 399 210))
+\a needCreateDialog->noButton->value = t
+\a nrListItemAction(cdsLibEditor->mainTable 9 0)
+\o Active cell: 9 0 ""
+\a nrSetCurrentWindow(cdsLibEditor)
+\a nrListItemAction(cdsLibEditor->mainTable 8 1)
+\o Active cell: 8 1 "/w/home.15/ee/ugrad/daragh/ee115c/ee115c"
+\a nrListItemRename(cdsLibEditor->mainTable, 8 1 "/w/home.15/ee/ugrad/daragh/shared_proj/ee115c")
+\o QUESTION (CLE-200): The directory "/w/home.15/ee/ugrad/daragh/shared_proj/ee115c" \ndoesn't exist. If other tools use this file, \nan error will occur unless you either create \nthe directory you have specified or change the \npath to an existing directory. \n\nDo you want to create a new library? 
+\a nrSetWindowVisibility(needCreateDialog "show")
+\a nrSetCurrentWindow(needCreateDialog)
+\a nrResizeWindow(needCreateDialog list(70 138 424 220))
+\a needCreateDialog->noButton->value = t
+\a nrListItemAction(cdsLibEditor->mainTable 9 0)
+\o Active cell: 9 0 ""
+\a nrSetCurrentWindow(cdsLibEditor)
+\a nrListItemAction(cdsLibEditor->mainTable 9 1)
+\o Active cell: 9 1 ""
+\a nrListItemRename(cdsLibEditor->mainTable, 9 1 "/u/ee/ugrad/daragh/shared_proj/ee115c")
+\a nrListItemAction(cdsLibEditor->mainTable 9 0)
+\o Active cell: 9 0 ""
+\a nrListItemRename(cdsLibEditor->mainTable, 9 0 "Proj")
+\a nrSetWindowVisibility(needCreateDialog "show")
+\a nrListItemAction(cdsLibEditor->mainTable 9 1)
+\o Active cell: 9 1 "/u/ee/ugrad/daragh/shared_proj/ee115c"
+\a nrSetCurrentWindow(needCreateDialog)
+\a nrResizeWindow(needCreateDialog list(40 153 485 190))
+\a needCreateDialog->yesButton->value = t
+\a newLibraryDialog->filePathComboBox->value = "/w/home.15/ee/ugrad/farooq/ee115c"
+\a newLibraryDialog->libraryName->value = "Proj"
+\a newLibraryDialog->filePathComboBox->value = "/u/ee/ugrad/daragh/shared_proj"
+\a newLibraryDialog->useMappedName->value = nil
+\a nrSetWindowVisibility(newLibraryDialog "show")
+\a nrSetCurrentWindow(cdsLibEditor)
+\a nrSetCurrentWindow(newLibraryDialog)
+\a nrResizeWindow(newLibraryDialog list(12 26 541 523))
+\a newLibraryDialog->dirListWidget->value = "ee115c"
+\a newLibraryDialog->filePathComboBox->value = "/u/ee/ugrad/daragh/shared_proj/ee115c"
+\a nrListItemAction(newLibraryDialog->dirListWidget 1 0)
+\a newLibraryDialog->dirListWidget->value = nil
+\a newLibraryDialog->cancelButton->value = t
+\a nrSetCurrentWindow(cdsLibEditor)
+\a nrListItemAction(cdsLibEditor->mainTable 10 1)
+\o Active cell: 10 1 ""
+\a nrListItemAction(cdsLibEditor->mainTable 9 1)
+\o Active cell: 9 1 "/u/ee/ugrad/daragh/shared_proj/ee115c"
+\a nrListItemAction(cdsLibEditor->mainTable 10 1)
+\o Active cell: 10 1 ""
+\a cdsLibEditor->fileSaveButton->value = t
+\a nrSetCurrentWindow(cdsLibEditor)
+\a nrListItemAction(cdsLibEditor->mainTable 9 1)
+\o Active cell: 9 1 "/u/ee/ugrad/daragh/shared_proj/ee115c"
+\a nrListItemRename(cdsLibEditor->mainTable, 9 1 "/u/ee/ugrad/daragh/shared_proj/")
+\a nrListItemAction(cdsLibEditor->mainTable 10 0)
+\o Active cell: 10 0 ""
+\a nrListItemAction(cdsLibEditor->mainTable 9 0)
+\o Active cell: 9 0 "Proj"
+\a nrListItemAction(cdsLibEditor->mainTable 8 1)
+\o Active cell: 8 1 "/w/home.15/ee/ugrad/daragh/shared_proj/ee115c"
+\a nrListItemAction(cdsLibEditor->mainTable 9 0)
+\o Active cell: 9 0 "Proj"
+\a cdsLibEditor->fileSaveButton->value = t
+\a nrSetCurrentWindow(cdsLibEditor)
+\a nrResizeWindow(cdsLibEditor list(128 67 500 400))
+\a nrSetCurrentWindow(cdsLibEditor)
+\a nrListItemAction(cdsLibEditor->mainTable 9 1)
+\o Active cell: 9 1 "/u/ee/ugrad/daragh/shared_proj/"
+\a nrListItemAction(cdsLibEditor->mainTable 8 1)
+\o Active cell: 8 1 "/w/home.15/ee/ugrad/daragh/shared_proj/ee115c"
+\a nrListItemRename(cdsLibEditor->mainTable, 8 1 "/w/home.15/ee/ugrad/daragh/shared_proj/ee115c/ee115c")
+\o QUESTION (CLE-200): The directory "/w/home.15/ee/ugrad/daragh/shared_proj/ee115c/ee115c" \ndoesn't exist. If other tools use this file, \nan error will occur unless you either create \nthe directory you have specified or change the \npath to an existing directory. \n\nDo you want to create a new library? 
+\a nrSetWindowVisibility(needCreateDialog "show")
+\a nrSetCurrentWindow(needCreateDialog)
+\a nrResizeWindow(needCreateDialog list(143 143 467 230))
+\a needCreateDialog->noButton->value = t
+\a nrListItemAction(cdsLibEditor->mainTable 9 1)
+\o Active cell: 9 1 "/u/ee/ugrad/daragh/shared_proj/"
+\a nrSetCurrentWindow(cdsLibEditor)
+\a nrListItemRename(cdsLibEditor->mainTable, 9 1 "/u/ee/ugrad/daragh/shared_proj/ee115c/ee115c")
+\a nrListItemAction(cdsLibEditor->mainTable 10 0)
+\o Active cell: 10 0 ""
+\a cdsLibEditor->fileSaveButton->value = t
+\a nrSetCurrentWindow(cdsLibEditor)
+\a cdsLibEditor->fileExitButton->value = t
+\a nrSetWindowVisibility(cdsLibEditor "hide")
+\a exit(0)

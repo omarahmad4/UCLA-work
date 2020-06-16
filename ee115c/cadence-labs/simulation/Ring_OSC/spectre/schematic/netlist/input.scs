@@ -1,0 +1,53 @@
+// Generated for: spectre
+// Generated on: Jan 22 11:04:29 2020
+// Design library name: ee115c
+// Design cell name: Ring_OSC
+// Design view name: schematic
+simulator lang=spectre
+global 0 vdd!
+include "/usr/public.2/ee115c/cadence-labs/gpdk090_v3.4/models/spectre/gpdk090.scs" section=NN
+
+// Library name: ee115c
+// Cell name: INVX1
+// View name: schematic
+subckt INVX1 A GND VDD Z
+    NM0 (Z A GND GND) gpdk090_nmos1v w=(240n) l=100n as=67.2f ad=67.2f \
+        ps=1.04u pd=1.04u m=(1)*(1) simM=(1)*(1)
+    PM0 (Z A VDD VDD) gpdk090_pmos1v w=(480n) l=100n as=134.4f ad=134.4f \
+        ps=1.52u pd=1.52u m=(1)*(1) simM=(1)*(1)
+ends INVX1
+// End of subcircuit definition.
+
+// Library name: ee115c
+// Cell name: Ring_OSC
+// View name: schematic
+I14 (net8 0 vdd! net5) INVX1
+I13 (net9 0 vdd! net8) INVX1
+I12 (net10 0 vdd! net9) INVX1
+I11 (net11 0 vdd! net10) INVX1
+I10 (net12 0 vdd! net11) INVX1
+I9 (TP 0 vdd! net16) INVX1
+I8 (net16 0 vdd! net15) INVX1
+I7 (net15 0 vdd! net14) INVX1
+I6 (net14 0 vdd! net13) INVX1
+I5 (net13 0 vdd! net12) INVX1
+I4 (net17 0 vdd! TP) INVX1
+I3 (net19 0 vdd! net17) INVX1
+I2 (net18 0 vdd! net19) INVX1
+I1 (net20 0 vdd! net18) INVX1
+I0 (net5 0 vdd! net20) INVX1
+include "./_graphical_stimuli.scs"
+simulatorOptions options reltol=1e-3 vabstol=1e-6 iabstol=1e-12 temp=27 \
+    tnom=27 scalem=1.0 scale=1.0 gmin=1e-12 rforce=1 maxnotes=5 maxwarns=5 \
+    digits=5 cols=80 pivrel=1e-3 sensfile="../psf/sens.output" \
+    checklimitdest=psf 
+tran tran stop=1.5n errpreset=moderate write="spectre.ic" \
+    writefinal="spectre.fc" annotate=status maxiters=5 
+finalTimeOP info what=oppoint where=rawfile
+modelParameter info what=models where=rawfile
+element info what=inst where=rawfile
+outputParameter info what=output where=rawfile
+designParamVals info what=parameters where=rawfile
+primitives info what=primitives where=rawfile
+subckts info what=subckts where=rawfile
+saveOptions options save=allpub

@@ -1,0 +1,5 @@
+
+// Library name: Proj2
+// Cell name: INVX32
+// View name: schematic
+subckt INVX32 A Y inh_VDD inh_VSS

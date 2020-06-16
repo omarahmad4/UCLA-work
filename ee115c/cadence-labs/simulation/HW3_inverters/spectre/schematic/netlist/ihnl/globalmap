@@ -1,0 +1,10 @@
+CADENCE IHNL11140
+$model
+ee115c/HW3_inverters/schematic HW3_inverters
+$endmodel
+$net
+$endnet
+$param
+VDD VDD
+VIN VIN
+$endparam

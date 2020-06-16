@@ -1,0 +1,10 @@
+
+// Library name: ee115c
+// Cell name: FO4-inv
+// View name: schematic
+V0 (net5 0) vsource type=pulse val0=0 val1=VD period=400p delay=100p \
+        rise=10p fall=10p width=200p
+C0 (net4 0) capacitor c=100f
+I6 (out 0 vdd! vddd! net4) FO4_inv_stage
+I5 (in 0 vdd! vddd! out) FO4_inv_stage
+I4 (net5 0 vdd! vddd! in) FO4_inv_stage

@@ -1,0 +1,5 @@
+
+// Library name: Proj2
+// Cell name: INVX1
+// View name: schematic
+subckt INVX1_schematic A Y inh_VDD inh_VSS

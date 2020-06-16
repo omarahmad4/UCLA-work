@@ -1,0 +1,35 @@
+NAME: Omar Ahmad
+EMAIL: omarahmad4@ucla.edu
+ID: 804801272
+
+Sources:
+- used prev projects in this class and prev classes at ucla as reference
+- used man pages for all functions used
+- used BBGW and mraa documentation found at
+  - http://wiki.seeedstudio.com/BeagleBone_Green_Wireless/
+  - https://iotdk.intel.com/docs/master/mraa/gpio_8h.html
+- for how to get time: http://www.cplusplus.com/reference/ctime/localtime/
+- for help with arg parsing:  https://www.gnu.org/software/libc/manual/html_node/Example-of-Getopt.html#Example-of-Getopt 
+
+
+
+
+
+FILES:
+source.c - source code for beaglebone green wireless and a grove cape connected to a tempereature sensor
+	 - ouputs the temperature in C or F every period seconds
+	 - takes commands at the command line or while program is running
+	 - can start and stop w START and STOP
+	 - can log any line of text with LOG [line of text]
+	 - can press button or use OFF to shutdown program
+
+Makefile -- targets:
+	 - default: builds lab4b from source.c with -lmraa -l -g -Wall -Wextra flags
+	 - dist: creates tarball for submission with Makefile, README, and source.c
+	 - clean: removes executable lab4b and tarball
+	 - check: checks basic functionality of program
+	   	  - was working but for some reason when my Makefile would call my test script test.sh it would output more than what my test script would output and so it has been commented out now that the program is confirmed to be working
+
+README - this file - contains descriptions of all included files and sources used
+
+test.sh - contains script to test lab4b executable

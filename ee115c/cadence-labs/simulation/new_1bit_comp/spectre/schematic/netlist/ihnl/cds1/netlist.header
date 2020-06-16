@@ -1,0 +1,5 @@
+
+// Library name: gsclib090
+// Cell name: INVX1
+// View name: schematic
+subckt INVX1 A Y inh_VDD inh_VSS

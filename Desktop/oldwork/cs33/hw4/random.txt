@@ -1,0 +1,7 @@
+Omar Ahmad 	804801272
+
+A. always yields one - converting double dx to a float matches the value to the closest possible representation which equals (float)x because all floats can be represented as doubles - does not require assumption of -fwrapv
+B. does not always yield one - if x-y underflows - if the value of x-y is less than int_min - ex: if x = int_min and y = 15 x-y will underflow and become a positive number while dx-dy will be the correct solution. - does not require assumption of -fwrapv
+C. always yields one - an int fits in a double with 20 extra mantissa bits - adding 3 ints together is not enough to overflow the extra 20 bits so the order of addition does not matter -  does not require assumption of -fwrapv
+D. does not always yield one - when multiplying two large ints the lower order bits must be cut off to fit into a double - dx*dy will cut off different bits than dy*dz and so once they are multiplied by dz and dx respectively they will have different values - ex:x = int_max, y = int_max -12345, z = int_max -2^10 - answer does not require assumption of -fwrapv
+E. does not always yield one - ex: when dx=0 and dz!=0 - does not require assumption of -fwrapv

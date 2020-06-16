@@ -1,0 +1,8 @@
+Spectre (R) Circuit Simulator
+Version 16.1.0.479.isr9 32bit -- 7 Sep 2017
+Simulating `input.scs' on eeapps05.seas.ucla.edu at 8:33:25 PM, Fri Feb 21, 2020 (process id: 96384).
+H = mpsImport( "spectre" "ipi" "v0.0" ?session "spectre0_94078_2" )
+H->sclSetResultDir( "../psf" )
+H->sclRun( "all" )
+sclCkt0xf60b610 = H->sclGetCircuit(  "" )
+H->sclQuit(  )

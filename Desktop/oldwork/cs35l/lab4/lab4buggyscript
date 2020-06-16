@@ -1,0 +1,9 @@
+tmp=$(mktemp -d)
+cd $tmp
+touch -d '1918-11-11 11:00 GMT' wwi
+touch now
+sleep 1
+touch now1
+TZ=UTC0 ~/Desktop/cs35l/lab4/finalcorefix/bin/ls -lt --full-time wwi now now1
+cd
+rm -fr $tmp

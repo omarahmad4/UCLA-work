@@ -1,0 +1,32 @@
+    V3 (net50 GND) vsource type=pwl wave=[ 10.08 0 10.1 0 ]
+    V0 (net49 GND) vsource type=pwl wave=[ 10.08n 0 10.1n 1 ]
+    V5 (net48 GND) vsource type=pwl wave=[ 10.08n 0 10.1n 1 ]
+    V6 (net47 GND) vsource dc=1 type=dc
+    V7 (net46 GND) vsource dc=1 type=dc
+    V8 (net45 GND) vsource dc=1 type=dc
+    V9 (net44 GND) vsource dc=1 type=dc
+    V11 (net43 GND) vsource dc=0 type=dc
+    I21 (net47 net57 VDD GND) INVX1_schematic
+    I12 (net57 T0 VDD GND) INVX1_schematic
+    I1 (net64 X0 VDD GND) INVX1_schematic
+    I0 (0 net64 VDD GND) INVX1_schematic
+    I14 (net46 net56 VDD GND) INVX1_schematic
+    I13 (net56 T1 VDD GND) INVX1_schematic
+    I3 (0 net63 VDD GND) INVX1_schematic
+    I2 (net63 X1 VDD GND) INVX1_schematic
+    I18 (net45 net55 VDD GND) INVX1_schematic
+    I15 (net55 T2 VDD GND) INVX1_schematic
+    I7 (0 net62 VDD GND) INVX1_schematic
+    I4 (net62 X2 VDD GND) INVX1_schematic
+    I17 (net44 net54 VDD GND) INVX1_schematic
+    I16 (net54 T3 VDD GND) INVX1_schematic
+    I6 (net50 net61 VDD GND) INVX1_schematic
+    I5 (net61 X3 VDD GND) INVX1_schematic
+    I20 (net58 T4 VDD GND) INVX1_schematic
+    I19 (net43 net58 VDD GND) INVX1_schematic
+    I11 (net59 X4 VDD GND) INVX1_schematic
+    I8 (net49 net59 VDD GND) INVX1_schematic
+    I10 (net60 X5 VDD GND) INVX1_schematic
+    I9 (net48 net60 VDD GND) INVX1_schematic
+ends Driver
+// End of subcircuit definition.

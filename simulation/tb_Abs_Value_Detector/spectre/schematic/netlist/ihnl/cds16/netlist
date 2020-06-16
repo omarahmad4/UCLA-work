@@ -1,0 +1,9 @@
+
+// Library name: Proj2
+// Cell name: tb_Abs_Value_Detector
+// View name: schematic
+I18 (0 OUT T0 T1 T2 T3 T4 VDD X0 X1 X2 X3 X4 X5) Abs_Value_Detector
+I19 (0 OUT VEXT) Load
+I20 (0 T0 T1 T2 T3 T4 VEXT X0 X1 X2 X3 X4 X5) Driver
+V1 (VEXT 0) vsource dc=VEXT type=dc
+V0 (VDD 0) vsource dc=VDD type=dc

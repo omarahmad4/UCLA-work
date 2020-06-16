@@ -1,0 +1,58 @@
+    NM13 (S net41 0 0) gpdk090_nmos1v w=(390n) l=100n as=109.2f ad=109.2f \
+        ps=1.34u pd=1.34u m=(1)*(1) simM=(1)*(1)
+    NM12 (net52 Cin 0 0) gpdk090_nmos1v w=(720n) l=100n as=201.6f \
+        ad=201.6f ps=2u pd=2u m=(1)*(1) simM=(1)*(1)
+    NM11 (net51 B net52 net52) gpdk090_nmos1v w=(720n) l=100n as=201.6f \
+        ad=201.6f ps=2u pd=2u m=(1)*(1) simM=(1)*(1)
+    NM10 (net41 A net51 net51) gpdk090_nmos1v w=(720n) l=100n as=201.6f \
+        ad=201.6f ps=2u pd=2u m=(1)*(1) simM=(1)*(1)
+    NM9 (net32 Cin 0 0) gpdk090_nmos1v w=(480n) l=100n as=134.4f ad=134.4f \
+        ps=1.52u pd=1.52u m=(1)*(1) simM=(1)*(1)
+    NM8 (net32 A 0 0) gpdk090_nmos1v w=(480n) l=100n as=134.4f ad=134.4f \
+        ps=1.52u pd=1.52u m=(1)*(1) simM=(1)*(1)
+    NM7 (net32 B 0 0) gpdk090_nmos1v w=(480n) l=100n as=134.4f ad=134.4f \
+        ps=1.52u pd=1.52u m=(1)*(1) simM=(1)*(1)
+    NM6 (net41 net22 net32 net32) gpdk090_nmos1v w=(480n) l=100n as=134.4f \
+        ad=134.4f ps=1.52u pd=1.52u m=(1)*(1) simM=(1)*(1)
+    NM5 (0 net22 Cout Cout) gpdk090_nmos1v w=(230n) l=100n as=80.6f \
+        ad=80.6f ps=1.16u pd=1.16u m=(1)*(1) simM=(1)*(1)
+    NM4 (net22 A net21 net21) gpdk090_nmos1v w=(480n) l=100n as=134.4f \
+        ad=134.4f ps=1.52u pd=1.52u m=(1)*(1) simM=(1)*(1)
+    NM3 (net22 Cin net11 net11) gpdk090_nmos1v w=(480n) l=100n as=134.4f \
+        ad=134.4f ps=1.52u pd=1.52u m=(1)*(1) simM=(1)*(1)
+    NM2 (net21 B 0 0) gpdk090_nmos1v w=(480n) l=100n as=134.4f ad=134.4f \
+        ps=1.52u pd=1.52u m=(1)*(1) simM=(1)*(1)
+    NM1 (net11 B 0 0) gpdk090_nmos1v w=(480n) l=100n as=134.4f ad=134.4f \
+        ps=1.52u pd=1.52u m=(1)*(1) simM=(1)*(1)
+    NM0 (net11 A 0 0) gpdk090_nmos1v w=(480n) l=100n as=134.4f ad=134.4f \
+        ps=1.52u pd=1.52u m=(1)*(1) simM=(1)*(1)
+    PM13 (S net41 vdd! vdd!) gpdk090_pmos1v w=(785n) l=100n as=219.8f \
+        ad=219.8f ps=2.13u pd=2.13u m=(1)*(1) simM=(1)*(1)
+    PM12 (net49 A vdd! vdd!) gpdk090_pmos1v w=(1.44u) l=100n as=403.2f \
+        ad=403.2f ps=3.44u pd=3.44u m=(1)*(1) simM=(1)*(1)
+    PM11 (net50 B net49 net49) gpdk090_pmos1v w=(1.44u) l=100n as=403.2f \
+        ad=403.2f ps=3.44u pd=3.44u m=(1)*(1) simM=(1)*(1)
+    PM10 (net41 Cin net50 net50) gpdk090_pmos1v w=(1.44u) l=100n as=403.2f \
+        ad=403.2f ps=3.44u pd=3.44u m=(1)*(1) simM=(1)*(1)
+    PM9 (net36 A vdd! vdd!) gpdk090_pmos1v w=(960n) l=100n as=268.8f \
+        ad=268.8f ps=2.48u pd=2.48u m=(1)*(1) simM=(1)*(1)
+    PM8 (net36 Cin vdd! vdd!) gpdk090_pmos1v w=(960n) l=100n as=268.8f \
+        ad=268.8f ps=2.48u pd=2.48u m=(1)*(1) simM=(1)*(1)
+    PM7 (net36 B vdd! vdd!) gpdk090_pmos1v w=(960n) l=100n as=268.8f \
+        ad=268.8f ps=2.48u pd=2.48u m=(1)*(1) simM=(1)*(1)
+    PM6 (net41 net22 net36 net36) gpdk090_pmos1v w=(960n) l=100n as=268.8f \
+        ad=268.8f ps=2.48u pd=2.48u m=(1)*(1) simM=(1)*(1)
+    PM5 (vdd! net22 Cout Cout) gpdk090_pmos1v w=(460n) l=100n as=128.8f \
+        ad=128.8f ps=1.48u pd=1.48u m=(1)*(1) simM=(1)*(1)
+    PM4 (net24 B vdd! vdd!) gpdk090_pmos1v w=(960n) l=100n as=268.8f \
+        ad=268.8f ps=2.48u pd=2.48u m=(1)*(1) simM=(1)*(1)
+    PM3 (net15 B vdd! vdd!) gpdk090_pmos1v w=(960n) l=100n as=268.8f \
+        ad=268.8f ps=2.48u pd=2.48u m=(1)*(1) simM=(1)*(1)
+    PM2 (net15 A vdd! vdd!) gpdk090_pmos1v w=(960n) l=100n as=268.8f \
+        ad=268.8f ps=2.48u pd=2.48u m=(1)*(1) simM=(1)*(1)
+    PM1 (net22 A net24 net24) gpdk090_pmos1v w=(960n) l=100n as=268.8f \
+        ad=268.8f ps=2.48u pd=2.48u m=(1)*(1) simM=(1)*(1)
+    PM0 (net22 Cin net15 net15) gpdk090_pmos1v w=(960n) l=100n as=268.8f \
+        ad=268.8f ps=2.48u pd=2.48u m=(1)*(1) simM=(1)*(1)
+ends _sub2
+// End of subcircuit definition.

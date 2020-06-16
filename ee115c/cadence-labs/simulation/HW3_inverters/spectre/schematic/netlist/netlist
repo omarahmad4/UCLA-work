@@ -1,0 +1,18 @@
+
+// Library name: ee115c
+// Cell name: HW3_inverters
+// View name: schematic
+NM1 (net6 net10 net11 net11) gpdk090_nmos1v w=(480n) l=100n as=134.4f \
+        ad=134.4f ps=1.52u pd=1.52u m=(1)*(1) simM=(1)*(1)
+NM0 (net4 net8 net11 net11) gpdk090_nmos1v w=(480n) l=100n as=134.4f \
+        ad=134.4f ps=1.52u pd=1.52u m=(1)*(1) simM=(1)*(1)
+PM1 (net6 net11 net7 net7) gpdk090_pmos1v w=(240n) l=100n as=67.2f \
+        ad=67.2f ps=1.04u pd=1.04u m=(1)*(1) simM=(1)*(1)
+PM0 (net4 net8 net9 net9) gpdk090_pmos1v w=(240n) l=100n as=67.2f ad=67.2f \
+        ps=1.04u pd=1.04u m=(1)*(1) simM=(1)*(1)
+V5 (net11 net6) vsource dc=0 type=dc
+V4 (net11 net4) vsource dc=0 type=dc
+V3 (net9 net11) vsource dc=VDD type=dc
+V2 (net7 net11) vsource dc=VDD type=dc
+V1 (net10 net11) vsource dc=VIN type=dc
+V0 (net8 net11) vsource dc=VIN type=dc

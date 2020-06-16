@@ -1,0 +1,21 @@
+03/01/2020 09:21:22 PM Server Hill started
+03/01/2020 09:21:40 PM Received: "sudoQUIT"
+03/01/2020 09:21:40 PM Connection refused error to server Jaquez with port 11716
+03/01/2020 09:21:40 PM Sent "sudoQUIT" to Smith
+03/01/2020 09:21:40 PM quit command received
+03/01/2020 09:21:40 PM Task exception was never retrieved
+future: <Task finished name='Task-4' coro=<handle_connection() done, defined at server.py:127> exception=SystemExit()>
+Traceback (most recent call last):
+  File "/usr/local/cs/Python-3.8.2/lib/python3.8/asyncio/runners.py", line 43, in run
+    return loop.run_until_complete(main)
+  File "/usr/local/cs/Python-3.8.2/lib/python3.8/asyncio/base_events.py", line 603, in run_until_complete
+    self.run_forever()
+  File "/usr/local/cs/Python-3.8.2/lib/python3.8/asyncio/base_events.py", line 570, in run_forever
+    self._run_once()
+  File "/usr/local/cs/Python-3.8.2/lib/python3.8/asyncio/base_events.py", line 1859, in _run_once
+    handle._run()
+  File "/usr/local/cs/Python-3.8.2/lib/python3.8/asyncio/events.py", line 81, in _run
+    self._context.run(self._callback, *self._args)
+  File "server.py", line 144, in handle_connection
+    sys.exit()
+SystemExit

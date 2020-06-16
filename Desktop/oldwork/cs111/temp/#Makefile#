@@ -1,0 +1,53 @@
+#NAME: Omar Ahmad
+#EMAIL: omarahmad4@ucla.edu
+#ID: 804801272
+
+CC = gcc
+CFLAGS = -pthread -Wall -Wextra -g -lprofiler
+
+default: lab2_list.c SortedList.c SortedList.h 
+	@$(CC)  $(CFLAGS) -o lab2_list lab2_list.c SortedList.c
+
+clean:
+	@rm -f lab2_add lab2_list *.gz
+
+####*.png *.csv  #*.txt *.o  #add *~ to remove temp files?                                                         
+
+profile:
+	@rm -f profile.out
+	LD_PRELOAD=/usr/lib64/libprofiler.so CPUPROFILE=./raw.gperf ./lab2_list -t 12 -i 1000 --sync=s
+	pprof --text ./lab2_list raw.gperf > profile.out
+	pprof --list=threadFunc ./lab2_list raw.gperf >> profile.out
+
+
+dist: graphs
+	@tar -cvzf lab2b-804801272.tar.gz SortedList.h *.gp *.c *.csv *.png Makefile README
+
+graphs: tests
+	@./graph.gp
+
+tests:
+	@./lab2_list -t 1  -i 1000 --sync=m >> lab2_list.csv
+	@./lab2_list -t 2  -i 1000 --sync=m >> lab2_list.csv
+	@./lab2_list -t 4  -i 1000 --sync=m >> lab2_list.csv
+	@./lab2_list -t 8  -i 1000 --sync=m >> lab2_list.csv
+	@./lab2_list -t 12 -i 1000 --sync=m >> lab2_list.csv
+	@./lab2_list -t 16 -i 1000 --sync=m >> lab2_list.csv
+	@./lab2_list -t 24 -i 1000 --sync=m >> lab2_list.csv
+
+	@./lab2_list -t 1  -i 1000 --sync=s >> lab2_list.csv
+	@./lab2_list -t 2  -i 1000 --sync=s >> lab2_list.csv
+	@./lab2_list -t 4  -i 1000 --sync=s >> lab2_list.csv
+	@./lab2_list -t 8  -i 1000 --sync=s >> lab2_list.csv
+	@./lab2_list -t 12 -i 1000 --sync=s >> lab2_list.csv
+	@./lab2_list -t 16 -i 1000 --sync=s >> lab2_list.csv
+	@./lab2_list -t 24 -i 1000 --sync=s >> lab2_list.csv
+
+	@./lab2_list -t 1  -i 1000 --sync=m >> lab2_list.csv
+	@./lab2_list -t 2  -i 1000 --sync=m >> lab2_list.csv
+	@./lab2_list -t 4  -i 1000 --sync=m >> lab2_list.csv
+	@./lab2_list -t 8  -i 1000 --sync=m >> lab2_list.csv
+	@./lab2_list -t 12 -i 1000 --sync=m >> lab2_list.csv
+	@./lab2_list -t 16 -i 1000 --sync=m >> lab2_list.csv
+	@./lab2_list -t 24 -i 1000 --sync=m >> lab2_list.csv
+

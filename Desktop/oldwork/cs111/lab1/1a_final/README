@@ -1,0 +1,23 @@
+NAME: Omar Ahmad
+EMAIL: omarahmad4@ucla.edu
+ID: 804801272
+
+Description of files:
+lab1a.c -- source file for program that does:
+	- Character-at-a-time, full duplex terminal I/O
+	- Polled I/O and passing input and output between two processes
+
+Makefile -- targets:
+	 - default: builds executable lab1a with flags -Wall and -Wextra
+	 - dist: creates tarball as requested by professor in autogradable format
+	 - clean: removes executable, tarball, and any .0 or .txt files
+
+
+Sources:
+man pages for 
+
+- used gnu.org noncanonical mode example as basic template for my code
+       - https://www.gnu.org/software/libc/manual/html_node/Noncanon-Example.html
+- man pages for all functions used
+       - examples found in man pages used as templates
+- used previous cs35l and cs111 projects of mine to get basics for buffered I/O, optarg, error handling, etc.

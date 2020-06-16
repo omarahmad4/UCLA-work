@@ -1,0 +1,5 @@
+- do make check test cases
+- rc = return code
+- do png screenshots
+- dont pass errno for seg fault catcher
+  - use sigsegv 

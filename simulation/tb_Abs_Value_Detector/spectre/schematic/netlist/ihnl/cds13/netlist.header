@@ -1,0 +1,5 @@
+
+// Library name: Proj2
+// Cell name: Load
+// View name: schematic
+subckt Load GND OUT VDD

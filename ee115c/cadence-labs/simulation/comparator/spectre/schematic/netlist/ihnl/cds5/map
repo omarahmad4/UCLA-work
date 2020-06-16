@@ -1,0 +1,5 @@
+( ( net
+( "[@VSS:%:VSS!]" "inh_VSS" )
+( "[@VDD:%:VDD!]" "inh_VDD" )
+ )
+ )

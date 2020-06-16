@@ -1,0 +1,6 @@
+    mp0 (Y A inh_VDD inh_VDD) gpdk090_pmos1v w=(20.8u) l=100n as=5.824p \
+        ad=5.824p ps=21.36u pd=21.36u m=(1)*(1) simM=(1)*(1)
+    mn0 (Y A inh_VSS inh_VSS) gpdk090_nmos1v w=(13.76u) l=100n as=3.8528p \
+        ad=3.8528p ps=14.32u pd=14.32u m=(1)*(1) simM=(1)*(1)
+ends INVX32
+// End of subcircuit definition.

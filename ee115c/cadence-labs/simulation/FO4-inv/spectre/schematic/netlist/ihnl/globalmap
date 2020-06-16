@@ -1,0 +1,14 @@
+CADENCE IHNL11140
+$model
+ee115c/FO4_inv_stage/schematic FO4_inv_stage
+ee115c/FO4-inv/schematic _sub0
+ee115c/INVX1/schematic INVX1
+$endmodel
+$net
+gnd! 0
+vddd! vddd!
+vdd! vdd!
+$endnet
+$param
+VD VD
+$endparam

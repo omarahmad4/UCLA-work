@@ -1,0 +1,77 @@
+// Generated for: spectre
+// Generated on: Mar  6 13:09:58 2020
+// Design library name: Proj
+// Design cell name: sina_1bit_comp
+// Design view name: schematic
+simulator lang=spectre
+global 0
+include "/usr/public.2/ee115c/cadence-labs/gpdk090_v3.4/models/spectre/gpdk090.scs" section=NN
+
+// Library name: gsclib090
+// Cell name: AND2X1
+// View name: schematic
+subckt AND2X1 A B Y inh_VDD inh_VSS
+    mp1 (n0 B inh_VDD inh_VDD) gpdk090_pmos1v w=(360n) l=100n as=100.8f \
+        ad=100.8f ps=920n pd=920n m=(1)*(1) simM=(1)*(1)
+    mp0 (n0 A inh_VDD inh_VDD) gpdk090_pmos1v w=(360n) l=100n as=100.8f \
+        ad=100.8f ps=920n pd=920n m=(1)*(1) simM=(1)*(1)
+    mp2 (Y n0 inh_VDD inh_VDD) gpdk090_pmos1v w=(650n) l=100n as=182f \
+        ad=182f ps=1.21u pd=1.21u m=(1)*(1) simM=(1)*(1)
+    mn2 (Y n0 inh_VSS inh_VSS) gpdk090_nmos1v w=(430n) l=100n as=120.4f \
+        ad=120.4f ps=990n pd=990n m=(1)*(1) simM=(1)*(1)
+    mn0 (net127 B inh_VSS inh_VSS) gpdk090_nmos1v w=(240n) l=100n as=67.2f \
+        ad=67.2f ps=800n pd=800n m=(1)*(1) simM=(1)*(1)
+    mn1 (n0 A net127 inh_VSS) gpdk090_nmos1v w=(240n) l=100n as=67.2f \
+        ad=67.2f ps=800n pd=800n m=(1)*(1) simM=(1)*(1)
+ends AND2X1
+// End of subcircuit definition.
+
+// Library name: gsclib090
+// Cell name: INVX1
+// View name: schematic
+subckt INVX1 A Y inh_VDD inh_VSS
+    mp0 (Y A inh_VDD inh_VDD) gpdk090_pmos1v w=(650n) l=100n as=182f \
+        ad=182f ps=1.21u pd=1.21u m=(1)*(1) simM=(1)*(1)
+    mn0 (Y A inh_VSS inh_VSS) gpdk090_nmos1v w=(430n) l=100n as=120.4f \
+        ad=120.4f ps=990n pd=990n m=(1)*(1) simM=(1)*(1)
+ends INVX1
+// End of subcircuit definition.
+
+// Library name: gsclib090
+// Cell name: NOR2X1
+// View name: schematic
+subckt NOR2X1 A B Y inh_VDD inh_VSS
+    mp1 (Y B net41 inh_VDD) gpdk090_pmos1v w=(650n) l=100n as=182f ad=182f \
+        ps=1.21u pd=1.21u m=(1)*(1) simM=(1)*(1)
+    mp0 (net41 A inh_VDD inh_VDD) gpdk090_pmos1v w=(650n) l=100n as=182f \
+        ad=182f ps=1.21u pd=1.21u m=(1)*(1) simM=(1)*(1)
+    mn1 (Y B inh_VSS inh_VSS) gpdk090_nmos1v w=(430n) l=100n as=120.4f \
+        ad=120.4f ps=990n pd=990n m=(1)*(1) simM=(1)*(1)
+    mn0 (Y A inh_VSS inh_VSS) gpdk090_nmos1v w=(430n) l=100n as=120.4f \
+        ad=120.4f ps=990n pd=990n m=(1)*(1) simM=(1)*(1)
+ends NOR2X1
+// End of subcircuit definition.
+
+// Library name: Proj
+// Cell name: sina_1bit_comp
+// View name: schematic
+I7 (net9 B net10 VDD GND) AND2X1
+I8 (A net8 Q2 VDD GND) AND2X1
+I0 (A net9 VDD GND) INVX1
+I1 (B net8 VDD GND) INVX1
+I14 (net10 Q2 Q1 VDD GND) NOR2X1
+include "./_graphical_stimuli.scs"
+simulatorOptions options reltol=1e-3 vabstol=1e-6 iabstol=1e-12 temp=27 \
+    tnom=27 scalem=1.0 scale=1.0 gmin=1e-12 rforce=1 maxnotes=5 maxwarns=5 \
+    digits=5 cols=80 pivrel=1e-3 sensfile="../psf/sens.output" \
+    checklimitdest=psf 
+tran tran stop=10n write="spectre.ic" writefinal="spectre.fc" \
+    annotate=status maxiters=5 
+finalTimeOP info what=oppoint where=rawfile
+modelParameter info what=models where=rawfile
+element info what=inst where=rawfile
+outputParameter info what=output where=rawfile
+designParamVals info what=parameters where=rawfile
+primitives info what=primitives where=rawfile
+subckts info what=subckts where=rawfile
+saveOptions options save=allpub

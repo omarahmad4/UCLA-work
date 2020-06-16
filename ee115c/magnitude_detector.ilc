@@ -1,0 +1,5 @@
+gsclib090 INVX1 layout 76
+gsclib090 NAND2X1 layout 99
+gsclib090 NOR2X1 layout 101
+gsclib090 XOR2X1 layout 179
+TB_PROJ magnitude_detector layout 51725

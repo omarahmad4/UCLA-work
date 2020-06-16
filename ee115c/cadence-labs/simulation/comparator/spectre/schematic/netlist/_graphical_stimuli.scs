@@ -1,0 +1,10 @@
+_vB0 (B0 0) vsource val0=0 val1=1 period=5n type=pulse
+_vA0 (A0 0) vsource dc=0 type=dc
+_vB1 (B1 0) vsource val0=0 val1=1 period=10n type=pulse
+_vA1 (A1 0) vsource dc=0 type=dc
+_vB2 (B2 0) vsource val0=0 val1=1 period=20n  type=pulse
+_vA2 (A2 0) vsource dc=1 type=dc
+_vB3 (B3 0) vsource val0=0 val1=1 period=40n type=pulse
+_vA3 (A3 0) vsource dc=1 type=dc
+_vA4 (A4 0) vsource dc=0 type=dc
+_vB4 (B4 0) vsource val0=0 val1=1 period=80n type=pulse

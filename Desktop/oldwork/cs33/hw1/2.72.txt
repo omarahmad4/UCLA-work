@@ -1,0 +1,10 @@
+2.72
+
+A. the conditional test always succeeds because the sizeof operation returns a value of type size_t which is unsigned. When subtracting an unsigned value from a signed the signed is converted to unsigned and the result is also unsigned. So, the value of maxbytes-sizeof(val) will be unsigned and therefore will always be greater than or equal to 0
+
+B. to fix this, cast sizeof(val) as an int and then maxbytes-sizeof(val) is signed and so can take values less than 0
+
+change the conditional test to:
+
+	if (maxbytes-(int)sizeof(val) >= 0)
+

@@ -1,0 +1,30 @@
+    I4 (net22 VDD net68 VDD GND) XOR2X1
+    I3 (X1 net26 net67 VDD GND) XOR2X1
+    I2 (net23 net25 net71 VDD GND) XOR2X1
+    I1 (X3 net24 net69 VDD GND) XOR2X1
+    I0 (net66 net40 net70 VDD GND) XOR2X1
+    I27 (net62 net83 M0 VDD GND) NAND2X1
+    I26 (net63 net76 M1 VDD GND) NAND2X1
+    I25 (net64 net78 M2 VDD GND) NAND2X1
+    I24 (net65 net80 M3 VDD GND) NAND2X1
+    I23 (net60 net61 M4 VDD GND) NAND2X1
+    I22 (X0 net16 net62 VDD GND) NAND2X1
+    I21 (X1 net16 net63 VDD GND) NAND2X1
+    I20 (X2 net16 net64 VDD GND) NAND2X1
+    I19 (X3 net16 net65 VDD GND) NAND2X1
+    I18 (X4 net16 net60 VDD GND) NAND2X1
+    I16 (net68 X5 net83 VDD GND) NAND2X1
+    I15 (net67 X5 net76 VDD GND) NAND2X1
+    I14 (net71 X5 net78 VDD GND) NAND2X1
+    I13 (net69 X5 net80 VDD GND) NAND2X1
+    I12 (net70 X5 net61 VDD GND) NAND2X1
+    I6 (net23 net25 net24 VDD GND) NAND2X1
+    I5 (net22 VDD net26 VDD GND) NAND2X1
+    I8 (X3 net24 net40 VDD GND) NOR2X1
+    I7 (X1 net26 net25 VDD GND) NOR2X1
+    I17 (X5 net16 VDD GND) INVX1
+    I11 (X4 net66 VDD GND) INVX1
+    I10 (X2 net23 VDD GND) INVX1
+    I9 (X0 net22 VDD GND) INVX1
+ends magnitude_detector
+// End of subcircuit definition.

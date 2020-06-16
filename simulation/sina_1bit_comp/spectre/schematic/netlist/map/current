@@ -1,0 +1,20 @@
+( ( nil
+  version "2.1"
+  mapType "incremental"
+  blockName "sina_1bit_comp"
+  repList "spectre cmos_sch cmos.sch schematic veriloga"
+  stopList "spectre"
+  hierDelim "."
+  netlistDir "/w/home.15/ee/ugrad/farooq/simulation/sina_1bit_comp/spectre/schematic/netlist"
+ )
+( model
+( "gsclib090/NOR2X1/schematic" "NOR2X1" )
+( "Proj/sina_1bit_comp/schematic" "sina_1bit_comp" )
+( "gsclib090/INVX1/schematic" "INVX1" )
+( "gsclib090/AND2X1/schematic" "AND2X1" )
+ )
+( "sina_1bit_comp" "ihnl/cds3/map" )
+( "AND2X1" "ihnl/cds0/map" )
+( "NOR2X1" "ihnl/cds2/map" )
+( "INVX1" "ihnl/cds1/map" )
+ )

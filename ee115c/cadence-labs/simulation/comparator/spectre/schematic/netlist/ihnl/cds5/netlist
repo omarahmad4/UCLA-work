@@ -1,0 +1,5 @@
+    I0 (A B C net8 inh_VDD inh_VSS) NAND3X1
+    I1 (D E net7 inh_VDD inh_VSS) NAND2X1
+    I2 (net8 net7 Y inh_VDD inh_VSS) NOR2X1
+ends NAND5
+// End of subcircuit definition.

@@ -1,0 +1,7 @@
+CADENCE IHNL11145
+
+gsclib090 XOR2X1 schematic cds0
+gsclib090 NAND2X1 schematic cds1
+gsclib090 NOR2X1 schematic cds2
+gsclib090 INVX1 schematic cds3
+Proj project1 schematic cds4

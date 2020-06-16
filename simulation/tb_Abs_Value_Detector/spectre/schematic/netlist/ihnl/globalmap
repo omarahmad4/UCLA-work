@@ -1,0 +1,27 @@
+CADENCE IHNL11140
+$model
+gsclib090/NAND3X1/schematic NAND3X1
+Proj2/tb_Abs_Value_Detector/schematic tb_Abs_Value_Detector
+Proj2/new_1bit_comp/schematic new_1bit_comp
+Proj2/Abs_Value_Detector/schematic Abs_Value_Detector
+Proj2/magnitude_detector/schematic magnitude_detector
+Proj2/new_comparator/schematic new_comparator
+Proj2/Driver/schematic Driver
+gsclib090/NOR2X1/schematic NOR2X1
+gsclib090/XOR2X1/schematic XOR2X1
+Proj2/NAND5/schematic NAND5
+gsclib090/NAND4X1/schematic NAND4X1
+gsclib090/INVX1/schematic INVX1
+Proj2/INVX1/schematic INVX1_schematic
+Proj2/Load/schematic Load
+gsclib090/NAND2X1/schematic NAND2X1
+gsclib090/OR2X1/schematic OR2X1
+Proj2/INVX32/schematic INVX32
+$endmodel
+$net
+gnd! 0
+$endnet
+$param
+VDD VDD
+VEXT VEXT
+$endparam

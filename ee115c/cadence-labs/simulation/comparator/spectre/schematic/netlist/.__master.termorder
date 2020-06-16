@@ -1,0 +1,6 @@
+"Proj.NAND5.schematic.termorder" (("A" "B" "C" "D" "E" "Y" "[@VDD:%:VDD!]" "[@VSS:%:VSS!]") ("A" "B" "C" "D" "E" "Y" "[@VDD:%:VDD!]" "[@VSS:%:VSS!]"))
+"gsclib090.NOR2X1.schematic.termorder" nil
+"gsclib090.NAND2X1.schematic.termorder" nil
+"gsclib090.NAND3X1.schematic.termorder" nil
+"gsclib090.INVX1.schematic.termorder" nil
+"gsclib090.NAND4X1.schematic.termorder" nil

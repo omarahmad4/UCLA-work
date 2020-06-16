@@ -1,0 +1,17 @@
+Exercise 1.6
+
+
+evaluate (random "804-801-272")
+2197127161333597205   -  result of random number generator
+(setq x(random))
+1645111296317499115
+(setq y(random))
+-1595324678075334564
+evaluate (* x y)
+48471196295576692  -  not mathematically correct answer
+M-:(* x y)
+48471196295576692  -  gave the same answer
+
+
+6. the integers are not truly random because they use a seed and the same seed produces the same 'random' integer
+7. practically 100% - very unlikely that two random integers will not overflow when multiplied and so they will not have the correct values

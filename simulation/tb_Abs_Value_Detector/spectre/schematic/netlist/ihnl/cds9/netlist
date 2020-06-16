@@ -1,0 +1,5 @@
+    I1 (D E net7 VDD GND) NAND2X1
+    I3 (net8 net7 Y VDD GND) OR2X1
+    I0 (A B C net8 VDD GND) NAND3X1
+ends NAND5
+// End of subcircuit definition.

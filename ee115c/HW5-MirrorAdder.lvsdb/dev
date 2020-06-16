@@ -1,0 +1,14 @@
+; Assura generated file -- DO NOT EDIT --
+; Do NOT rely on the content of this file, it may change.
+;
+2 unmatched connect pin
+1 0 ((S "NM1" "nmos1v")(("D" "Cout")("G" "B")("S" "net17")("B" "net17")))
+1 0 ((S "NM0" "nmos1v")(("D" "Cout")("G" "Cin")("S" "net19")("B" "net19")))
+1 0 ((S "PM1" "pmos1v")(("D" "Cout")("G" "B")("S" "net28")("B" "net28")))
+1 0 ((S "PM0" "pmos1v")(("D" "Cout")("G" "Cin")("S" "net4")("B" "net4")))
+1 0 ((S "I##11" "nmos1v:ParMos2#1")(("OUT" "net19")("OUT2" "gnd!")("TERM4" "gnd!")("IN1" "A")("IN2" "B")))
+1 0 ((S "I##12" "pmos1v:ParMos2#1")(("OUT" "net4")("OUT2" "vdd!")("TERM4" "vdd!")("IN1" "B")("IN2" "A")))
+1 0 ((L "I##11" "nmos1v:SerMos2#1")(("OUT" "gnd!")("OUT2" "Cout")("TERM4" "gnd!")("IN1" "B")("IN2" "Cin")))
+1 0 ((L "I##12" "nmos1v:SerMos2#1")(("OUT" "gnd!")("OUT2" "Cout")("TERM4" "gnd!")("IN1" "A")("IN2" "B")))
+1 0 ((L "I##13" "pmos1v:SerMos2#1")(("OUT" "vdd!")("OUT2" "Cout")("TERM4" "vdd!")("IN1" "B")("IN2" "Cin")))
+1 0 ((L "I##14" "pmos1v:SerMos2#1")(("OUT" "vdd!")("OUT2" "Cout")("TERM4" "vdd!")("IN1" "A")("IN2" "B")))

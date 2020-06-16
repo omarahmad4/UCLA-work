@@ -1,0 +1,156 @@
+Omar Ahmad lab7 log - Dynamic Linking
+
+1.
+ - made c code triv.c:
+   	#include <stdio.h>
+	#include <math.h>
+
+	 int main()
+	 {
+	 float i;
+	 i = 3.0;
+	 printf("%.17g", cos(sqrt(i)));
+	 }
+ - tried to compile - error
+ - compiled again w -lm to link math library
+ - works now
+    - output:(negative)
+	-0.16055653857469052
+2.
+ - ldd ./triv
+ - output:
+	 linux-vdso.so.1 =>  (0x00007fffdcbab000)
+         libm.so.6 => /lib64/libm.so.6 (0x0000003248400000)
+         libc.so.6 => /lib64/libc.so.6 (0x0000003248000000)
+         /lib64/ld-linux-x86-64.so.2 (0x0000557ce050e000)
+
+3.
+ - strace ./triv
+   - output:
+	1  execve("./triv", ["./triv"], [/* 32 vars */]) = 0
+	2  brk(0)                                  = 0x1235000
+	3  mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f2f73c1b000
+	4  access("/etc/ld.so.preload", R_OK)      = -1 ENOENT (No such file or directory)
+	5  open("/etc/ld.so.cache", O_RDONLY)      = 3
+	6  fstat(3, {st_mode=S_IFREG|0644, st_size=156507, ...}) = 0
+	7  mmap(NULL, 156507, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7f2f73bf4000
+	8  close(3)                                = 0
+	9  open("/lib64/libm.so.6", O_RDONLY)      = 3
+	10 read(3, "\177ELF\2\1\1\3\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0`>@H2\0\0\0"..., 832) = 832
+	11 fstat(3, {st_mode=S_IFREG|0755, st_size=600048, ...}) = 0
+	12 mmap(0x3248400000, 2633912, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x3248400000
+	13 mprotect(0x3248483000, 2093056, PROT_NONE) = 0
+	14 mmap(0x3248682000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x82000) = 0x3248682000
+	15 close(3)                                = 0
+	16 open("/lib64/libc.so.6", O_RDONLY)      = 3
+	17 read(3, "\177ELF\2\1\1\3\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0000\356\1H2\0\0\0"..., 832) = 832
+	18 fstat(3, {st_mode=S_IFREG|0755, st_size=1930416, ...}) = 0
+	19 mmap(0x3248000000, 3750184, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x3248000000
+	20 mprotect(0x324818a000, 2097152, PROT_NONE) = 0
+	21 mmap(0x324838a000, 24576, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x18a000) = 0x324838a000
+	22 mmap(0x3248390000, 14632, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x3248390000
+	23 close(3)                                = 0
+	24 mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f2f73bf3000
+	25 mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f2f73bf2000
+	26 mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f2f73bf1000
+	27 arch_prctl(ARCH_SET_FS, 0x7f2f73bf2700) = 0
+	28 mprotect(0x324838a000, 16384, PROT_READ) = 0
+	29 mprotect(0x3248682000, 4096, PROT_READ) = 0
+	30 mprotect(0x3247e20000, 4096, PROT_READ) = 0
+	31 munmap(0x7f2f73bf4000, 156507)          = 0
+	32 fstat(1, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 1), ...}) = 0
+	33 mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f2f73c1a000
+	34 write(1, "-0.16055653857469052", 20-0.16055653857469052)    = 20
+	35 exit_group(20)                          = ?
+	36 +++ exited with 20 +++
+
+ - related to dynamic linking:(any commands that open/read/load/close a .so file)
+   access
+   - lines 4-23
+   - opens 3 files in lines 4, 9, and 16
+   - loads data from them in subsequent lines and then closes files
+4.
+ -  ls /usr/bin | awk 'NR%101==804801272%101'
+    - output:
+		akonadictl
+		blktrace
+		cifsiostat
+		db2rtf
+		droplang
+		fakeroot-tcp
+		gcov
+		gnome-file-share-properties
+		groupwisewizard
+		host
+		imsettings-applet
+		kbugbuster
+		korgac
+		ldns-zsplit
+		mailq
+		mpstat
+		nl
+		palimpsest
+		pbmlife
+		pgmdeshadow
+		plasmapkg
+		ppmdither
+		ptar
+		repoquery
+		sandbox
+		signver
+		subscription-manager-gui
+		tiff2pdf
+		vimdiff
+		xhost
+		zdiff
+
+5.
+ - ldd on each command from above: "ldd /usr/bin/PROGRAM"
+   below are the cases which no libraries were shown
+   - ldd /usr/bin/akonadict1
+      ldd: /usr/bin/akonadict1: No such file or directory
+      - went to file - doesn't seem to find it even though ls lists it?
+   - ldd /usr/bin/fakeroot-tcp
+      not a dynamic executable
+   - ldd /usr/bin/ptar
+      not a dynamic executable
+   - ldd /usr/bin/repoquery
+      not a dynamic executable
+   - ldd /usr/bin/sandbox
+      not a dynamic executable
+6.
+ - ran commands again >> output
+ - sort output | uniq to remove duplicates
+ - still has duplicates w the same library linked to multiple locations
+ - piping to grep and sed to remove unnecessary info
+ list of all dynamic libraries used:
+        /lib64/ld-linux-x86-64.so.2 (0x00005651891fd000)
+        libacl.so.1
+        libatasmart.so.4
+        libatk-1.0.so.0
+        libattr.so.1
+        libavahi-client.so.3
+        libavahi-common.so.3
+        libavahi-glib.so.1
+        libavahi-ui.so.0
+        libbind9.so.80
+        libbz2.so.1
+        libcairo.so.2
+        libcap.so.2
+        libcom_err.so.2
+        libcrypto.so.10
+        libcrypt.so.1
+        libc.so.6
+        libc.so.6
+        libdb-4.7.so
+        libdbus-1.so.3
+        libdbus-glib-1.so.2
+        libdl.so.2
+        libdl.so.2
+        libdns.so.81
+        libdrm.so.2
+        libexpat.so.1
+        libfam.so.0
+        libfontconfig.so.1
+        libfreebl3.so
+
